@@ -13,7 +13,7 @@ public struct Input {
         }
         return inputContents
     }
-    
+        
     public func trimmedRawInput(fromFile file: StaticString = #file) -> String {
         return rawInput(fromFile: file).trimmingCharacters(in: .whitespacesAndNewlines)
     }
@@ -25,17 +25,21 @@ public struct Input {
     public func separated(by characterSet: CharacterSet, fromFile file: StaticString = #file) -> [String] {
         return rawInput(fromFile: file).components(separatedBy: characterSet)
     }
-    
+
     public func inputCharactersByNewlines(fromFile file: StaticString = #file) -> [String] {
         return separated(by: .newlines, fromFile: file)
     }
     
-    public func inputIntegersByNewlines(fromFile file: StaticString = #file) -> [Int] {
-        return inputCharactersByNewlines(fromFile: file).compactMap(Int.init)
-    }
-    
     public func inputCharactersByComma(fromFile file: StaticString = #file) -> [String] {
         return trimmedRawInput(fromFile: file).components(separatedBy: ",")
+    }
+    
+    public func trimmedInputCharactersByNewlines(fromFile file: StaticString = #file) -> [String] {
+        return trimmedRawInput(fromFile: file).components(separatedBy: .newlines)
+    }
+
+    public func inputIntegersByNewlines(fromFile file: StaticString = #file) -> [Int] {
+        return inputCharactersByNewlines(fromFile: file).compactMap(Int.init)
     }
     
     public func inputIntegersByComma(fromFile file: StaticString = #file) -> [Int] {
