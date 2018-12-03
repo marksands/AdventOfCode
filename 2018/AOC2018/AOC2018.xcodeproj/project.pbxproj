@@ -23,7 +23,7 @@
 		B163851D21B5660B0011B7D4 /* input in Resources */ = {isa = PBXBuildFile; fileRef = B163851C21B5660B0011B7D4 /* input */; };
 		B163851F21B566150011B7D4 /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163851E21B566150011B7D4 /* Day3.swift */; };
 		B163852121B5661B0011B7D4 /* Day3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163852021B5661B0011B7D4 /* Day3Tests.swift */; };
-		B163852321B5BE110011B7D4 /* IntersectionPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163852221B5BE110011B7D4 /* IntersectionPoints.swift */; };
+		B163852321B5BE110011B7D4 /* IntersectingPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163852221B5BE110011B7D4 /* IntersectingPoints.swift */; };
 		B163852521B5BEF40011B7D4 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163852421B5BEF40011B7D4 /* Unique.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,7 @@
 		B163851C21B5660B0011B7D4 /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B163851E21B566150011B7D4 /* Day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3.swift; sourceTree = "<group>"; };
 		B163852021B5661B0011B7D4 /* Day3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3Tests.swift; sourceTree = "<group>"; };
-		B163852221B5BE110011B7D4 /* IntersectionPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntersectionPoints.swift; sourceTree = "<group>"; };
+		B163852221B5BE110011B7D4 /* IntersectingPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntersectingPoints.swift; sourceTree = "<group>"; };
 		B163852421B5BEF40011B7D4 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +151,7 @@
 				B113B7AD21B34F9100D2B9F5 /* Input.swift */,
 				B163851721B471EC0011B7D4 /* IntersectionOfStrings.swift */,
 				B163851921B4724C0011B7D4 /* StringDistance.swift */,
-				B163852221B5BE110011B7D4 /* IntersectionPoints.swift */,
+				B163852221B5BE110011B7D4 /* IntersectingPoints.swift */,
 				B163852421B5BEF40011B7D4 /* Unique.swift */,
 			);
 			path = Shared;
@@ -282,7 +282,7 @@
 				B113B7A421B34DB200D2B9F5 /* Day1.swift in Sources */,
 				B113B7A621B34DB800D2B9F5 /* Day2.swift in Sources */,
 				B163851821B471EC0011B7D4 /* IntersectionOfStrings.swift in Sources */,
-				B163852321B5BE110011B7D4 /* IntersectionPoints.swift in Sources */,
+				B163852321B5BE110011B7D4 /* IntersectingPoints.swift in Sources */,
 				B113B7AC21B34DFA00D2B9F5 /* Day.swift in Sources */,
 				B163851F21B566150011B7D4 /* Day3.swift in Sources */,
 				B163851A21B4724C0011B7D4 /* StringDistance.swift in Sources */,

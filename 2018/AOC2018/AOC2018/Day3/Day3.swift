@@ -1,4 +1,5 @@
-import UIKit
+import Foundation
+import CoreGraphics.CGGeometry
 
 public final class Day3: Day {
     private let rects: [CGRect]
@@ -26,7 +27,7 @@ public final class Day3: Day {
     private func part1Result() -> Int {
         return rects.flatMap { rect1 in
             rects.filter { $0 != rect1 }.flatMap { rect2 in
-                rect1.intersectingPoints(rect2).map(NSValue.init)
+                rect1.intersectingPoints(rect2).map({ $0.debugDescription })
             }
         }.unique().count
     }
