@@ -6,13 +6,11 @@ public final class Day3: Day {
     
     public override init() {
         let rows = Input().trimmedInputCharactersByNewlines()
-        rects = rows.map {
-            let claim = $0.components(separatedBy: .whitespaces)
-            let offset = claim[2].replacingOccurrences(of: ":", with: "").components(separatedBy: ",").compactMap(Int.init)
-            let origin = CGPoint(x: offset[0], y: offset[1])
-            let area = claim[3].components(separatedBy: "x").compactMap(Int.init)
-            let size = CGSize(width: area[0], height: area[1])
-            return CGRect(origin: origin, size: size)
+        let regex = Regex(pattern: "^\\#(\\d+) @ (\\d+),(\\d+): (\\d+)x(\\d+)$")
+        rects = rows.compactMap {
+            guard let match = regex.matches(in: $0) else { return nil }
+            let values = match.matches.dropFirst().compactMap(Int.init)
+            return CGRect(x: values[1], y: values[2], width: values[3], height: values[4])
         }
     }
     
