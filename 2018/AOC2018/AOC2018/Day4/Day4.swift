@@ -1,20 +1,5 @@
 import Foundation
 
-struct InputHelper {
-    let date: Date
-    let minutes: Int
-    let action: String
-}
-
-//struct Shift: Equatable, Hashable {
-//    let start: Int
-//    let end: Int
-//
-//    var minuteRanges: [Int] {
-//        return Array(start..<end)
-//    }
-//}
-
 public final class Day4: Day {
     var guardShifts: [String: [Int]] = [:]
 
@@ -28,6 +13,12 @@ public final class Day4: Day {
 
         let guardIdRegex = Regex(pattern: "Guard #(\\d+) begins shift")
         let dateRegex = Regex(pattern: "^\\[(\\d{4}-\\d{2}-\\d{2}) (\\d+):(\\d+)\\]")
+        
+        struct InputHelper {
+            let date: Date
+            let minutes: Int
+            let action: String
+        }
         
         let sanitizedInput = Input().trimmedInputCharactersByNewlines().compactMap { row -> InputHelper? in
             guard let match = dateRegex.matches(in: row),
