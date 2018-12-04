@@ -14,20 +14,14 @@ public final class Day4: Day {
         let guardIdRegex = Regex(pattern: "Guard #(\\d+) begins shift")
         let dateRegex = Regex(pattern: "^\\[(\\d{4}-\\d{2}-\\d{2}) (\\d+):(\\d+)\\]")
         
-        struct InputHelper {
-            let date: Date
-            let minutes: Int
-            let action: String
-        }
-        
-        let sanitizedInput = Input().trimmedInputCharactersByNewlines().compactMap { row -> InputHelper? in
+        let sanitizedInput = Input().trimmedInputCharactersByNewlines().compactMap { row -> (date: Date, minutes: Int, action: String)? in
             guard let match = dateRegex.matches(in: row),
                 let date = df.date(from: match[1] + " \(match[2]):\(match[3])"),
                 let action = row.components(separatedBy: match.matches[0]).last?.trimmingCharacters(in: .whitespaces),
                 let minutes = match.matches.last.flatMap(Int.init) else {
                     return nil
             }
-            return InputHelper(date: date, minutes: minutes, action: action)
+            return (date: date, minutes: minutes, action: action)
         }.sorted(by: { $0.date < $1.date })
         
         var minuteSleeping: Int?
