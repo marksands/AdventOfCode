@@ -69,21 +69,38 @@ public final class Day4: Day {
     }
     
     private func part1Result() -> Int {
-        guard let guardId = guardShifts.max(by: { $0.value.flatMap { $0.minuteRanges }.count < $1.value.flatMap { $0.minuteRanges }.count })?.key,
-            let frequentMinute = guardShifts[guardId]?.flatMap({ $0.minuteRanges }).countElements().sorted(by: { $0.value > $1.value }).first?.key else {
-                fatalError("Failed to find sleepiest guard and their most frequently occurring nap time!")
+        guard let guardId = sleepiestGuardId(), let id = Int(guardId),
+            let napTime = mostFrequentNapTime(forGuardId: guardId) else {
+            fatalError("Failed to find sleepiest guard and their most frequently occurring nap time!")
         }
-        return Int(guardId)! * frequentMinute
+        return id * napTime
     }
     
     private func part2Result() -> Int {
-        guard let guardId = guardShifts.max(by: { (arg1, arg2) in
-                arg1.value.flatMap { $0.minuteRanges }.countElements().sorted { $0.value > $1.value }.first!.value <
-                arg2.value.flatMap { $0.minuteRanges }.countElements().sorted { $0.value > $1.value }.first!.value
-            })?.key,
-            let frequentMinute = guardShifts[guardId]?.flatMap({ $0.minuteRanges }).countElements().sorted(by: { $0.value > $1.value }).first?.key else {
+        guard let guardId = mostPredictableNappingGuardId(), let id = Int(guardId),
+            let napTime = mostFrequentNapTime(forGuardId: guardId) else {
                 fatalError("Failed to find sleepiest guard with the most frequently occurring nap time!")
         }
-        return Int(guardId)! * frequentMinute
+        return id * napTime
+    }
+    
+    private func mostFrequentNapTime(forGuardId id: String) -> Int? {
+        return guardShifts[id]?.flatMap({ $0.minuteRanges }).countElements().sorted(by: { $0.value > $1.value }).first?.key
+    }
+
+    private func durationOfNaps(for shifts: [Shift]) -> Int {
+        return shifts.flatMap { $0.minuteRanges }.count
+    }
+
+    private func mostFrequentMinute(within shifts: [Shift]) -> Int {
+        return shifts.flatMap { $0.minuteRanges }.countElements().sorted { $0.value > $1.value }.first!.value
+    }
+    
+    private func sleepiestGuardId() -> String? {
+        return guardShifts.max(by: { durationOfNaps(for: $0.value) < durationOfNaps(for: $1.value) })?.key
+    }
+    
+    private func mostPredictableNappingGuardId() -> String? {
+        return guardShifts.max(by: { mostFrequentMinute(within: $0.value) < mostFrequentMinute(within: $1.value) })?.key
     }
 }
