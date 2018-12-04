@@ -18,10 +18,7 @@ public final class Day2: Day {
     
     private func part2Result() -> String {
         return boxIds
-            .compactMap { id in
-                boxIds.first(where: { distance(from: id, to: $0) == 1 }).map({ (id, $0) })
-            }.map { id1, id2 in
-                intersection(of: id1, and: id2)
-            }.first ?? ""
+            .compactMap { id in boxIds.first(where: { distance(from: id, to: $0) == 1 }).map({ (id, $0) }) }
+            .map { intersection(of: $0, and: $1) }.first ?? ""
     }
 }
