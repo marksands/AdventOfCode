@@ -25,18 +25,18 @@ public final class Regex {
         }
     }
     
-    func matches(_ string: String) -> Bool {
+    public func matches(_ string: String) -> Bool {
         return matches(in: string)?.matches.first == string
     }
     
-    func matches(in string: String) -> Match? {
-        guard let match = regularExpression.firstMatch(in: string, options: [], range: NSMakeRange(0, string.utf16.count)) else {
+    public func matches(in string: String) -> Match? {
+        guard let match = regularExpression.firstMatch(in: string, options: [.withTransparentBounds], range: NSMakeRange(0, string.utf16.count)) else {
             return nil
         }
         return Match(string: string, result: match)
     }
     
-    func allMatches(in string: String) -> [Match] {
+    public func allMatches(in string: String) -> [Match] {
         return regularExpression.matches(in: string, options: [], range: NSMakeRange(0, string.utf16.count))
             .map { Match(string: string, result: $0) }
     }
