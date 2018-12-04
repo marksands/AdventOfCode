@@ -6,17 +6,17 @@ struct InputHelper {
     let action: String
 }
 
-struct Shift: Equatable, Hashable {
-    let start: Int
-    let end: Int
-    
-    var minuteRanges: [Int] {
-        return Array(start..<end)
-    }
-}
+//struct Shift: Equatable, Hashable {
+//    let start: Int
+//    let end: Int
+//
+//    var minuteRanges: [Int] {
+//        return Array(start..<end)
+//    }
+//}
 
 public final class Day4: Day {
-    var guardShifts: [String: [Shift]] = [:]
+    var guardShifts: [String: [Int]] = [:]
 
     public override init() {
         super.init()
@@ -41,20 +41,20 @@ public final class Day4: Day {
         
         var minuteSleeping: Int?
         var currentId: String?
-        var currentShift: Shift?
+        var currentShift: [Int]?
         
         sanitizedInput.forEach { input in
             if input.action.starts(with: "falls asleep") {
                 minuteSleeping = input.minutes
             } else if input.action.starts(with: "wakes up") {
-                currentShift = Shift(start: minuteSleeping!, end: input.minutes)
+                currentShift = Array(minuteSleeping!..<input.minutes)
                 minuteSleeping = nil
             } else if let match = guardIdRegex.matches(in: input.action) {
                 currentId = match.matches[1]
                 minuteSleeping = nil
             }
             if let id = currentId, let shift = currentShift {
-                guardShifts[id, default: []].append(shift)
+                guardShifts[id, default: []] += shift
                 currentShift = nil
             }
         }
@@ -85,22 +85,18 @@ public final class Day4: Day {
     }
     
     private func mostFrequentNapTime(forGuardId id: String) -> Int? {
-        return guardShifts[id]?.flatMap({ $0.minuteRanges }).countElements().sorted(by: { $0.value > $1.value }).first?.key
+        return countedNapsByFrequency(guardShifts[id] ?? []).minute
     }
 
-    private func durationOfNaps(for shifts: [Shift]) -> Int {
-        return shifts.flatMap { $0.minuteRanges }.count
-    }
-
-    private func mostFrequentMinute(within shifts: [Shift]) -> Int {
-        return shifts.flatMap { $0.minuteRanges }.countElements().sorted { $0.value > $1.value }.first!.value
-    }
-    
     private func sleepiestGuardId() -> String? {
-        return guardShifts.max(by: { durationOfNaps(for: $0.value) < durationOfNaps(for: $1.value) })?.key
+        return guardShifts.max(by: { $0.value.count < $1.value.count })?.key
     }
     
     private func mostPredictableNappingGuardId() -> String? {
-        return guardShifts.max(by: { mostFrequentMinute(within: $0.value) < mostFrequentMinute(within: $1.value) })?.key
+        return guardShifts.max(by: { countedNapsByFrequency($0.value).count < countedNapsByFrequency($1.value).count })?.key
+    }
+    
+    private func countedNapsByFrequency(_ minutes: [Int]) -> (minute: Int, count: Int) {
+        return minutes.countElements().sorted { $0.value > $1.value }.first.map { (minute: $0.key, count: $0.value ) }!
     }
 }
