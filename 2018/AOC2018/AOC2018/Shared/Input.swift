@@ -3,6 +3,8 @@ import Foundation
 public struct Input {
     public let inputFilename = "input"
     
+    public init() { }
+    
     public func rawInput(fromFile file: StaticString = #file) -> String {
         let pathComponents = Array(("\(file)" as NSString).pathComponents.dropLast())
         guard let fileURL = NSURL.fileURL(withPathComponents: pathComponents)?.appendingPathComponent(inputFilename) else {
