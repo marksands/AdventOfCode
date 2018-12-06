@@ -9,6 +9,7 @@ public final class Day5: Day {
     
     public override func part2() -> String  {
         let result = zip(lowercaseLetters, uppercaseLetters)
+            .map({ (String($0), String($1)) })
             .map({ input.stripping($0).stripping($1) })
             .map { removingAdjacentOpposingPolarities(from: $0).count }
             .min()!
@@ -20,7 +21,7 @@ public final class Day5: Day {
             if let cur = current.last, next != cur && String(next).lowercased() == String(cur).lowercased() {
                 current.removeLast()
             } else {
-                current += String(next)
+                current.append(next)
             }
         }
     }
