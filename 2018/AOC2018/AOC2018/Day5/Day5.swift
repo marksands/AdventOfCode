@@ -16,12 +16,12 @@ public final class Day5: Day {
     }
     
     public func removingAdjacentOpposingPolarities(from value: String) -> String {
-        return value.reduce("", { (current, next) -> String in
+        return value.reduce(into: "") { (current, next) in
             if let cur = current.last.map(String.init), String(next) != cur && String(next).lowercased() == cur.lowercased() {
-                return String(current.dropLast())
+                current.removeLast()
             } else {
-                return current + String(next)
+                current += String(next)
             }
-        })
+        }
     }
 }
