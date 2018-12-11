@@ -1,45 +1,34 @@
 import Foundation
 
-class Node {
-    let childCount: Int
-    let metadataCount: Int
+private class Node {
+    fileprivate let childCount: Int
+    fileprivate let metadataCount: Int
     
-    weak var parent: Node?
-    var children: [Node] = []
-    var metadataItems: [Int] = []
+    fileprivate var children: [Node] = []
+    fileprivate var metadataItems: [Int] = []
     
-    init(childCount: Int, metadataCount: Int, parent: Node?) {
+    fileprivate init(childCount: Int, metadataCount: Int) {
         self.childCount = childCount
         self.metadataCount = metadataCount
-        self.parent = parent
     }
     
-    func value() -> Int {
+    fileprivate func value() -> Int {
         if childCount == 0 {
             return metadataItems.sum()
         }
         return metadataItems.compactMap { children[safe: $0 - 1] }.reduce(0) { $0 + $1.value() }
     }
     
-    func allMetadataItems() -> [Int] {
+    fileprivate func allMetadataItems() -> [Int] {
         if metadataCount == 0 {
             return [0]
         }
         return children.reduce(into: []) { $0 += $1.allMetadataItems() } + metadataItems
     }
-    
-    var canBeSatisfied: Bool {
-        return children.count == childCount && metadataItems.count != metadataCount
-    }
 }
 
 public final class Day8: Day {
-    private let nums: [Int]
-
-    public init(input: [Int] = Input().trimmedRawInput().components(separatedBy: .whitespaces).compactMap(Int.init)) {
-        self.nums = input
-        super.init()
-    }
+    private let nums = Input().trimmedRawInput().components(separatedBy: .whitespaces).compactMap(Int.init)
     
     public override func part1() -> String {
         return "\(rootNode().allMetadataItems().sum())"
@@ -50,29 +39,18 @@ public final class Day8: Day {
     }
     
     private func rootNode() -> Node {
-        let root = Node(childCount: 0, metadataCount: 0, parent: nil)
+        let root = Node(childCount: 0, metadataCount: 0)
         var stack: [Node] = [root]
         
         var index = 0
-        var MDI = 0
-        
-        func addMetadataItems(to node: Node, startingIndex index: inout Int) {
-            (0..<node.metadataCount).forEach { _ in
-                let item = nums[index]
-                MDI += item
-                index += 1
-                node.metadataItems.append(item)
-            }
-        }
-        
-        while index < nums.count && stack.count > 0 {
+        while index < nums.count {
             guard let parent = stack.last else { break }
             
             let childCount = nums[index]
             let metadataCount = nums[index+1]
             index += 2
             
-            let node = Node(childCount: childCount, metadataCount: metadataCount, parent: parent)
+            let node = Node(childCount: childCount, metadataCount: metadataCount)
             parent.children.append(node)
             
             if childCount > 0 {
@@ -80,7 +58,7 @@ public final class Day8: Day {
             } else {
                 addMetadataItems(to: node, startingIndex: &index)
                 
-                while let parent = stack.last, parent.canBeSatisfied {
+                while let parent = stack.last, parent.children.count == parent.childCount, parent.metadataItems.count != parent.metadataCount {
                     addMetadataItems(to: parent, startingIndex: &index)
                     stack.removeLast()
                 }
@@ -88,5 +66,13 @@ public final class Day8: Day {
         }
         
         return root.children.first!
+    }
+    
+    private func addMetadataItems(to node: Node, startingIndex index: inout Int) {
+        (0..<node.metadataCount).forEach { _ in
+            let item = nums[index]
+            index += 1
+            node.metadataItems.append(item)
+        }
     }
 }
