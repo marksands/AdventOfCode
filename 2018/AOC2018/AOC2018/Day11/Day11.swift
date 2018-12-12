@@ -4,61 +4,39 @@ public final class Day11: Day {
     private let serialNumber = 7511
 
     public override func part1() -> String {
-        var maxPoint = CGPoint.zero
-        var maxValue = 0
-        
-        (1...300).forEach { x in
-            (1...300).forEach { y in
-                let point = CGPoint(x: x, y: y)
-                if let value = powerLevelForRegionAtCoord(point), value > maxValue {
-                    maxValue = value
-                    maxPoint = point
-                }
-            }
-        }
-        
+        let maxPoint = validCoordinates().max(by: { regionPowerLevel(at: $0) < regionPowerLevel(at: $1) })!
         return "\(Int(maxPoint.x)),\(Int(maxPoint.y))"
     }
     
     public override func part2() -> String {
-        var maxPoint = CGPoint.zero
-        var maxValue = 0
-        var maxSize = 3
+        let (point, size) = (13..<14).map { size -> (CGPoint, Int) in
+            return (validCoordinates(forMaxSize: size)
+                .max(by: { regionPowerLevel(at: $0, size: size) < regionPowerLevel(at: $1, size: size) })!, size)
+        }.max(by: { regionPowerLevel(at: $0.0) < regionPowerLevel(at: $1.0) })!
         
-        (13..<14).forEach { size in
-            (1...300).forEach { x in
-                (1...300).forEach { y in
-                    let point = CGPoint(x: x, y: y)
-                    if let value = powerLevelForRegionAtCoord(point, size: size), value > maxValue {
-                        maxValue = value
-                        maxPoint = point
-                        maxSize = size
-                    }
-                }
-            }
-        }
-        
-        return "\(Int(maxPoint.x)),\(Int(maxPoint.y)),\(maxSize)"
+        return "\(Int(point.x)),\(Int(point.y)),\(size)"
     }
     
-    private func powerLevelForRegionAtCoord(_ point: CGPoint, size: Int = 3) -> Int? {
-        if point.x <= CGFloat(301 - size) && point.y <= CGFloat(301 - size) {
-            return (Int(point.x)..<(Int(point.x)+size)).flatMap({ x in
-                (Int(point.y)..<(Int(point.y)+size)).map({ y in
-                    return value(for: CGPoint(x: x, y: y))
-                })
-            }).sum()
-        } else {
-            return nil
-        }
+    private func validCoordinates(forMaxSize size: Int = 3) -> [CGPoint] {
+        return CGRect(x: 1, y: 1, width: 300, height: 300)
+            .allPoints()
+            .filter { $0.x <= CGFloat(301 - size) && $0.y <= CGFloat(301 - size) }
+    }
+    
+    private func regionPowerLevel(at point: CGPoint, size: Int = 3) -> Int {
+        return (Int(point.x)..<(Int(point.x)+size)).flatMap({ x in
+            (Int(point.y)..<(Int(point.y)+size)).map({ y in
+                return value(for: CGPoint(x: x, y: y))
+            })
+        }).sum()
     }
     
     private func value(for coordinate: CGPoint) -> Int {
-        let rackId = Double(coordinate.x + 10)
-        var powerLevel = Double(rackId * Double(coordinate.y))
-        powerLevel += Double(serialNumber)
+        let rackId = Int(coordinate.x) + 10
+        var powerLevel = rackId * Int(coordinate.y)
+        powerLevel += serialNumber
         powerLevel *= rackId
-        let hundredsDigit = ceil(log10(powerLevel)) >= 3 ? floor(powerLevel.truncatingRemainder(dividingBy: 1000) / 100) : 0
-        return Int(hundredsDigit) - 5
+        let hundredsDigit = ((powerLevel / 100) % 10)
+        return hundredsDigit - 5
     }
 }
