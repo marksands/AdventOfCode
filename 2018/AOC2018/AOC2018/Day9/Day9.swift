@@ -26,14 +26,13 @@ public final class Day9: Day {
         
         (1...maxPoints).forEach { marble in
             if marble % 23 == 0 {
-                list = list.reverse(7)
+                list = list.reverse(by: 7)
                 let score = list.value + marble
                 (_, list) = list.remove()
                 
                 playerScores[marble % players, default: 0] += score
             } else {
-                list = list.advance(1)
-                list = list.insertAfter(marble)
+                list = list.advance(by: 1).insertAfter(marble)
             }
         }
         

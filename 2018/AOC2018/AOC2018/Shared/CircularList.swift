@@ -44,7 +44,7 @@ public class CircularList<T> {
         return (left, right)
     }
     
-    public func advance(_ amount: Int) -> CircularList<T> {
+    public func advance(by amount: Int) -> CircularList<T> {
         var node = self
         (0..<amount).forEach { _ in
             node = node.right
@@ -52,7 +52,7 @@ public class CircularList<T> {
         return node
     }
     
-    public func reverse(_ amount: Int) -> CircularList<T> {
+    public func reverse(by amount: Int) -> CircularList<T> {
         var node = self
         (0..<amount).forEach { _ in
             node = node.left

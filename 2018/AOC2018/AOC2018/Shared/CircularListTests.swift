@@ -87,13 +87,13 @@ class CircularListTests: XCTestCase {
 
         XCTAssertEqual(0, testObject.value)
         
-        testObject = testObject.advance(1)
+        testObject = testObject.advance(by: 1)
         XCTAssertEqual(1, testObject.value)
         
-        testObject = testObject.advance(2)
+        testObject = testObject.advance(by: 2)
         XCTAssertEqual(3, testObject.value)
 
-        testObject = testObject.advance(2)
+        testObject = testObject.advance(by: 2)
         XCTAssertEqual(0, testObject.value)
     }
     
@@ -103,13 +103,13 @@ class CircularListTests: XCTestCase {
         
         XCTAssertEqual(0, testObject.value)
         
-        testObject = testObject.reverse(1)
+        testObject = testObject.reverse(by: 1)
         XCTAssertEqual(4, testObject.value)
         
-        testObject = testObject.reverse(2)
+        testObject = testObject.reverse(by: 2)
         XCTAssertEqual(2, testObject.value)
         
-        testObject = testObject.reverse(2)
+        testObject = testObject.reverse(by: 2)
         XCTAssertEqual(0, testObject.value)
     }
 }
