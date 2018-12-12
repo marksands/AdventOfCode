@@ -38,9 +38,8 @@ public class CircularList<T> {
     public func remove() -> (left: CircularList<T>, right: CircularList<T>) {
         defer { left = nil; right = nil}
 
-        let node = self
-        node.left.right = node.right
-        node.right.left = node.left
+        left.right = right
+        right.left = left
         
         return (left, right)
     }
