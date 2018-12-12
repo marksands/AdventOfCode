@@ -16,48 +16,22 @@ public final class Day12: Day {
     }
     
     public override func part1() -> String {
-        var state = Array(repeating: ".", count: 5) + initialState.exploded()
-        
-        for _ in (1...20) {
-            var changeIndex: [Int: String] = [:]
-            
-            if state[(state.count-3)..<state.count].contains("#") {
-                state.append(contentsOf: [".",".",".",".","."])
-            }
-            
-            for i in state.indices {
-                if let chain = state[safe: i..<(i+5)]?.joined() {
-                    for (match, generation) in rules {
-                        if match == chain {
-                            changeIndex[i+2] = generation
-                        }
-                    }
-                }
-            }
-            
-            for (index, gen) in changeIndex {
-                state[index] = gen
-            }
-        }
-        
-        let subPots = state.dropFirst(5)
-        let potCount = subPots.enumerated().reduce(0) { seed, arg in
-            seed + (arg.element == "#" ? arg.offset : 0)
-        }
-        
-        return String(potCount)
+        return String(potCountForGeneration(20))
     }
     
     public override func part2() -> String {
+        return String(potCountForGeneration(50_000_000_000))
+    }
+    
+    private func potCountForGeneration(_ generations: Int) -> Int {
         var state = Array(repeating: ".", count: 5) + initialState.exploded()
         
-        let maxGenerations = 50_000_000_000
         var generationShift = 0
         var previousGeneration = 0
         var lastGeneration = 0
         var repetition = 0
         
-        for generation in (1...maxGenerations) {
+        for generation in (1...generations) {
             var changeIndex: [Int: String] = [:]
             
             if state[(state.count-3)..<state.count].contains("#") {
@@ -77,10 +51,9 @@ public final class Day12: Day {
             for (index, gen) in changeIndex {
                 state[index] = gen
             }
-
-            let subPots = state.dropFirst(5)
-            let potCount = subPots.enumerated().reduce(0) { seed, arg in
-                seed + (arg.element == "#" ? arg.offset : 0)
+            
+            let potCount = state.enumerated().reduce(0) { seed, arg in
+                seed + (arg.element == "#" ? arg.offset-5 : 0)
             }
             
             lastGeneration = generation
@@ -97,11 +70,11 @@ public final class Day12: Day {
             }
         }
         
-        let subPots = state.dropFirst(5)
-        let potCount = subPots.enumerated().reduce(0) { seed, arg in
-            seed + (arg.element == "#" ? arg.offset : 0)
+        let potCount = state.enumerated().reduce(0) { seed, arg in
+            seed + (arg.element == "#" ? arg.offset-5 : 0)
         }
+        
+        return potCount + (generations - lastGeneration) * generationShift
 
-        return String(potCount + (maxGenerations - lastGeneration) * generationShift)
     }
 }
