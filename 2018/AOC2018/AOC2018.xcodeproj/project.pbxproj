@@ -76,6 +76,8 @@
 		B1C620D721BCC5FB00FB2506 /* BorderPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620D621BCC5FB00FB2506 /* BorderPoints.swift */; };
 		B1C620DF21C0230500FB2506 /* Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620DE21C0230500FB2506 /* Sum.swift */; };
 		B1C620E121C023AF00FB2506 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620E021C023AF00FB2506 /* Safe.swift */; };
+		B1F3ECAA21C0A941007B1771 /* CircularList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3ECA921C0A941007B1771 /* CircularList.swift */; };
+		B1F3ECAC21C0A94F007B1771 /* CircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3ECAB21C0A94F007B1771 /* CircularListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,8 @@
 		B1C620D621BCC5FB00FB2506 /* BorderPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderPoints.swift; sourceTree = "<group>"; };
 		B1C620DE21C0230500FB2506 /* Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sum.swift; sourceTree = "<group>"; };
 		B1C620E021C023AF00FB2506 /* Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
+		B1F3ECA921C0A941007B1771 /* CircularList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularList.swift; sourceTree = "<group>"; };
+		B1F3ECAB21C0A94F007B1771 /* CircularListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +312,8 @@
 				B1C620D621BCC5FB00FB2506 /* BorderPoints.swift */,
 				B1C620DE21C0230500FB2506 /* Sum.swift */,
 				B1C620E021C023AF00FB2506 /* Safe.swift */,
+				B1F3ECA921C0A941007B1771 /* CircularList.swift */,
+				B1F3ECAB21C0A94F007B1771 /* CircularListTests.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				B163858A21B6253E0011B7D4 /* 8.swift in Sources */,
 				B163859021B6253E0011B7D4 /* Day19.swift in Sources */,
 				B16385C021B6253E0011B7D4 /* Day18.swift in Sources */,
+				B1F3ECAA21C0A941007B1771 /* CircularList.swift in Sources */,
 				B163851A21B4724C0011B7D4 /* StringDistance.swift in Sources */,
 				B163859C21B6253E0011B7D4 /* Day23.swift in Sources */,
 				B16385AE21B6253E0011B7D4 /* Day24.swift in Sources */,
@@ -700,6 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F3ECAC21C0A94F007B1771 /* CircularListTests.swift in Sources */,
 				B16385CD21B627120011B7D4 /* Day9Tests.swift in Sources */,
 				B113B7B621B381B400D2B9F5 /* Day1Tests.swift in Sources */,
 				B16385CB21B627120011B7D4 /* Day7Tests.swift in Sources */,
