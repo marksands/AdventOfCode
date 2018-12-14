@@ -2,38 +2,28 @@ import XCTest
 import AOC2018
 
 class AOC2018_Day13_Tests: XCTestCase {
-    let day = Day13()
-    
     func testPart1() {
-        XCTAssertEqual("TBD", day.part1())
+        let day = Day13()
+        
+        var tick: (crash: CGPoint?, carts: [Cart]) = (nil, day.carts)
+        
+        while tick.crash == nil {
+            tick = day.step()
+        }
+        
+        XCTAssertEqual("82,104", "\(Int(tick.crash!.x)),\(Int(tick.crash!.y))")
     }
     
-    // incorrect:
-    //(You guessed 23,135)
-    //(You guessed 19,6)
-    //(You guessed 82,2)
-    //(You guessed 83,2)
-    //BOOM!: 82,104
     func testPart2() {
-        XCTAssertEqual("TBD", day.part2())
-        
-        let path = NSTemporaryDirectory()
-        let url = URL(fileURLWithPath: (path as NSString).appendingPathComponent("1-steps"))
-        print("Writing to... \(url)")
-        try! FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+        let day = Day13()
 
-        (0..<100_000).forEach { step in
-            //let newUrl = url.appendingPathComponent("step-\(step).txt")
-            //try! day.printGrid().write(to: newUrl, atomically: true, encoding: .ascii)
-//            if step == 402 {
-//                day.printGrid()
-//                print("now?")
-//            }
-            if let crash = day.step() {
-                print("Crash at \(step):")
-                print(crash)
-            }
+        var tick: (crash: CGPoint?, carts: [Cart]) = (nil, day.carts)
+        
+        while tick.carts.count > 1 {
+            tick = day.step()
         }
+        
+        XCTAssertEqual("121,22", "\(tick.carts[0].col),\(tick.carts[0].row)")
     }
     
     func testGross1() {
@@ -114,22 +104,22 @@ class AOC2018_Day13_Tests: XCTestCase {
         XCTAssertEqual(firstCart.row, 3)
         XCTAssertEqual(firstCart.col, 9)
 
-        XCTAssertNil(day.step())
+        day.step()
         XCTAssertEqual(firstCart.currentDirection, .left)
         XCTAssertEqual(firstCart.row, 4)
         XCTAssertEqual(firstCart.col, 9)
         
-        XCTAssertNil(day.step())
+        day.step()
         XCTAssertEqual(firstCart.currentDirection, .left)
         XCTAssertEqual(firstCart.row, 4)
         XCTAssertEqual(firstCart.col, 8)
         
-        XCTAssertNil(day.step())
+        day.step()
         XCTAssertEqual(firstCart.currentDirection, .up)
         XCTAssertEqual(firstCart.row, 4)
         XCTAssertEqual(firstCart.col, 7)
         
-        let crash = day.step()!
+        let tick = day.step()
         XCTAssertEqual(firstCart.currentDirection, .up)
         XCTAssertEqual(firstCart.row, 3)
         XCTAssertEqual(firstCart.col, 7)
@@ -137,25 +127,25 @@ class AOC2018_Day13_Tests: XCTestCase {
         XCTAssertEqual(lastCart.row, 3)
         XCTAssertEqual(lastCart.col, 7)
         
-        XCTAssertEqual(crash.col, 7)
-        XCTAssertEqual(crash.row, 3)
+        XCTAssertEqual(tick.crash?.x, 7)
+        XCTAssertEqual(tick.crash?.y, 3)
     }
     
-    func testPart2Thing() {
-        let testInput = """
-        />-<\\
-        |   |
-        | /<+-\\
-        | | | v
-        \\>+</ |
-          |   ^
-          \\<->/
-        """
-        let day = Day13(input: testInput)
-
-        (0..<20).forEach { step in
-            day.step()
-            day.printGrid()
-        }
-    }
+//    func testPart2Example() {
+//        let testInput = """
+//        />-<\\
+//        |   |
+//        | /<+-\\
+//        | | | v
+//        \\>+</ |
+//          |   ^
+//          \\<->/
+//        """
+//        let day = Day13(input: testInput)
+//
+//        (0..<20).forEach { step in
+//            day.step()
+//            day.printGrid()
+//        }
+//    }
 }

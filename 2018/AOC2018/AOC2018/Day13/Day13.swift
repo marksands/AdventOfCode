@@ -24,15 +24,15 @@ public class Cart {
     public var row: Int
     public var col: Int
     public var currentDirection = Direction.down
-    public var lastDirectionOfIntersection = IntersectionDirection.right
+    var lastDirectionOfIntersection = IntersectionDirection.right
     
-    public init(row: Int, col: Int, direction: Direction) {
+    init(row: Int, col: Int, direction: Direction) {
         self.row = row
         self.col = col
         self.currentDirection = direction
     }
     
-    public func collision(with cart: Cart) -> Bool {
+    func collision(with cart: Cart) -> Bool {
         guard !crashed else { return false }
         return cart.row == row && cart.col == col
     }
@@ -41,56 +41,39 @@ public class Cart {
 }
 
 public final class Day13: Day {
-    public var grid: [[String]] = []
+    public var track: [[String]] = []
     public var carts: [Cart] = []
     
     public init(input: String = Input().rawInput()) {
-        grid = input.components(separatedBy: .newlines).map {
+        track = input.components(separatedBy: .newlines).map {
             String($0).map { String($0) }
         }
         
         super.init()
         
-        zip(grid.indices, grid).forEach { y, row in
+        zip(track.indices, track).forEach { y, row in
             zip(row.indices, row).forEach { x, element in
                 if Direction.isCart(element) {
                     let cart = Cart(row: y, col: x, direction: Direction(rawValue: element)!)
                     carts.append(cart)
+
                     switch cart.currentDirection {
                     case .left, .right:
-                        grid[y][x] = "-"
+                        track[y][x] = "-"
                     case .up, .down:
-                        grid[y][x] = "|"
+                        track[y][x] = "|"
                     }
                 }
             }
         }
         
         carts.sort(by: { ($0.row, $0.col) < ($1.row, $1.col) })
-        print("sorted...")
     }
-    
-    public func printGrid() -> String {
-        var outerResult = ""
-        zip(grid.indices, grid).forEach { y, row in
-            var result = ""
-            zip(row.indices, row).forEach { x, element in
-                if let cart = carts.first(where: { cart in cart.col == x && cart.row == y }) {
-                    result += cart.currentDirection.rawValue
-                } else {
-                    result += element
-                }
-            }
-            outerResult += result + "\n"
-            //print(result)
-        }
-        return outerResult
-    }
-    
-    @discardableResult
-    public func step() -> (col: Int, row: Int)? {
-        carts.sort(by: { ($0.row, $0.col) < ($1.row, $1.col) })
 
+    @discardableResult
+    public func step() -> (crash: CGPoint?, carts: [Cart]) {
+        carts.sort(by: { ($0.row, $0.col) < ($1.row, $1.col) })
+        
         for cart in carts {
             switch cart.currentDirection {
             case .left:
@@ -103,7 +86,7 @@ public final class Day13: Day {
                 cart.row += 1
             }
             
-            if grid[cart.row][cart.col] == "/" {
+            if track[cart.row][cart.col] == "/" {
                 if cart.currentDirection == .up {
                     cart.currentDirection = .right
                 } else if cart.currentDirection == .left {
@@ -113,7 +96,7 @@ public final class Day13: Day {
                 } else if cart.currentDirection == .down {
                     cart.currentDirection = .left
                 }
-            } else if grid[cart.row][cart.col] == "\\" {
+            } else if track[cart.row][cart.col] == "\\" {
                 if cart.currentDirection == .up {
                     cart.currentDirection = .left
                 } else if cart.currentDirection == .left {
@@ -123,28 +106,24 @@ public final class Day13: Day {
                 } else if cart.currentDirection == .down {
                     cart.currentDirection = .right
                 }
-            } else if grid[cart.row][cart.col] == "|" {
-                switch cart.currentDirection {
-                case .up, .down: break // keep going!
-                case .left, .right:
-                    // TODO: This must have come from an intersection?
-                    break // no change
-                    //fatalError("Invalid direction")
-                }
-            } else if grid[cart.row][cart.col] == "-" {
+            } else if track[cart.row][cart.col] == "|" {
                 switch cart.currentDirection {
                 case .up, .down:
-                    // TODO: this must have come from an intersection?
-                    break // no change
-                    //fatalError("Invalid direction")
+                    break
                 case .left, .right:
-                    break // keep going!
+                    fatalError("Invalid direction")
                 }
-            } else if grid[cart.row][cart.col] == "+" {
+            } else if track[cart.row][cart.col] == "-" {
+                switch cart.currentDirection {
+                case .up, .down:
+                    fatalError("Invalid direction")
+                case .left, .right:
+                    break
+                }
+            } else if track[cart.row][cart.col] == "+" {
                 switch cart.lastDirectionOfIntersection {
                 case .left:
                     cart.lastDirectionOfIntersection = .straight
-                // no change to cart current direction
                 case .right:
                     cart.lastDirectionOfIntersection = .left
                     
@@ -155,10 +134,8 @@ public final class Day13: Day {
                     } else if cart.currentDirection == .right {
                         cart.currentDirection = .up
                     } else if cart.currentDirection == .left {
-                        // relative-left
                         cart.currentDirection = .down
                     }
-                    
                 case .straight:
                     cart.lastDirectionOfIntersection = .right
                     
@@ -172,34 +149,37 @@ public final class Day13: Day {
                         cart.currentDirection = .up
                     }
                 }
-            } else {
-                fatalError("HMMM")
             }
             
             for (index, cart) in carts.enumerated() {
                 for (index2, cart2) in carts.enumerated() {
                     if index != index2 && cart.collision(with: cart2) {
-                        print("BOOM!: \(cart.col),\(cart.row)")
                         cart.crashed = true
                         cart2.crashed = true
                     }
                 }
-                if carts.enumerated().filter({ $0.0 != index }).reduce(false, { $0 || $1.element.collision(with: cart) }) {
-                    print("BOOM!: \(cart.col),\(cart.row)")
-                    cart.crashed = true
-                    //return (col: cart.col, row: cart.row)
-                }
             }
         }
+
+        let crashPoint = carts.first(where: { $0.crashed }).map { CGPoint(x: $0.col, y: $0.row) }
+        carts.removeAll(where: { $0.crashed })
         
-        if carts.count(where: { !$0.crashed }) == 1 {
-            let lastCart = carts.first(where: { !$0.crashed })!
-            print("cart: \(lastCart) - \(lastCart.col),\(lastCart.row)")
-            print("BOOM")
+        return (crash: crashPoint, carts: carts)
+    }
+    
+    public func printGrid() -> String {
+        var outerResult = ""
+        zip(track.indices, track).forEach { y, row in
+            var result = ""
+            zip(row.indices, row).forEach { x, element in
+                if let cart = carts.first(where: { cart in cart.col == x && cart.row == y }) {
+                    result += cart.currentDirection.rawValue
+                } else {
+                    result += element
+                }
+            }
+            outerResult += result + "\n"
         }
-
-        carts = carts.filter { !$0.crashed }
-
-        return nil
+        return outerResult
     }
 }
