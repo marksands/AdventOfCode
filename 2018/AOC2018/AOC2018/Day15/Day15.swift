@@ -58,8 +58,6 @@ public final class Day15: Day {
         }.sorted(by: { $0.location < $1.location })
     
         super.init()
-        
-        printLevel()
     }
     
     public override func part1() -> String {
@@ -70,13 +68,9 @@ public final class Day15: Day {
         return super.part2()
     }
     
-    private func printLevel() {
-        level.forEach { row in
-            var result = ""
-            row.forEach { elem in
-                result += elem.rawValue
-            }
-            print(result)
-        }
+    public func printableMap() -> String {
+        return level.reduce(into: "", {
+            $0 += $1.reduce(into: "", { $0 += $1.rawValue }) + "\n"
+        })
     }
 }
