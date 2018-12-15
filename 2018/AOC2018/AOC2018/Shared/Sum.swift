@@ -1,5 +1,5 @@
 extension Collection where Element == Int {
     public func sum() -> Int {
-        return reduce(0, +)
+        return reduce(into: 0, +=)
     }
 }
