@@ -32,46 +32,61 @@ public class Unit {
     }
 }
 
-public enum RoundResult {
-    case completed
-    case halted
-    case finished
-}
-
 public final class Day15: Day {
-    public var map: [[GroundType]]
+    public var map: [[GroundType]] = []
     public var units: [Unit] = []
-
-    public init(input: String = Input().rawInput()) {
-        let lines = input.trimmingCharacters(in: .newlines).components(separatedBy: .newlines)
-        
-        map = lines.map { row in row.exploded().map { $0 == "#" ? .wall : .open } }
-        
-        units = zip(lines.indices, lines).flatMap { y, row in
-            zip(row.exploded().indices, row.exploded()).compactMap { x, elem in
-                Unit.from(elem, position: Position(x: x, y: y))
-            }
-        }.sorted(by: { $0.position < $1.position })
+    private let input: String
     
+    public init(input: String = Input().rawInput()) {
+        self.input = input
         super.init()
+        resetCombat()
+    }
+    
+    public func setAttackPower(_ power: Int, forRace race: Unit.Race) {
+        units.filter({ $0.race == race }).forEach { $0.power = power }
     }
     
     public override func part1() -> String {
+        let roundCount = combatRounds()
+        return String(livingUnits().reduce(0, { $0 + $1.hp }) * roundCount)
+    }
+    
+    public func part2(seed: Int = 10) -> String {
         var roundCount = 0
+        var attackPower = seed
+        
         while true {
-            if battle() == .completed {
-                roundCount += 1
-            } else {
+            setAttackPower(attackPower, forRace: .elf)
+            roundCount = combatRounds()
+            
+            if livingUnits().filter({ $0.race == .elf }).count == units.filter({ $0.race == .elf }).count {
                 break
             }
-            print(printableRound())
+            
+            resetCombat()
+            attackPower += 1
         }
         return String(livingUnits().reduce(0, { $0 + $1.hp }) * roundCount)
     }
     
+    public func combatRounds() -> Int {
+        var roundCount = 0
+        while battle() {
+            roundCount += 1
+        }
+        return roundCount
+    }
+    
     @discardableResult
-    public func battle() -> RoundResult {
+    public func battle() -> Bool {
         for source in livingUnits() {
+            if source.hp <= 0 { continue }
+            
+            if enemies(of: source).count == 0 {
+                return false
+            }
+            
             if let target = enemyWithinRange(of: source) {
                 target.hp -= source.power
             } else if let nextPosition = shortestPathToEnemy(from: source).first {
@@ -80,18 +95,15 @@ public final class Day15: Day {
                     target.hp -= source.power
                 }
             }
-            if livingUnits().map({ $0.race }).unique().count == 1 {
-                return .halted
-            }
         }
-        return livingUnits().map({ $0.race }).unique().count > 1 ? .completed : .finished
+        return true
     }
     
     public func enemyWithinRange(of source: Unit) -> Unit? {
         let adjacentEnemies = enemies(of: source).filter { neighbors(for: source.position).contains($0.position) }
         return adjacentEnemies.sorted { $0.hp < $1.hp }.first
     }
-        
+    
     public func shortestPathToEnemy(from source: Unit) -> [Position] {
         let possiblePaths = enemies(of: source).map { path(from: source, to: $0) }.filter { $0.count > 0 }
         return possiblePaths.min(by: { $0.count < $1.count }) ?? []
@@ -135,8 +147,20 @@ public final class Day15: Day {
         return livingUnits().map({ $0.position })
     }
     
-    private func livingUnits() -> [Unit] {
+    public func livingUnits() -> [Unit] {
         return units.filter { $0.hp > 0 }.sorted(by: { $0.position < $1.position })
+    }
+    
+    private func resetCombat() {
+        let lines = input.trimmingCharacters(in: .newlines).components(separatedBy: .newlines)
+        
+        map = lines.map { row in row.exploded().map { $0 == "#" ? .wall : .open } }
+        
+        units = zip(lines.indices, lines).flatMap { y, row in
+            zip(row.exploded().indices, row.exploded()).compactMap { x, elem in
+                Unit.from(elem, position: Position(x: x, y: y))
+            }
+        }.sorted(by: { $0.position < $1.position })
     }
 }
 

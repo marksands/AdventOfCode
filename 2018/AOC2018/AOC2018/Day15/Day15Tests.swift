@@ -13,14 +13,13 @@ class AOC2018_Day15_Tests: XCTestCase {
             """
     
     func testPart1() {
-        //let day = Day15()
-        // 226620 is too low
-        //XCTAssertEqual("226620", day.part1())
+        let day = Day15()
+        XCTAssertEqual("228240", day.part1())
     }
     
     func testPart2() {
-        let day = Day15(input: testInput)
-        XCTAssertEqual("TBD", day.part2())
+        let day = Day15()
+        XCTAssertEqual("52626", day.part2(seed: 17))
     }
     
     func testPrintableMapRendersOnlyTerritory() {
@@ -156,6 +155,23 @@ class AOC2018_Day15_Tests: XCTestCase {
         let path = day.path(from: goblin, to: elf)
         
         let expected = [Position(x: 2, y: 1)]
+        XCTAssertEqual(expected, path)
+    }
+    
+    func testShortestPathBreaksTiesByReadingOrderRanges() {
+        let input = """
+            #######
+            #.E@@G#
+            #.#####
+            #G#####
+            #######
+            """
+        let day = Day15(input: input)
+        let elf = sortedUnits(day.units, byRace: .elf).first!
+        
+        let path = day.shortestPathToEnemy(from: elf)
+        
+        let expected = [Position(x: 3, y: 1), Position(x: 4, y: 1), Position(x: 5, y: 1)]
         XCTAssertEqual(expected, path)
     }
 
@@ -455,6 +471,68 @@ class AOC2018_Day15_Tests: XCTestCase {
         
         XCTAssertEqual("18740", day.part1())
         XCTAssertEqual(expected, day.printableRound())
+    }
+    
+    func testElfPowerIncreasesChancesOfSurvival() {
+        let input = """
+            #######
+            #.G...#
+            #...EG#
+            #.#.#G#
+            #..G#E#
+            #.....#
+            #######
+            """
+        
+        let day = Day15(input: input)
+//        day.setAttackPower(15, forRace: .elf)
+        
+        XCTAssertEqual("4988", day.part2(seed: 10))
+        XCTAssertEqual(2, day.livingUnits().count)
+        XCTAssertEqual([.elf, .elf], day.livingUnits().map({ $0.race }))
+        
+        let final = """
+            #######
+            #..E..#   E(158)
+            #...E.#   E(14)
+            #.#.#.#
+            #...#.#
+            #.....#
+            #######\n
+            """
+        XCTAssertEqual(final, day.printableRound())
+    }
+    
+    func testElfPowerIncreasesChancesOfSurvival2() {
+        let input = """
+            #########
+            #G......#
+            #.E.#...#
+            #..##..G#
+            #...##..#
+            #...#...#
+            #.G...G.#
+            #.....G.#
+            #########
+            """
+        
+        let day = Day15(input: input)
+        //day.setAttackPower(34, forRace: .elf)
+        
+        XCTAssertEqual("1140", day.part2(seed: 32))
+        
+        let final = """
+            #########
+            #.......#
+            #.E.#...#   E(38)
+            #..##...#
+            #...##..#
+            #...#...#
+            #.......#
+            #.......#
+            #########\n
+            """
+        XCTAssertEqual(final, day.printableRound())
     }
     
     private func sortedUnits(_ units: [AOC2018.Unit], byRace race: AOC2018.Unit.Race) -> [AOC2018.Unit] {
