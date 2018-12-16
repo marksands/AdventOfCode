@@ -56,6 +56,10 @@ public final class Day15: Day {
         })
     }
     
+    public func shortestPathToEnemy(from source: Unit) -> [Position] {
+        return []
+    }
+    
     public func path(from source: Unit, to target: Unit) -> [Position] {
         var queue = [[source.position]]
 
@@ -63,7 +67,7 @@ public final class Day15: Day {
             let path = queue.removeFirst()
             
             if path.last == target.position {
-                return Array(path.dropFirst().dropLast())
+                return Array(path.dropFirst())
             } else if let current = path.last {
                 for position in neighbors(for: current) {
                     queue.append(path + [position])
