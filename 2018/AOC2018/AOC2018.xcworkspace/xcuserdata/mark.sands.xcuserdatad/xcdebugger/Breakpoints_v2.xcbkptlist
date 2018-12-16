@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC2018/Day15/Day15.swift"
+            timestampString = "566629193.943022"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "part1()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AOC2018.Day15.part1() -&gt; Swift.String"
+                  moduleName = "AOC2018"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mark.sands/AdventOfCode/2018/AOC2018/AOC2018/Day15/Day15.swift"
+                  timestampString = "566629194.483063"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "358">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int, AOC2018.Unit) -&gt; Swift.Int in AOC2018.Day15.part1() -&gt; Swift.String"
+                  moduleName = "AOC2018"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mark.sands/AdventOfCode/2018/AOC2018/AOC2018/Day15/Day15.swift"
+                  timestampString = "566629194.484804"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
