@@ -77,7 +77,7 @@ public final class Day15: Day {
         }
         return roundCount
     }
-    
+        
     @discardableResult
     public func battle() -> Bool {
         for source in livingUnits() {

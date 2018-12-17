@@ -8,4 +8,12 @@ extension CGRect {
             }
         }
     }
+
+    public func allPositionsMatrix() -> [[Position]] {
+        return (Int(minY)...Int(height)).map { y in
+            (Int(minX)...Int(width)).map { x in
+                return Position(x: x, y: y)
+            }
+        }
+    }
 }
