@@ -122,57 +122,56 @@ class AOC2018_Day17_Tests: XCTestCase {
         XCTAssertEqual(expected, day.printableDesert())
     }
 
-//    let expected = """
-//            ....+....
-//            .#||||||.
-//            .#~~~~#|.
-//            .#~##~#|.
-//            .#~~~~#|.
-//            .######|.
-//            .......|.
-//            .......|#\n
-//            """
+    func testFloodFillSimpleBowl2() {
+        let input = """
+            x=0, y=1..4
+            y=5, x=0..6
+            x=2, y=2..3
+            x=4, y=2..3
+            x=3, y=3..3
+            x=6, y=2..4
+            x=8, y=7..7
+            """
+        
+        let day = Day17(input: input, springXPosition: 4)
+        day.floodFill()
+        
+        let expected = """
+            ....+....
+            #|||||||.
+            #~#~#~#|.
+            #~###~#|.
+            #~~~~~#|.
+            #######|.
+            .......|.
+            .......|#\n
+            """
+        XCTAssertEqual(expected, day.printableDesert())
+    }
 
-    //    let expected = """
-    //            ....+....
-    //            #|||||||.
-    //            #~#~#~#|.
-    //            #~###~#|.
-    //            #~~~~~#|.
-    //            #######|.
-    //            .......|.
-    //            .......|#\n
-    //            """
+    func testFloodFillSimpleDesert() {
+        let input = """
+            x=2, y=2..4
+            x=5, y=2..4
+            y=4, x=3..4
+            x=5, y=6..7
+            x=8, y=5..7
+            y=7, x=6..7
+            """
 
+        let day = Day17(input: input, springXPosition: 4)
+        day.floodFill()
 
-//    func testFloodFillSimpleDesert() {
-//        let input = """
-//            x=2, y=2..4
-//            x=5, y=2..4
-//            y=4, x=3..4
-//            x=5, y=6..7
-//            x=8, y=5..7
-//            y=7, x=6..7
-//            """
-//
-//        let day = Day17(input: input, springXPosition: 4)
-//        day.floodFill()
-//
-//        let expected = """
-//            ....+....
-//            .||||||..
-//            .|#~~#|..
-//            .|#~~#|..
-//            .|####|..
-//            .|..||||#
-//            .|..|#~~#
-//            .|..|####\n
-//            """
-//        XCTAssertEqual(expected, day.printableDesert())
-//    }
-    
-    //func test
-    
-    // test: verify that minX is 0, render desert to maxX or some padding
-    // test: verify minY is 0 even though tiles are not counted less than the minY from the input
+        let expected = """
+            ....+....
+            .||||||..
+            .|#~~#|..
+            .|#~~#|..
+            .|####|..
+            .|..||||#
+            .|..|#~~#
+            .|..|####\n
+            """
+        XCTAssertEqual(expected, day.printableDesert())
+    }
 }

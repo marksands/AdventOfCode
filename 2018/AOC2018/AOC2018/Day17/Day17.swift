@@ -55,10 +55,12 @@ public final class Day17: Day {
     }
     
     public override func part1() -> String {
+        floodFill()
         return super.part1()
     }
     
     public override func part2() -> String {
+        floodFill()
         return super.part2()
     }
     
@@ -94,7 +96,9 @@ public final class Day17: Day {
             ((leftMostPosition.x)...(rightMostPosition.x)).forEach { waterX in
                 desert[position.y][waterX].tileType = .water
             }
-            scanHorizontally(from: position.north())
+            if isWithinBounds(position.north()) {
+                scanHorizontally(from: position.north())
+            }
         } else {
             ((leftMostPosition.x)...(rightMostPosition.x)).forEach { waterX in
                 desert[position.y][waterX].tileType = .flowing
@@ -109,7 +113,8 @@ public final class Day17: Day {
     }
     
     private func isCapstoned(_ left: Position, _ right: Position) -> Bool {
-        return isClay(left.west()) && isClay(right.east())
+        return isWithinBounds(left.west()) && isWithinBounds(right.east()) &&
+            isClay(left.west()) && isClay(right.east())
     }
     
     private func isFilledBelow(_ position: Position) -> Bool {
@@ -133,12 +138,6 @@ public final class Day17: Day {
         return position.y > 0 && position.y < desert.count &&
             position.x >= 0 && position.x < desert[position.y].count
     }
-    
-    private func isWet(_ position: Position) -> Bool {
-        return tileType(at: position) == .spring ||
-            tileType(at: position) == .water ||
-            tileType(at: position) == .flowing
-    }
 
     private func isClay(_ position: Position) -> Bool {
         return tileType(at: position) == .clay
@@ -146,5 +145,13 @@ public final class Day17: Day {
     
     private func tileType(at position: Position) -> TileType {
         return desert[position.y][position.x].tileType
+    }
+    
+    private func allWaterTiles() -> [Position] {
+        
+    }
+    
+    private func stillWaterTiles() -> [Position] {
+
     }
 }
