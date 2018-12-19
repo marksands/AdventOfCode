@@ -1,6 +1,7 @@
 import Foundation
 
 public enum TileType: String {
+    case spring = "+"
     case water = "~"
     case flowing = "|"
     case sand = "."
@@ -18,28 +19,33 @@ public class Tile {
 }
 
 public final class Day17: Day {
-    private let claySpaces: [Position]
+    private let claySpaces: Set<Position>
     private var desert: [[Tile]] = []
+    private let springPosition: Position
     
-    public init(input: String = Input().trimmedRawInput()) {
+    public init(input: String = Input().trimmedRawInput(), springXPosition: Int = 500) {
+        springPosition = Position(x: springXPosition, y: 0)
+        
         let xRegex = Regex.init(pattern: "^x=(\\d+), y=(\\d+)..(\\d+)$")
         let yRegex = Regex.init(pattern: "^y=(\\d+), x=(\\d+)..(\\d+)$")
-        claySpaces = input.components(separatedBy: .newlines).flatMap { claySpace -> [Position] in
+        claySpaces = Set(input.components(separatedBy: .newlines).flatMap { claySpace -> [Position] in
             if let matches = xRegex.matches(in: claySpace)?.matches.compactMap(Int.init) {
-                return (matches[1]...matches[2]).map { Position.init(x: matches[0], y: $0) }
+                return (matches[1]...matches[2]).map { Position(x: matches[0], y: $0) }
             } else if let matches = yRegex.matches(in: claySpace)?.matches.compactMap(Int.init) {
                 return (matches[1]...matches[2]).map { Position(x: $0, y: matches[0]) }
             } else {
                 fatalError("Invalid input!")
             }
-        }
+        })
         
         super.init()
         
         let grid = boundingRect().allPositionsMatrix()
         desert = grid.map { row in
             row.map { position in
-                if claySpaces.contains(position) {
+                if springPosition == position {
+                    return Tile(tileType: .spring, position: position)
+                } else if claySpaces.contains(position) {
                     return Tile(tileType: .clay, position: position)
                 } else {
                     return Tile(tileType: .sand, position: position)
@@ -56,6 +62,61 @@ public final class Day17: Day {
         return super.part2()
     }
     
+    public func floodFill() {
+        _floodfill(position: springPosition.south())
+    }
+    
+    private func _floodfill(position: Position) {
+        guard tileType(at: position) == .sand else { return }
+
+        var position = position
+        while isWithinBounds(position.south()) && !isClay(position.south()) {
+            desert[position.y][position.x].tileType = .flowing
+            position = position.south()
+        }
+        
+        desert[position.y][position.x].tileType = .flowing
+        scanHorizontally(from: position)
+    }
+    
+    private func scanHorizontally(from position: Position) {
+        var rightMostPosition = position
+        while isWithinBounds(rightMostPosition.east()) && isFilledBelow(rightMostPosition) && !isClay(rightMostPosition.east()) {
+            rightMostPosition = rightMostPosition.east()
+        }
+        
+        var leftMostPosition = position
+        while isWithinBounds(leftMostPosition.west()) && isFilledBelow(leftMostPosition) && !isClay(leftMostPosition.west()) {
+            leftMostPosition = leftMostPosition.west()
+        }
+        
+        if isCapstoned(leftMostPosition, rightMostPosition) {
+            ((leftMostPosition.x)...(rightMostPosition.x)).forEach { waterX in
+                desert[position.y][waterX].tileType = .water
+            }
+            scanHorizontally(from: position.north())
+        } else {
+            ((leftMostPosition.x)...(rightMostPosition.x)).forEach { waterX in
+                desert[position.y][waterX].tileType = .flowing
+            }
+            if isWithinBounds(leftMostPosition.south()) && !isClay(leftMostPosition.south()) {
+                _floodfill(position: leftMostPosition.south())
+            }
+            if isWithinBounds(rightMostPosition.south()) && !isClay(rightMostPosition.south()) {
+                _floodfill(position: rightMostPosition.south())
+            }
+        }
+    }
+    
+    private func isCapstoned(_ left: Position, _ right: Position) -> Bool {
+        return isClay(left.west()) && isClay(right.east())
+    }
+    
+    private func isFilledBelow(_ position: Position) -> Bool {
+         return isWithinBounds(position.south()) &&
+            (tileType(at: position.south()) == .clay || tileType(at: position.south()) == .water)
+    }
+    
     public func printableDesert() -> String {
         return desert.reduce(into: "", {
             $0 += $1.reduce(into: "", { $0 += $1.tileType.rawValue }) + "\n"
@@ -63,10 +124,27 @@ public final class Day17: Day {
     }
     
     public func boundingRect() -> CGRect {
-        //let minX = claySpaces.map { $0.x }.min()!
-        //let minY = claySpaces.map { $0.y }.min()!
         let width = claySpaces.map { $0.x }.max()!
         let height = claySpaces.map { $0.y }.max()!
         return CGRect(x: 0, y: 0, width: width, height: height)
+    }
+    
+    private func isWithinBounds(_ position: Position) -> Bool {
+        return position.y > 0 && position.y < desert.count &&
+            position.x >= 0 && position.x < desert[position.y].count
+    }
+    
+    private func isWet(_ position: Position) -> Bool {
+        return tileType(at: position) == .spring ||
+            tileType(at: position) == .water ||
+            tileType(at: position) == .flowing
+    }
+
+    private func isClay(_ position: Position) -> Bool {
+        return tileType(at: position) == .clay
+    }
+    
+    private func tileType(at position: Position) -> TileType {
+        return desert[position.y][position.x].tileType
     }
 }
