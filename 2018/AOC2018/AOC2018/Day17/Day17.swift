@@ -56,12 +56,12 @@ public final class Day17: Day {
     
     public override func part1() -> String {
         floodFill()
-        return super.part1()
+        return "\(allWaterTiles().count)"
     }
     
     public override func part2() -> String {
         floodFill()
-        return super.part2()
+        return "\(stillWaterTiles().count)"
     }
     
     public func floodFill() {
@@ -129,7 +129,7 @@ public final class Day17: Day {
     }
     
     public func boundingRect() -> CGRect {
-        let width = claySpaces.map { $0.x }.max()!
+        let width = claySpaces.map { $0.x }.max()! + 2
         let height = claySpaces.map { $0.y }.max()!
         return CGRect(x: 0, y: 0, width: width, height: height)
     }
@@ -147,11 +147,13 @@ public final class Day17: Day {
         return desert[position.y][position.x].tileType
     }
     
-    private func allWaterTiles() -> [Position] {
-        
+    private func allWaterTiles() -> [Tile] {
+        let minY = claySpaces.map { $0.y }.min()!
+        return desert.lazy.flatMap { $0 }
+            .filter { ($0.tileType == .water || $0.tileType == .flowing) && $0.position.y >= minY }
     }
     
-    private func stillWaterTiles() -> [Position] {
-
+    private func stillWaterTiles() -> [Tile] {
+        return allWaterTiles().filter { $0.tileType == .water }
     }
 }
