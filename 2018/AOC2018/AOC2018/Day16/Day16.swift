@@ -1,22 +1,22 @@
 import Foundation
 
-enum InstructionCode: CaseIterable {
-    case addr //= 1
-    case addi //= 3
-    case mulr //= 2
-    case muli //= 13
-    case banr //= 5
-    case bani //= 0
-    case borr //= 6
-    case bori //= 10
-    case setr //= 11
-    case seti //= 8
-    case gtir //= 15
-    case gtri //= 4
-    case gtrr //= 14
-    case eqir //= 12
-    case eqri //= 7
-    case eqrr //= 9
+enum InstructionCode: Int, CaseIterable {
+    case addr = 1
+    case addi = 3
+    case mulr = 2
+    case muli = 13
+    case banr = 5
+    case bani = 0
+    case borr = 6
+    case bori = 10
+    case setr = 11
+    case seti = 8
+    case gtir = 15
+    case gtri = 4
+    case gtrr = 14
+    case eqir = 12
+    case eqri = 7
+    case eqrr = 9
     
     func operate(_ instruction: [Int], registers: inout [Int]) {
         switch self {
