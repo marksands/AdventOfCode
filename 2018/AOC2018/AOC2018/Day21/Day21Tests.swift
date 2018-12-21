@@ -11,4 +11,8 @@ class AOC2018_Day21_Tests: XCTestCase {
     func testPart2() {
         XCTAssertEqual("TBD", day.part2())
     }
+    
+//    func testPart12() {
+//        day.part1Revised()
+//    }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-enum InstructionCode: Int, CaseIterable {
+public enum InstructionCode: Int, CaseIterable {
     case addr = 1
     case addi = 3
     case mulr = 2
@@ -18,7 +18,7 @@ enum InstructionCode: Int, CaseIterable {
     case eqri = 7
     case eqrr = 9
     
-    func operate(_ instruction: [Int], registers: inout [Int]) {
+    public func operate(_ instruction: [Int], registers: inout [Int]) {
         switch self {
         case .addr: registers[instruction[3]] = registers[instruction[1]] + registers[instruction[2]]
         case .addi: registers[instruction[3]] = registers[instruction[1]] + instruction[2]
