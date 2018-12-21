@@ -5,14 +5,10 @@ class AOC2018_Day21_Tests: XCTestCase {
     let day = Day21()
     
     func testPart1() {
-        XCTAssertEqual("TBD", day.part1())
+        XCTAssertEqual("13522479", day.part1())
     }
     
     func testPart2() {
-        XCTAssertEqual("TBD", day.part2())
+        XCTAssertEqual("14626276", day.part2())
     }
-    
-//    func testPart12() {
-//        day.part1Revised()
-//    }
 }

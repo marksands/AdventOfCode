@@ -45,16 +45,49 @@ seti 5 6 4
             return (instructionCode, a, b, c)
         }
     
-        for start in (0...) {
-            var registers: [Int] = [start,0,0,0,0,0]
-
+//        for start in (0...) {
+            var registers: [Int] = [0,0,0,0,0,0]
             registers[ip] = 0
 
+            for _ in (0...5000) {
+                codeRegs[registers[ip]].0.operate([codeRegs[registers[ip]].0.rawValue, codeRegs[registers[ip]].1, codeRegs[registers[ip]].2, codeRegs[registers[ip]].3], registers: &registers)
+                registers[ip] += 1
+                
+                if registers[ip] == 28 {
+                    return "\(registers[2])"
+                }
+            }
+//        }
+        
+        return ""
+    }
+    
+    public override func part2() -> String {
+        let ip = 4
+        
+        let codeRegs = input.components(separatedBy: .newlines).map { line -> (InstructionCode, Int, Int, Int) in
+            let components = String(line).components(separatedBy: .whitespaces)
+            let instructionCode = InstructionCode.inst(from: components[0])
+            let (a, b, c) = (Int(components[1])!, Int(components[2])!, Int(components[3])!)
+            return (instructionCode, a, b, c)
+        }
+        
+        var seen = Set<Int>()
+        var last = -1
+        var registers: [Int] = [0,0,0,0,0,0]
+        registers[ip] = 0
+        
+        // 14626276
+        for _ in (0...) {
             codeRegs[registers[ip]].0.operate([codeRegs[registers[ip]].0.rawValue, codeRegs[registers[ip]].1, codeRegs[registers[ip]].2, codeRegs[registers[ip]].3], registers: &registers)
             registers[ip] += 1
-
+            
             if registers[ip] == 28 {
-                print("\(registers)")
+                if seen.contains(registers[2]) {
+                    return "\(last)"
+                }
+                seen.insert(registers[2])
+                last = registers[2]
             }
         }
         
@@ -103,7 +136,7 @@ seti 5 6 4
         l25: goto 18
         l26: registers[5] = registers[3]
         l27: goto 8
-        l28: registers[3] = registers[2] == registers[0] ? 1 : 0 // this is a clue! if reg 0 is equal to reg2 then it'll crash, so pay attention to reg2
+        l28: registers[3] = registers[2] == registers[0] ? 1 : 0 // if reg 0 is equal to reg2 then it'll crash, so pay attention to reg2
         l29: registers[4] = registers[3] + registers[4]
         if registers[3] == 1 ? {
             goto l31 // ❌
@@ -113,8 +146,4 @@ seti 5 6 4
         l30: goto 6
     }
      */
-    
-    public override func part2() -> String {
-        return super.part2()
-    }
 }
