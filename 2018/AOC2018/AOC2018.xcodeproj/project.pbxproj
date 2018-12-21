@@ -78,6 +78,7 @@
 		B1C620D721BCC5FB00FB2506 /* BorderPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620D621BCC5FB00FB2506 /* BorderPoints.swift */; };
 		B1C620DF21C0230500FB2506 /* Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620DE21C0230500FB2506 /* Sum.swift */; };
 		B1C620E121C023AF00FB2506 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620E021C023AF00FB2506 /* Safe.swift */; };
+		B1D03D6A21CC92CE004200AD /* Chunks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D03D6921CC92CD004200AD /* Chunks.swift */; };
 		B1F3ECAA21C0A941007B1771 /* CircularList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3ECA921C0A941007B1771 /* CircularList.swift */; };
 		B1F3ECAC21C0A94F007B1771 /* CircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3ECAB21C0A94F007B1771 /* CircularListTests.swift */; };
 /* End PBXBuildFile section */
@@ -192,6 +193,7 @@
 		B1C620D621BCC5FB00FB2506 /* BorderPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderPoints.swift; sourceTree = "<group>"; };
 		B1C620DE21C0230500FB2506 /* Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sum.swift; sourceTree = "<group>"; };
 		B1C620E021C023AF00FB2506 /* Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
+		B1D03D6921CC92CD004200AD /* Chunks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chunks.swift; sourceTree = "<group>"; };
 		B1F3ECA921C0A941007B1771 /* CircularList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularList.swift; sourceTree = "<group>"; };
 		B1F3ECAB21C0A94F007B1771 /* CircularListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,6 +322,7 @@
 				B1F3ECAB21C0A94F007B1771 /* CircularListTests.swift */,
 				B157591621C4BBCF008C299C /* PermutationIterator.swift */,
 				B15C7C8421C55E7B00678272 /* Position.swift */,
+				B1D03D6921CC92CD004200AD /* Chunks.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				B163851621B3A72F0011B7D4 /* CountWhere.swift in Sources */,
 				B113B7AE21B34F9100D2B9F5 /* Input.swift in Sources */,
 				B113B7A421B34DB200D2B9F5 /* Day1.swift in Sources */,
+				B1D03D6A21CC92CE004200AD /* Chunks.swift in Sources */,
 				B163859921B6253E0011B7D4 /* Day5.swift in Sources */,
 				B16385BD21B6253E0011B7D4 /* Day6.swift in Sources */,
 				B113B7A621B34DB800D2B9F5 /* Day2.swift in Sources */,
