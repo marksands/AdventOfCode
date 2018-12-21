@@ -11,4 +11,8 @@ class AOC2018_Day21_Tests: XCTestCase {
     func testPart2() {
         XCTAssertEqual("14626276", day.part2())
     }
+    
+    func testDisassembly() {
+        day.disassemble()
+    }
 }
