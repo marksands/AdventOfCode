@@ -7,8 +7,4 @@ class AOC2018_Day25_Tests: XCTestCase {
     func testPart1() {
         XCTAssertEqual("TBD", day.part1())
     }
-    
-    func testPart2() {
-        XCTAssertEqual("TBD", day.part2())
-    }
 }
