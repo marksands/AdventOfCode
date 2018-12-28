@@ -33,7 +33,7 @@ public struct Position: Equatable, Hashable {
                 south().west(), south(), south().east()]
     }
     
-    public func manhattenDistance(to p2: Position) -> Int {
+    public func manhattanDistance(to p2: Position) -> Int {
         return abs(Int(w - p2.w)) + abs(Int(z - p2.z)) + abs(Int(y - p2.y)) + abs(Int(x - p2.x))
     }
     

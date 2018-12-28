@@ -4,12 +4,12 @@ class Constellation {
     var positions: [Position] = []
     
     func isWithinRange(_ position: Position) -> Bool {
-        return positions.reduce(false) { $0 || $1.manhattenDistance(to: position) <= 3 }
+        return positions.reduce(false) { $0 || $1.manhattanDistance(to: position) <= 3 }
     }
     
     func isWithinRange(of constellation: Constellation) -> Bool {
         return positions.reduce(false) { (seed, position) in
-            seed || constellation.positions.reduce(false) { $0 || $1.manhattenDistance(to: position) <= 3 }
+            seed || constellation.positions.reduce(false) { $0 || $1.manhattanDistance(to: position) <= 3 }
         }
     }
     

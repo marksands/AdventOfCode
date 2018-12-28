@@ -22,7 +22,7 @@ public final class Day23: Day {
         let largestRadiusBot = nanobots.max(by: { $0.radius < $1.radius })!
         
         let count = nanobots.reduce(0) {
-            $0 + ($1.position.manhattenDistance(to: largestRadiusBot.position) <= largestRadiusBot.radius ? 1 : 0)
+            $0 + ($1.position.manhattanDistance(to: largestRadiusBot.position) <= largestRadiusBot.radius ? 1 : 0)
         }
         
         return "\(count)"
@@ -41,8 +41,8 @@ public final class Day23: Day {
                 stride(from: yRange.lowerBound, to: yRange.upperBound, by: step).forEach { y in
                     stride(from: zRange.lowerBound, to: zRange.upperBound, by: step).forEach { z in
                         let position = Position(x: x, y: y, z: z)
-                        let count = self.nanobots.count(where: { $0.position.manhattenDistance(to: position) <= $0.radius })
-                        if count > maxCount || (count == maxCount && position.manhattenDistance(to: .zero) < coordinate.manhattenDistance(to: .zero)) {
+                        let count = self.nanobots.count(where: { $0.position.manhattanDistance(to: position) <= $0.radius })
+                        if count > maxCount || (count == maxCount && position.manhattanDistance(to: .zero) < coordinate.manhattanDistance(to: .zero)) {
                             print("Got \(count) for \(position)")
                             maxCount = count
                             coordinate = position
@@ -58,6 +58,6 @@ public final class Day23: Day {
             zRange = (coordinate.z - range)...(coordinate.z + range)
         }
         
-        return "\(coordinate.manhattenDistance(to: .zero))"
+        return "\(coordinate.manhattanDistance(to: .zero))"
     }
 }
