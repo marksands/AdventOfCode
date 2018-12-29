@@ -1,5 +1,5 @@
 extension Sequence {
-    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
+    public func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
         var count = 0
         for element in self {
             if try predicate(element) {

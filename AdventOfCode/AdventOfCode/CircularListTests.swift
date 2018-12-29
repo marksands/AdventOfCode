@@ -1,5 +1,5 @@
 import XCTest
-import AOC2018
+import AdventOfCode
 
 class CircularListTests: XCTestCase {
     func testCanCreateNewList() {

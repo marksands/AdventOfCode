@@ -5,6 +5,9 @@
       location = "group:Sandbox.playground">
    </FileRef>
    <FileRef
-      location = "group:AOC2018.xcodeproj">
+      location = "group:AdventOfCode/AdventOfCode.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AOC2018/AOC2018.xcodeproj">
    </FileRef>
 </Workspace>
