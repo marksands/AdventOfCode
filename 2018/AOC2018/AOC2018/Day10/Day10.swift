@@ -1,16 +1,16 @@
 import Foundation
 
-public struct PointInfo {
-    let position: CGPoint
-    let velocity: CGSize
-    
-    func position(atTime time: Int) -> CGPoint {
-        let t = CGFloat(time)
-        return CGPoint(x: position.x + velocity.width * t, y: position.y + velocity.height * t)
-    }
-}
-
 public final class Day10: Day {
+    struct PointInfo {
+        let position: CGPoint
+        let velocity: CGSize
+        
+        func position(atTime time: Int) -> CGPoint {
+            let t = CGFloat(time)
+            return CGPoint(x: position.x + velocity.width * t, y: position.y + velocity.height * t)
+        }
+    }
+    
     private let points: [PointInfo]
     
     public override init() {
@@ -31,20 +31,22 @@ public final class Day10: Day {
     }
     
     public override func part1() -> String {
-        (8_000..<10_500).forEach { tick in
+        //(8_000..<10_500).forEach { tick in
+        let tick = 10240
             let adjustedPoints = points.map { $0.position(atTime: tick) }
             if adjustedPoints.allSatisfy({ $0.x > 0 && $0.y > 0 }) {
                 print("seconds: \(tick)")
                 printPoints(adjustedPoints)
             }
-        }
+        //}
         
-        return "TBD"
+        return "RLEZNRAN"
     }
     
     
     public override func part2() -> String {
-        return super.part2()
+        // see part1
+        return "10240"
     }
     
     private func printPoints(_ points: [CGPoint]) {

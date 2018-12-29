@@ -6,11 +6,11 @@ public final class Day3: Day {
     
     public override init() {
         let rows = Input().trimmedInputCharactersByNewlines()
-        let regex = Regex(pattern: "^\\#(\\d+) @ (\\d+),(\\d+): (\\d+)x(\\d+)$")
+        let regex = Regex(pattern: "^\\#\\d+ @ (\\d+),(\\d+): (\\d+)x(\\d+)$")
         rects = rows.compactMap {
             guard let match = regex.matches(in: $0) else { return nil }
-            let values = match.matches.dropFirst().compactMap(Int.init)
-            return CGRect(x: values[1], y: values[2], width: values[3], height: values[4])
+            let values = match.matches.compactMap(Int.init)
+            return CGRect(x: values[0], y: values[1], width: values[2], height: values[3])
         }
     }
     

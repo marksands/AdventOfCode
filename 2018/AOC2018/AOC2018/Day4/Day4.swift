@@ -9,7 +9,6 @@ public final class Day4: Day {
         let df = DateFormatter()
         df.dateFormat = "y-MM-dd HH:mm"
         df.timeZone = TimeZone(secondsFromGMT: 0)
-        df.date(from: "1518-11-01 00:00")
 
         let guardIdRegex = Regex(pattern: "Guard #(\\d+) begins shift")
         let dateRegex = Regex(pattern: "^\\[(\\d{4}-\\d{2}-\\d{2}) (\\d+):(\\d+)\\]")
