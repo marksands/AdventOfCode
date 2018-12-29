@@ -3,7 +3,7 @@ import Foundation
 public final class Day7: Day {
     private var dependencies: [String: [String]] = [:]
     private var stepRank: [String: Int] = [:]
-    private var priorityQueue: [String] = []
+    private var priorityQueue = PriorityQueue<String>(sort: <)
     private var workers: [String: Int] = [:]
     private var totalTime = 0
 
@@ -20,7 +20,9 @@ public final class Day7: Day {
                 stepRank[$0[1]] = stepRank[$0[1]] ?? 0
         }
         
-        priorityQueue = stepRank.filter { $0.value == 0 }.map { $0.key }.sorted()
+        stepRank.filter { $0.value == 0 }.map { $0.key }.forEach { rank in
+            priorityQueue.enqueue(rank)
+        }
     }
 
     public override func part1() -> String {
@@ -46,8 +48,7 @@ public final class Day7: Day {
                 stepRank[child]? -= 1
                 
                 if stepRank[child] == 0 {
-                    priorityQueue.append(child)
-                    priorityQueue.sort()
+                    priorityQueue.enqueue(child)
                 }
             }
             
@@ -59,7 +60,7 @@ public final class Day7: Day {
     
     private func updateWorkers(maxWorkerCount: Int) {
         while workers.keys.count < maxWorkerCount && priorityQueue.count > 0 {
-            let node = priorityQueue.removeFirst()
+            let node = priorityQueue.dequeue()!
             workers[node] = totalTime + 60 + uppercaseLetters.exploded().firstIndex(of: node)! + 1
         }
     }

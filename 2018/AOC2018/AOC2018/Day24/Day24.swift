@@ -125,15 +125,15 @@ public final class Day24: Day {
                     }
             }
 
-            var attacks = 0
+            var attacked = false
             attackers.sorted(by: { $0.key.initiative > $1.key.initiative }).forEach { attacker, defender in
                 battle(attacker, defender)
-                attacks += 1
+                attacked = true
                 infection.removeAll(where: { $0.quantity <= 0 })
                 immuneSystem.removeAll(where: { $0.quantity <= 0 })
             }
             
-            if attacks == 0 {
+            if !attacked {
                 immuneSystem.removeAll()
             }
         }
@@ -145,11 +145,9 @@ public final class Day24: Day {
     }
     
     private func bestTarget(for unit: Unit, from enemies: [Unit]) -> Unit? {
-        let sortDescriptor: (Unit, Unit) -> Bool = {
+        return enemies.sorted(by: {
             ($0.damageDealt(by: unit), $0.effectivePower, $0.initiative) > ($1.damageDealt(by: unit), $1.effectivePower, $1.initiative)
-        }
-
-        return enemies.sorted(by: sortDescriptor).filter { $0.damageDealt(by: unit) > 0 }.first
+        }).filter { $0.damageDealt(by: unit) > 0 }.first
     }
     
     public override func part1() -> String {
@@ -159,14 +157,12 @@ public final class Day24: Day {
     
     public override func part2() -> String {
         var boost = 1
-        var result = 0
         repeat {
-            fight(boost: boost)
-            result = immuneSystem.map { $0.quantity }.sum()
             reset()
+            fight(boost: boost)
             boost += 1
-        } while (result == 0)
+        } while immuneSystem.reduce(0, { $0 + $1.quantity }) == 0
         
-        return String(result)
+        return String(immuneSystem.reduce(0, { $0 + $1.quantity }))
     }
 }

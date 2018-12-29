@@ -1,7 +1,7 @@
 import Foundation
 
 public final class Day1: Day {
-    private let frequencies = Input().inputIntegersByNewlines()
+    private let frequencies = Input().inputCharactersByNewlines().compactMap(Int.init)
     
     public override func part1() -> String {
         return "\(frequencies.sum())"
