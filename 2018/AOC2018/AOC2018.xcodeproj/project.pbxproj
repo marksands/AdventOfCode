@@ -74,6 +74,8 @@
 		B16385DB21B627120011B7D4 /* Day24Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163856521B6253D0011B7D4 /* Day24Tests.swift */; };
 		B16385DC21B627120011B7D4 /* Day25Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163857121B6253D0011B7D4 /* Day25Tests.swift */; };
 		B16385DD21B627180011B7D4 /* Day4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163852F21B624A00011B7D4 /* Day4Tests.swift */; };
+		B1BEB5AF21D5388600BAAE26 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEB5AE21D5388600BAAE26 /* Heap.swift */; };
+		B1BEB5B121D538AC00BAAE26 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEB5B021D538AC00BAAE26 /* PriorityQueue.swift */; };
 		B1C620D521BCC57000FB2506 /* AllPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620D421BCC57000FB2506 /* AllPoints.swift */; };
 		B1C620D721BCC5FB00FB2506 /* BorderPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620D621BCC5FB00FB2506 /* BorderPoints.swift */; };
 		B1C620DF21C0230500FB2506 /* Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C620DE21C0230500FB2506 /* Sum.swift */; };
@@ -189,6 +191,8 @@
 		B163858521B6253D0011B7D4 /* Day22Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day22Tests.swift; sourceTree = "<group>"; };
 		B163858621B6253D0011B7D4 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B163858721B6253D0011B7D4 /* Day22.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day22.swift; sourceTree = "<group>"; };
+		B1BEB5AE21D5388600BAAE26 /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		B1BEB5B021D538AC00BAAE26 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
 		B1C620D421BCC57000FB2506 /* AllPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPoints.swift; sourceTree = "<group>"; };
 		B1C620D621BCC5FB00FB2506 /* BorderPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderPoints.swift; sourceTree = "<group>"; };
 		B1C620DE21C0230500FB2506 /* Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sum.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 				B157591621C4BBCF008C299C /* PermutationIterator.swift */,
 				B15C7C8421C55E7B00678272 /* Position.swift */,
 				B1D03D6921CC92CD004200AD /* Chunks.swift */,
+				B1BEB5AE21D5388600BAAE26 /* Heap.swift */,
+				B1BEB5B021D538AC00BAAE26 /* PriorityQueue.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -671,9 +677,11 @@
 				B163851621B3A72F0011B7D4 /* CountWhere.swift in Sources */,
 				B113B7AE21B34F9100D2B9F5 /* Input.swift in Sources */,
 				B113B7A421B34DB200D2B9F5 /* Day1.swift in Sources */,
+				B1BEB5B121D538AC00BAAE26 /* PriorityQueue.swift in Sources */,
 				B1D03D6A21CC92CE004200AD /* Chunks.swift in Sources */,
 				B163859921B6253E0011B7D4 /* Day5.swift in Sources */,
 				B16385BD21B6253E0011B7D4 /* Day6.swift in Sources */,
+				B1BEB5AF21D5388600BAAE26 /* Heap.swift in Sources */,
 				B113B7A621B34DB800D2B9F5 /* Day2.swift in Sources */,
 				B15C7C8521C55E7B00678272 /* Position.swift in Sources */,
 				B163851821B471EC0011B7D4 /* IntersectionOfStrings.swift in Sources */,
