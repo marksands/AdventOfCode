@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10E1A5E21D73BAC00D8D3CB /* AdventOfCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10E1A5D21D73BAC00D8D3CB /* AdventOfCode.framework */; };
 		B113B78C21B34D0E00D2B9F5 /* AOC2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B113B78221B34D0E00D2B9F5 /* AOC2018.framework */; };
 		B113B79321B34D0E00D2B9F5 /* AOC2018.h in Headers */ = {isa = PBXBuildFile; fileRef = B113B78521B34D0E00D2B9F5 /* AOC2018.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B113B7A421B34DB200D2B9F5 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B113B7A321B34DB200D2B9F5 /* Day1.swift */; };
@@ -59,7 +60,6 @@
 		B16385DB21B627120011B7D4 /* Day24Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163856521B6253D0011B7D4 /* Day24Tests.swift */; };
 		B16385DC21B627120011B7D4 /* Day25Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163857121B6253D0011B7D4 /* Day25Tests.swift */; };
 		B16385DD21B627180011B7D4 /* Day4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163852F21B624A00011B7D4 /* Day4Tests.swift */; };
-		B18EBBCA21D738D600B5FA4F /* AdventOfCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EBBC921D738D600B5FA4F /* AdventOfCode.framework */; };
 		B18EBBCC21D738EA00B5FA4F /* pch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBCB21D738EA00B5FA4F /* pch.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B10E1A5D21D73BAC00D8D3CB /* AdventOfCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdventOfCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B113B78221B34D0E00D2B9F5 /* AOC2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B113B78521B34D0E00D2B9F5 /* AOC2018.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2018.h; sourceTree = "<group>"; };
 		B113B78621B34D0E00D2B9F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B18EBBCA21D738D600B5FA4F /* AdventOfCode.framework in Frameworks */,
+				B10E1A5E21D73BAC00D8D3CB /* AdventOfCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +494,7 @@
 		B18EBBC821D738D600B5FA4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B10E1A5D21D73BAC00D8D3CB /* AdventOfCode.framework */,
 				B18EBBC921D738D600B5FA4F /* AdventOfCode.framework */,
 			);
 			name = Frameworks;

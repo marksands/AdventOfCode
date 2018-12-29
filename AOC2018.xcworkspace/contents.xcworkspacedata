@@ -8,6 +8,9 @@
       location = "group:AdventOfCode/AdventOfCode.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:AOC2015/AOC2015.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AOC2018/AOC2018.xcodeproj">
    </FileRef>
 </Workspace>
