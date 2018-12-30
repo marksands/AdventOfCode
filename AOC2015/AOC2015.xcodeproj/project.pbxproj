@@ -16,6 +16,8 @@
 		B10E1A8D21D7D29500D8D3CB /* Day4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A8921D7D28C00D8D3CB /* Day4Tests.swift */; };
 		B10E1A9521D8264500D8D3CB /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A9221D8264500D8D3CB /* Day5.swift */; };
 		B10E1A9821D8267400D8D3CB /* Day5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A9121D8264500D8D3CB /* Day5Tests.swift */; };
+		B15E35BB21D886F400B66F9B /* Day6.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E35B821D886F400B66F9B /* Day6.swift */; };
+		B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E35B921D886F400B66F9B /* Day6Tests.swift */; };
 		B18EBBE121D73A4800B5FA4F /* AOC2015.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EBBD721D73A4800B5FA4F /* AOC2015.framework */; };
 		B18EBBE821D73A4800B5FA4F /* AOC2015.h in Headers */ = {isa = PBXBuildFile; fileRef = B18EBBDA21D73A4800B5FA4F /* AOC2015.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF221D73A6C00B5FA4F /* Day1.swift */; };
@@ -47,6 +49,9 @@
 		B10E1A9121D8264500D8D3CB /* Day5Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day5Tests.swift; sourceTree = "<group>"; };
 		B10E1A9221D8264500D8D3CB /* Day5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day5.swift; sourceTree = "<group>"; };
 		B10E1A9321D8264500D8D3CB /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B15E35B721D886F400B66F9B /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B15E35B821D886F400B66F9B /* Day6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6.swift; sourceTree = "<group>"; };
+		B15E35B921D886F400B66F9B /* Day6Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6Tests.swift; sourceTree = "<group>"; };
 		B18EBBD721D73A4800B5FA4F /* AOC2015.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2015.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18EBBDA21D73A4800B5FA4F /* AOC2015.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2015.h; sourceTree = "<group>"; };
 		B18EBBDB21D73A4800B5FA4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +123,16 @@
 			path = Day5;
 			sourceTree = "<group>";
 		};
+		B15E35B621D886F400B66F9B /* Day6 */ = {
+			isa = PBXGroup;
+			children = (
+				B15E35B821D886F400B66F9B /* Day6.swift */,
+				B15E35B921D886F400B66F9B /* Day6Tests.swift */,
+				B15E35B721D886F400B66F9B /* input */,
+			);
+			path = Day6;
+			sourceTree = "<group>";
+		};
 		B18EBBCD21D73A4800B5FA4F = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +161,7 @@
 				B10E1A7E21D7CEB100D8D3CB /* Day3 */,
 				B10E1A8621D7D28C00D8D3CB /* Day4 */,
 				B10E1A9021D8264500D8D3CB /* Day5 */,
+				B15E35B621D886F400B66F9B /* Day6 */,
 				B18EBBDB21D73A4800B5FA4F /* Info.plist */,
 			);
 			path = AOC2015;
@@ -289,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B10E1A7A21D73FB700D8D3CB /* Day2.swift in Sources */,
+				B15E35BB21D886F400B66F9B /* Day6.swift in Sources */,
 				B10E1A8321D7CEB100D8D3CB /* Day3.swift in Sources */,
 				B10E1A8A21D7D28C00D8D3CB /* Day4.swift in Sources */,
 				B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */,
@@ -303,6 +320,7 @@
 				B18EBBF721D73A8500B5FA4F /* Day1Tests.swift in Sources */,
 				B10E1A7D21D73FC600D8D3CB /* Day2Tests.swift in Sources */,
 				B10E1A8D21D7D29500D8D3CB /* Day4Tests.swift in Sources */,
+				B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */,
 				B10E1A8521D7CEEA00D8D3CB /* Day3Tests.swift in Sources */,
 				B10E1A9821D8267400D8D3CB /* Day5Tests.swift in Sources */,
 			);
