@@ -4,8 +4,10 @@ public struct Match {
     public let matches: [String]
     
     public init(string: String, result: NSTextCheckingResult) {
-        matches = (0..<result.numberOfRanges).map { index in
-            (string as NSString).substring(with: result.range(at: index))
+        matches = (0..<result.numberOfRanges).compactMap { index in
+            let range = result.range(at: index)
+            guard range.location != NSNotFound else { return nil }
+            return (string as NSString).substring(with: range)
         }
     }
     
