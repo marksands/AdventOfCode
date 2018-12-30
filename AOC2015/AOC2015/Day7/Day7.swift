@@ -47,27 +47,28 @@ public final class Day7: Day {
     }
     
     public override func part1() -> String {
-        var wires: [String: Int] = [:]
-        
-        circuits.forEach { circuit in
-            setWire(circuit, wires: &wires)
-        }
-        
-        return String(wires["a"]!)
+        return String(runCircuit()["a"]!)
     }
 
     public override func part2() -> String {
-        return "TBD"
+        return String(runCircuit(wireB: runCircuit()["a"]!)["a"]!)
+    }
+    
+    private func runCircuit(wireB: Int? = nil) -> [String: Int] {
+        var wires: [String: Int] = [:]
+        wires["b"] = wireB
+        circuits.forEach { circuit in
+            setWire(circuit, wires: &wires)
+        }
+        return wires
     }
     
     private func findWireValue(_ value: String, from wires: inout [String: Int]) -> Int {
         if let result = Int(value) ?? wires[value] {
             return result
         }
-        
         let circuitOutputtingValue = circuits.first(where: { $0.output == value })!
         setWire(circuitOutputtingValue, wires: &wires)
-        
         return findWireValue(value, from: &wires)
     }
     
