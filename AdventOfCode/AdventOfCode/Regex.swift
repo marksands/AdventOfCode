@@ -31,4 +31,12 @@ public final class Regex {
         }
         return Match(string: string, result: match)
     }
+    
+    public func matches(_ string: String) -> Bool {
+        return matches(in: string)?.matches.first == string
+    }
+}
+
+public func ~= (left: Regex, right: String) -> Bool {
+    return left.matches(right)
 }
