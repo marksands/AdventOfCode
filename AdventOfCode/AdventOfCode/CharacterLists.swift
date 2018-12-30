@@ -1,2 +1,3 @@
-public var lowercaseLetters: String = "abcdefghijklmnopqrstuvwxyz"
-public var uppercaseLetters: String = lowercaseLetters.uppercased()
+public var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
+public var uppercaseLetters = lowercaseLetters.uppercased()
+public var vowels = "aeiou"
