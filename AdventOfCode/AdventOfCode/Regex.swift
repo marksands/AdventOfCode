@@ -37,6 +37,16 @@ public final class Regex {
     public func matches(_ string: String) -> Bool {
         return matches(in: string)?.matches.first == string
     }
+    
+    public func allMatches(_ string: String) -> [Match] {
+        var result: [Match] = []
+        regularExpression.enumerateMatches(in: string, options: [.withTransparentBounds], range: NSMakeRange(0, string.utf16.count), using: { textCheckingResult, matchingFlags, stop in
+            if let textCheckingResult = textCheckingResult {
+                result.append(Match(string: string, result: textCheckingResult))
+            }
+        })
+        return result
+    }
 }
 
 public func ~= (left: Regex, right: String) -> Bool {
