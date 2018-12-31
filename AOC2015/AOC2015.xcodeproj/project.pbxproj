@@ -171,9 +171,9 @@
 		B15E360621DA752700B66F9B /* Day9 */ = {
 			isa = PBXGroup;
 			children = (
+				B15E360921DA752700B66F9B /* Day9.swift */,
 				B15E360721DA752700B66F9B /* Day9Tests.swift */,
 				B15E360821DA752700B66F9B /* input */,
-				B15E360921DA752700B66F9B /* Day9.swift */,
 			);
 			path = Day9;
 			sourceTree = "<group>";
