@@ -24,6 +24,8 @@
 		B15E360521D9673E00B66F9B /* Day8Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E360121D9671900B66F9B /* Day8Tests.swift */; };
 		B15E360C21DA752700B66F9B /* Day9.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E360921DA752700B66F9B /* Day9.swift */; };
 		B15E360D21DA754A00B66F9B /* Day9Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E360721DA752700B66F9B /* Day9Tests.swift */; };
+		B15E361321DAC00D00B66F9B /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E361021DAC00D00B66F9B /* Day10.swift */; };
+		B15E361521DAC04800B66F9B /* Day10Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E361121DAC00D00B66F9B /* Day10Tests.swift */; };
 		B18EBBE121D73A4800B5FA4F /* AOC2015.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EBBD721D73A4800B5FA4F /* AOC2015.framework */; };
 		B18EBBE821D73A4800B5FA4F /* AOC2015.h in Headers */ = {isa = PBXBuildFile; fileRef = B18EBBDA21D73A4800B5FA4F /* AOC2015.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF221D73A6C00B5FA4F /* Day1.swift */; };
@@ -67,6 +69,9 @@
 		B15E360721DA752700B66F9B /* Day9Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day9Tests.swift; sourceTree = "<group>"; };
 		B15E360821DA752700B66F9B /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B15E360921DA752700B66F9B /* Day9.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day9.swift; sourceTree = "<group>"; };
+		B15E360F21DAC00D00B66F9B /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B15E361021DAC00D00B66F9B /* Day10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
+		B15E361121DAC00D00B66F9B /* Day10Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day10Tests.swift; sourceTree = "<group>"; };
 		B18EBBD721D73A4800B5FA4F /* AOC2015.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2015.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18EBBDA21D73A4800B5FA4F /* AOC2015.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2015.h; sourceTree = "<group>"; };
 		B18EBBDB21D73A4800B5FA4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +183,16 @@
 			path = Day9;
 			sourceTree = "<group>";
 		};
+		B15E360E21DAC00D00B66F9B /* Day10 */ = {
+			isa = PBXGroup;
+			children = (
+				B15E361021DAC00D00B66F9B /* Day10.swift */,
+				B15E361121DAC00D00B66F9B /* Day10Tests.swift */,
+				B15E360F21DAC00D00B66F9B /* input */,
+			);
+			path = Day10;
+			sourceTree = "<group>";
+		};
 		B18EBBCD21D73A4800B5FA4F = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +225,7 @@
 				B15E35F521D93ED000B66F9B /* Day7 */,
 				B15E35FE21D9671900B66F9B /* Day8 */,
 				B15E360621DA752700B66F9B /* Day9 */,
+				B15E360E21DAC00D00B66F9B /* Day10 */,
 				B18EBBDB21D73A4800B5FA4F /* Info.plist */,
 			);
 			path = AOC2015;
@@ -357,6 +373,7 @@
 				B15E35BB21D886F400B66F9B /* Day6.swift in Sources */,
 				B15E360221D9671900B66F9B /* Day8.swift in Sources */,
 				B15E35F921D93ED100B66F9B /* Day7.swift in Sources */,
+				B15E361321DAC00D00B66F9B /* Day10.swift in Sources */,
 				B10E1A8321D7CEB100D8D3CB /* Day3.swift in Sources */,
 				B10E1A8A21D7D28C00D8D3CB /* Day4.swift in Sources */,
 				B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */,
@@ -377,6 +394,7 @@
 				B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */,
 				B10E1A8521D7CEEA00D8D3CB /* Day3Tests.swift in Sources */,
 				B10E1A9821D8267400D8D3CB /* Day5Tests.swift in Sources */,
+				B15E361521DAC04800B66F9B /* Day10Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
