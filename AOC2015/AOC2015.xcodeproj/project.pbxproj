@@ -26,6 +26,9 @@
 		B15E361321DAC00D00B66F9B /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E361021DAC00D00B66F9B /* Day10.swift */; };
 		B15E361821DB3C4400B66F9B /* Day9Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E360721DA752700B66F9B /* Day9Tests.swift */; };
 		B15E361921DB3C6900B66F9B /* Day10Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E361121DAC00D00B66F9B /* Day10Tests.swift */; };
+		B17A299A21DF239A00818B73 /* input in Resources */ = {isa = PBXBuildFile; fileRef = B17A299721DF239A00818B73 /* input */; };
+		B17A299B21DF239A00818B73 /* Day12.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A299821DF239A00818B73 /* Day12.swift */; };
+		B17A299D21DF23C000818B73 /* Day12Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A299921DF239A00818B73 /* Day12Tests.swift */; };
 		B18EBBE121D73A4800B5FA4F /* AOC2015.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EBBD721D73A4800B5FA4F /* AOC2015.framework */; };
 		B18EBBE821D73A4800B5FA4F /* AOC2015.h in Headers */ = {isa = PBXBuildFile; fileRef = B18EBBDA21D73A4800B5FA4F /* AOC2015.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF221D73A6C00B5FA4F /* Day1.swift */; };
@@ -72,6 +75,9 @@
 		B15E360F21DAC00D00B66F9B /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B15E361021DAC00D00B66F9B /* Day10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
 		B15E361121DAC00D00B66F9B /* Day10Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day10Tests.swift; sourceTree = "<group>"; };
+		B17A299721DF239A00818B73 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B17A299821DF239A00818B73 /* Day12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day12.swift; sourceTree = "<group>"; };
+		B17A299921DF239A00818B73 /* Day12Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day12Tests.swift; sourceTree = "<group>"; };
 		B18EBBD721D73A4800B5FA4F /* AOC2015.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2015.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18EBBDA21D73A4800B5FA4F /* AOC2015.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2015.h; sourceTree = "<group>"; };
 		B18EBBDB21D73A4800B5FA4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -193,6 +199,16 @@
 			path = Day10;
 			sourceTree = "<group>";
 		};
+		B17A299621DF239A00818B73 /* Day12 */ = {
+			isa = PBXGroup;
+			children = (
+				B17A299721DF239A00818B73 /* input */,
+				B17A299821DF239A00818B73 /* Day12.swift */,
+				B17A299921DF239A00818B73 /* Day12Tests.swift */,
+			);
+			path = Day12;
+			sourceTree = "<group>";
+		};
 		B18EBBCD21D73A4800B5FA4F = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +242,7 @@
 				B15E35FE21D9671900B66F9B /* Day8 */,
 				B15E360621DA752700B66F9B /* Day9 */,
 				B15E360E21DAC00D00B66F9B /* Day10 */,
+				B17A299621DF239A00818B73 /* Day12 */,
 				B18EBBDB21D73A4800B5FA4F /* Info.plist */,
 			);
 			path = AOC2015;
@@ -351,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17A299A21DF239A00818B73 /* input in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +393,7 @@
 				B15E35F921D93ED100B66F9B /* Day7.swift in Sources */,
 				B15E361321DAC00D00B66F9B /* Day10.swift in Sources */,
 				B10E1A8321D7CEB100D8D3CB /* Day3.swift in Sources */,
+				B17A299B21DF239A00818B73 /* Day12.swift in Sources */,
 				B10E1A8A21D7D28C00D8D3CB /* Day4.swift in Sources */,
 				B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */,
 				B10E1A9521D8264500D8D3CB /* Day5.swift in Sources */,
@@ -393,6 +412,7 @@
 				B10E1A8D21D7D29500D8D3CB /* Day4Tests.swift in Sources */,
 				B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */,
 				B10E1A8521D7CEEA00D8D3CB /* Day3Tests.swift in Sources */,
+				B17A299D21DF23C000818B73 /* Day12Tests.swift in Sources */,
 				B10E1A9821D8267400D8D3CB /* Day5Tests.swift in Sources */,
 				B15E361921DB3C6900B66F9B /* Day10Tests.swift in Sources */,
 			);
