@@ -1,10 +1,8 @@
 extension Sequence {
     public func scan<ResultElement>(_ initial: ResultElement, _ nextPartialResult: (ResultElement, Element) -> ResultElement) -> [ResultElement] {
-        var result = [initial]
-        for x in self {
-            result.append(nextPartialResult(result.last!, x))
-        }
-        return result
+        return reduce(into: [initial], { result, next in
+            result.append(nextPartialResult(result.last!, next))
+        })
     }
 }
 
