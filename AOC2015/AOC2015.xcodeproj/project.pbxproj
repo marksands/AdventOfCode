@@ -34,6 +34,8 @@
 		B18EBBF721D73A8500B5FA4F /* Day1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF621D73A8500B5FA4F /* Day1Tests.swift */; };
 		B1BF4096228A1EDE00A0CE40 /* Day14.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF4093228A1EDE00A0CE40 /* Day14.swift */; };
 		B1BF4099228A211200A0CE40 /* Day14Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF4092228A1EDE00A0CE40 /* Day14Tests.swift */; };
+		B1CFE50122E2CFF70009188E /* Day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFE50022E2CFF70009188E /* Day13.swift */; };
+		B1CFE50522E2D0270009188E /* Day13Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFE50422E2D0270009188E /* Day13Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,9 @@
 		B1BF4092228A1EDE00A0CE40 /* Day14Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day14Tests.swift; sourceTree = "<group>"; };
 		B1BF4093228A1EDE00A0CE40 /* Day14.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day14.swift; sourceTree = "<group>"; };
 		B1BF4094228A1EDE00A0CE40 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B1CFE50022E2CFF70009188E /* Day13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day13.swift; sourceTree = "<group>"; };
+		B1CFE50222E2D0170009188E /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B1CFE50422E2D0270009188E /* Day13Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day13Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +252,7 @@
 				B15E360621DA752700B66F9B /* Day9 */,
 				B15E360E21DAC00D00B66F9B /* Day10 */,
 				B17A299621DF239A00818B73 /* Day12 */,
+				B1CFE4FF22E2CFE90009188E /* Day13 */,
 				B1BF4091228A1EC000A0CE40 /* Day14 */,
 				B18EBBDB21D73A4800B5FA4F /* Info.plist */,
 			);
@@ -289,6 +295,16 @@
 				B1BF4092228A1EDE00A0CE40 /* Day14Tests.swift */,
 			);
 			path = Day14;
+			sourceTree = "<group>";
+		};
+		B1CFE4FF22E2CFE90009188E /* Day13 */ = {
+			isa = PBXGroup;
+			children = (
+				B1CFE50022E2CFF70009188E /* Day13.swift */,
+				B1CFE50422E2D0270009188E /* Day13Tests.swift */,
+				B1CFE50222E2D0170009188E /* input */,
+			);
+			path = Day13;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +420,7 @@
 				B15E360C21DA752700B66F9B /* Day9.swift in Sources */,
 				B15E35BB21D886F400B66F9B /* Day6.swift in Sources */,
 				B15E360221D9671900B66F9B /* Day8.swift in Sources */,
+				B1CFE50122E2CFF70009188E /* Day13.swift in Sources */,
 				B15E35F921D93ED100B66F9B /* Day7.swift in Sources */,
 				B15E361321DAC00D00B66F9B /* Day10.swift in Sources */,
 				B10E1A8321D7CEB100D8D3CB /* Day3.swift in Sources */,
@@ -429,6 +446,7 @@
 				B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */,
 				B10E1A8521D7CEEA00D8D3CB /* Day3Tests.swift in Sources */,
 				B17A299D21DF23C000818B73 /* Day12Tests.swift in Sources */,
+				B1CFE50522E2D0270009188E /* Day13Tests.swift in Sources */,
 				B10E1A9821D8267400D8D3CB /* Day5Tests.swift in Sources */,
 				B15E361921DB3C6900B66F9B /* Day10Tests.swift in Sources */,
 			);
@@ -580,6 +598,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AOC2015/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -607,6 +626,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AOC2015/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,6 +646,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AOC2015Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -644,6 +665,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AOC2015Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
