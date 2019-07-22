@@ -32,6 +32,8 @@
 		B18EBBE821D73A4800B5FA4F /* AOC2015.h in Headers */ = {isa = PBXBuildFile; fileRef = B18EBBDA21D73A4800B5FA4F /* AOC2015.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF221D73A6C00B5FA4F /* Day1.swift */; };
 		B18EBBF721D73A8500B5FA4F /* Day1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF621D73A8500B5FA4F /* Day1Tests.swift */; };
+		B1A1FA5A22E54F420016DB0C /* Day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5922E54F420016DB0C /* Day15.swift */; };
+		B1A1FA5C22E54F4A0016DB0C /* Day15Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5B22E54F4A0016DB0C /* Day15Tests.swift */; };
 		B1BF4096228A1EDE00A0CE40 /* Day14.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF4093228A1EDE00A0CE40 /* Day14.swift */; };
 		B1BF4099228A211200A0CE40 /* Day14Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF4092228A1EDE00A0CE40 /* Day14Tests.swift */; };
 		B1CFE50122E2CFF70009188E /* Day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFE50022E2CFF70009188E /* Day13.swift */; };
@@ -90,6 +92,9 @@
 		B18EBBF421D73A7600B5FA4F /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B18EBBF621D73A8500B5FA4F /* Day1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1Tests.swift; sourceTree = "<group>"; };
 		B18EBBF921D73AD100B5FA4F /* AdventOfCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdventOfCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A1FA5822E54F3B0016DB0C /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B1A1FA5922E54F420016DB0C /* Day15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day15.swift; sourceTree = "<group>"; };
+		B1A1FA5B22E54F4A0016DB0C /* Day15Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day15Tests.swift; sourceTree = "<group>"; };
 		B1BF4092228A1EDE00A0CE40 /* Day14Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day14Tests.swift; sourceTree = "<group>"; };
 		B1BF4093228A1EDE00A0CE40 /* Day14.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day14.swift; sourceTree = "<group>"; };
 		B1BF4094228A1EDE00A0CE40 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
@@ -254,6 +259,7 @@
 				B17A299621DF239A00818B73 /* Day12 */,
 				B1CFE4FF22E2CFE90009188E /* Day13 */,
 				B1BF4091228A1EC000A0CE40 /* Day14 */,
+				B1A1FA5722E54F2D0016DB0C /* Day15 */,
 				B18EBBDB21D73A4800B5FA4F /* Info.plist */,
 			);
 			path = AOC2015;
@@ -285,6 +291,16 @@
 				B18EBBF921D73AD100B5FA4F /* AdventOfCode.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1A1FA5722E54F2D0016DB0C /* Day15 */ = {
+			isa = PBXGroup;
+			children = (
+				B1A1FA5822E54F3B0016DB0C /* input */,
+				B1A1FA5922E54F420016DB0C /* Day15.swift */,
+				B1A1FA5B22E54F4A0016DB0C /* Day15Tests.swift */,
+			);
+			path = Day15;
 			sourceTree = "<group>";
 		};
 		B1BF4091228A1EC000A0CE40 /* Day14 */ = {
@@ -428,6 +444,7 @@
 				B10E1A8A21D7D28C00D8D3CB /* Day4.swift in Sources */,
 				B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */,
 				B10E1A9521D8264500D8D3CB /* Day5.swift in Sources */,
+				B1A1FA5A22E54F420016DB0C /* Day15.swift in Sources */,
 				B1BF4096228A1EDE00A0CE40 /* Day14.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +459,7 @@
 				B15E35FD21D93EF900B66F9B /* Day7Tests.swift in Sources */,
 				B10E1A7D21D73FC600D8D3CB /* Day2Tests.swift in Sources */,
 				B15E360521D9673E00B66F9B /* Day8Tests.swift in Sources */,
+				B1A1FA5C22E54F4A0016DB0C /* Day15Tests.swift in Sources */,
 				B10E1A8D21D7D29500D8D3CB /* Day4Tests.swift in Sources */,
 				B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */,
 				B10E1A8521D7CEEA00D8D3CB /* Day3Tests.swift in Sources */,

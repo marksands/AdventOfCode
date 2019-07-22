@@ -69,10 +69,10 @@ public final class Day13: Day {
                 
                 if path.count == maxNodes {
                     possibleNodes.enqueue(path)
-                }
-                
-                for neighbor in self.neighbors(of: path) {
-                    queue.append(path + [neighbor])
+                } else {
+                    for neighbor in neighbors(of: path) {
+                        queue.append(path + [neighbor])
+                    }
                 }
             }
         }

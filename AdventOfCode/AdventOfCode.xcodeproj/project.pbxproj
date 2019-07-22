@@ -36,6 +36,8 @@
 		B18EBBC521D7384C00B5FA4F /* BorderPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBAD21D7384C00B5FA4F /* BorderPoints.swift */; };
 		B18EBBC721D7389200B5FA4F /* CircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBAC21D7384C00B5FA4F /* CircularListTests.swift */; };
 		B1A1FA5622E4FE080016DB0C /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5522E4FE080016DB0C /* Dictionary.swift */; };
+		B1A1FA5E22E55B760016DB0C /* IntegerPartitionSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5D22E55B760016DB0C /* IntegerPartitionSum.swift */; };
+		B1A1FA6022E55E2C0016DB0C /* IntegerPartitionSumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5F22E55E2B0016DB0C /* IntegerPartitionSumTests.swift */; };
 		B1B1E11322C5AB3F00F50F2B /* EachWithIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1E11222C5AB3F00F50F2B /* EachWithIndex.swift */; };
 		B1BBD08421E65CDF00ACBBC9 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBD08321E65CDF00ACBBC9 /* Scan.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 		B18EBBAC21D7384C00B5FA4F /* CircularListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularListTests.swift; sourceTree = "<group>"; };
 		B18EBBAD21D7384C00B5FA4F /* BorderPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderPoints.swift; sourceTree = "<group>"; };
 		B1A1FA5522E4FE080016DB0C /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		B1A1FA5D22E55B760016DB0C /* IntegerPartitionSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerPartitionSum.swift; sourceTree = "<group>"; };
+		B1A1FA5F22E55E2B0016DB0C /* IntegerPartitionSumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerPartitionSumTests.swift; sourceTree = "<group>"; };
 		B1B1E11222C5AB3F00F50F2B /* EachWithIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachWithIndex.swift; sourceTree = "<group>"; };
 		B1BBD08321E65CDF00ACBBC9 /* Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +147,8 @@
 				B18EBB7721D737F100B5FA4F /* Info.plist */,
 				B18EBBAA21D7384C00B5FA4F /* Input.swift */,
 				B18EBBA821D7384C00B5FA4F /* IntersectingPoints.swift */,
+				B1A1FA5D22E55B760016DB0C /* IntegerPartitionSum.swift */,
+				B1A1FA5F22E55E2B0016DB0C /* IntegerPartitionSumTests.swift */,
 				B18EBB9E21D7384B00B5FA4F /* IntersectionOfStrings.swift */,
 				B18EBB9821D7384B00B5FA4F /* PermutationIterator.swift */,
 				B18EBB9921D7384B00B5FA4F /* Position.swift */,
@@ -280,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B15E361B21DBD62400B66F9B /* EqualSubsequences.swift in Sources */,
+				B1A1FA5E22E55B760016DB0C /* IntegerPartitionSum.swift in Sources */,
 				B18EBBC221D7384C00B5FA4F /* Input.swift in Sources */,
 				B18EBBB321D7384C00B5FA4F /* Stripping.swift in Sources */,
 				B18EBBAE21D7384C00B5FA4F /* Day.swift in Sources */,
@@ -313,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A1FA6022E55E2C0016DB0C /* IntegerPartitionSumTests.swift in Sources */,
 				B18EBBC721D7389200B5FA4F /* CircularListTests.swift in Sources */,
 				B18EBB8221D737F100B5FA4F /* AdventOfCodeTests.swift in Sources */,
 			);
