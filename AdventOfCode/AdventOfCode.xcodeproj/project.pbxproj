@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B157C65F23522A03000BF7DC /* Slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C65E23522A03000BF7DC /* Slice.swift */; };
+		B157C66123522ACC000BF7DC /* EachPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C66023522ACC000BF7DC /* EachPair.swift */; };
 		B15E361B21DBD62400B66F9B /* EqualSubsequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E361A21DBD62400B66F9B /* EqualSubsequences.swift */; };
 		B18EBB7D21D737F100B5FA4F /* AdventOfCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EBB7321D737F100B5FA4F /* AdventOfCode.framework */; };
 		B18EBB8221D737F100B5FA4F /* AdventOfCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBB8121D737F100B5FA4F /* AdventOfCodeTests.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B157C65E23522A03000BF7DC /* Slice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slice.swift; sourceTree = "<group>"; };
+		B157C66023522ACC000BF7DC /* EachPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachPair.swift; sourceTree = "<group>"; };
 		B15E361A21DBD62400B66F9B /* EqualSubsequences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualSubsequences.swift; sourceTree = "<group>"; };
 		B18EBB7321D737F100B5FA4F /* AdventOfCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdventOfCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18EBB7621D737F100B5FA4F /* AdventOfCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdventOfCode.h; sourceTree = "<group>"; };
@@ -142,27 +146,29 @@
 				B18EBBA321D7384B00B5FA4F /* CountWhere.swift */,
 				B18EBB9721D7384B00B5FA4F /* Cycled.swift */,
 				B18EBB9621D7384B00B5FA4F /* Day.swift */,
+				B1A1FA5522E4FE080016DB0C /* Dictionary.swift */,
+				B157C66023522ACC000BF7DC /* EachPair.swift */,
+				B1B1E11222C5AB3F00F50F2B /* EachWithIndex.swift */,
+				B15E361A21DBD62400B66F9B /* EqualSubsequences.swift */,
 				B18EBB9A21D7384B00B5FA4F /* Exploded.swift */,
 				B18EBBA921D7384C00B5FA4F /* Heap.swift */,
 				B18EBB7721D737F100B5FA4F /* Info.plist */,
 				B18EBBAA21D7384C00B5FA4F /* Input.swift */,
-				B18EBBA821D7384C00B5FA4F /* IntersectingPoints.swift */,
 				B1A1FA5D22E55B760016DB0C /* IntegerPartitionSum.swift */,
 				B1A1FA5F22E55E2B0016DB0C /* IntegerPartitionSumTests.swift */,
+				B18EBBA821D7384C00B5FA4F /* IntersectingPoints.swift */,
 				B18EBB9E21D7384B00B5FA4F /* IntersectionOfStrings.swift */,
 				B18EBB9821D7384B00B5FA4F /* PermutationIterator.swift */,
 				B18EBB9921D7384B00B5FA4F /* Position.swift */,
 				B18EBB9C21D7384B00B5FA4F /* PriorityQueue.swift */,
 				B18EBBA221D7384B00B5FA4F /* Regex.swift */,
 				B18EBBA421D7384B00B5FA4F /* Safe.swift */,
+				B1BBD08321E65CDF00ACBBC9 /* Scan.swift */,
+				B157C65E23522A03000BF7DC /* Slice.swift */,
 				B18EBB9F21D7384B00B5FA4F /* StringDistance.swift */,
 				B18EBB9B21D7384B00B5FA4F /* Stripping.swift */,
 				B18EBBA521D7384B00B5FA4F /* Sum.swift */,
 				B18EBBA621D7384B00B5FA4F /* Unique.swift */,
-				B15E361A21DBD62400B66F9B /* EqualSubsequences.swift */,
-				B1BBD08321E65CDF00ACBBC9 /* Scan.swift */,
-				B1B1E11222C5AB3F00F50F2B /* EachWithIndex.swift */,
-				B1A1FA5522E4FE080016DB0C /* Dictionary.swift */,
 			);
 			path = AdventOfCode;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				B18EBBBB21D7384C00B5FA4F /* CountWhere.swift in Sources */,
 				B18EBBB921D7384C00B5FA4F /* Chunks.swift in Sources */,
 				B18EBBC121D7384C00B5FA4F /* Heap.swift in Sources */,
+				B157C66123522ACC000BF7DC /* EachPair.swift in Sources */,
 				B18EBBBD21D7384C00B5FA4F /* Sum.swift in Sources */,
 				B18EBBC521D7384C00B5FA4F /* BorderPoints.swift in Sources */,
 				B18EBBBF21D7384C00B5FA4F /* CharacterLists.swift in Sources */,
@@ -312,6 +319,7 @@
 				B1BBD08421E65CDF00ACBBC9 /* Scan.swift in Sources */,
 				B18EBBB621D7384C00B5FA4F /* IntersectionOfStrings.swift in Sources */,
 				B18EBBBC21D7384C00B5FA4F /* Safe.swift in Sources */,
+				B157C65F23522A03000BF7DC /* Slice.swift in Sources */,
 				B18EBBBA21D7384C00B5FA4F /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
