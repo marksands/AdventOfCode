@@ -76,9 +76,7 @@ public struct Combinations<Base: Collection>: Collection {
     }
 }
 
-public struct IndexingCollection<Base: Collection, I: Collection> : Collection
-    where I.Element == Base.Index
-{
+public struct IndexingCollection<Base: Collection, I: Collection> : Collection where I.Element == Base.Index {
     var base: Base
     var indices: I
     

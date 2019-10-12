@@ -25,7 +25,14 @@ public final class Day17: Day {
     }
     
     public override func part2() -> String {
-        return ""
+        let solutions = containers
+            .combinations(of: (0...containers.count))
+            .filter { $0.map({ $0.liter }).sum() == 150 }
+        
+        let minContainers = solutions.min { $0.count < $1.count }!
+        let minimumSolutions = solutions.filter { $0.count == minContainers.count }
+        
+        return "\(minimumSolutions.count)"
     }
 }
 
