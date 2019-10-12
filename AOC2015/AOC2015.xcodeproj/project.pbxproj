@@ -16,6 +16,8 @@
 		B10E1A8D21D7D29500D8D3CB /* Day4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A8921D7D28C00D8D3CB /* Day4Tests.swift */; };
 		B10E1A9521D8264500D8D3CB /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A9221D8264500D8D3CB /* Day5.swift */; };
 		B10E1A9821D8267400D8D3CB /* Day5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A9121D8264500D8D3CB /* Day5Tests.swift */; };
+		B157C66823522B5A000BF7DC /* Day17.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C66523522B5A000BF7DC /* Day17.swift */; };
+		B157C66A23522D1D000BF7DC /* Day17Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C66423522B5A000BF7DC /* Day17Tests.swift */; };
 		B15E35BB21D886F400B66F9B /* Day6.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E35B821D886F400B66F9B /* Day6.swift */; };
 		B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E35B921D886F400B66F9B /* Day6Tests.swift */; };
 		B15E35F921D93ED100B66F9B /* Day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15E35F621D93ED000B66F9B /* Day7.swift */; };
@@ -67,6 +69,9 @@
 		B10E1A9121D8264500D8D3CB /* Day5Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day5Tests.swift; sourceTree = "<group>"; };
 		B10E1A9221D8264500D8D3CB /* Day5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day5.swift; sourceTree = "<group>"; };
 		B10E1A9321D8264500D8D3CB /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B157C66323522B5A000BF7DC /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B157C66423522B5A000BF7DC /* Day17Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day17Tests.swift; sourceTree = "<group>"; };
+		B157C66523522B5A000BF7DC /* Day17.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day17.swift; sourceTree = "<group>"; };
 		B15E35B721D886F400B66F9B /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B15E35B821D886F400B66F9B /* Day6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6.swift; sourceTree = "<group>"; };
 		B15E35B921D886F400B66F9B /* Day6Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6Tests.swift; sourceTree = "<group>"; };
@@ -168,6 +173,16 @@
 			path = Day5;
 			sourceTree = "<group>";
 		};
+		B157C66223522B35000BF7DC /* Day17 */ = {
+			isa = PBXGroup;
+			children = (
+				B157C66523522B5A000BF7DC /* Day17.swift */,
+				B157C66423522B5A000BF7DC /* Day17Tests.swift */,
+				B157C66323522B5A000BF7DC /* input */,
+			);
+			path = Day17;
+			sourceTree = "<group>";
+		};
 		B15E35B621D886F400B66F9B /* Day6 */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +281,7 @@
 				B1BF4091228A1EC000A0CE40 /* Day14 */,
 				B1A1FA5722E54F2D0016DB0C /* Day15 */,
 				B1A1FA6122E5854F0016DB0C /* Day16 */,
+				B157C66223522B35000BF7DC /* Day17 */,
 				B18EBBDB21D73A4800B5FA4F /* Info.plist */,
 			);
 			path = AOC2015;
@@ -460,6 +476,7 @@
 				B10E1A8A21D7D28C00D8D3CB /* Day4.swift in Sources */,
 				B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */,
 				B1A1FA6422E5858B0016DB0C /* Day16.swift in Sources */,
+				B157C66823522B5A000BF7DC /* Day17.swift in Sources */,
 				B10E1A9521D8264500D8D3CB /* Day5.swift in Sources */,
 				B1A1FA5A22E54F420016DB0C /* Day15.swift in Sources */,
 				B1BF4096228A1EDE00A0CE40 /* Day14.swift in Sources */,
@@ -474,6 +491,7 @@
 				B1BF4099228A211200A0CE40 /* Day14Tests.swift in Sources */,
 				B18EBBF721D73A8500B5FA4F /* Day1Tests.swift in Sources */,
 				B15E35FD21D93EF900B66F9B /* Day7Tests.swift in Sources */,
+				B157C66A23522D1D000BF7DC /* Day17Tests.swift in Sources */,
 				B10E1A7D21D73FC600D8D3CB /* Day2Tests.swift in Sources */,
 				B15E360521D9673E00B66F9B /* Day8Tests.swift in Sources */,
 				B1A1FA5C22E54F4A0016DB0C /* Day15Tests.swift in Sources */,
