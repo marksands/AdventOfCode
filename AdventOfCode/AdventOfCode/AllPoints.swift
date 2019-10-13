@@ -16,4 +16,13 @@ extension CGRect {
             }
         }
     }
+    
+    public func corners() -> [Position] {
+        return [
+            Position(x: Int(minX), y: Int(minY)),
+            Position(x: Int(maxX), y: Int(minY)),
+            Position(x: Int(maxX), y: Int(maxY)),
+            Position(x: Int(minX), y: Int(maxY))
+        ]
+    }
 }

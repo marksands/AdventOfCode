@@ -34,6 +34,8 @@
 		B18EBBE821D73A4800B5FA4F /* AOC2015.h in Headers */ = {isa = PBXBuildFile; fileRef = B18EBBDA21D73A4800B5FA4F /* AOC2015.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF221D73A6C00B5FA4F /* Day1.swift */; };
 		B18EBBF721D73A8500B5FA4F /* Day1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBF621D73A8500B5FA4F /* Day1Tests.swift */; };
+		B19F3B662352C13C00CE160C /* Day18.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F3B652352C13C00CE160C /* Day18.swift */; };
+		B19F3B6A2352C15600CE160C /* Day18Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F3B692352C15600CE160C /* Day18Tests.swift */; };
 		B1A1FA5A22E54F420016DB0C /* Day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5922E54F420016DB0C /* Day15.swift */; };
 		B1A1FA5C22E54F4A0016DB0C /* Day15Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5B22E54F4A0016DB0C /* Day15Tests.swift */; };
 		B1A1FA6422E5858B0016DB0C /* Day16.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA6322E5858B0016DB0C /* Day16.swift */; };
@@ -99,6 +101,9 @@
 		B18EBBF421D73A7600B5FA4F /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B18EBBF621D73A8500B5FA4F /* Day1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1Tests.swift; sourceTree = "<group>"; };
 		B18EBBF921D73AD100B5FA4F /* AdventOfCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdventOfCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19F3B652352C13C00CE160C /* Day18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day18.swift; sourceTree = "<group>"; };
+		B19F3B672352C14600CE160C /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B19F3B692352C15600CE160C /* Day18Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day18Tests.swift; sourceTree = "<group>"; };
 		B1A1FA5822E54F3B0016DB0C /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B1A1FA5922E54F420016DB0C /* Day15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day15.swift; sourceTree = "<group>"; };
 		B1A1FA5B22E54F4A0016DB0C /* Day15Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day15Tests.swift; sourceTree = "<group>"; };
@@ -265,6 +270,7 @@
 		B18EBBD921D73A4800B5FA4F /* AOC2015 */ = {
 			isa = PBXGroup;
 			children = (
+				B19F3B642352C12E00CE160C /* Day18 */,
 				B18EBBDA21D73A4800B5FA4F /* AOC2015.h */,
 				B18EBBF121D73A6200B5FA4F /* Day1 */,
 				B10E1A7621D73FB700D8D3CB /* Day2 */,
@@ -313,6 +319,16 @@
 				B18EBBF921D73AD100B5FA4F /* AdventOfCode.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B19F3B642352C12E00CE160C /* Day18 */ = {
+			isa = PBXGroup;
+			children = (
+				B19F3B652352C13C00CE160C /* Day18.swift */,
+				B19F3B692352C15600CE160C /* Day18Tests.swift */,
+				B19F3B672352C14600CE160C /* input */,
+			);
+			path = Day18;
 			sourceTree = "<group>";
 		};
 		B1A1FA5722E54F2D0016DB0C /* Day15 */ = {
@@ -475,6 +491,7 @@
 				B17A299B21DF239A00818B73 /* Day12.swift in Sources */,
 				B10E1A8A21D7D28C00D8D3CB /* Day4.swift in Sources */,
 				B18EBBF321D73A6C00B5FA4F /* Day1.swift in Sources */,
+				B19F3B662352C13C00CE160C /* Day18.swift in Sources */,
 				B1A1FA6422E5858B0016DB0C /* Day16.swift in Sources */,
 				B157C66823522B5A000BF7DC /* Day17.swift in Sources */,
 				B10E1A9521D8264500D8D3CB /* Day5.swift in Sources */,
@@ -492,6 +509,7 @@
 				B18EBBF721D73A8500B5FA4F /* Day1Tests.swift in Sources */,
 				B15E35FD21D93EF900B66F9B /* Day7Tests.swift in Sources */,
 				B157C66A23522D1D000BF7DC /* Day17Tests.swift in Sources */,
+				B19F3B6A2352C15600CE160C /* Day18Tests.swift in Sources */,
 				B10E1A7D21D73FC600D8D3CB /* Day2Tests.swift in Sources */,
 				B15E360521D9673E00B66F9B /* Day8Tests.swift in Sources */,
 				B1A1FA5C22E54F4A0016DB0C /* Day15Tests.swift in Sources */,
