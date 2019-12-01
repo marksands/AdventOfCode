@@ -37,6 +37,7 @@
 		B1169E7D23940EE600E9A177 /* Day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E3023940EE600E9A177 /* Day15.swift */; };
 		B1169E8123940EE600E9A177 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E3523940EE600E9A177 /* Day5.swift */; };
 		B1169E8723940F9700E9A177 /* Day8.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E8623940F9700E9A177 /* Day8.swift */; };
+		B1169E91239412B900E9A177 /* Day1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E90239412B900E9A177 /* Day1Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		B1169E3923940EE600E9A177 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B1169E8623940F9700E9A177 /* Day8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day8.swift; sourceTree = "<group>"; };
 		B1169E88239410DE00E9A177 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		B1169E90239412B900E9A177 /* Day1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +373,7 @@
 			children = (
 				B1169E1C23940EE400E9A177 /* Day1.swift */,
 				B1169E1D23940EE400E9A177 /* input */,
+				B1169E90239412B900E9A177 /* Day1Tests.swift */,
 			);
 			path = Day1;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1169E91239412B900E9A177 /* Day1Tests.swift in Sources */,
 				B1169DC723940E7700E9A177 /* AOC2019Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
