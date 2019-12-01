@@ -38,6 +38,7 @@
 		B1169E8123940EE600E9A177 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E3523940EE600E9A177 /* Day5.swift */; };
 		B1169E8723940F9700E9A177 /* Day8.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E8623940F9700E9A177 /* Day8.swift */; };
 		B1169E91239412B900E9A177 /* Day1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E90239412B900E9A177 /* Day1Tests.swift */; };
+		B1169E932394159200E9A177 /* Day2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E922394159200E9A177 /* Day2Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		B1169E8623940F9700E9A177 /* Day8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day8.swift; sourceTree = "<group>"; };
 		B1169E88239410DE00E9A177 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B1169E90239412B900E9A177 /* Day1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1Tests.swift; sourceTree = "<group>"; };
+		B1169E922394159200E9A177 /* Day2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			children = (
 				B1169DE423940EE300E9A177 /* input */,
 				B1169DE523940EE300E9A177 /* Day2.swift */,
+				B1169E922394159200E9A177 /* Day2Tests.swift */,
 			);
 			path = Day2;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 			files = (
 				B1169E91239412B900E9A177 /* Day1Tests.swift in Sources */,
 				B1169DC723940E7700E9A177 /* AOC2019Tests.swift in Sources */,
+				B1169E932394159200E9A177 /* Day2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

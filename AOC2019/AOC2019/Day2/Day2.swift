@@ -2,6 +2,10 @@ import Foundation
 import AdventOfCode
 
 public final class Day2: Day {
+    public override init() {
+        super.init()
+    }
+    
     public override func part1() -> String {
         fatalError()
     }
