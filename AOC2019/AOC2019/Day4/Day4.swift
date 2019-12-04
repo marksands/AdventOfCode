@@ -11,16 +11,16 @@ public final class Day4: Day {
     }
     
     public override func part1() -> String {
-        let number = (from...to).reduce(into: 0) { criteria, next in
-            criteria += meetsCriteria(next, hasDoublePredicate: { $0 > 1 }) ? 1 : 0
-        }
+        let number = (from...to).count(where: { value in
+            meetsCriteria(value, hasDoublePredicate: { $0 > 1 })
+        })
         return String(number)
     }
     
     public override func part2() -> String {
-        let number = (from...to).reduce(into: 0) { criteria, next in
-            criteria += meetsCriteria(next, hasDoublePredicate: { $0 == 2 }) ? 1 : 0
-        }
+        let number = (from...to).count(where: { value in
+            meetsCriteria(value, hasDoublePredicate: { $0 == 2 })
+        })
         return String(number)
     }
     
