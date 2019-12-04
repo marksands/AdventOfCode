@@ -29,7 +29,7 @@ public final class Day4: Day {
         let asInts = stringValue.exploded().compactMap(Int.init)
 
         let hasDouble = (stringValue.equalSubsequences().count(where: { hasDoublePredicate($0.count) }) > 0)
-        let areIncreasing = zip(asInts, asInts.dropFirst()).allSatisfy({ $0 <= $1 })
+        let areIncreasing = asInts.eachPair().allSatisfy({ $0 <= $1 })
         
         return hasDouble && areIncreasing
     }
