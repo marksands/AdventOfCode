@@ -3,3 +3,9 @@ extension String {
         return map(String.init)
     }
 }
+
+extension Int {
+    public func exploded() -> [Int] {
+        return String(self).exploded().compactMap(Int.init)
+    }
+}

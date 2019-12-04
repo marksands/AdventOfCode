@@ -43,6 +43,7 @@
 		B1A1FA6022E55E2C0016DB0C /* IntegerPartitionSumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1FA5F22E55E2B0016DB0C /* IntegerPartitionSumTests.swift */; };
 		B1B1E11322C5AB3F00F50F2B /* EachWithIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1E11222C5AB3F00F50F2B /* EachWithIndex.swift */; };
 		B1BBD08421E65CDF00ACBBC9 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBD08321E65CDF00ACBBC9 /* Scan.swift */; };
+		B1E8E75E239801EA00DEE40E /* AnySatisfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E75D239801EA00DEE40E /* AnySatisfy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		B1A1FA5F22E55E2B0016DB0C /* IntegerPartitionSumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerPartitionSumTests.swift; sourceTree = "<group>"; };
 		B1B1E11222C5AB3F00F50F2B /* EachWithIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachWithIndex.swift; sourceTree = "<group>"; };
 		B1BBD08321E65CDF00ACBBC9 /* Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
+		B1E8E75D239801EA00DEE40E /* AnySatisfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySatisfy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				B18EBBA521D7384B00B5FA4F /* Sum.swift */,
 				B18EBBA621D7384B00B5FA4F /* Unique.swift */,
 				B157C66B235236DE000BF7DC /* Combinations.swift */,
+				B1E8E75D239801EA00DEE40E /* AnySatisfy.swift */,
 			);
 			path = AdventOfCode;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				B157C66123522ACC000BF7DC /* EachPair.swift in Sources */,
 				B18EBBBD21D7384C00B5FA4F /* Sum.swift in Sources */,
 				B18EBBC521D7384C00B5FA4F /* BorderPoints.swift in Sources */,
+				B1E8E75E239801EA00DEE40E /* AnySatisfy.swift in Sources */,
 				B18EBBBF21D7384C00B5FA4F /* CharacterLists.swift in Sources */,
 				B18EBBB421D7384C00B5FA4F /* PriorityQueue.swift in Sources */,
 				B18EBBB821D7384C00B5FA4F /* AllPoints.swift in Sources */,
