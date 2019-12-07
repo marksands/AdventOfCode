@@ -39,6 +39,7 @@
 		B1169E8723940F9700E9A177 /* Day8.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E8623940F9700E9A177 /* Day8.swift */; };
 		B1169E91239412B900E9A177 /* Day1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E90239412B900E9A177 /* Day1Tests.swift */; };
 		B1169E932394159200E9A177 /* Day2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169E922394159200E9A177 /* Day2Tests.swift */; };
+		B1CD6509239B68B800854311 /* Day7Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CD6508239B68B800854311 /* Day7Tests.swift */; };
 		B1E8E75A2397755400DEE40E /* Day4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E7592397755400DEE40E /* Day4Tests.swift */; };
 		B1E8E75C23977AA300DEE40E /* Day3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E75B23977AA300DEE40E /* Day3Tests.swift */; };
 		B1E8E7602398C4C000DEE40E /* Day5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E75F2398C4C000DEE40E /* Day5Tests.swift */; };
@@ -129,6 +130,7 @@
 		B1169E88239410DE00E9A177 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		B1169E90239412B900E9A177 /* Day1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1Tests.swift; sourceTree = "<group>"; };
 		B1169E922394159200E9A177 /* Day2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2Tests.swift; sourceTree = "<group>"; };
+		B1CD6508239B68B800854311 /* Day7Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day7Tests.swift; sourceTree = "<group>"; };
 		B1E8E7592397755400DEE40E /* Day4Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day4Tests.swift; sourceTree = "<group>"; };
 		B1E8E75B23977AA300DEE40E /* Day3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3Tests.swift; sourceTree = "<group>"; };
 		B1E8E75F2398C4C000DEE40E /* Day5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5Tests.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				B1169E1823940EE300E9A177 /* Day7.swift */,
+				B1CD6508239B68B800854311 /* Day7Tests.swift */,
 				B1169E1923940EE300E9A177 /* input */,
 			);
 			path = Day7;
@@ -600,6 +603,7 @@
 			files = (
 				B1E8E7602398C4C000DEE40E /* Day5Tests.swift in Sources */,
 				B1169E91239412B900E9A177 /* Day1Tests.swift in Sources */,
+				B1CD6509239B68B800854311 /* Day7Tests.swift in Sources */,
 				B1169DC723940E7700E9A177 /* AOC2019Tests.swift in Sources */,
 				B1169E932394159200E9A177 /* Day2Tests.swift in Sources */,
 				B1E8E75C23977AA300DEE40E /* Day3Tests.swift in Sources */,
