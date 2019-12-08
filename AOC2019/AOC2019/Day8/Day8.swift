@@ -1,5 +1,6 @@
 import Foundation
 import AdventOfCode
+import Vision
 
 public final class Day8: Day {
     private let layers = Array(Input().trimmedRawInput()).chunks(ofSize: 25 * 6)
@@ -11,18 +12,69 @@ public final class Day8: Day {
     
     public override func part2() -> String {
         var picture = Array(repeating: " ", count: 25 * 6)
-        
         layers.reversed().forEach { layer in
             picture = zip(picture, layer).map { p, l in
-                return l == "0" ? "⬛️" : l == "1" ? "⬜️" : p
+                return l == "0" ? ":black_large_square:️" : l == "1" ? ":white_large_square:️" : p
             }
         }
-        
         picture.chunks(ofSize: 25).forEach { row in
             print(row.joined())
         }
-
         return ""
+    }
+    
+    public func NOT_WORKING_part2() -> String {
+        var picture = Array(repeating: "", count: 25 * 6)
+        
+        layers.reversed().forEach { layer in
+            picture = zip(picture, layer).map { p, l in
+                return l == "0" ? "0" : l == "1" ? "1" : p
+            }
+        }
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        var result = ""
+        
+        let request = VNRecognizeTextRequest(completionHandler: { request, error in
+            guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+            
+            for observation in observations {
+                guard let candidate = observation.topCandidates(1).first else { continue }
+                result += candidate.string
+            }
+            
+            semaphore.signal()
+        })
+
+        request.recognitionLevel = .accurate
+
+        let handler = VNImageRequestHandler(cgImage: layerToImage(picture).cgImage!, options: [:])
+        try? handler.perform([request])
+        
+        semaphore.wait()
+        
+        return result
+    }
+    
+    private func layerToImage(_ layer: [String]) -> UIImage {
+        let scale = 1
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 25 * scale, height: 6 * scale), true, 0)
+        defer { UIGraphicsEndImageContext() }
+        
+        let context = UIGraphicsGetCurrentContext()
+        
+        layer.chunks(ofSize: 25).enumerated().forEach { (i, row) in
+            for (j, element) in row.enumerated() {
+                if element == "0" {
+                    context?.setFillColor(UIColor.black.cgColor)
+                } else {
+                    context?.setFillColor(UIColor.white.cgColor)
+                }
+                context?.fill(CGRect(x: j*scale, y: i*scale, width: scale, height: scale))
+            }
+        }
+        
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 }
 

@@ -9,6 +9,6 @@ class Day8Tests: XCTestCase {
     
     func testTwo() {
         let day = Day8()
-        XCTAssertEqual("", day.part2())
+        XCTAssertEqual("LEGJY", day.part2())
     }
 }
