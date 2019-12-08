@@ -11,14 +11,14 @@ public final class Day8: Day {
     }
     
     public override func part2() -> String {
-        var picture = Array(repeating: " ", count: 25 * 6)
-        layers.reversed().forEach { layer in
+        var picture = Array(repeating: "2", count: 25 * 6)
+        layers.forEach { layer in
             picture = zip(picture, layer).map { p, l in
-                return l == "0" ? ":black_large_square:️" : l == "1" ? ":white_large_square:️" : p
+                return p == "2" ? String(l) : p
             }
         }
         picture.chunks(ofSize: 25).forEach { row in
-            print(row.joined())
+            print(row.map({ $0 == "0" ? "⬛️" : "⬜️" }).joined())
         }
         return ""
     }
