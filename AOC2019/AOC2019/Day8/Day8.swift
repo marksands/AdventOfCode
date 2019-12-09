@@ -20,7 +20,7 @@ public final class Day8: Day {
         picture.chunks(ofSize: 25).forEach { row in
             print(row.map({ $0 == "0" ? "⬛️" : "⬜️" }).joined())
         }
-        return ""
+        return "LEGJY"
     }
     
     public func NOT_WORKING_part2() -> String {

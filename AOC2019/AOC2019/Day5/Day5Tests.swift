@@ -11,5 +11,4 @@ class Day5Tests: XCTestCase {
         let day = Day5()
         XCTAssertEqual("7161591", day.part2())
     }
-
 }

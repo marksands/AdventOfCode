@@ -6,6 +6,13 @@ public final class Day9: Day {
         enum Halt: Equatable {
             case end
             case output(Int)
+            
+            var value: Int {
+                switch self {
+                case .end: return 0
+                case .output(let value): return value
+                }
+            }
         }
         
         var tape: [Int: Int] = [:]
@@ -148,21 +155,28 @@ public final class Day9: Day {
     }
     
     public override func part1() -> String {
-//        let input = "109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99".components(separatedBy: ",").map { Int($0)! }
-//        let input = "104,1125899906842624,99".components(separatedBy: ",").map { Int($0)! }
-//        let input = "1102,34915192,34915192,7,4,7,99,0".components(separatedBy: ",").map { Int($0)! }
-        let program = Program(input: input, input1: 2, input2: 2)
+        let program = Program(input: input, input1: 1, input2: 1)
         
+        var lastValue = 0
         var halt: Program.Halt = .output(0)
         while halt != Program.Halt.end {
+            lastValue = halt.value
             halt = program.run()
-            print(halt)
         }
         
-        return ""
+        return String(lastValue)
     }
     
     public override func part2() -> String {
-        return ""
+        let program = Program(input: input, input1: 2, input2: 2)
+        
+        var lastValue = 0
+        var halt: Program.Halt = .output(0)
+        while halt != Program.Halt.end {
+            lastValue = halt.value
+            halt = program.run()
+        }
+        
+        return String(lastValue)
     }
 }
