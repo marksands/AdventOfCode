@@ -9,7 +9,7 @@ class Day5Tests: XCTestCase {
     
     func testTwo() {
         let day = Day5()
-        XCTAssertEqual("", day.part2())
+        XCTAssertEqual("7161591", day.part2())
     }
 
 }

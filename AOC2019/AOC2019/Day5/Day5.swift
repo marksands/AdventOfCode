@@ -179,21 +179,23 @@ public final class Day5: Day {
 
     let input: [Int]
     
-    public init(input: [Int] = Input().rawInput().components(separatedBy: ",").compactMap(Int.init)) {
-//        self.input = input
-        self.input = MyInput.components(separatedBy: ",").compactMap(Int.init)
+    public init(input: [Int] = Input().trimmedRawInput().components(separatedBy: ",").compactMap(Int.init)) {
+        self.input = input
+//        self.input = MyInput.components(separatedBy: ",").compactMap(Int.init)
         print(input.last)
 //        self.input = "3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9".components(separatedBy: ",").compactMap(Int.init)
     }
     
     public override func part1() -> String {
-        let program = Program.init(input: input, value: 5)
+        let program = Program.init(input: input, value: 1)
         let result = program.run()
         return String(result)
     }
     
     public override func part2() -> String {
-        fatalError()
+        let program = Program.init(input: input, value: 5)
+        let result = program.run()
+        return String(result)
     }
 }
 

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1169DB723940E7700E9A177"
-               BuildableName = "AOC2019.framework"
-               BlueprintName = "AOC2019"
-               ReferencedContainer = "container:AOC2019.xcodeproj">
+               BlueprintIdentifier = "B18EBB7221D737F100B5FA4F"
+               BuildableName = "AdventOfCode.framework"
+               BlueprintName = "AdventOfCode"
+               ReferencedContainer = "container:AdventOfCode.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1169DC023940E7700E9A177"
-               BuildableName = "AOC2019Tests.xctest"
-               BlueprintName = "AOC2019Tests"
-               ReferencedContainer = "container:AOC2019.xcodeproj">
+               BlueprintIdentifier = "B18EBB7B21D737F100B5FA4F"
+               BuildableName = "AdventOfCodeTests.xctest"
+               BlueprintName = "AdventOfCodeTests"
+               ReferencedContainer = "container:AdventOfCode.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -60,10 +60,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B1169DB723940E7700E9A177"
-            BuildableName = "AOC2019.framework"
-            BlueprintName = "AOC2019"
-            ReferencedContainer = "container:AOC2019.xcodeproj">
+            BlueprintIdentifier = "B18EBB7221D737F100B5FA4F"
+            BuildableName = "AdventOfCode.framework"
+            BlueprintName = "AdventOfCode"
+            ReferencedContainer = "container:AdventOfCode.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
