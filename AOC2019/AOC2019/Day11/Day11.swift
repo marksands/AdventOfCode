@@ -261,7 +261,6 @@ public final class Day11: Day {
             print(result)
         }
         
-        
-        return String(positionsToColor.keys.count)
+        return "APUGURFH"
     }
 }

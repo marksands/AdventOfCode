@@ -74,14 +74,31 @@ public final class Day12: Day {
         return String(energy)
     }
     
+    struct AxisCoords: Hashable {
+        let x1: Int
+        let x2: Int
+        let x3: Int
+        let x4: Int
+    }
+    
     public override func part2() -> String {
-        (0..<4_686_774_924).forEach { i in
+        var seenX = Set<AxisCoords>()
+        
+        for _ in (0..<4_686_774_924) {
             var moonToVelocity: [String: Int] = [:]
             
             moons.forEach { moon in
                 let velocityX = moon.steppedX(moons: moons)
                 moonToVelocity[moon.name] = velocityX
             }
+            
+            let axis = AxisCoords(x1: moons[0].position.x, x2: moons[1].position.x, x3: moons[2].position.x, x4: moons[3].position.x)
+            if seenX.contains(axis) {
+                print("axis! \(axis)")
+                break
+            }
+
+            seenX.insert(axis)
             
             moonToVelocity.forEach({ dict in
                 let moon = moons.first(where: { $0.name == dict.key })!
