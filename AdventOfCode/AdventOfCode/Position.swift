@@ -26,7 +26,7 @@ public struct Position: Equatable, Hashable {
     public func west() -> Position {
         return Position(x: x - 1, y: y)
     }
-    
+        
     public func surrounding() -> [Position] {
         return [north().west(), north(), north().east(),
                 west(), east(),
@@ -40,6 +40,10 @@ public struct Position: Equatable, Hashable {
     public static var zero: Position {
         return Position(x: 0, y: 0)
     }
+}
+
+public func +(lhs: Position, rhs: Position) -> Position {
+    return Position(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z, w: lhs.w + rhs.w)
 }
 
 extension Position: Comparable {
