@@ -7,6 +7,10 @@ public final class Day12: Day {
         var position: Position
         var velocity: Position = Position(x: 0, y: 0, z: 0)
         
+        var x: [Int] { return [position.x, velocity.x] }
+        var y: [Int] { return [position.y, velocity.y] }
+        var z: [Int] { return [position.z, velocity.z] }
+        
         init(name: String, position: Position) {
             self.name = name
             self.position = position
@@ -23,15 +27,7 @@ public final class Day12: Day {
             }
             return velocity + gravity
         }
-        
-        func steppedX(moons: [Moon]) -> Int {
-            let others = moons.filter { $0.name != name }
-            let gravity = others.reduce(0) { $0 +
-                $1.position.x > position.x ? 1 : ($1.position.x < position.x ? -1 : 0)
-            }
-            return velocity.x + gravity
-        }
-        
+
         func energy() -> Int {
             let potentialEnergy = Int(abs(position.x) + abs(position.y) + abs(position.z))
             let kineticEnergy = Int(abs(velocity.x) + abs(velocity.y) + abs(velocity.z))
@@ -53,20 +49,24 @@ public final class Day12: Day {
         }
     }
     
+    func step() {
+        var moonToVelocity: [String: Position] = [:]
+        
+        moons.forEach { moon in
+            let velocity = moon.stepped(moons: moons)
+            moonToVelocity[moon.name] = velocity
+        }
+        
+        moonToVelocity.forEach({ dict in
+            let moon = moons.first(where: { $0.name == dict.key })!
+            moon.position = moon.position + dict.value
+            moon.velocity = dict.value
+        })
+    }
+    
     public override func part1() -> String {
         (0..<1_000).forEach { _ in
-            var moonToVelocity: [String: Position] = [:]
-            
-            moons.forEach { moon in
-                let velocity = moon.stepped(moons: moons)
-                moonToVelocity[moon.name] = velocity
-            }
-            
-            moonToVelocity.forEach({ dict in
-                let moon = moons.first(where: { $0.name == dict.key })!
-                moon.position = moon.position + dict.value
-                moon.velocity = dict.value
-            })
+            step()
         }
         
         let energy = moons.reduce(0) { $0 + $1.energy() }
@@ -75,38 +75,50 @@ public final class Day12: Day {
     }
     
     struct AxisCoords: Hashable {
-        let x1: Int
-        let x2: Int
-        let x3: Int
-        let x4: Int
+        let pvs: [[Int]]
     }
     
     public override func part2() -> String {
-        var seenX = Set<AxisCoords>()
+        var seenX2 = Set<AxisCoords>()
+        var seenY2 = Set<AxisCoords>()
+        var seenZ2 = Set<AxisCoords>()
+
+        var x_axis = AxisCoords(pvs: moons.map { $0.x })
+        var y_axis = AxisCoords(pvs: moons.map { $0.y })
+        var z_axis = AxisCoords(pvs: moons.map { $0.z })
+
+        var cnts: [Int] = [0, 0, 0]
         
-        for _ in (0..<4_686_774_924) {
-            var moonToVelocity: [String: Int] = [:]
+        for _ in (0...) {
+            step()
             
-            moons.forEach { moon in
-                let velocityX = moon.steppedX(moons: moons)
-                moonToVelocity[moon.name] = velocityX
+            x_axis = AxisCoords(pvs: moons.map { $0.x })
+            y_axis = AxisCoords(pvs: moons.map { $0.y })
+            z_axis = AxisCoords(pvs: moons.map { $0.z })
+
+            if seenX2.contains(x_axis) {
+                cnts[0] = seenX2.count
             }
+            seenX2.insert(x_axis)
+
+            if seenY2.contains(y_axis) {
+                cnts[1] = seenY2.count
+            }
+            seenY2.insert(y_axis)
+
+            if seenZ2.contains(z_axis) {
+                cnts[2] = seenZ2.count
+            }
+            seenZ2.insert(z_axis)
             
-            let axis = AxisCoords(x1: moons[0].position.x, x2: moons[1].position.x, x3: moons[2].position.x, x4: moons[3].position.x)
-            if seenX.contains(axis) {
-                print("axis! \(axis)")
+            if cnts.allSatisfy({ $0 > 0 }) {
                 break
             }
-
-            seenX.insert(axis)
-            
-            moonToVelocity.forEach({ dict in
-                let moon = moons.first(where: { $0.name == dict.key })!
-                moon.position.x = moon.position.x + dict.value
-                moon.velocity.x = dict.value
-            })
         }
-                
-        return ""
+        
+        // 186028, 286332, 96236
+        let steps = lcm(cnts)
+            
+        return String(steps)
     }
 }

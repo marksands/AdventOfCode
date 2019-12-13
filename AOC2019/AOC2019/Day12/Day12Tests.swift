@@ -9,6 +9,6 @@ class Day12Tests: XCTestCase {
     
     func testTwo() {
         let day = Day12()
-        XCTAssertEqual("", day.part2())
+        XCTAssertEqual("320380285873116", day.part2())
     }
 }
