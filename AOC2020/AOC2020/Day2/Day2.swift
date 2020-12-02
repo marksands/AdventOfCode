@@ -2,27 +2,30 @@ import Foundation
 import AdventOfCode
 
 public final class Day2: Day {
-	struct Password {
+	struct PasswordPolicy {
 		let low: Int
 		let high: Int
-		let letter: String
-		let string: String
+		let character: Substring
+		let phrase: Substring
 	}
 
-	private let lines: [Password]
+	private let policies: [PasswordPolicy]
 
 	public init(lines: [String] = Input().trimmedInputCharactersByNewlines()) {
-		let regex = Regex(pattern: "(\\d{1,2})\\-(\\d{1,2}) (\\w): (\\w+)")
+		let parser = Parser
+			.int
+			.skip(Parser.init(stringLiteral: "-"))
+			.take(Parser.int)
+			.skip(Parser.init(stringLiteral: " "))
+			.take(Parser.prefix(upTo: ": "))
+			.skip(Parser.init(stringLiteral: ": "))
+			.take(Parser.remaining)
 
-		let passwords = lines.map { line -> Password in
-			let matches = regex.allMatches(line)[0]
-			return Password(low: Int(matches[1])!,
-							high: Int(matches[2])!,
-							letter: String(matches[3]),
-							string: String(matches[4]))
+		let policies = lines.compactMap { line in
+			parser.run(line[...]).match.map(PasswordPolicy.init)
 		}
 
-		self.lines = passwords
+		self.policies = policies
 
 		super.init()
 	}
@@ -30,9 +33,9 @@ public final class Day2: Day {
 	public override func part1() -> String {
 		var validCount = 0
 
-		for line in lines {
-			let count = line.string.count(where: { String($0) == line.letter })
-			if count >= line.low && count <= line.high {
+		for policy in policies {
+			let count = policy.phrase.count(where: { String($0) == policy.character })
+			if count >= policy.low && count <= policy.high {
 				validCount += 1
 			}
 		}
@@ -43,11 +46,15 @@ public final class Day2: Day {
 	public override func part2() -> String {
 		var validCount = 0
 
-		for line in lines {
-			let chars = line.string.exploded()
-			if chars[safe: line.low - 1] == line.letter && chars[safe: line.high - 1] != line.letter{
+		for policy in policies {
+			let phrase = policy.phrase.exploded()
+			let character = String(policy.character)
+
+			if phrase[safe: policy.low - 1] == character &&
+			   phrase[safe: policy.high - 1] != character {
 				validCount += 1
-			} else if chars[safe: line.low - 1] != line.letter && chars[safe: line.high - 1] == line.letter{
+			} else if phrase[safe: policy.low - 1] != character &&
+					  phrase[safe: policy.high - 1] == character {
 				validCount += 1
 			}
 		}
