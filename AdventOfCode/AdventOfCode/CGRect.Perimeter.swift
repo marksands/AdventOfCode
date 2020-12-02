@@ -1,7 +1,8 @@
 import UIKit.UIGeometry
 
 extension CGRect {
-    public func borderPoints() -> [CGPoint] {
+	/// Returns an array of points containing only the perimeter of the `CGRect`.
+    public func perimeter() -> [CGPoint] {
         let minX = Int(self.minX)
         let minY = Int(self.minY)
         let width = Int(self.width)

@@ -36,7 +36,7 @@ public final class Day6: Day {
             }
         }
         
-        boundingRect().borderPoints().forEach { point in
+        boundingRect().perimeter().forEach { point in
             if let infiniteRegionKey = ownedPoints.first(where: { $0.value.contains(point) })?.key {
                 ownedPoints.removeValue(forKey: infiniteRegionKey)
             }
