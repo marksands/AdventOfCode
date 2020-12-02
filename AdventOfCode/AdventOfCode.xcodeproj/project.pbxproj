@@ -48,7 +48,7 @@
 		DC1337A525773F610099BC8C /* CGRect.AllPositionsMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1337A425773F610099BC8C /* CGRect.AllPositionsMatrix.swift */; };
 		DC1337AB25773F6A0099BC8C /* CGRect.Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1337AA25773F6A0099BC8C /* CGRect.Corners.swift */; };
 		DC1337C5257741020099BC8C /* Int.Exploded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1337C4257741020099BC8C /* Int.Exploded.swift */; };
-		DC1337E1257742AA0099BC8C /* CircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBAC21D7384C00B5FA4F /* CircularListTests.swift */; };
+		DC1337F4257743AC0099BC8C /* CircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBAC21D7384C00B5FA4F /* CircularListTests.swift */; };
 		DC79420825773AFD00090796 /* Collection.Multiply.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Multiply.swift */; };
 /* End PBXBuildFile section */
 
@@ -355,7 +355,6 @@
 				B1E8E75E239801EA00DEE40E /* Sequence.AnySatisfy.swift in Sources */,
 				B18EBBBF21D7384C00B5FA4F /* CharacterLists.swift in Sources */,
 				B18EBBB421D7384C00B5FA4F /* PriorityQueue.swift in Sources */,
-				DC1337E1257742AA0099BC8C /* CircularListTests.swift in Sources */,
 				B18EBBB821D7384C00B5FA4F /* CGRect.AllPoints.swift in Sources */,
 				B18EBBAF21D7384C00B5FA4F /* Cycled.swift in Sources */,
 				B1BBD08421E65CDF00ACBBC9 /* Sequence.Scan.swift in Sources */,
@@ -372,6 +371,7 @@
 			files = (
 				B1A1FA6022E55E2C0016DB0C /* IntegerPartitionSumTests.swift in Sources */,
 				B18EBB8221D737F100B5FA4F /* AdventOfCodeTests.swift in Sources */,
+				DC1337F4257743AC0099BC8C /* CircularListTests.swift in Sources */,
 				B1C5841F23A2BD2500A6B907 /* MathsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
