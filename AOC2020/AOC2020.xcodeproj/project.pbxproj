@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC7941E02577379500090796 /* AOC2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7941D62577379500090796 /* AOC2020.framework */; };
+		DC7941E52577379500090796 /* AOC2020Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7941E42577379500090796 /* AOC2020Tests.swift */; };
+		DC7941E72577379500090796 /* AOC2020.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7941D92577379500090796 /* AOC2020.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC7941F6257737C700090796 /* AdventOfCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7941F5257737C700090796 /* AdventOfCode.framework */; };
+		DC7941F7257737C700090796 /* AdventOfCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC7941F5257737C700090796 /* AdventOfCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC7941FC257737FD00090796 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7941FB257737FD00090796 /* Day1.swift */; };
+		DC7941FF2577383500090796 /* Day1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7941FE2577383500090796 /* Day1Tests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC7941E12577379500090796 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC7941CD2577379400090796 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC7941D52577379500090796;
+			remoteInfo = AOC2020;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DC7941F8257737C700090796 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DC7941F7257737C700090796 /* AdventOfCode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DC7941D62577379500090796 /* AOC2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7941D92577379500090796 /* AOC2020.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2020.h; sourceTree = "<group>"; };
+		DC7941DA2577379500090796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7941DF2577379500090796 /* AOC2020Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOC2020Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7941E42577379500090796 /* AOC2020Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC2020Tests.swift; sourceTree = "<group>"; };
+		DC7941E62577379500090796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7941F5257737C700090796 /* AdventOfCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdventOfCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7941FB257737FD00090796 /* Day1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1.swift; sourceTree = "<group>"; };
+		DC7941FE2577383500090796 /* Day1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1Tests.swift; sourceTree = "<group>"; };
+		DC7942012577386100090796 /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC7941D32577379500090796 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7941F6257737C700090796 /* AdventOfCode.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7941DC2577379500090796 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7941E02577379500090796 /* AOC2020.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC7941CC2577379400090796 = {
+			isa = PBXGroup;
+			children = (
+				DC7941D82577379500090796 /* AOC2020 */,
+				DC7941E32577379500090796 /* AOC2020Tests */,
+				DC7941D72577379500090796 /* Products */,
+				DC7941F4257737C700090796 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DC7941D72577379500090796 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC7941D62577379500090796 /* AOC2020.framework */,
+				DC7941DF2577379500090796 /* AOC2020Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC7941D82577379500090796 /* AOC2020 */ = {
+			isa = PBXGroup;
+			children = (
+				DC7941FA257737F300090796 /* Day1 */,
+				DC7941D92577379500090796 /* AOC2020.h */,
+				DC7941DA2577379500090796 /* Info.plist */,
+			);
+			path = AOC2020;
+			sourceTree = "<group>";
+		};
+		DC7941E32577379500090796 /* AOC2020Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DC7941E42577379500090796 /* AOC2020Tests.swift */,
+				DC7941E62577379500090796 /* Info.plist */,
+			);
+			path = AOC2020Tests;
+			sourceTree = "<group>";
+		};
+		DC7941F4257737C700090796 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC7941F5257737C700090796 /* AdventOfCode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC7941FA257737F300090796 /* Day1 */ = {
+			isa = PBXGroup;
+			children = (
+				DC7941FB257737FD00090796 /* Day1.swift */,
+				DC7941FE2577383500090796 /* Day1Tests.swift */,
+				DC7942012577386100090796 /* input */,
+			);
+			path = Day1;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC7941D12577379500090796 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7941E72577379500090796 /* AOC2020.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DC7941D52577379500090796 /* AOC2020 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC7941EA2577379500090796 /* Build configuration list for PBXNativeTarget "AOC2020" */;
+			buildPhases = (
+				DC7941D12577379500090796 /* Headers */,
+				DC7941D22577379500090796 /* Sources */,
+				DC7941D32577379500090796 /* Frameworks */,
+				DC7941D42577379500090796 /* Resources */,
+				DC7941F8257737C700090796 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AOC2020;
+			productName = AOC2020;
+			productReference = DC7941D62577379500090796 /* AOC2020.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC7941DE2577379500090796 /* AOC2020Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC7941ED2577379500090796 /* Build configuration list for PBXNativeTarget "AOC2020Tests" */;
+			buildPhases = (
+				DC7941DB2577379500090796 /* Sources */,
+				DC7941DC2577379500090796 /* Frameworks */,
+				DC7941DD2577379500090796 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC7941E22577379500090796 /* PBXTargetDependency */,
+			);
+			name = AOC2020Tests;
+			productName = AOC2020Tests;
+			productReference = DC7941DF2577379500090796 /* AOC2020Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC7941CD2577379400090796 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					DC7941D52577379500090796 = {
+						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
+					};
+					DC7941DE2577379500090796 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+				};
+			};
+			buildConfigurationList = DC7941D02577379400090796 /* Build configuration list for PBXProject "AOC2020" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC7941CC2577379400090796;
+			productRefGroup = DC7941D72577379500090796 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC7941D52577379500090796 /* AOC2020 */,
+				DC7941DE2577379500090796 /* AOC2020Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC7941D42577379500090796 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7941DD2577379500090796 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC7941D22577379500090796 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7941FC257737FD00090796 /* Day1.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7941DB2577379500090796 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7941FF2577383500090796 /* Day1Tests.swift in Sources */,
+				DC7941E52577379500090796 /* AOC2020Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC7941E22577379500090796 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC7941D52577379500090796 /* AOC2020 */;
+			targetProxy = DC7941E12577379500090796 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DC7941E82577379500090796 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DC7941E92577379500090796 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DC7941EB2577379500090796 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AOC2020/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = type440.AOC2020;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC7941EC2577379500090796 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AOC2020/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = type440.AOC2020;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DC7941EE2577379500090796 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
+				INFOPLIST_FILE = AOC2020Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = type440.AOC2020Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC7941EF2577379500090796 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
+				INFOPLIST_FILE = AOC2020Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = type440.AOC2020Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC7941D02577379400090796 /* Build configuration list for PBXProject "AOC2020" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7941E82577379500090796 /* Debug */,
+				DC7941E92577379500090796 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC7941EA2577379500090796 /* Build configuration list for PBXNativeTarget "AOC2020" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7941EB2577379500090796 /* Debug */,
+				DC7941EC2577379500090796 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC7941ED2577379500090796 /* Build configuration list for PBXNativeTarget "AOC2020Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7941EE2577379500090796 /* Debug */,
+				DC7941EF2577379500090796 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC7941CD2577379400090796 /* Project object */;
+}
