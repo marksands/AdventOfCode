@@ -49,6 +49,66 @@
 		DC1337AB25773F6A0099BC8C /* CGRect.Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1337AA25773F6A0099BC8C /* CGRect.Corners.swift */; };
 		DC1337C5257741020099BC8C /* Int.Exploded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1337C4257741020099BC8C /* Int.Exploded.swift */; };
 		DC1337F4257743AC0099BC8C /* CircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBAC21D7384C00B5FA4F /* CircularListTests.swift */; };
+		DC13384D2577EDE60099BC8C /* Parser.Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338102577EDE50099BC8C /* Parser.Match.swift */; };
+		DC13384E2577EDE60099BC8C /* Parser.Zip.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338112577EDE50099BC8C /* Parser.Zip.3.swift */; };
+		DC13384F2577EDE60099BC8C /* Parser.Substring.Prefix.Until.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338122577EDE50099BC8C /* Parser.Substring.Prefix.Until.swift */; };
+		DC1338502577EDE60099BC8C /* Parser.Char.WhitespacesAndNewlines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338132577EDE50099BC8C /* Parser.Char.WhitespacesAndNewlines.swift */; };
+		DC1338512577EDE60099BC8C /* Parser.Either.Left.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338142577EDE50099BC8C /* Parser.Either.Left.swift */; };
+		DC1338522577EDE60099BC8C /* Parser.Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338152577EDE50099BC8C /* Parser.Int.swift */; };
+		DC1338532577EDE60099BC8C /* Parser.Zip.5.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338162577EDE50099BC8C /* Parser.Zip.5.swift */; };
+		DC1338542577EDE60099BC8C /* Parser.Tuple.Take.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338172577EDE50099BC8C /* Parser.Tuple.Take.swift */; };
+		DC1338552577EDE60099BC8C /* Parser.Either.2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338182577EDE50099BC8C /* Parser.Either.2.swift */; };
+		DC1338562577EDE60099BC8C /* Parser.Zip.7.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338192577EDE50099BC8C /* Parser.Zip.7.swift */; };
+		DC1338572577EDE60099BC8C /* Parser.Run.Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13381A2577EDE50099BC8C /* Parser.Run.Stream.swift */; };
+		DC1338582577EDE60099BC8C /* Parser.Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13381B2577EDE50099BC8C /* Parser.Stream.swift */; };
+		DC1338592577EDE60099BC8C /* Parser.CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13381C2577EDE50099BC8C /* Parser.CGFloat.swift */; };
+		DC13385A2577EDE60099BC8C /* Parser.Ignore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13381D2577EDE50099BC8C /* Parser.Ignore.swift */; };
+		DC13385B2577EDE60099BC8C /* Parser.Char.Paren.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13381E2577EDE50099BC8C /* Parser.Char.Paren.swift */; };
+		DC13385C2577EDE60099BC8C /* Parser.Literal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13381F2577EDE50099BC8C /* Parser.Literal.swift */; };
+		DC13385D2577EDE60099BC8C /* Parser.ZeroOrMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338202577EDE50099BC8C /* Parser.ZeroOrMore.swift */; };
+		DC13385E2577EDE60099BC8C /* Parser.Zip.2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338212577EDE50099BC8C /* Parser.Zip.2.swift */; };
+		DC13385F2577EDE60099BC8C /* Parser.Char.Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338222577EDE50099BC8C /* Parser.Char.Equal.swift */; };
+		DC1338602577EDE60099BC8C /* Parser.Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338232577EDE50099BC8C /* Parser.Run.swift */; };
+		DC1338612577EDE60099BC8C /* Parser.Zip.6.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338242577EDE50099BC8C /* Parser.Zip.6.swift */; };
+		DC1338622577EDE60099BC8C /* Parser.Either.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338252577EDE50099BC8C /* Parser.Either.3.swift */; };
+		DC1338632577EDE60099BC8C /* Parser.Skip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338262577EDE50099BC8C /* Parser.Skip.swift */; };
+		DC1338642577EDE60099BC8C /* Parser.OneOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338272577EDE50099BC8C /* Parser.OneOf.swift */; };
+		DC1338652577EDE60099BC8C /* Parser.Either.Right.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338282577EDE50099BC8C /* Parser.Either.Right.swift */; };
+		DC1338662577EDE60099BC8C /* Parser.Void.Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338292577EDE50099BC8C /* Parser.Void.Prefix.swift */; };
+		DC1338672577EDE60099BC8C /* Parser.Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13382A2577EDE50099BC8C /* Parser.Map.swift */; };
+		DC1338682577EDE60099BC8C /* Parser.Never.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13382B2577EDE50099BC8C /* Parser.Never.swift */; };
+		DC1338692577EDE60099BC8C /* Parser.Zip.4.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13382C2577EDE50099BC8C /* Parser.Zip.4.swift */; };
+		DC13386A2577EDE60099BC8C /* Parser.Char.Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13382D2577EDE50099BC8C /* Parser.Char.Quote.swift */; };
+		DC13386B2577EDE60099BC8C /* Parser.ZeroOrMore.SeparatedBySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13382E2577EDE50099BC8C /* Parser.ZeroOrMore.SeparatedBySequence.swift */; };
+		DC13386C2577EDE60099BC8C /* Parser.Char.Colon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13382F2577EDE50099BC8C /* Parser.Char.Colon.swift */; };
+		DC13386D2577EDE60099BC8C /* Parser.Substring.Prefix.ThroughFirstOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338302577EDE50099BC8C /* Parser.Substring.Prefix.ThroughFirstOf.swift */; };
+		DC13386E2577EDE60099BC8C /* Parser.Take.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338312577EDE50099BC8C /* Parser.Take.swift */; };
+		DC13386F2577EDE60099BC8C /* Parser.AnyOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338322577EDE50099BC8C /* Parser.AnyOf.swift */; };
+		DC1338702577EDE60099BC8C /* Parser.Char.CommaOrNewline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338332577EDE50099BC8C /* Parser.Char.CommaOrNewline.swift */; };
+		DC1338712577EDE60099BC8C /* Parser.Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338342577EDE50099BC8C /* Parser.Debug.swift */; };
+		DC1338722577EDE60099BC8C /* Parser.Substring.Prefix.While.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338352577EDE50099BC8C /* Parser.Substring.Prefix.While.swift */; };
+		DC1338732577EDE60099BC8C /* Parser.Char.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338362577EDE50099BC8C /* Parser.Char.swift */; };
+		DC1338742577EDE60099BC8C /* Parser.Collection.Prefix.While.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338372577EDE50099BC8C /* Parser.Collection.Prefix.While.swift */; };
+		DC1338752577EDE60099BC8C /* Parser.Substring.Prefix.Through.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338382577EDE50099BC8C /* Parser.Substring.Prefix.Through.swift */; };
+		DC1338762577EDE60099BC8C /* Parser.Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338392577EDE50099BC8C /* Parser.Double.swift */; };
+		DC1338772577EDE60099BC8C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13383A2577EDE50099BC8C /* Parser.swift */; };
+		DC1338782577EDE60099BC8C /* Parser.Substring.Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13383B2577EDE50099BC8C /* Parser.Substring.Match.swift */; };
+		DC1338792577EDE60099BC8C /* Parser.FlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13383C2577EDE50099BC8C /* Parser.FlatMap.swift */; };
+		DC13387A2577EDE60099BC8C /* Parser.Always.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13383D2577EDE50099BC8C /* Parser.Always.swift */; };
+		DC13387B2577EDE60099BC8C /* Parser.Char.Semicolon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13383E2577EDE50099BC8C /* Parser.Char.Semicolon.swift */; };
+		DC13387C2577EDE60099BC8C /* Parser.Combine.2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13383F2577EDE50099BC8C /* Parser.Combine.2.swift */; };
+		DC13387D2577EDE60099BC8C /* Parser.CompactMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338402577EDE50099BC8C /* Parser.CompactMap.swift */; };
+		DC13387E2577EDE60099BC8C /* Parser.Substring.DropFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338412577EDE50099BC8C /* Parser.Substring.DropFirst.swift */; };
+		DC13387F2577EDE60099BC8C /* Parser.ExpressibleByLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338422577EDE50099BC8C /* Parser.ExpressibleByLiteral.swift */; };
+		DC1338802577EDE60099BC8C /* Parser.Substring.Prefix.UpTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338432577EDE50099BC8C /* Parser.Substring.Prefix.UpTo.swift */; };
+		DC1338812577EDE60099BC8C /* Tuple.Require.2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338452577EDE50099BC8C /* Tuple.Require.2.swift */; };
+		DC1338822577EDE60099BC8C /* Tuple.Map.2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338462577EDE50099BC8C /* Tuple.Map.2.swift */; };
+		DC1338832577EDE60099BC8C /* Tuple.Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338472577EDE50099BC8C /* Tuple.Lift.swift */; };
+		DC1338842577EDE60099BC8C /* Tuple.Map.6.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338482577EDE50099BC8C /* Tuple.Map.6.swift */; };
+		DC1338852577EDE60099BC8C /* Tuple.Map.4.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338492577EDE60099BC8C /* Tuple.Map.4.swift */; };
+		DC1338862577EDE60099BC8C /* Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13384A2577EDE60099BC8C /* Tuple.swift */; };
+		DC1338872577EDE60099BC8C /* Tuple.Map.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13384B2577EDE60099BC8C /* Tuple.Map.3.swift */; };
+		DC1338882577EDE60099BC8C /* Tuple.Map.5.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13384C2577EDE60099BC8C /* Tuple.Map.5.swift */; };
 		DC79420825773AFD00090796 /* Collection.Multiply.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Multiply.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +168,66 @@
 		DC1337A425773F610099BC8C /* CGRect.AllPositionsMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.AllPositionsMatrix.swift; sourceTree = "<group>"; };
 		DC1337AA25773F6A0099BC8C /* CGRect.Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.Corners.swift; sourceTree = "<group>"; };
 		DC1337C4257741020099BC8C /* Int.Exploded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.Exploded.swift; sourceTree = "<group>"; };
+		DC1338102577EDE50099BC8C /* Parser.Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Match.swift; sourceTree = "<group>"; };
+		DC1338112577EDE50099BC8C /* Parser.Zip.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Zip.3.swift; sourceTree = "<group>"; };
+		DC1338122577EDE50099BC8C /* Parser.Substring.Prefix.Until.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Prefix.Until.swift; sourceTree = "<group>"; };
+		DC1338132577EDE50099BC8C /* Parser.Char.WhitespacesAndNewlines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.WhitespacesAndNewlines.swift; sourceTree = "<group>"; };
+		DC1338142577EDE50099BC8C /* Parser.Either.Left.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Either.Left.swift; sourceTree = "<group>"; };
+		DC1338152577EDE50099BC8C /* Parser.Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Int.swift; sourceTree = "<group>"; };
+		DC1338162577EDE50099BC8C /* Parser.Zip.5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Zip.5.swift; sourceTree = "<group>"; };
+		DC1338172577EDE50099BC8C /* Parser.Tuple.Take.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Tuple.Take.swift; sourceTree = "<group>"; };
+		DC1338182577EDE50099BC8C /* Parser.Either.2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Either.2.swift; sourceTree = "<group>"; };
+		DC1338192577EDE50099BC8C /* Parser.Zip.7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Zip.7.swift; sourceTree = "<group>"; };
+		DC13381A2577EDE50099BC8C /* Parser.Run.Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Run.Stream.swift; sourceTree = "<group>"; };
+		DC13381B2577EDE50099BC8C /* Parser.Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Stream.swift; sourceTree = "<group>"; };
+		DC13381C2577EDE50099BC8C /* Parser.CGFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.CGFloat.swift; sourceTree = "<group>"; };
+		DC13381D2577EDE50099BC8C /* Parser.Ignore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Ignore.swift; sourceTree = "<group>"; };
+		DC13381E2577EDE50099BC8C /* Parser.Char.Paren.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.Paren.swift; sourceTree = "<group>"; };
+		DC13381F2577EDE50099BC8C /* Parser.Literal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Literal.swift; sourceTree = "<group>"; };
+		DC1338202577EDE50099BC8C /* Parser.ZeroOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.ZeroOrMore.swift; sourceTree = "<group>"; };
+		DC1338212577EDE50099BC8C /* Parser.Zip.2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Zip.2.swift; sourceTree = "<group>"; };
+		DC1338222577EDE50099BC8C /* Parser.Char.Equal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.Equal.swift; sourceTree = "<group>"; };
+		DC1338232577EDE50099BC8C /* Parser.Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Run.swift; sourceTree = "<group>"; };
+		DC1338242577EDE50099BC8C /* Parser.Zip.6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Zip.6.swift; sourceTree = "<group>"; };
+		DC1338252577EDE50099BC8C /* Parser.Either.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Either.3.swift; sourceTree = "<group>"; };
+		DC1338262577EDE50099BC8C /* Parser.Skip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Skip.swift; sourceTree = "<group>"; };
+		DC1338272577EDE50099BC8C /* Parser.OneOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.OneOf.swift; sourceTree = "<group>"; };
+		DC1338282577EDE50099BC8C /* Parser.Either.Right.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Either.Right.swift; sourceTree = "<group>"; };
+		DC1338292577EDE50099BC8C /* Parser.Void.Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Void.Prefix.swift; sourceTree = "<group>"; };
+		DC13382A2577EDE50099BC8C /* Parser.Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Map.swift; sourceTree = "<group>"; };
+		DC13382B2577EDE50099BC8C /* Parser.Never.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Never.swift; sourceTree = "<group>"; };
+		DC13382C2577EDE50099BC8C /* Parser.Zip.4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Zip.4.swift; sourceTree = "<group>"; };
+		DC13382D2577EDE50099BC8C /* Parser.Char.Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.Quote.swift; sourceTree = "<group>"; };
+		DC13382E2577EDE50099BC8C /* Parser.ZeroOrMore.SeparatedBySequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.ZeroOrMore.SeparatedBySequence.swift; sourceTree = "<group>"; };
+		DC13382F2577EDE50099BC8C /* Parser.Char.Colon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.Colon.swift; sourceTree = "<group>"; };
+		DC1338302577EDE50099BC8C /* Parser.Substring.Prefix.ThroughFirstOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Prefix.ThroughFirstOf.swift; sourceTree = "<group>"; };
+		DC1338312577EDE50099BC8C /* Parser.Take.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Take.swift; sourceTree = "<group>"; };
+		DC1338322577EDE50099BC8C /* Parser.AnyOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.AnyOf.swift; sourceTree = "<group>"; };
+		DC1338332577EDE50099BC8C /* Parser.Char.CommaOrNewline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.CommaOrNewline.swift; sourceTree = "<group>"; };
+		DC1338342577EDE50099BC8C /* Parser.Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Debug.swift; sourceTree = "<group>"; };
+		DC1338352577EDE50099BC8C /* Parser.Substring.Prefix.While.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Prefix.While.swift; sourceTree = "<group>"; };
+		DC1338362577EDE50099BC8C /* Parser.Char.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.swift; sourceTree = "<group>"; };
+		DC1338372577EDE50099BC8C /* Parser.Collection.Prefix.While.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Collection.Prefix.While.swift; sourceTree = "<group>"; };
+		DC1338382577EDE50099BC8C /* Parser.Substring.Prefix.Through.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Prefix.Through.swift; sourceTree = "<group>"; };
+		DC1338392577EDE50099BC8C /* Parser.Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Double.swift; sourceTree = "<group>"; };
+		DC13383A2577EDE50099BC8C /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		DC13383B2577EDE50099BC8C /* Parser.Substring.Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Match.swift; sourceTree = "<group>"; };
+		DC13383C2577EDE50099BC8C /* Parser.FlatMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.FlatMap.swift; sourceTree = "<group>"; };
+		DC13383D2577EDE50099BC8C /* Parser.Always.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Always.swift; sourceTree = "<group>"; };
+		DC13383E2577EDE50099BC8C /* Parser.Char.Semicolon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Char.Semicolon.swift; sourceTree = "<group>"; };
+		DC13383F2577EDE50099BC8C /* Parser.Combine.2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Combine.2.swift; sourceTree = "<group>"; };
+		DC1338402577EDE50099BC8C /* Parser.CompactMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.CompactMap.swift; sourceTree = "<group>"; };
+		DC1338412577EDE50099BC8C /* Parser.Substring.DropFirst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.DropFirst.swift; sourceTree = "<group>"; };
+		DC1338422577EDE50099BC8C /* Parser.ExpressibleByLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.ExpressibleByLiteral.swift; sourceTree = "<group>"; };
+		DC1338432577EDE50099BC8C /* Parser.Substring.Prefix.UpTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Prefix.UpTo.swift; sourceTree = "<group>"; };
+		DC1338452577EDE50099BC8C /* Tuple.Require.2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.Require.2.swift; sourceTree = "<group>"; };
+		DC1338462577EDE50099BC8C /* Tuple.Map.2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.Map.2.swift; sourceTree = "<group>"; };
+		DC1338472577EDE50099BC8C /* Tuple.Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.Lift.swift; sourceTree = "<group>"; };
+		DC1338482577EDE50099BC8C /* Tuple.Map.6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.Map.6.swift; sourceTree = "<group>"; };
+		DC1338492577EDE60099BC8C /* Tuple.Map.4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.Map.4.swift; sourceTree = "<group>"; };
+		DC13384A2577EDE60099BC8C /* Tuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.swift; sourceTree = "<group>"; };
+		DC13384B2577EDE60099BC8C /* Tuple.Map.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.Map.3.swift; sourceTree = "<group>"; };
+		DC13384C2577EDE60099BC8C /* Tuple.Map.5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.Map.5.swift; sourceTree = "<group>"; };
 		DC79420725773AFD00090796 /* Collection.Multiply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Multiply.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +298,7 @@
 				B18EBBA821D7384C00B5FA4F /* IntersectingPoints.swift */,
 				B1C5841C23A2BA8100A6B907 /* Maths.swift */,
 				B1C5841E23A2BD2500A6B907 /* MathsTests.swift */,
+				DC13380F2577EDE50099BC8C /* Parser */,
 				B18EBB9921D7384B00B5FA4F /* Position.swift */,
 				B18EBB9C21D7384B00B5FA4F /* PriorityQueue.swift */,
 				B18EBBA221D7384B00B5FA4F /* Regex.swift */,
@@ -192,6 +313,7 @@
 				B18EBB9A21D7384B00B5FA4F /* String.Exploded.swift */,
 				B18EBB9E21D7384B00B5FA4F /* String.Intersection.swift */,
 				B18EBB9B21D7384B00B5FA4F /* String.Stripping.swift */,
+				DC1338442577EDE50099BC8C /* Tuple */,
 			);
 			path = AdventOfCode;
 			sourceTree = "<group>";
@@ -212,6 +334,80 @@
 				B18EBBAA21D7384C00B5FA4F /* Input.swift */,
 			);
 			path = AoC;
+			sourceTree = "<group>";
+		};
+		DC13380F2577EDE50099BC8C /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				DC13383D2577EDE50099BC8C /* Parser.Always.swift */,
+				DC1338322577EDE50099BC8C /* Parser.AnyOf.swift */,
+				DC13381C2577EDE50099BC8C /* Parser.CGFloat.swift */,
+				DC13382F2577EDE50099BC8C /* Parser.Char.Colon.swift */,
+				DC1338332577EDE50099BC8C /* Parser.Char.CommaOrNewline.swift */,
+				DC1338222577EDE50099BC8C /* Parser.Char.Equal.swift */,
+				DC13381E2577EDE50099BC8C /* Parser.Char.Paren.swift */,
+				DC13382D2577EDE50099BC8C /* Parser.Char.Quote.swift */,
+				DC13383E2577EDE50099BC8C /* Parser.Char.Semicolon.swift */,
+				DC1338362577EDE50099BC8C /* Parser.Char.swift */,
+				DC1338132577EDE50099BC8C /* Parser.Char.WhitespacesAndNewlines.swift */,
+				DC1338372577EDE50099BC8C /* Parser.Collection.Prefix.While.swift */,
+				DC13383F2577EDE50099BC8C /* Parser.Combine.2.swift */,
+				DC1338402577EDE50099BC8C /* Parser.CompactMap.swift */,
+				DC1338342577EDE50099BC8C /* Parser.Debug.swift */,
+				DC1338392577EDE50099BC8C /* Parser.Double.swift */,
+				DC1338182577EDE50099BC8C /* Parser.Either.2.swift */,
+				DC1338252577EDE50099BC8C /* Parser.Either.3.swift */,
+				DC1338142577EDE50099BC8C /* Parser.Either.Left.swift */,
+				DC1338282577EDE50099BC8C /* Parser.Either.Right.swift */,
+				DC1338422577EDE50099BC8C /* Parser.ExpressibleByLiteral.swift */,
+				DC13383C2577EDE50099BC8C /* Parser.FlatMap.swift */,
+				DC13381D2577EDE50099BC8C /* Parser.Ignore.swift */,
+				DC1338152577EDE50099BC8C /* Parser.Int.swift */,
+				DC13381F2577EDE50099BC8C /* Parser.Literal.swift */,
+				DC13382A2577EDE50099BC8C /* Parser.Map.swift */,
+				DC1338102577EDE50099BC8C /* Parser.Match.swift */,
+				DC13382B2577EDE50099BC8C /* Parser.Never.swift */,
+				DC1338272577EDE50099BC8C /* Parser.OneOf.swift */,
+				DC13381A2577EDE50099BC8C /* Parser.Run.Stream.swift */,
+				DC1338232577EDE50099BC8C /* Parser.Run.swift */,
+				DC1338262577EDE50099BC8C /* Parser.Skip.swift */,
+				DC13381B2577EDE50099BC8C /* Parser.Stream.swift */,
+				DC1338412577EDE50099BC8C /* Parser.Substring.DropFirst.swift */,
+				DC13383B2577EDE50099BC8C /* Parser.Substring.Match.swift */,
+				DC1338382577EDE50099BC8C /* Parser.Substring.Prefix.Through.swift */,
+				DC1338302577EDE50099BC8C /* Parser.Substring.Prefix.ThroughFirstOf.swift */,
+				DC1338122577EDE50099BC8C /* Parser.Substring.Prefix.Until.swift */,
+				DC1338432577EDE50099BC8C /* Parser.Substring.Prefix.UpTo.swift */,
+				DC1338352577EDE50099BC8C /* Parser.Substring.Prefix.While.swift */,
+				DC13383A2577EDE50099BC8C /* Parser.swift */,
+				DC1338312577EDE50099BC8C /* Parser.Take.swift */,
+				DC1338172577EDE50099BC8C /* Parser.Tuple.Take.swift */,
+				DC1338292577EDE50099BC8C /* Parser.Void.Prefix.swift */,
+				DC13382E2577EDE50099BC8C /* Parser.ZeroOrMore.SeparatedBySequence.swift */,
+				DC1338202577EDE50099BC8C /* Parser.ZeroOrMore.swift */,
+				DC1338212577EDE50099BC8C /* Parser.Zip.2.swift */,
+				DC1338112577EDE50099BC8C /* Parser.Zip.3.swift */,
+				DC13382C2577EDE50099BC8C /* Parser.Zip.4.swift */,
+				DC1338162577EDE50099BC8C /* Parser.Zip.5.swift */,
+				DC1338242577EDE50099BC8C /* Parser.Zip.6.swift */,
+				DC1338192577EDE50099BC8C /* Parser.Zip.7.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		DC1338442577EDE50099BC8C /* Tuple */ = {
+			isa = PBXGroup;
+			children = (
+				DC1338472577EDE50099BC8C /* Tuple.Lift.swift */,
+				DC1338462577EDE50099BC8C /* Tuple.Map.2.swift */,
+				DC13384B2577EDE60099BC8C /* Tuple.Map.3.swift */,
+				DC1338492577EDE60099BC8C /* Tuple.Map.4.swift */,
+				DC13384C2577EDE60099BC8C /* Tuple.Map.5.swift */,
+				DC1338482577EDE50099BC8C /* Tuple.Map.6.swift */,
+				DC1338452577EDE50099BC8C /* Tuple.Require.2.swift */,
+				DC13384A2577EDE60099BC8C /* Tuple.swift */,
+			);
+			path = Tuple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,43 +521,103 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC1338802577EDE60099BC8C /* Parser.Substring.Prefix.UpTo.swift in Sources */,
+				DC1338582577EDE60099BC8C /* Parser.Stream.swift in Sources */,
+				DC1338602577EDE60099BC8C /* Parser.Run.swift in Sources */,
 				B157C66C235236DE000BF7DC /* Collection.Combinations.swift in Sources */,
+				DC13384D2577EDE60099BC8C /* Parser.Match.swift in Sources */,
 				B15E361B21DBD62400B66F9B /* Collection.EqualSubsequences.swift in Sources */,
+				DC1338612577EDE60099BC8C /* Parser.Zip.6.swift in Sources */,
+				DC13387D2577EDE60099BC8C /* Parser.CompactMap.swift in Sources */,
 				B1A1FA5E22E55B760016DB0C /* IntegerPartitionSum.swift in Sources */,
 				B18EBBC221D7384C00B5FA4F /* Input.swift in Sources */,
+				DC13385C2577EDE60099BC8C /* Parser.Literal.swift in Sources */,
+				DC1338882577EDE60099BC8C /* Tuple.Map.5.swift in Sources */,
 				B18EBBB321D7384C00B5FA4F /* String.Stripping.swift in Sources */,
+				DC1338702577EDE60099BC8C /* Parser.Char.CommaOrNewline.swift in Sources */,
 				B18EBBAE21D7384C00B5FA4F /* Day.swift in Sources */,
+				DC13386C2577EDE60099BC8C /* Parser.Char.Colon.swift in Sources */,
+				DC1338642577EDE60099BC8C /* Parser.OneOf.swift in Sources */,
+				DC1338622577EDE60099BC8C /* Parser.Either.3.swift in Sources */,
+				DC1338592577EDE60099BC8C /* Parser.CGFloat.swift in Sources */,
+				DC1338832577EDE60099BC8C /* Tuple.Lift.swift in Sources */,
+				DC13385A2577EDE60099BC8C /* Parser.Ignore.swift in Sources */,
 				B18EBBB021D7384C00B5FA4F /* Sequence.Permutations.swift in Sources */,
+				DC1338542577EDE60099BC8C /* Parser.Tuple.Take.swift in Sources */,
+				DC1338822577EDE60099BC8C /* Tuple.Map.2.swift in Sources */,
+				DC13384F2577EDE60099BC8C /* Parser.Substring.Prefix.Until.swift in Sources */,
 				B1A1FA5622E4FE080016DB0C /* Dictionary.Merging.swift in Sources */,
+				DC1338532577EDE60099BC8C /* Parser.Zip.5.swift in Sources */,
+				DC1338762577EDE60099BC8C /* Parser.Double.swift in Sources */,
 				B1B1E11322C5AB3F00F50F2B /* Collection.EachWithIndex.swift in Sources */,
+				DC1338502577EDE60099BC8C /* Parser.Char.WhitespacesAndNewlines.swift in Sources */,
 				DC1337AB25773F6A0099BC8C /* CGRect.Corners.swift in Sources */,
+				DC13386E2577EDE60099BC8C /* Parser.Take.swift in Sources */,
 				B18EBBBE21D7384C00B5FA4F /* Sequence.Unique.swift in Sources */,
 				B18EBBC021D7384C00B5FA4F /* IntersectingPoints.swift in Sources */,
 				B18EBBB721D7384C00B5FA4F /* String.Distance.swift in Sources */,
+				DC1338652577EDE60099BC8C /* Parser.Either.Right.swift in Sources */,
+				DC1338872577EDE60099BC8C /* Tuple.Map.3.swift in Sources */,
+				DC1338522577EDE60099BC8C /* Parser.Int.swift in Sources */,
+				DC1338632577EDE60099BC8C /* Parser.Skip.swift in Sources */,
+				DC13385D2577EDE60099BC8C /* Parser.ZeroOrMore.swift in Sources */,
 				B18EBBB221D7384C00B5FA4F /* String.Exploded.swift in Sources */,
+				DC1338862577EDE60099BC8C /* Tuple.swift in Sources */,
 				B18EBBC321D7384C00B5FA4F /* CircularList.swift in Sources */,
+				DC13386B2577EDE60099BC8C /* Parser.ZeroOrMore.SeparatedBySequence.swift in Sources */,
 				B18EBBB521D7384C00B5FA4F /* Sequence.CountElements.swift in Sources */,
+				DC13387B2577EDE60099BC8C /* Parser.Char.Semicolon.swift in Sources */,
 				B18EBBB121D7384C00B5FA4F /* Position.swift in Sources */,
 				DC1337C5257741020099BC8C /* Int.Exploded.swift in Sources */,
+				DC1338752577EDE60099BC8C /* Parser.Substring.Prefix.Through.swift in Sources */,
+				DC1338692577EDE60099BC8C /* Parser.Zip.4.swift in Sources */,
+				DC1338722577EDE60099BC8C /* Parser.Substring.Prefix.While.swift in Sources */,
 				B18EBBBB21D7384C00B5FA4F /* Sequence.CountWhere.swift in Sources */,
+				DC1338672577EDE60099BC8C /* Parser.Map.swift in Sources */,
+				DC1338782577EDE60099BC8C /* Parser.Substring.Match.swift in Sources */,
 				DC1337A525773F610099BC8C /* CGRect.AllPositionsMatrix.swift in Sources */,
+				DC1338742577EDE60099BC8C /* Parser.Collection.Prefix.While.swift in Sources */,
+				DC13387A2577EDE60099BC8C /* Parser.Always.swift in Sources */,
+				DC13386D2577EDE60099BC8C /* Parser.Substring.Prefix.ThroughFirstOf.swift in Sources */,
+				DC1338732577EDE60099BC8C /* Parser.Char.swift in Sources */,
+				DC13385E2577EDE60099BC8C /* Parser.Zip.2.swift in Sources */,
+				DC1338682577EDE60099BC8C /* Parser.Never.swift in Sources */,
+				DC13386A2577EDE60099BC8C /* Parser.Char.Quote.swift in Sources */,
+				DC1338772577EDE60099BC8C /* Parser.swift in Sources */,
+				DC1338552577EDE60099BC8C /* Parser.Either.2.swift in Sources */,
+				DC1338792577EDE60099BC8C /* Parser.FlatMap.swift in Sources */,
+				DC1338662577EDE60099BC8C /* Parser.Void.Prefix.swift in Sources */,
 				B18EBBB921D7384C00B5FA4F /* Collection.Chunks.swift in Sources */,
 				B18EBBC121D7384C00B5FA4F /* Heap.swift in Sources */,
 				B157C66123522ACC000BF7DC /* Sequence.EachPair.swift in Sources */,
+				DC1338852577EDE60099BC8C /* Tuple.Map.4.swift in Sources */,
 				DC79420825773AFD00090796 /* Collection.Multiply.swift in Sources */,
 				B18EBBBD21D7384C00B5FA4F /* Collection.Sum.swift in Sources */,
+				DC13386F2577EDE60099BC8C /* Parser.AnyOf.swift in Sources */,
+				DC1338712577EDE60099BC8C /* Parser.Debug.swift in Sources */,
 				B18EBBC521D7384C00B5FA4F /* CGRect.Perimeter.swift in Sources */,
 				B1C5841D23A2BA8100A6B907 /* Maths.swift in Sources */,
 				B1E8E75E239801EA00DEE40E /* Sequence.AnySatisfy.swift in Sources */,
+				DC13385F2577EDE60099BC8C /* Parser.Char.Equal.swift in Sources */,
 				B18EBBBF21D7384C00B5FA4F /* CharacterLists.swift in Sources */,
+				DC13385B2577EDE60099BC8C /* Parser.Char.Paren.swift in Sources */,
+				DC13387C2577EDE60099BC8C /* Parser.Combine.2.swift in Sources */,
+				DC1338812577EDE60099BC8C /* Tuple.Require.2.swift in Sources */,
 				B18EBBB421D7384C00B5FA4F /* PriorityQueue.swift in Sources */,
 				B18EBBB821D7384C00B5FA4F /* CGRect.AllPoints.swift in Sources */,
+				DC13384E2577EDE60099BC8C /* Parser.Zip.3.swift in Sources */,
 				B18EBBAF21D7384C00B5FA4F /* Cycled.swift in Sources */,
 				B1BBD08421E65CDF00ACBBC9 /* Sequence.Scan.swift in Sources */,
+				DC1338562577EDE60099BC8C /* Parser.Zip.7.swift in Sources */,
 				B18EBBB621D7384C00B5FA4F /* String.Intersection.swift in Sources */,
+				DC1338512577EDE60099BC8C /* Parser.Either.Left.swift in Sources */,
+				DC1338842577EDE60099BC8C /* Tuple.Map.6.swift in Sources */,
+				DC1338572577EDE60099BC8C /* Parser.Run.Stream.swift in Sources */,
+				DC13387E2577EDE60099BC8C /* Parser.Substring.DropFirst.swift in Sources */,
 				B18EBBBC21D7384C00B5FA4F /* Array.Safe.swift in Sources */,
 				B157C65F23522A03000BF7DC /* Collection.Slice.swift in Sources */,
 				B18EBBBA21D7384C00B5FA4F /* Regex.swift in Sources */,
+				DC13387F2577EDE60099BC8C /* Parser.ExpressibleByLiteral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
