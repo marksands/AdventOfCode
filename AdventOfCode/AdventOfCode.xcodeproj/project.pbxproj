@@ -29,7 +29,7 @@
 		B18EBBBA21D7384C00B5FA4F /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA221D7384B00B5FA4F /* Regex.swift */; };
 		B18EBBBB21D7384C00B5FA4F /* CountWhere.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA321D7384B00B5FA4F /* CountWhere.swift */; };
 		B18EBBBC21D7384C00B5FA4F /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA421D7384B00B5FA4F /* Safe.swift */; };
-		B18EBBBD21D7384C00B5FA4F /* Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA521D7384B00B5FA4F /* Sum.swift */; };
+		B18EBBBD21D7384C00B5FA4F /* Collection.Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA521D7384B00B5FA4F /* Collection.Sum.swift */; };
 		B18EBBBE21D7384C00B5FA4F /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA621D7384B00B5FA4F /* Unique.swift */; };
 		B18EBBBF21D7384C00B5FA4F /* CharacterLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA721D7384C00B5FA4F /* CharacterLists.swift */; };
 		B18EBBC021D7384C00B5FA4F /* IntersectingPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EBBA821D7384C00B5FA4F /* IntersectingPoints.swift */; };
@@ -46,6 +46,7 @@
 		B1C5841D23A2BA8100A6B907 /* Maths.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5841C23A2BA8100A6B907 /* Maths.swift */; };
 		B1C5841F23A2BD2500A6B907 /* MathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5841E23A2BD2500A6B907 /* MathsTests.swift */; };
 		B1E8E75E239801EA00DEE40E /* AnySatisfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E75D239801EA00DEE40E /* AnySatisfy.swift */; };
+		DC79420825773AFD00090796 /* Collection.Multiply.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Multiply.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +85,7 @@
 		B18EBBA221D7384B00B5FA4F /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		B18EBBA321D7384B00B5FA4F /* CountWhere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountWhere.swift; sourceTree = "<group>"; };
 		B18EBBA421D7384B00B5FA4F /* Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
-		B18EBBA521D7384B00B5FA4F /* Sum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sum.swift; sourceTree = "<group>"; };
+		B18EBBA521D7384B00B5FA4F /* Collection.Sum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.Sum.swift; sourceTree = "<group>"; };
 		B18EBBA621D7384B00B5FA4F /* Unique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
 		B18EBBA721D7384C00B5FA4F /* CharacterLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterLists.swift; sourceTree = "<group>"; };
 		B18EBBA821D7384C00B5FA4F /* IntersectingPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntersectingPoints.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		B1C5841C23A2BA8100A6B907 /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
 		B1C5841E23A2BD2500A6B907 /* MathsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathsTests.swift; sourceTree = "<group>"; };
 		B1E8E75D239801EA00DEE40E /* AnySatisfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySatisfy.swift; sourceTree = "<group>"; };
+		DC79420725773AFD00090796 /* Collection.Multiply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Multiply.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,11 +147,15 @@
 			children = (
 				B18EBB7621D737F100B5FA4F /* AdventOfCode.h */,
 				B18EBBA021D7384B00B5FA4F /* AllPoints.swift */,
+				B1E8E75D239801EA00DEE40E /* AnySatisfy.swift */,
 				B18EBBAD21D7384C00B5FA4F /* BorderPoints.swift */,
 				B18EBBA721D7384C00B5FA4F /* CharacterLists.swift */,
 				B18EBBA121D7384B00B5FA4F /* Chunks.swift */,
 				B18EBBAB21D7384C00B5FA4F /* CircularList.swift */,
 				B18EBBAC21D7384C00B5FA4F /* CircularListTests.swift */,
+				DC79420725773AFD00090796 /* Collection.Multiply.swift */,
+				B18EBBA521D7384B00B5FA4F /* Collection.Sum.swift */,
+				B157C66B235236DE000BF7DC /* Combinations.swift */,
 				B18EBB9D21D7384B00B5FA4F /* CountElements.swift */,
 				B18EBBA321D7384B00B5FA4F /* CountWhere.swift */,
 				B18EBB9721D7384B00B5FA4F /* Cycled.swift */,
@@ -166,6 +172,8 @@
 				B1A1FA5F22E55E2B0016DB0C /* IntegerPartitionSumTests.swift */,
 				B18EBBA821D7384C00B5FA4F /* IntersectingPoints.swift */,
 				B18EBB9E21D7384B00B5FA4F /* IntersectionOfStrings.swift */,
+				B1C5841C23A2BA8100A6B907 /* Maths.swift */,
+				B1C5841E23A2BD2500A6B907 /* MathsTests.swift */,
 				B18EBB9821D7384B00B5FA4F /* PermutationIterator.swift */,
 				B18EBB9921D7384B00B5FA4F /* Position.swift */,
 				B18EBB9C21D7384B00B5FA4F /* PriorityQueue.swift */,
@@ -175,12 +183,7 @@
 				B157C65E23522A03000BF7DC /* Slice.swift */,
 				B18EBB9F21D7384B00B5FA4F /* StringDistance.swift */,
 				B18EBB9B21D7384B00B5FA4F /* Stripping.swift */,
-				B18EBBA521D7384B00B5FA4F /* Sum.swift */,
 				B18EBBA621D7384B00B5FA4F /* Unique.swift */,
-				B157C66B235236DE000BF7DC /* Combinations.swift */,
-				B1E8E75D239801EA00DEE40E /* AnySatisfy.swift */,
-				B1C5841C23A2BA8100A6B907 /* Maths.swift */,
-				B1C5841E23A2BD2500A6B907 /* MathsTests.swift */,
 			);
 			path = AdventOfCode;
 			sourceTree = "<group>";
@@ -325,7 +328,8 @@
 				B18EBBB921D7384C00B5FA4F /* Chunks.swift in Sources */,
 				B18EBBC121D7384C00B5FA4F /* Heap.swift in Sources */,
 				B157C66123522ACC000BF7DC /* EachPair.swift in Sources */,
-				B18EBBBD21D7384C00B5FA4F /* Sum.swift in Sources */,
+				DC79420825773AFD00090796 /* Collection.Multiply.swift in Sources */,
+				B18EBBBD21D7384C00B5FA4F /* Collection.Sum.swift in Sources */,
 				B18EBBC521D7384C00B5FA4F /* BorderPoints.swift in Sources */,
 				B1C5841D23A2BA8100A6B907 /* Maths.swift in Sources */,
 				B1E8E75E239801EA00DEE40E /* AnySatisfy.swift in Sources */,

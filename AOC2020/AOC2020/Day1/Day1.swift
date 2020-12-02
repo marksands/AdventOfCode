@@ -10,10 +10,16 @@ public final class Day1: Day {
 	}
 
 	public override func part1() -> String {
-		return ""
+		guard let slice = numbers.combinations(of: 2).first(where: { $0.sum() == 2020 }) else {
+			return ""
+		}
+		return "\(slice.multiply())"
 	}
 
 	public override func part2() -> String {
-		return ""
+		guard let slice = numbers.combinations(of: 3).first(where: { $0.sum() == 2020 }) else {
+			return ""
+		}
+		return "\(slice.multiply())"
 	}
 }
