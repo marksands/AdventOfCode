@@ -27,7 +27,7 @@ public final class Day3: Day {
 		var dy = 0
 
 		while dy < terrain.count {
-			if terrain[dy % terrain.count][unsafe: dx % rowWidth] == "#" {
+			if terrain[dy][unsafe: dx % rowWidth] == "#" {
 				trees += 1
 			}
 			dx += right
