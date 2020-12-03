@@ -15,31 +15,23 @@ public final class Day3: Day {
 	}
 
 	public override func part2() -> String {
-		var hits: [Int] = []
-
-		hits.append(trees(right: 1, down: 1))
-		hits.append(trees(right: 3, down: 1))
-		hits.append(trees(right: 5, down: 1))
-		hits.append(trees(right: 7, down: 1))
-		hits.append(trees(right: 1, down: 2))
-
-		return String(hits.product())
+		let hits = [1, 3, 5, 7].product { trees(right: $0, down: 1) } * trees(right: 1, down: 2)
+		return String(hits)
 	}
 
 	func trees(right: Int, down: Int) -> Int {
 		var trees = 0
-		let rowWidth = terrain[0].exploded().count
+		let rowWidth = terrain[0].count
 
-		var x = 0
-		var y = 0
+		var dx = 0
+		var dy = 0
 
-		while y < terrain.count {
-			let character = terrain[y % terrain.count].exploded()[x % rowWidth]
-			if character == "#" {
+		while dy < terrain.count {
+			if terrain[dy % terrain.count][unsafe: dx % rowWidth] == "#" {
 				trees += 1
 			}
-			x += right
-			y += down
+			dx += right
+			dy += down
 		}
 
 		return trees
