@@ -101,7 +101,7 @@
 		DC13387F2577EDE60099BC8C /* Parser.ExpressibleByLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338422577EDE50099BC8C /* Parser.ExpressibleByLiteral.swift */; };
 		DC1338802577EDE60099BC8C /* Parser.Substring.Prefix.UpTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338432577EDE50099BC8C /* Parser.Substring.Prefix.UpTo.swift */; };
 		DC1338AB257842D50099BC8C /* Parser.Remaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338AA257842D50099BC8C /* Parser.Remaining.swift */; };
-		DC79420825773AFD00090796 /* Collection.Multiply.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Multiply.swift */; };
+		DC79420825773AFD00090796 /* Collection.Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,7 +212,7 @@
 		DC1338422577EDE50099BC8C /* Parser.ExpressibleByLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.ExpressibleByLiteral.swift; sourceTree = "<group>"; };
 		DC1338432577EDE50099BC8C /* Parser.Substring.Prefix.UpTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Prefix.UpTo.swift; sourceTree = "<group>"; };
 		DC1338AA257842D50099BC8C /* Parser.Remaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.Remaining.swift; sourceTree = "<group>"; };
-		DC79420725773AFD00090796 /* Collection.Multiply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Multiply.swift; sourceTree = "<group>"; };
+		DC79420725773AFD00090796 /* Collection.Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,7 +269,7 @@
 				B157C66B235236DE000BF7DC /* Collection.Combinations.swift */,
 				B1B1E11222C5AB3F00F50F2B /* Collection.EachWithIndex.swift */,
 				B15E361A21DBD62400B66F9B /* Collection.EqualSubsequences.swift */,
-				DC79420725773AFD00090796 /* Collection.Multiply.swift */,
+				DC79420725773AFD00090796 /* Collection.Product.swift */,
 				B157C65E23522A03000BF7DC /* Collection.Slice.swift */,
 				B18EBBA521D7384B00B5FA4F /* Collection.Sum.swift */,
 				B18EBB9721D7384B00B5FA4F /* Cycled.swift */,
@@ -553,7 +553,7 @@
 				B18EBBB921D7384C00B5FA4F /* Collection.Chunks.swift in Sources */,
 				B18EBBC121D7384C00B5FA4F /* Heap.swift in Sources */,
 				B157C66123522ACC000BF7DC /* Sequence.EachPair.swift in Sources */,
-				DC79420825773AFD00090796 /* Collection.Multiply.swift in Sources */,
+				DC79420825773AFD00090796 /* Collection.Product.swift in Sources */,
 				B18EBBBD21D7384C00B5FA4F /* Collection.Sum.swift in Sources */,
 				DC13386F2577EDE60099BC8C /* Parser.AnyOf.swift in Sources */,
 				DC1338712577EDE60099BC8C /* Parser.Debug.swift in Sources */,

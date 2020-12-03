@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		DC1337EA257743430099BC8C /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1337E9257743430099BC8C /* Day2.swift */; };
 		DC1337F02577434C0099BC8C /* Day2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1337EF2577434C0099BC8C /* Day2Tests.swift */; };
+		DC1338E02578A7620099BC8C /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338DF2578A7620099BC8C /* Day3.swift */; };
+		DC1338E42578A76B0099BC8C /* Day3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338E32578A76B0099BC8C /* Day3Tests.swift */; };
+		DC1338E72578A7750099BC8C /* input in Resources */ = {isa = PBXBuildFile; fileRef = DC1338E62578A7750099BC8C /* input */; };
 		DC7941E02577379500090796 /* AOC2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7941D62577379500090796 /* AOC2020.framework */; };
 		DC7941E52577379500090796 /* AOC2020Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7941E42577379500090796 /* AOC2020Tests.swift */; };
 		DC7941E72577379500090796 /* AOC2020.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7941D92577379500090796 /* AOC2020.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,6 +49,9 @@
 		DC1337E9257743430099BC8C /* Day2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
 		DC1337EF2577434C0099BC8C /* Day2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2Tests.swift; sourceTree = "<group>"; };
 		DC1337F2257743560099BC8C /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		DC1338DF2578A7620099BC8C /* Day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3.swift; sourceTree = "<group>"; };
+		DC1338E32578A76B0099BC8C /* Day3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3Tests.swift; sourceTree = "<group>"; };
+		DC1338E62578A7750099BC8C /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		DC7941D62577379500090796 /* AOC2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7941D92577379500090796 /* AOC2020.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2020.h; sourceTree = "<group>"; };
 		DC7941DA2577379500090796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +94,16 @@
 			path = Day2;
 			sourceTree = "<group>";
 		};
+		DC1338DE2578A7550099BC8C /* Day3 */ = {
+			isa = PBXGroup;
+			children = (
+				DC1338DF2578A7620099BC8C /* Day3.swift */,
+				DC1338E32578A76B0099BC8C /* Day3Tests.swift */,
+				DC1338E62578A7750099BC8C /* input */,
+			);
+			path = Day3;
+			sourceTree = "<group>";
+		};
 		DC7941CC2577379400090796 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +128,7 @@
 			children = (
 				DC7941FA257737F300090796 /* Day1 */,
 				DC1337E8257743390099BC8C /* Day2 */,
+				DC1338DE2578A7550099BC8C /* Day3 */,
 				DC7941D92577379500090796 /* AOC2020.h */,
 				DC7941DA2577379500090796 /* Info.plist */,
 			);
@@ -238,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC1338E72578A7750099BC8C /* input in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7941FC257737FD00090796 /* Day1.swift in Sources */,
+				DC1338E02578A7620099BC8C /* Day3.swift in Sources */,
 				DC1337EA257743430099BC8C /* Day2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +285,7 @@
 			files = (
 				DC7941FF2577383500090796 /* Day1Tests.swift in Sources */,
 				DC7941E52577379500090796 /* AOC2020Tests.swift in Sources */,
+				DC1338E42578A76B0099BC8C /* Day3Tests.swift in Sources */,
 				DC1337F02577434C0099BC8C /* Day2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
