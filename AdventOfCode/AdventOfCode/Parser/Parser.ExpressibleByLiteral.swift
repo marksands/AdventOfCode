@@ -10,6 +10,6 @@ extension Parser: ExpressibleByStringLiteral where Input == Substring, Output ==
 	public typealias StringLiteralType = String
 	
 	public init(stringLiteral value: String) {
-    self = Parser.prefix(value[...])
+		self = Parser.prefix(value[...])
 	}
 }
