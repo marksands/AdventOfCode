@@ -1,15 +1,14 @@
 import Foundation
 import AdventOfCode
 
-enum Field: String, CaseIterable {
-	case byr, iyr, eyr, hgt, hcl, ecl, pid, cid
-
-	static var requiredCases: [Field] {
-		allCases.dropLast()
-	}
-}
-
 public final class Day4: Day {
+	enum Field: String, CaseIterable {
+		case byr, iyr, eyr, hgt, hcl, ecl, pid, cid
+
+		static var requiredCases: [Field] {
+			allCases.dropLast()
+		}
+	}
 	struct Passport {
 		let fields: [Field: String]
 
