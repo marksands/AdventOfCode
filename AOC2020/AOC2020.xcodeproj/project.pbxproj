@@ -15,6 +15,8 @@
 		DC1339712579F2DD0099BC8C /* Day4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1339702579F2DD0099BC8C /* Day4Tests.swift */; };
 		DC69160E257B480E009AD468 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69160D257B480E009AD468 /* Day5.swift */; };
 		DC691612257B4817009AD468 /* Day5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC691611257B4817009AD468 /* Day5Tests.swift */; };
+		DC69161F257C9C23009AD468 /* Day6.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69161C257C9C23009AD468 /* Day6.swift */; };
+		DC691623257C9C2F009AD468 /* Day6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69161D257C9C23009AD468 /* Day6Tests.swift */; };
 		DC7941E02577379500090796 /* AOC2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7941D62577379500090796 /* AOC2020.framework */; };
 		DC7941E52577379500090796 /* AOC2020Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7941E42577379500090796 /* AOC2020Tests.swift */; };
 		DC7941E72577379500090796 /* AOC2020.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7941D92577379500090796 /* AOC2020.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,6 +63,9 @@
 		DC69160D257B480E009AD468 /* Day5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5.swift; sourceTree = "<group>"; };
 		DC691611257B4817009AD468 /* Day5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5Tests.swift; sourceTree = "<group>"; };
 		DC691614257B4820009AD468 /* input */ = {isa = PBXFileReference; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		DC69161B257C9C23009AD468 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		DC69161C257C9C23009AD468 /* Day6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6.swift; sourceTree = "<group>"; };
+		DC69161D257C9C23009AD468 /* Day6Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6Tests.swift; sourceTree = "<group>"; };
 		DC7941D62577379500090796 /* AOC2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7941D92577379500090796 /* AOC2020.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2020.h; sourceTree = "<group>"; };
 		DC7941DA2577379500090796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +138,16 @@
 			path = Day5;
 			sourceTree = "<group>";
 		};
+		DC69161A257C9C23009AD468 /* Day6 */ = {
+			isa = PBXGroup;
+			children = (
+				DC69161C257C9C23009AD468 /* Day6.swift */,
+				DC69161D257C9C23009AD468 /* Day6Tests.swift */,
+				DC69161B257C9C23009AD468 /* input */,
+			);
+			path = Day6;
+			sourceTree = "<group>";
+		};
 		DC7941CC2577379400090796 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +175,7 @@
 				DC1338DE2578A7550099BC8C /* Day3 */,
 				DC13396B2579F2CA0099BC8C /* Day4 */,
 				DC69160C257B4806009AD468 /* Day5 */,
+				DC69161A257C9C23009AD468 /* Day6 */,
 				DC7941D92577379500090796 /* AOC2020.h */,
 				DC7941DA2577379500090796 /* Info.plist */,
 			);
@@ -304,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7941FC257737FD00090796 /* Day1.swift in Sources */,
+				DC69161F257C9C23009AD468 /* Day6.swift in Sources */,
 				DC69160E257B480E009AD468 /* Day5.swift in Sources */,
 				DC1338E02578A7620099BC8C /* Day3.swift in Sources */,
 				DC1337EA257743430099BC8C /* Day2.swift in Sources */,
@@ -321,6 +338,7 @@
 				DC1339712579F2DD0099BC8C /* Day4Tests.swift in Sources */,
 				DC1337F02577434C0099BC8C /* Day2Tests.swift in Sources */,
 				DC691612257B4817009AD468 /* Day5Tests.swift in Sources */,
+				DC691623257C9C2F009AD468 /* Day6Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
