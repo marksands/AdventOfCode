@@ -17,6 +17,8 @@
 		DC691612257B4817009AD468 /* Day5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC691611257B4817009AD468 /* Day5Tests.swift */; };
 		DC69161F257C9C23009AD468 /* Day6.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69161C257C9C23009AD468 /* Day6.swift */; };
 		DC691623257C9C2F009AD468 /* Day6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69161D257C9C23009AD468 /* Day6Tests.swift */; };
+		DC691634257DED99009AD468 /* Day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC691631257DED99009AD468 /* Day7.swift */; };
+		DC691636257DED9E009AD468 /* Day7Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC691630257DED99009AD468 /* Day7Tests.swift */; };
 		DC7941E02577379500090796 /* AOC2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7941D62577379500090796 /* AOC2020.framework */; };
 		DC7941E52577379500090796 /* AOC2020Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7941E42577379500090796 /* AOC2020Tests.swift */; };
 		DC7941E72577379500090796 /* AOC2020.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7941D92577379500090796 /* AOC2020.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +68,9 @@
 		DC69161B257C9C23009AD468 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
 		DC69161C257C9C23009AD468 /* Day6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6.swift; sourceTree = "<group>"; };
 		DC69161D257C9C23009AD468 /* Day6Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day6Tests.swift; sourceTree = "<group>"; };
+		DC69162F257DED99009AD468 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		DC691630257DED99009AD468 /* Day7Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day7Tests.swift; sourceTree = "<group>"; };
+		DC691631257DED99009AD468 /* Day7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day7.swift; sourceTree = "<group>"; };
 		DC7941D62577379500090796 /* AOC2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOC2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7941D92577379500090796 /* AOC2020.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOC2020.h; sourceTree = "<group>"; };
 		DC7941DA2577379500090796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +153,16 @@
 			path = Day6;
 			sourceTree = "<group>";
 		};
+		DC69162E257DED78009AD468 /* Day7 */ = {
+			isa = PBXGroup;
+			children = (
+				DC691631257DED99009AD468 /* Day7.swift */,
+				DC691630257DED99009AD468 /* Day7Tests.swift */,
+				DC69162F257DED99009AD468 /* input */,
+			);
+			path = Day7;
+			sourceTree = "<group>";
+		};
 		DC7941CC2577379400090796 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +191,7 @@
 				DC13396B2579F2CA0099BC8C /* Day4 */,
 				DC69160C257B4806009AD468 /* Day5 */,
 				DC69161A257C9C23009AD468 /* Day6 */,
+				DC69162E257DED78009AD468 /* Day7 */,
 				DC7941D92577379500090796 /* AOC2020.h */,
 				DC7941DA2577379500090796 /* Info.plist */,
 			);
@@ -320,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7941FC257737FD00090796 /* Day1.swift in Sources */,
+				DC691634257DED99009AD468 /* Day7.swift in Sources */,
 				DC69161F257C9C23009AD468 /* Day6.swift in Sources */,
 				DC69160E257B480E009AD468 /* Day5.swift in Sources */,
 				DC1338E02578A7620099BC8C /* Day3.swift in Sources */,
@@ -334,6 +351,7 @@
 			files = (
 				DC7941FF2577383500090796 /* Day1Tests.swift in Sources */,
 				DC7941E52577379500090796 /* AOC2020Tests.swift in Sources */,
+				DC691636257DED9E009AD468 /* Day7Tests.swift in Sources */,
 				DC1338E42578A76B0099BC8C /* Day3Tests.swift in Sources */,
 				DC1339712579F2DD0099BC8C /* Day4Tests.swift in Sources */,
 				DC1337F02577434C0099BC8C /* Day2Tests.swift in Sources */,
