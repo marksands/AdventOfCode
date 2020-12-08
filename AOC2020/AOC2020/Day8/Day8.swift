@@ -7,11 +7,16 @@ public final class Day8: Day {
 		case jmp
 		case nop
 
-		mutating func swap() {
+		mutating func swap() -> Bool {
 			switch self {
-			case .nop: self = .jmp
-			case .jmp: self = .nop
-			default: break
+			case .nop:
+				self = .jmp
+				return true
+			case .jmp:
+				self = .nop
+				return true
+			default:
+				return false
 			}
 		}
 	}
@@ -37,10 +42,8 @@ public final class Day8: Day {
 	public override func part2() -> String {
 		let (accumulator, _) = ops.indices
 			.lazy
-			.map { index in
-				self.execute(program: self.ops, modifier: {
-					$0[index].0.swap()
-				})
+			.compactMap { index in
+				self.execute(program: self.ops, predicate: { $0[index].0.swap() })
 			}
 			.first(where: { accumulator, context in
 				context == .terminated
@@ -54,16 +57,20 @@ public final class Day8: Day {
 		case infiniteLoop
 	}
 
-	private func execute(program: [(Operation, Int)], modifier: (inout [(Operation, incr: Int)]) -> () = { _ in }) -> (accumulator: Int, context: ProgramExecutionContext) {
+	private func execute(program: [(Operation, incr: Int)], predicate: (inout [(Operation, incr: Int)]) -> Bool) -> (accumulator: Int, context: ProgramExecutionContext)? {
+		var program = program
+		guard predicate(&program) else { return nil }
+
+		return execute(program: program)
+	}
+
+	private func execute(program: [(Operation, incr: Int)]) -> (accumulator: Int, context: ProgramExecutionContext) {
 		var visited = Set<Int>()
 		var accumulator = 0
 		var pc = 0
 
-		var program = ops
-		modifier(&program)
-
 		while true {
-			guard pc < ops.count else {
+			guard pc < program.count else {
 				return (accumulator, ProgramExecutionContext.terminated)
 			}
 			guard visited.insert(pc).inserted else {
