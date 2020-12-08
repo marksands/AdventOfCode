@@ -2,149 +2,86 @@ import Foundation
 import AdventOfCode
 
 public final class Day8: Day {
+	enum Operation: String {
+		case acc
+		case jmp
+		case nop
 
-	enum Operation: Hashable {
-		case acc(Int, Int)
-		case jmp(Int, Int)
-		case nop(Int, Int)
-
-		init(_ instr: String, _ cnt: Int, _ id: Int) {
-			if instr == "acc" {
-				self = .acc(cnt, id)
-			} else if instr == "jmp" {
-				self = .jmp(cnt, id)
-			} else {
-				self = .nop(cnt, id)
-			}
-		}
-
-		func hash(into hasher: inout Hasher) {
+		mutating func swap() {
 			switch self {
-			case .acc(_, let id):
-				hasher.combine(id)
-			case .jmp(_, let id):
-				hasher.combine(id)
-			case .nop(_, let id):
-				hasher.combine(id)
-			}
-		}
-
-		func swapped() -> Operation {
-			switch self {
-			case .nop(let count, let id):
-				return .jmp(count, id)
-			case .jmp(let count, let id):
-				return .nop(count, id)
-			default:
-				fatalError()
-			}
-		}
-
-		var isNopOrJmp: Bool {
-			switch self {
-			case .acc: return false
-			case .jmp: return true
-			case .nop: return true
+			case .nop: self = .jmp
+			case .jmp: self = .nop
+			default: break
 			}
 		}
 	}
 
-	private var input: [String] = []
+	private var ops: [(Operation, incr: Int)] = []
 
 	public init(input: [String] = Input().trimmedInputCharactersByNewlines()) {
 		super.init()
-		self.input = input
+
+		self.ops = input.compactMap {
+			Parser.prefix(upTo: " ")
+				.skip(" ")
+				.take(Parser.int)
+				.map { (Operation(rawValue: String($0))!, $1) }
+				.match($0)
+		}
 	}
 
 	public override func part1() -> String {
+		return String(execute(program: ops).accumulator)
+	}
 
-		var ops: [Operation] = []
+	public override func part2() -> String {
+		let (accumulator, _) = ops.indices
+			.lazy
+			.map { index in
+				self.execute(program: self.ops, modifier: {
+					$0[index].0.swap()
+				})
+			}
+			.first(where: { accumulator, context in
+				context == .terminated
+			})!
 
-		for (offset, line) in input.enumerated() {
-			let components = line.components(separatedBy: " ")
-			let instruction = components[0]
-			let int = Parser.int.run(components[1][...]).match!
-			let op = Operation(instruction, int, offset)
-			ops.append(op)
-		}
+		return String(accumulator)
+	}
 
-		var visited = Set<Operation>()
+	enum ProgramExecutionContext: Equatable {
+		case terminated
+		case infiniteLoop
+	}
 
+	private func execute(program: [(Operation, Int)], modifier: (inout [(Operation, incr: Int)]) -> () = { _ in }) -> (accumulator: Int, context: ProgramExecutionContext) {
+		var visited = Set<Int>()
 		var accumulator = 0
 		var pc = 0
 
-		while true {
-			let op = ops[pc]
+		var program = ops
+		modifier(&program)
 
-			if !visited.insert(op).inserted {
-				return String(accumulator)
+		while true {
+			guard pc < ops.count else {
+				return (accumulator, ProgramExecutionContext.terminated)
+			}
+			guard visited.insert(pc).inserted else {
+				return (accumulator, ProgramExecutionContext.infiniteLoop)
 			}
 
-			switch op {
-			case .acc(let value, _):
-				accumulator += value
+			let op = program[pc]
+
+			switch op.0 {
+			case .acc:
+				accumulator += op.incr
 				pc += 1
-			case .jmp(let value, _):
-				pc += value
+			case .jmp:
+				pc += op.incr
 			case .nop:
 				pc += 1
 			}
 		}
 
-		fatalError()
-	}
-
-	public override func part2() -> String {
-
-		var ops: [Operation] = []
-
-		for (offset, line) in input.enumerated() {
-			let components = line.components(separatedBy: " ")
-			let instruction = components[0]
-			let int = Parser.int.run(components[1][...]).match!
-			let op = Operation(instruction, int, offset)
-			ops.append(op)
-		}
-
-		let originalOps = ops
-
-		var firstIndexOfNopOrJmp = 0
-
-		for _ in (0...ops.count) {
-
-			ops = originalOps
-
-			while firstIndexOfNopOrJmp < ops.count {
-				firstIndexOfNopOrJmp += 1
-				if ops[firstIndexOfNopOrJmp].isNopOrJmp {
-					break
-				}
-			}
-
-			var accumulator = 0
-			var pc = 0
-
-			ops[firstIndexOfNopOrJmp] = ops[firstIndexOfNopOrJmp].swapped()
-
-			for _ in (0...10_000) {
-				if pc >= ops.count {
-					return String(accumulator)
-				}
-
-				let op = ops[pc]
-
-				switch op {
-				case .acc(let value, _):
-					accumulator += value
-					pc += 1
-				case .jmp(let value, _):
-					pc += value
-				case .nop:
-					pc += 1
-				}
-			}
-		}
-
-		fatalError()
 	}
 }
