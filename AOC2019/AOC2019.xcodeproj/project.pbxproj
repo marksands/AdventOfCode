@@ -50,6 +50,7 @@
 		B1E8E75C23977AA300DEE40E /* Day3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E75B23977AA300DEE40E /* Day3Tests.swift */; };
 		B1E8E7602398C4C000DEE40E /* Day5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E75F2398C4C000DEE40E /* Day5Tests.swift */; };
 		B1EAA982239A17F10058EFC7 /* Day6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EAA981239A17F10058EFC7 /* Day6Tests.swift */; };
+		DC6916E425803713009AD468 /* Day14Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6916E325803713009AD468 /* Day14Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		B1E8E75B23977AA300DEE40E /* Day3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3Tests.swift; sourceTree = "<group>"; };
 		B1E8E75F2398C4C000DEE40E /* Day5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5Tests.swift; sourceTree = "<group>"; };
 		B1EAA981239A17F10058EFC7 /* Day6Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day6Tests.swift; sourceTree = "<group>"; };
+		DC6916E325803713009AD468 /* Day14Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day14Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,8 +302,9 @@
 		B1169DEF23940EE300E9A177 /* Day14 */ = {
 			isa = PBXGroup;
 			children = (
-				B1169DF123940EE300E9A177 /* input */,
 				B1169DF223940EE300E9A177 /* Day14.swift */,
+				DC6916E325803713009AD468 /* Day14Tests.swift */,
+				B1169DF123940EE300E9A177 /* input */,
 			);
 			path = Day14;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				B1C5842623A3504300A6B907 /* Day13Tests.swift in Sources */,
 				B15A5CA4239CBAFA002DB585 /* Day8Tests.swift in Sources */,
 				B15A5CA8239E02C4002DB585 /* Day9Tests.swift in Sources */,
+				DC6916E425803713009AD468 /* Day14Tests.swift in Sources */,
 				B1C5841923A1FF4E00A6B907 /* Day11Tests.swift in Sources */,
 				B1169DC723940E7700E9A177 /* AOC2019Tests.swift in Sources */,
 				B1169E932394159200E9A177 /* Day2Tests.swift in Sources */,
