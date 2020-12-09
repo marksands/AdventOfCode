@@ -10,39 +10,23 @@ public final class Day9: Day {
 	}
 
 	public override func part1() -> String {
-		for index in numbers.indices {
-			if index >= 25 {
-				let previous25 = numbers[index.advanced(by: -25)...index].combinations(of: 2)
-				if !previous25.contains(where: { $0.sum() == numbers[index] }) {
-					return String(numbers[index])
-				}
-			}
-		}
-
-		return "-1"
+		let index = numbers.indices.first { index in
+			index >= 25 && !numbers[index.advanced(by: -25)...index]
+				.combinations(of: 2)
+				.contains(where: { $0.sum() == numbers[index] })
+		}!
+		return String(numbers[index])
 	}
 
 	public override func part2() -> String {
-		let target = 138879426
-
-		var start = 0
-		var end = 1
-		var result = 0
-
-		for _ in numbers.indices {
-			let sum = numbers[start...end].sum()
-			
-			if sum == target {
-				result = numbers[start...end].min()! + numbers[start...end].max()!
-				return String(result)
-			} else if sum < target {
-				end += 1
-			} else if sum > target {
-				start += 1
-	 		}
+		func extremesOfTargetSums(_ start: Int, _ end: Int, _ sum: Int, _ target: Int) -> Int {
+			switch sum {
+			case target: return numbers[start...end].min()! + numbers[start...end].max()!
+			case 0..<target: return extremesOfTargetSums(start, end + 1, sum + numbers[end+1], target)
+			default: return extremesOfTargetSums(start + 1, end, sum - numbers[start], target)
+			}
 		}
 
-		return "-1"
+		return String(extremesOfTargetSums(0, 0, numbers[0], 138879426))
 	}
 }
-
