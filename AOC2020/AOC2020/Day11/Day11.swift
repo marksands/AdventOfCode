@@ -21,14 +21,14 @@ public final class Day11: Day {
 		return "\(result)"
 	}
 
-	private func runUntilStable(occupiedRule: Int, searchingFirstSeen: Bool = false) -> [(Position, Character)] {
-		var positions = input.enumerated().flatMap { y, line in
-			line.enumerated().map { x, tile in
-				(Position(x: x, y: y), tile)
+	private func runUntilStable(occupiedRule: Int, searchingFirstSeen: Bool = false) -> [Position: Character] {
+		var positions: [Position: Character] = [:]
+
+		input.enumerated().forEach { y, line in
+			line.enumerated().forEach { x, tile in
+				positions[Position(x: x, y: y)] = tile
 			}
 		}
-
-		let width = input[0].count
 
 		var changed = true
 		while changed {
@@ -36,17 +36,17 @@ public final class Day11: Day {
 			changed = false
 			for (position, tile) in positions {
 				let surroundingTiles = Position.surroundingDirections
-					.compactMap({ searchingFirstSeen ? positions.firstWhile(from: position, along: $0, width: width, {  $0.1 == "." }) : position + $0 })
-					.compactMap({ positions.element(from: $0, width: width) })
+					.compactMap({ searchingFirstSeen ? positions.firstWhile(from: position, along: $0, { $0 == "." }) : position + $0 })
+					.compactMap({ positions[$0] })
 
 				if tile == "L" {
-					if surroundingTiles.count(where: { $0.1 == "#" }) == 0 {
-						copy[width * position.y + position.x] = (position, "#")
+					if surroundingTiles.count(where: { $0 == "#" }) == 0 {
+						copy[position] = "#"
 						changed = true
 					}
 				} else if tile == "#" {
-					if surroundingTiles.count(where: { $0.1 == "#" }) >= occupiedRule {
-						copy[width * position.y + position.x] = (position, "L")
+					if surroundingTiles.count(where: { $0 == "#" }) >= occupiedRule {
+						copy[position] = "L"
 						changed = true
 					}
 				}

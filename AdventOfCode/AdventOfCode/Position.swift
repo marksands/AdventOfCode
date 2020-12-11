@@ -114,3 +114,26 @@ extension Array {
 		return self[safe: width * position.y + position.x]
 	}
 }
+
+extension Dictionary where Key == Position {
+	/// traverse along a direction for a 2d-matrix that has been converted as a dictionary for fast lookup, until the predicate
+	/// no long resolves as true
+	///
+	/// - Parameters:
+	/// 	- position: The starting position to begin traversal.
+	/// 	- direction: The direction to move along the axis. Can be 1 of 8. (see `Position.surroundingDirections`)
+	///		- predicate: The condition to be evaluated to continue traversal. When the predicate resolves as false, the
+	///			 traversal ends and the current position is returned.
+	///
+	///	- Returns: Once the predicate evaluates to false, the current position is returned if it lies within the bounds of the matrix. Otherwise nil.
+	///
+	public func firstWhile(from position: Position, along direction: Position, _ predicate: (Value) -> Bool) -> Position? {
+		var nextPosition = position + direction
+		while let element = self[nextPosition] {
+			if !predicate(element) {
+				return nextPosition
+			}
+			nextPosition = nextPosition + direction
+		}
+		return nil
+	}}
