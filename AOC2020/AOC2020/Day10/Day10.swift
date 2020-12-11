@@ -31,27 +31,23 @@ public final class Day10: Day {
 		var branchCountCache: [Int: Int] = [:]
 
 		func branchCount(for node: Int) -> Int {
-			guard let nodeIndex = sorted.firstIndex(of: node) else {
-				return 0
-			}
-
 			if let count = branchCountCache[node] {
 				return count
 			}
 
+			let nodeIndex = sorted.firstIndex(of: node)!
 			let maxNodeIndex = min(nodeIndex + 3, sorted.count-1)
-			if maxNodeIndex >= nodeIndex+1 {
-				let count = sorted[nodeIndex+1...maxNodeIndex]
-					.lazy
-					.filter { $0 - node <= 3 }
-					.map { branchCount(for: $0) }
-					.reduce(into: 0, +=)
-				branchCountCache[node] = count
-				return count
-			} else {
-				branchCountCache[node] = 1
-				return 1
-			}
+			guard maxNodeIndex > nodeIndex else { return 1 }
+
+			let count = sorted[nodeIndex+1...maxNodeIndex]
+				.lazy
+				.filter { $0 - node <= 3 }
+				.map { branchCount(for: $0) }
+				.reduce(into: 0, +=)
+
+			branchCountCache[node] = count
+
+			return count
 		}
 
 		let result = branchCount(for: 0)
