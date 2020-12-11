@@ -32,6 +32,10 @@ public struct Position: Equatable, Hashable {
                 west(), east(),
                 south().west(), south(), south().east()]
     }
+
+	public func adjacent() -> [Position] {
+		return [north(), west(), east(), south()]
+	}
     
     public func manhattanDistance(to p2: Position) -> Int {
         return abs(Int(w - p2.w)) + abs(Int(z - p2.z)) + abs(Int(y - p2.y)) + abs(Int(x - p2.x))
@@ -40,6 +44,12 @@ public struct Position: Equatable, Hashable {
     public static var zero: Position {
         return Position(x: 0, y: 0)
     }
+
+	public static var surroundingDirections: [Position] {
+		[Position.zero.north().west(), Position.zero.north(), Position.zero.north().east(),
+		 Position.zero.west(), Position.zero.east(),
+		 Position.zero.south().west(), Position.zero.south(), Position.zero.south().east()]
+	}
 }
 
 public func +(lhs: Position, rhs: Position) -> Position {
@@ -50,4 +60,17 @@ extension Position: Comparable {
     public static func < (lhs: Position, rhs: Position) -> Bool {
         return (lhs.y, lhs.x) < (rhs.y, rhs.x)
     }
+}
+
+extension Array where Element: Collection, Element.Index == Int {
+	public func firstWhile(from position: Position, along direction: Position, _ predicate: (Element.Element) -> Bool) -> Position {
+		var nextPosition = position + direction
+		while self[safe: nextPosition.y]?[safe: nextPosition.x] != nil {
+			if let element = self[safe: nextPosition.y]?[safe: nextPosition.x], !predicate(element) {
+				return nextPosition
+			}
+			nextPosition = nextPosition + direction
+		}
+		return nextPosition
+	}
 }

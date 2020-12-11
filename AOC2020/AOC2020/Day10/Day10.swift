@@ -10,7 +10,6 @@ public final class Day10: Day {
 		sortedInput.insert(0, at: 0)
 		sortedInput.append(sortedInput.max()! + 3)
 		self.numbers = sortedInput
-
 	}
 
 	public override func part1() -> String {
