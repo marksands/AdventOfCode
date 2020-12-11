@@ -6,15 +6,15 @@ public final class Day10: Day {
 
 	public init(input: [String] = Input().trimmedInputCharactersByNewlines()) {
 		super.init()
-		self.numbers = input.map { Int($0)! }
+		var sortedInput = input.map { Int($0)! }.sorted()
+		sortedInput.insert(0, at: 0)
+		sortedInput.append(sortedInput.max()! + 3)
+		self.numbers = sortedInput
+
 	}
 
 	public override func part1() -> String {
-		var sorted = numbers.sorted()
-		sorted.insert(0, at: 0)
-		sorted.append(sorted.max()! + 3)
-
-		let differences = sorted
+		let differences = numbers
 			.eachPair()
 			.map { $1 - $0 }
 
@@ -24,33 +24,27 @@ public final class Day10: Day {
 	}
 
 	public override func part2() -> String {
-		var sorted = numbers.sorted()
-		sorted.insert(0, at: 0)
-		sorted.append(sorted.max()! + 3)
-
-		var branchCountCache: [Int: Int] = [:]
-
-		func branchCount(for node: Int) -> Int {
-			if let count = branchCountCache[node] {
+		func branchCount(for node: Int, cache: inout [Int: Int]) -> Int {
+			if let count = cache[node] {
 				return count
 			}
 
-			let nodeIndex = sorted.firstIndex(of: node)!
-			let maxNodeIndex = min(nodeIndex + 3, sorted.count-1)
+			let nodeIndex = numbers.firstIndex(of: node)!
+			let maxNodeIndex = min(nodeIndex + 3, numbers.count-1)
 			guard maxNodeIndex > nodeIndex else { return 1 }
 
-			let count = sorted[nodeIndex+1...maxNodeIndex]
-				.lazy
+			let count = numbers[nodeIndex+1...maxNodeIndex]
 				.filter { $0 - node <= 3 }
-				.map { branchCount(for: $0) }
+				.map { branchCount(for: $0, cache: &cache) }
 				.reduce(into: 0, +=)
 
-			branchCountCache[node] = count
+			cache[node] = count
 
 			return count
 		}
 
-		let result = branchCount(for: 0)
+		var cache: [Int: Int] = [:]
+		let result = branchCount(for: 0, cache: &cache)
 
 		return "\(result)"
 	}
