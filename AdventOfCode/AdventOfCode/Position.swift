@@ -63,14 +63,54 @@ extension Position: Comparable {
 }
 
 extension Array where Element: Collection, Element.Index == Int {
-	public func firstWhile(from position: Position, along direction: Position, _ predicate: (Element.Element) -> Bool) -> Position {
+	/// traverse along a direction for a 2d-matrix until the predicate no long resolves as true
+	///
+	/// - Parameters:
+	/// 	- position: The starting position to begin traversal.
+	/// 	- direction: The direction to move along the axis. Can be 1 of 8. (see `Position.surroundingDirections`)
+	///		- predicate: The condition to be evaluated to continue traversal. When the predicate resolves as false, the
+	///			 traversal ends and the current position is returned.
+	///
+	///	- Returns: Once the predicate evaluates to false, the current position is returned if it lies within the bounds of the matrix. Otherwise nil.
+	///
+	public func firstWhile(from position: Position, along direction: Position, _ predicate: (Element.Element) -> Bool) -> Position? {
 		var nextPosition = position + direction
-		while self[safe: nextPosition.y]?[safe: nextPosition.x] != nil {
-			if let element = self[safe: nextPosition.y]?[safe: nextPosition.x], !predicate(element) {
+		while let element = self[safe: nextPosition.y]?[safe: nextPosition.x] {
+			if !predicate(element) {
 				return nextPosition
 			}
 			nextPosition = nextPosition + direction
 		}
-		return nextPosition
+		return nil
+	}
+}
+
+extension Array {
+	/// traverse along a direction for a 2d-matrix that has been flattened as a 1-dimensional matrix until the predicate no long resolves as true
+	///
+	/// - Parameters:
+	/// 	- position: The starting position to begin traversal.
+	/// 	- direction: The direction to move along the axis. Can be 1 of 8. (see `Position.surroundingDirections`)
+	///		- width: the width of the matrix. Required since there is no nested array to calculate the width.
+	///		- predicate: The condition to be evaluated to continue traversal. When the predicate resolves as false, the
+	///			 traversal ends and the current position is returned.
+	///
+	///	- Returns: Once the predicate evaluates to false, the current position is returned if it lies within the bounds of the matrix. Otherwise nil.
+	///
+	public func firstWhile(from position: Position, along direction: Position, width: Int, _ predicate: (Element) -> Bool) -> Position? {
+		var nextPosition = position + direction
+		while let element = element(from: nextPosition, width: width) {
+			if !predicate(element) {
+				return nextPosition
+			}
+			nextPosition = nextPosition + direction
+		}
+		return nil
+	}
+
+	/// Returns an element indexed by a 2D position within a 1-dimensional array, if it exists. Otherwise nil.
+	public func element(from position: Position, width: Int) -> Element? {
+		guard position.x >= 0, position.x < width, position.y >= 0 else { return nil }
+		return self[safe: width * position.y + position.x]
 	}
 }

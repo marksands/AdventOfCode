@@ -11,43 +11,43 @@ public final class Day11: Day {
 
 	public override func part1() -> String {
 		let positions = runUntilStable(occupiedRule: 4)
-		let result = positions.flatMap { $0 }.count(where: { $0 == "#" })
+		let result = positions.count(where: { $0.1 == "#" })
 		return "\(result)"
 	}
 
 	public override func part2() -> String {
 		let positions = runUntilStable(occupiedRule: 5, searchingFirstSeen: true)
-		let result = positions.flatMap { $0 }.count(where: { $0 == "#" })
+		let result = positions.count(where: { $0.1 == "#" })
 		return "\(result)"
 	}
 
-	private func runUntilStable(occupiedRule: Int, searchingFirstSeen: Bool = false) -> [[String]] {
-		var positions = input.map { line in
-			line.map { String($0) }
+	private func runUntilStable(occupiedRule: Int, searchingFirstSeen: Bool = false) -> [(Position, Character)] {
+		var positions = input.enumerated().flatMap { y, line in
+			line.enumerated().map { x, tile in
+				(Position(x: x, y: y), tile)
+			}
 		}
+
+		let width = input[0].count
 
 		var changed = true
 		while changed {
 			var copy = positions
 			changed = false
-			for (y, row) in positions.enumerated() {
-				for (x, tile) in row.enumerated() {
-					let position = Position(x: x, y: y)
+			for (position, tile) in positions {
+				let surroundingTiles = Position.surroundingDirections
+					.compactMap({ searchingFirstSeen ? positions.firstWhile(from: position, along: $0, width: width, {  $0.1 == "." }) : position + $0 })
+					.compactMap({ positions.element(from: $0, width: width) })
 
-					let surroundingTiles = Position.surroundingDirections
-						.compactMap({ searchingFirstSeen ? positions.firstWhile(from: position, along: $0, {  $0 == "." }) : position + $0 })
-						.compactMap({ positions[safe: $0.y]?[safe: $0.x] })
-
-					if tile == "L" {
-						if surroundingTiles.count(where: { $0 == "#" }) == 0 {
-							copy[position.y][position.x] = "#"
-							changed = true
-						}
-					} else if tile == "#" {
-						if surroundingTiles.count(where: { $0 == "#" }) >= occupiedRule {
-							copy[position.y][position.x] = "L"
-							changed = true
-						}
+				if tile == "L" {
+					if surroundingTiles.count(where: { $0.1 == "#" }) == 0 {
+						copy[width * position.y + position.x] = (position, "#")
+						changed = true
+					}
+				} else if tile == "#" {
+					if surroundingTiles.count(where: { $0.1 == "#" }) >= occupiedRule {
+						copy[width * position.y + position.x] = (position, "L")
+						changed = true
 					}
 				}
 			}
