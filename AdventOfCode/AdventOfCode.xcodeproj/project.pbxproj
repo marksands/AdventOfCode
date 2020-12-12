@@ -103,6 +103,7 @@
 		DC1338AB257842D50099BC8C /* Parser.Remaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338AA257842D50099BC8C /* Parser.Remaining.swift */; };
 		DC1338EE25793DD90099BC8C /* String.UnsafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338ED25793DD90099BC8C /* String.UnsafeSubscript.swift */; };
 		DC6916DE258010E0009AD468 /* Set.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6916DD258010E0009AD468 /* Set.String.swift */; };
+		DC69176A25851DC7009AD468 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69176925851DC7009AD468 /* Matrix.swift */; };
 		DC79420825773AFD00090796 /* Collection.Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Product.swift */; };
 /* End PBXBuildFile section */
 
@@ -216,6 +217,7 @@
 		DC1338AA257842D50099BC8C /* Parser.Remaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.Remaining.swift; sourceTree = "<group>"; };
 		DC1338ED25793DD90099BC8C /* String.UnsafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.UnsafeSubscript.swift; sourceTree = "<group>"; };
 		DC6916DD258010E0009AD468 /* Set.String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.String.swift; sourceTree = "<group>"; };
+		DC69176925851DC7009AD468 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		DC79420725773AFD00090796 /* Collection.Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,6 +261,7 @@
 		B18EBB7521D737F100B5FA4F /* AdventOfCode */ = {
 			isa = PBXGroup;
 			children = (
+				DC69176825851DB4009AD468 /* Matrix */,
 				B18EBB7621D737F100B5FA4F /* AdventOfCode.h */,
 				DC1337C82577410E0099BC8C /* AoC */,
 				B18EBBA421D7384B00B5FA4F /* Array.Safe.swift */,
@@ -382,6 +385,14 @@
 				DC1338192577EDE50099BC8C /* Parser.Zip.7.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		DC69176825851DB4009AD468 /* Matrix */ = {
+			isa = PBXGroup;
+			children = (
+				DC69176925851DC7009AD468 /* Matrix.swift */,
+			);
+			path = Matrix;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +566,7 @@
 				DC13386A2577EDE60099BC8C /* Parser.Char.Quote.swift in Sources */,
 				DC1338772577EDE60099BC8C /* Parser.swift in Sources */,
 				DC1338552577EDE60099BC8C /* Parser.Either.2.swift in Sources */,
+				DC69176A25851DC7009AD468 /* Matrix.swift in Sources */,
 				DC1338792577EDE60099BC8C /* Parser.FlatMap.swift in Sources */,
 				DC1338662577EDE60099BC8C /* Parser.Void.Prefix.swift in Sources */,
 				B18EBBB921D7384C00B5FA4F /* Collection.Chunks.swift in Sources */,

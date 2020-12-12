@@ -50,6 +50,14 @@ public struct Position: Equatable, Hashable {
 		 Position.zero.west(), Position.zero.east(),
 		 Position.zero.south().west(), Position.zero.south(), Position.zero.south().east()]
 	}
+
+	public func rotatedLeft() -> Position {
+		return Position(x: y, y: x * -1)
+	}
+
+	public func rotatedRight() -> Position {
+		return Position(x: y * -1, y: x)
+	}
 }
 
 public func +(lhs: Position, rhs: Position) -> Position {
