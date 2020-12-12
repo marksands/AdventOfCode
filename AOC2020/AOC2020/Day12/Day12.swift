@@ -11,64 +11,39 @@ public final class Day12: Day {
 
 	public override func part1() -> String {
 		var direction = Heading.east
-		var position = Position.zero
+		var ship = Position.zero
 
 		for line in input {
 			let (action, number) = (String(line.prefix(1)), Int(line.dropFirst())!)
-			
-			let headingActions = [
-				"N": Heading.north,
-				"S": Heading.south,
-				"E": Heading.east,
-				"W": Heading.west,
-				"F": direction
-			]
-
-			let turningActions = [
-				"L": { direction.turnLeft() },
-				"R": { direction.turnRight() }
-			]
-
-			if let positionAction = headingActions[action] {
-				position = number.times.reduce(position) { p, _ in p.advanced(toward: positionAction) }
-			} else if let turnAction = turningActions[action] {
-				(number / 90).times.forEach { turnAction() }
-			}
+			[
+				"N": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .north) } },
+				"S": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .south) } },
+				"E": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .east) } },
+				"W": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .west) } },
+				"F": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: direction) } },
+				"L": { (number / 90).times.forEach { direction.turnLeft() } },
+				"R": { (number / 90).times.forEach { direction.turnRight() } }
+			][action]!()
 		}
-
-		let result = position.manhattanDistance(to: .zero)
-		return String(result)
+		return String(ship.manhattanDistance(to: .zero))
 	}
 
 	public override func part2() -> String {
-		var position = Position.zero
-		var wpPosition = Position(x: 10, y: -1)
+		var ship = Position.zero
+		var waypoint = Position(x: 10, y: -1)
 
 		for line in input {
 			let (action, number) = (String(line.prefix(1)), Int(line.dropFirst())!)
-
-			let headingActions = [
-				"N": Heading.north,
-				"S": Heading.south,
-				"E": Heading.east,
-				"W": Heading.west
-			]
-
-			let turningActions = [
-				"L": { (p: Position) in p.rotatedLeft() },
-				"R": { (p: Position) in p.rotatedRight() }
-			]
-
-			if let positionAction = headingActions[action] {
-				wpPosition = number.times.reduce(wpPosition) { p, _ in p.advanced(toward: positionAction) }
-			} else if let turnAction = turningActions[action] {
-				wpPosition = (number/90).times.reduce(wpPosition) { p, _ in turnAction(p) }
-			} else if action == "F" {
-				position = Position(x: position.x + (wpPosition.x * number), y: position.y + (wpPosition.y * number))
-			}
+			[
+				"N": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .north) } },
+				"S": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .south) } },
+				"E": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .east) } },
+				"W": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .west) } },
+				"L": { waypoint = (number/90).times.reduce(waypoint) { p, _ in p.rotatedLeft() } },
+				"R": { waypoint = (number/90).times.reduce(waypoint) { p, _ in p.rotatedRight() } },
+				"F": { ship = ship + Position(x: waypoint.x * number, y: waypoint.y * number) }
+			][action]!()
 		}
-
-		let result = position.manhattanDistance(to: Position.zero)
-		return String(result)
+		return String(ship.manhattanDistance(to: .zero))
 	}
 }
