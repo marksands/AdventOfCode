@@ -9,92 +9,34 @@ public final class Day12: Day {
 		self.input = input
 	}
 
-	func degreesToRadians(_ degrees: Float) -> Float {
-		return degrees * .pi / 180
-	}
-
-	enum FacingDirection {
-		case north
-		case east
-		case south
-		case west
-
-		mutating func turnRight() {
-			switch self {
-			case .north: self = .east
-			case .east: self = .south
-			case .south: self = .west
-			case .west: self = .north
-			}
-		}
-
-		mutating func turnLeft() {
-			switch self {
-			case .north: self = .west
-			case .east: self = .north
-			case .south: self = .east
-			case .west: self = .south
-			}
-		}
-
-		func advanced(position: Position) -> Position {
-			switch self {
-			case .north:
-				return position.north()
-			case .east:
-				return position.east()
-			case .south:
-				return position.south()
-			case .west:
-				return position.west()
-			}
-		}
-	}
-
 	public override func part1() -> String {
-		var direction = FacingDirection.east
+		var direction = Heading.east
 		var position = Position.zero
 
 		for line in input {
-			let action = line.prefix(1)
-			let number = Int(line.dropFirst())!
+			let (action, number) = (String(line.prefix(1)), Int(line.dropFirst())!)
+			
+			let headingActions = [
+				"N": Heading.north,
+				"S": Heading.south,
+				"E": Heading.east,
+				"W": Heading.west,
+				"F": direction
+			]
 
-			if action == "N" {
-				(0..<number).forEach {_ in
-					position = position.north()
-				}
+			let turningActions = [
+				"L": { direction.turnLeft() },
+				"R": { direction.turnRight() }
+			]
 
-			} else if action == "S" {
-				(0..<number).forEach {_ in
-					position = position.south()
-				}
-
-			} else if action == "E" {
-				(0..<number).forEach {_ in
-					position = position.east()
-				}
-
-			} else if action == "W" {
-				(0..<number).forEach {_ in
-					position = position.west()
-				}
-
-			} else if action == "L" {
-				let turns = number / 90
-				(0..<turns).forEach { _ in direction.turnLeft() }
-
-			} else if action == "R" {
-				let turns = number / 90
-				(0..<turns).forEach { _ in direction.turnRight() }
-
-			} else if action == "F" {
-				(0..<number).forEach {_ in
-					position = direction.advanced(position: position)
-				}
+			if let positionAction = headingActions[action] {
+				position = number.times.reduce(position) { p, _ in p.advanced(toward: positionAction) }
+			} else if let turnAction = turningActions[action] {
+				(number / 90).times.forEach { turnAction() }
 			}
 		}
 
-		let result = position.manhattanDistance(to: Position.zero)
+		let result = position.manhattanDistance(to: .zero)
 		return String(result)
 	}
 
@@ -103,39 +45,30 @@ public final class Day12: Day {
 		var wpPosition = Position(x: 10, y: -1)
 
 		for line in input {
-			let action = line.prefix(1)
-			let number = Int(line.dropFirst())!
+			let (action, number) = (String(line.prefix(1)), Int(line.dropFirst())!)
 
-			if action == "N" {
-				(0..<number).forEach {_ in
-					wpPosition = wpPosition.north()
-				}
-			} else if action == "S" {
-				(0..<number).forEach {_ in
-					wpPosition = wpPosition.south()
-				}
-			} else if action == "E" {
-				(0..<number).forEach {_ in
-					wpPosition = wpPosition.east()
-				}
-			} else if action == "W" {
-				(0..<number).forEach {_ in
-					wpPosition = wpPosition.west()
-				}
-			} else if action == "L" {
-				for _ in (0..<number/90) {
-					wpPosition = wpPosition.rotatedLeft()
-				}
-			} else if action == "R" {
-				for _ in (0..<number/90) {
-					wpPosition = wpPosition.rotatedRight()
-				}
+			let headingActions = [
+				"N": Heading.north,
+				"S": Heading.south,
+				"E": Heading.east,
+				"W": Heading.west
+			]
+
+			let turningActions = [
+				"L": { (p: Position) in p.rotatedLeft() },
+				"R": { (p: Position) in p.rotatedRight() }
+			]
+
+			if let positionAction = headingActions[action] {
+				wpPosition = number.times.reduce(wpPosition) { p, _ in p.advanced(toward: positionAction) }
+			} else if let turnAction = turningActions[action] {
+				wpPosition = (number/90).times.reduce(wpPosition) { p, _ in turnAction(p) }
 			} else if action == "F" {
 				position = Position(x: position.x + (wpPosition.x * number), y: position.y + (wpPosition.y * number))
 			}
 		}
 
 		let result = position.manhattanDistance(to: Position.zero)
-		return String(result) // not 102913
+		return String(result)
 	}
 }
