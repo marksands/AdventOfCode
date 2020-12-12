@@ -16,13 +16,13 @@ public final class Day12: Day {
 		for line in input {
 			let (action, number) = (String(line.prefix(1)), Int(line.dropFirst())!)
 			[
-				"N": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .north) } },
-				"S": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .south) } },
-				"E": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .east) } },
-				"W": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: .west) } },
-				"F": { ship = number.times.reduce(ship) { p, _ in p.advanced(toward: direction) } },
+				"N": { ship.advance(toward: .north, times: number) },
+				"S": { ship.advance(toward: .south, times: number) },
+				"E": { ship.advance(toward: .east, times: number) },
+				"W": { ship.advance(toward: .west, times: number) },
 				"L": { (number / 90).times.forEach { direction.turnLeft() } },
-				"R": { (number / 90).times.forEach { direction.turnRight() } }
+				"R": { (number / 90).times.forEach { direction.turnRight() } },
+				"F": { ship.advance(toward: direction, times: number) },
 			][action]!()
 		}
 		return String(ship.manhattanDistance(to: .zero))
@@ -35,12 +35,12 @@ public final class Day12: Day {
 		for line in input {
 			let (action, number) = (String(line.prefix(1)), Int(line.dropFirst())!)
 			[
-				"N": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .north) } },
-				"S": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .south) } },
-				"E": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .east) } },
-				"W": { waypoint = number.times.reduce(waypoint) { p, _ in p.advanced(toward: .west) } },
-				"L": { waypoint = (number/90).times.reduce(waypoint) { p, _ in p.rotatedLeft() } },
-				"R": { waypoint = (number/90).times.reduce(waypoint) { p, _ in p.rotatedRight() } },
+				"N": { waypoint.advance(toward: .north, times: number) },
+				"S": { waypoint.advance(toward: .south, times: number) },
+				"E": { waypoint.advance(toward: .east, times: number) },
+				"W": { waypoint.advance(toward: .west, times: number) },
+				"L": { (number / 90).times.forEach { waypoint.rotateLeft() } },
+				"R": { (number / 90).times.forEach { waypoint.rotateRight() } },
 				"F": { ship = ship + Position(x: waypoint.x * number, y: waypoint.y * number) }
 			][action]!()
 		}

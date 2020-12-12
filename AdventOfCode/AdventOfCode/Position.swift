@@ -60,6 +60,32 @@ public struct Position: Equatable, Hashable {
 		}
 	}
 
+	public func advanced(toward heading: Heading, times run: Int) -> Position {
+		var copy = self
+		run.times.forEach {
+			copy = copy.advanced(toward: heading)
+		}
+		return copy
+	}
+
+	public mutating func advance(toward heading: Heading, times run: Int)  {
+		run.times.forEach {
+			self = self.advanced(toward: heading)
+		}
+	}
+
+	public mutating func rotateLeft() {
+		let temp = y
+		y = x * -1
+		x = temp
+	}
+
+	public mutating func rotateRight() {
+		let temp = x
+		x = y * -1
+		y = temp
+	}
+
 	public func rotatedLeft() -> Position {
 		return Position(x: y, y: x * -1)
 	}
