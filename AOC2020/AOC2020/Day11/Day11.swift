@@ -21,32 +21,33 @@ public final class Day11: Day {
 	}
 
 	private func occupiedCountWhenStable(occupiedRule: Int, searchingFirstSeen: Bool = false) -> Int {
-		var changed = true
-		while changed {
+		while true {
 			let copy = matrix.copy()
-			changed = false
 			for (position, tile) in matrix.positions {
 				let neighbors = searchingFirstSeen ?
-					matrix.lineOfSightNeighbors(from: position, matching: { $0 == "#" || $0 == "L" }) :
-					matrix.neighbors(from: position, matching: { $0 == "#" || $0 == "L" })
+					matrix.lineOfSightNeighbors(from: position, matching: Day11.isSeat) :
+					matrix.neighbors(from: position, matching: Day11.isSeat)
 
-				if tile == "L" {
-					if neighbors.count(where: { $0 == "#" }) == 0 {
-						copy[position] = "#"
-						changed = true
-					}
-				} else if tile == "#" {
-					if neighbors.count(where: { $0 == "#" }) >= occupiedRule {
-						copy[position] = "L"
-						changed = true
-					}
+				if tile == "L", neighbors.count(where: Day11.isOccupied) == 0 {
+					copy[position] = "#"
+				} else if tile == "#", neighbors.count(where: Day11.isOccupied) >= occupiedRule {
+					copy[position] = "L"
 				}
 			}
 
+			if matrix == copy { break }
 			matrix = copy
 		}
 
-		let result = matrix.positions.count(where: { $0.1 == "#" })
+		let result = matrix.positions.count(where: { Day11.isOccupied($0.1) })
 		return result
+	}
+
+	private static func isSeat(_ tile: Character) -> Bool {
+		return tile == "#" || tile == "L"
+	}
+
+	private static func isOccupied(_ tile: Character) -> Bool {
+		return tile == "#"
 	}
 }
