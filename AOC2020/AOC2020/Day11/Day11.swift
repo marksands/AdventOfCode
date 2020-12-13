@@ -4,57 +4,49 @@ import AdventOfCode
 public final class Day11: Day {
 	private var input: [String] = []
 
+	private var matrix: Matrix<Character>
+
 	public init(input: [String] = Input().trimmedInputCharactersByNewlines()) {
+		self.matrix = Matrix(input.map { $0.map { $0 } })
 		super.init()
 		self.input = input
 	}
 
 	public override func part1() -> String {
-		let positions = runUntilStable(occupiedRule: 4)
-		let result = positions.count(where: { $0.1 == "#" })
-		return "\(result)"
+		return "\(occupiedCountWhenStable(occupiedRule: 4))"
 	}
 
 	public override func part2() -> String {
-		let positions = runUntilStable(occupiedRule: 5, searchingFirstSeen: true)
-		let result = positions.count(where: { $0.1 == "#" })
-		return "\(result)"
+		return "\(occupiedCountWhenStable(occupiedRule: 5, searchingFirstSeen: true))"
 	}
 
-	private func runUntilStable(occupiedRule: Int, searchingFirstSeen: Bool = false) -> [Position: Character] {
-		var positions: [Position: Character] = [:]
-
-		input.enumerated().forEach { y, line in
-			line.enumerated().forEach { x, tile in
-				positions[Position(x: x, y: y)] = tile
-			}
-		}
-
+	private func occupiedCountWhenStable(occupiedRule: Int, searchingFirstSeen: Bool = false) -> Int {
 		var changed = true
 		while changed {
-			var copy = positions
+			let copy = matrix.copy()
 			changed = false
-			for (position, tile) in positions {
-				let surroundingTiles = Position.surroundingDirections
-					.compactMap({ searchingFirstSeen ? positions.firstWhile(from: position, along: $0, { $0 == "." }) : position + $0 })
-					.compactMap({ positions[$0] })
+			for (position, tile) in matrix.positions {
+				let neighbors = searchingFirstSeen ?
+					matrix.lineOfSightNeighbors(from: position, matching: { $0 == "#" || $0 == "L" }) :
+					matrix.neighbors(from: position, matching: { $0 == "#" || $0 == "L" })
 
 				if tile == "L" {
-					if surroundingTiles.count(where: { $0 == "#" }) == 0 {
+					if neighbors.count(where: { $0 == "#" }) == 0 {
 						copy[position] = "#"
 						changed = true
 					}
 				} else if tile == "#" {
-					if surroundingTiles.count(where: { $0 == "#" }) >= occupiedRule {
+					if neighbors.count(where: { $0 == "#" }) >= occupiedRule {
 						copy[position] = "L"
 						changed = true
 					}
 				}
 			}
 
-			positions = copy
+			matrix = copy
 		}
 
-		return positions
+		let result = matrix.positions.count(where: { $0.1 == "#" })
+		return result
 	}
 }
