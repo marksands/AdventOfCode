@@ -9,6 +9,6 @@ class AOC2020_Day16_Tests: XCTestCase {
 	}
 
 	func testPart2() {
-		XCTAssertEqual("", day.part2())
+		XCTAssertEqual("4381476149273", day.part2())
 	}
 }

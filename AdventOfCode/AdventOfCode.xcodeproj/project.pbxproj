@@ -106,6 +106,7 @@
 		DC69176A25851DC7009AD468 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69176925851DC7009AD468 /* Matrix.swift */; };
 		DC69177025852DBC009AD468 /* Int.Times.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69176F25852DBC009AD468 /* Int.Times.swift */; };
 		DC79420825773AFD00090796 /* Collection.Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Product.swift */; };
+		DCC0636B258A6A8D000AE438 /* Collection.Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0636A258A6A8D000AE438 /* Collection.Intersection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,7 @@
 		DC69176925851DC7009AD468 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		DC69176F25852DBC009AD468 /* Int.Times.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.Times.swift; sourceTree = "<group>"; };
 		DC79420725773AFD00090796 /* Collection.Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Product.swift; sourceTree = "<group>"; };
+		DCC0636A258A6A8D000AE438 /* Collection.Intersection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Intersection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				DC79420725773AFD00090796 /* Collection.Product.swift */,
 				B157C65E23522A03000BF7DC /* Collection.Slice.swift */,
 				B18EBBA521D7384B00B5FA4F /* Collection.Sum.swift */,
+				DCC0636A258A6A8D000AE438 /* Collection.Intersection.swift */,
 				B18EBB9721D7384B00B5FA4F /* Cycled.swift */,
 				B1A1FA5522E4FE080016DB0C /* Dictionary.Merging.swift */,
 				B18EBBA921D7384C00B5FA4F /* Heap.swift */,
@@ -548,6 +551,7 @@
 				B18EBBB221D7384C00B5FA4F /* String.Exploded.swift in Sources */,
 				B18EBBC321D7384C00B5FA4F /* CircularList.swift in Sources */,
 				DC13386B2577EDE60099BC8C /* Parser.ZeroOrMore.SeparatedBySequence.swift in Sources */,
+				DCC0636B258A6A8D000AE438 /* Collection.Intersection.swift in Sources */,
 				B18EBBB521D7384C00B5FA4F /* Sequence.CountElements.swift in Sources */,
 				DC13387B2577EDE60099BC8C /* Parser.Char.Semicolon.swift in Sources */,
 				DC1338EE25793DD90099BC8C /* String.UnsafeSubscript.swift in Sources */,
