@@ -107,6 +107,7 @@
 		DC69177025852DBC009AD468 /* Int.Times.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69176F25852DBC009AD468 /* Int.Times.swift */; };
 		DC79420825773AFD00090796 /* Collection.Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79420725773AFD00090796 /* Collection.Product.swift */; };
 		DCC0636B258A6A8D000AE438 /* Collection.Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0636A258A6A8D000AE438 /* Collection.Intersection.swift */; };
+		DCC063AC258B15B7000AE438 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC063AB258B15B7000AE438 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,7 @@
 		DC69176F25852DBC009AD468 /* Int.Times.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.Times.swift; sourceTree = "<group>"; };
 		DC79420725773AFD00090796 /* Collection.Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Product.swift; sourceTree = "<group>"; };
 		DCC0636A258A6A8D000AE438 /* Collection.Intersection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Intersection.swift; sourceTree = "<group>"; };
+		DCC063AB258B15B7000AE438 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 			children = (
 				B18EBB9621D7384B00B5FA4F /* Day.swift */,
 				B18EBBAA21D7384C00B5FA4F /* Input.swift */,
+				DCC063AB258B15B7000AE438 /* Helpers.swift */,
 			);
 			path = AoC;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				DC13386D2577EDE60099BC8C /* Parser.Substring.Prefix.ThroughFirstOf.swift in Sources */,
 				DC1338732577EDE60099BC8C /* Parser.Char.swift in Sources */,
 				DC13385E2577EDE60099BC8C /* Parser.Zip.2.swift in Sources */,
+				DCC063AC258B15B7000AE438 /* Helpers.swift in Sources */,
 				DC1338682577EDE60099BC8C /* Parser.Never.swift in Sources */,
 				DC13386A2577EDE60099BC8C /* Parser.Char.Quote.swift in Sources */,
 				DC1338772577EDE60099BC8C /* Parser.swift in Sources */,

@@ -19,12 +19,12 @@ public final class Day16: Day {
 	public init(input: String = Input().trimmedRawInput()) {
 		super.init()
 
-		let sections = input.components(separatedBy: "\n\n")
+		let groups = input.groups
 
-		myTicketNumbers = sections[1].dropFirst("your ticket:\n".count).components(separatedBy: ",").map { Int($0)! }
-		ticketsInput = sections[2].dropFirst("nearby tickets:\n".count).components(separatedBy: "\n").map { $0.components(separatedBy: ",").map { Int($0)! } }
+		myTicketNumbers = groups[1].dropFirst("your ticket:\n".count).ints
+		ticketsInput = groups[2].dropFirst("nearby tickets:\n".count).components(separatedBy: "\n").map { $0.ints }
 
-		for line in sections[0].components(separatedBy: "\n") {
+		for line in groups[0].lines {
 			let nameToRanges = line.components(separatedBy: ": ")
 			let ranges = String(nameToRanges[1]).components(separatedBy: " or ")
 			let rs = ranges.map { range -> [Int] in
