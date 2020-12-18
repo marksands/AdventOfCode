@@ -21,12 +21,12 @@ public final class Day18: Day {
 		var nums: [Int] = []
 
 		for line in input.lines {
-			var stack: [String] = []
-			var tokens: [String] = []
+			var stack: [Character] = []
+			var tokens: [Character] = []
 
 			for character in line {
 				if character.isNumber {
-					tokens.append(String(character))
+					tokens.append(character)
 				} else if character == "(" {
 					stack.append("(")
 				} else if character == ")" {
@@ -34,15 +34,9 @@ public final class Day18: Day {
 						tokens.append(stack.removeLast())
 					}
 					_ = stack.popLast()
-				} else if character == "+" {
-					rotateOperatorPrecedence("+", stack: &stack, tokens: &tokens, plusWeight: part2 ? 2 : 1)
-					stack.append("+")
-				} else if character == "-" {
-					rotateOperatorPrecedence("-", stack: &stack, tokens: &tokens, plusWeight: part2 ? 2 : 1)
-					stack.append("-")
-				} else if character == "*" {
-					rotateOperatorPrecedence("*", stack: &stack, tokens: &tokens, plusWeight: part2 ? 2 : 1)
-					stack.append("*")
+				} else if symbols.contains(character) {
+					rotateOperatorPrecedence(character, stack: &stack, tokens: &tokens, part2: part2)
+					stack.append(character)
 				}
 			}
 
@@ -57,17 +51,16 @@ public final class Day18: Day {
 		return String(nums.sum())
 	}
 
-	private func calculate(_ tokens: [String]) -> Int {
+	private func calculate(_ tokens: [Character]) -> Int {
 		var tokenStack: [String] = []
 
 		for state in tokens {
-			if !["+", "-", "*"].contains(state) {
-				tokenStack.append(state)
+			if !symbols.contains(state) {
+				tokenStack.append(String(state))
 			} else {
 				let state1 = Int(tokenStack.removeLast())!
 				let state2 = Int(tokenStack.removeLast())!
-
-				let result = NSExpression(format: "\(state1) \(state) \(state2)").expressionValue(with: nil, context: nil) as! Int
+				let result = state == "+" ? state1 + state2 : state1 * state2
 				tokenStack.append(String(result))
 			}
 		}
@@ -77,10 +70,14 @@ public final class Day18: Day {
 		return value
 	}
 
-	private func rotateOperatorPrecedence(_ op: String, stack: inout [String], tokens: inout [String], plusWeight: Int = 1) {
-		let comparison = ["+": plusWeight, "-": 1, "*": 1]
-		while !stack.isEmpty && ["+", "-", "*"].contains(stack.last!) && ((comparison[op]! - comparison[stack.last!]!) <= 0) {
+	private func rotateOperatorPrecedence(_ op: Character, stack: inout [Character], tokens: inout [Character], part2: Bool = false) {
+		let comparison: [Character: Int] = ["+": part2 ? 2 : 1, "*": 1]
+		while !stack.isEmpty && symbols.contains(stack.last!) && ((comparison[op]! - comparison[stack.last!]!) <= 0) {
 			tokens.append(stack.removeLast())
 		}
+	}
+
+	private var symbols: [Character] {
+		return ["+", "*"]
 	}
 }
