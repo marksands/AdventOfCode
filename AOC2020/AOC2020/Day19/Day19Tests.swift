@@ -5,10 +5,10 @@ class AOC2020_Day19_Tests: XCTestCase {
 	let day = Day19()
 
 	func testPart1() {
-		XCTAssertEqual("", day.part1())
+		XCTAssertEqual("192", day.part1())
 	}
 
 	func testPart2() {
-		XCTAssertEqual("", day.part2())
+		XCTAssertEqual("296", day.part2())
 	}
 }
