@@ -19,12 +19,9 @@ public final class Day19: Day {
 			rules[parts[0]] = parts[1]
 		}
 
-		func matches(_ string: Substring, rule: String?) -> [Substring] {
+		func matches(_ string: Substring, rule: String) -> [Substring] {
 			guard !string.isEmpty else {
 				return []
-			}
-			guard let rule = rule else {
-				return [string]
 			}
 
 			if rule == #""a""# {
@@ -87,12 +84,9 @@ public final class Day19: Day {
 		rules["8"] = "42 | 42 8"
 		rules["11"] = "42 31 | 42 11 31"
 
-		func matches(_ string: Substring, rule: String?) -> [Substring] {
+		func matches(_ string: Substring, rule: String) -> [Substring] {
 			guard !string.isEmpty else {
 				return []
-			}
-			guard let rule = rule else {
-				return [string]
 			}
 
 			if rule == #""a""# {
