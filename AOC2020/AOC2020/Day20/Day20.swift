@@ -77,7 +77,6 @@ public final class Day20: Day {
 			tiles.append(Tile(id: tileId, matrix: lines))
 		}
 
-
 		// do a BFS from all tiles
 		// each neighbor are all tiles that have valid rotations that match up along all sides.
 
@@ -99,6 +98,14 @@ public final class Day20: Day {
 
 				if path.flatMap({ $0 }).count == tiles.count { // max, found it
 					possibleTilePositions.enqueue(path)
+
+					// for testing
+					let found = possibleTilePositions.dequeue()!
+//					let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
+					 let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
+					return "\(result)"
+					// rof
+
 					break // maybe?? yes?
 				}
 
@@ -112,7 +119,8 @@ public final class Day20: Day {
 
 		print(found)
 
-		let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
+		let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
+//		let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
 
 		return "\(result)"
 	}
@@ -128,63 +136,69 @@ public final class Day20: Day {
 		// for tile in each row, check rightmost - look for edges touching east/west
 		// for tile in each row, check bottommost - look for edges touching south/north
 
+//		if route[0][safe: 0]?.id == 1951, route[0][safe: 1]?.id == 2311, route[0][safe: 2]?.id == 3079 {
+//			print("break")
+//		}
+
 		var newPaths: [[[Tile]]] = []
 
-		// let's start by producing a 1x12 row and then only looking downward?
+		if route.last!.count < 12 { // change me
+			// extend right
+			let rightMostTile = route.last!.last!
 
-		for (y, row) in route.enumerated() {
-			for (x, tile) in row.enumerated() {
-				if x == row.count-1, x < 12 { // right-most
-					// check each tile
-
-					let rotatedRemainingTiles = remainingTiles
-						.flatMap { t in
-							rotatedAndFlipped(t.matrix).map { m in
-								Tile(id: t.id, matrix: m)
-							}
-						}
-
-					let rightEdge = tile.rightEdge
-					let possibleTiles = rotatedRemainingTiles.filter { remainingTile in
-						return remainingTile.leftEdge == rightEdge
-					}
-
-					let possiblePaths = possibleTiles.map { possibleTile -> [[Tile]] in
-						var copy = route
-						copy[y].append(possibleTile)
-						return copy
-					}
-
-					for possiblePath in possiblePaths {
-						newPaths.append(possiblePath)
+			let rotatedRemainingTiles = remainingTiles
+				.flatMap { t in
+					rotatedAndFlipped(t.matrix).map { m in
+						Tile(id: t.id, matrix: m)
 					}
 				}
 
-				if y == row.count-1, y < 12 { // bottom-most
-					// check each tile
+			let topTile: Tile? = route[safe: route.count - 1 - 1]?[safe: route.last!.count]
+			let rightEdge = rightMostTile.rightEdge
 
-					let rotatedRemainingTiles = remainingTiles
-						.flatMap { t in
-							rotatedAndFlipped(t.matrix).map { m in
-								Tile(id: t.id, matrix: m)
-							}
-						}
+			let possibleTiles = rotatedRemainingTiles.filter { remainingTile in
+				if let tt = topTile {
+					return remainingTile.topEdge == tt.bottomEdge && remainingTile.leftEdge == rightEdge
+				} else {
+					return remainingTile.leftEdge == rightEdge
+				}
+			}
 
-					let bottomEdge = tile.bottomEdge
-					let possibleTiles = rotatedRemainingTiles.filter { remainingTile in
-						return remainingTile.topEdge == bottomEdge
-					}
+			let possiblePaths = possibleTiles.map { possibleTile -> [[Tile]] in
+				var copy = route
+				copy[route.count - 1].append(possibleTile)
+				return copy
+			}
 
-					let possiblePaths = possibleTiles.map { possibleTile -> [[Tile]] in
-						var copy = route
-						copy.append([possibleTile])
-						return copy
-					}
+			for possiblePath in possiblePaths {
+				newPaths.append(possiblePath)
+			}
 
-					for possiblePath in possiblePaths {
-						newPaths.append(possiblePath)
+		} else {
+			// *add* new row below x = 0
+			let bottomLeftMostTile = route.last![0] // rename to bottomLeftMostTile?
+
+			let rotatedRemainingTiles = remainingTiles
+				.flatMap { t in
+					rotatedAndFlipped(t.matrix).map { m in
+						Tile(id: t.id, matrix: m)
 					}
 				}
+
+			let bottomEdge = bottomLeftMostTile.bottomEdge
+
+			let possibleTiles = rotatedRemainingTiles.filter { remainingTile in
+				return remainingTile.topEdge == bottomEdge
+			}
+
+			let possiblePaths = possibleTiles.map { possibleTile -> [[Tile]] in
+				var copy = route
+				copy.append([possibleTile])
+				return copy
+			}
+
+			for possiblePath in possiblePaths {
+				newPaths.append(possiblePath)
 			}
 		}
 
