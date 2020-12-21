@@ -1,6 +1,8 @@
 import Foundation
 import AdventOfCode
 
+/// WARNING to reader: Here lie ~dragons~ _sea monsters_
+
 func rotated(_ matrix: [String], _ clockwiseTurns: Int) -> [String] {
 	let turns = clockwiseTurns % 4
 	if turns == 0 { return matrix }

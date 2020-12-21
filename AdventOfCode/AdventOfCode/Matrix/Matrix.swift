@@ -92,6 +92,60 @@ public class Matrix<Value: Hashable>: Equatable, Hashable {
 			.compactMap { position + $0 }
 			.compactMap { positionsToValue[$0] }
 	}
+
+	// MARK: - Transform
+
+	public func rotated(_ clockwiseTurns: Int = 1) -> Matrix<Value> {
+		let turns = clockwiseTurns % 4
+		if turns == 0 { return Matrix(data) }
+
+		var current = data
+		for _ in (0..<turns) {
+			var thisTurn: [[Value]] = []
+			for i in (0..<current[0].count) {
+				var newRow: [Value] = []
+				for row in current.reversed() {
+					newRow.append(row[i])
+				}
+				thisTurn.append(newRow)
+			}
+			current = thisTurn
+		}
+		return Matrix(current)
+	}
+
+	public func flippedHorizontally() -> Matrix<Value> {
+		var flipped = data
+		for row in data {
+			flipped.append(row.reversed())
+		}
+		return Matrix(flipped)
+	}
+
+	public func flippedVertically() -> Matrix<Value> {
+		return rotated(1).flippedHorizontally().rotated(3)
+	}
+
+	public func rotatedAndFlipped() -> [Matrix<Value>] {
+		let mutations = (0...3).flatMap { i -> [Matrix<Value>] in
+			let m = rotated(i)
+			return [m, m.flippedHorizontally(), m.flippedVertically(), m.flippedVertically().flippedHorizontally()]
+		}
+		return mutations.unique()
+	}
+
+	public func insetBorders() -> Matrix<Value> {
+		let copy = data.dropFirst().dropLast()
+		var newData: [[Value]] = []
+		for line in copy {
+			newData.append(line.dropFirst().dropLast())
+		}
+		return Matrix(newData)
+	}
+
+	// MARK: - Combine
+
+	
 }
 
 extension Matrix: CustomDebugStringConvertible {
