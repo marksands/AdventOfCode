@@ -125,8 +125,8 @@ public final class Day20: Day {
 					possibleTilePositions.enqueue(path)
 
 					let found = possibleTilePositions.dequeue()!
-//					let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
-					 let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
+					let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
+//					 let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
 					return "\(result)"
 				}
 
@@ -183,8 +183,33 @@ public final class Day20: Day {
 			}
 		}
 
-		func tileContainsMonster(y: Int, x: Int, matrix: [String]) -> Bool {
-			let flattenedMatrix = matrix.reduce([]) { $0 + $1.lines }
+		func printDebuggedMonster(y: Int, x: Int, matrix flattenedMatrix: [String]) {
+			var flattenedMatrix2 = flattenedMatrix.map { (n: String) -> [String] in n.map { String($0) } }
+
+			flattenedMatrix2[y][x] = "O"
+			flattenedMatrix2[y + 1][x - 1] = "O"
+			flattenedMatrix2[y + 1][x] = "O"
+			flattenedMatrix2[y + 1][x + 1] = "O"
+			flattenedMatrix2[y + 1][x - 6] = "O"
+			flattenedMatrix2[y + 1][x - 7] = "O"
+			flattenedMatrix2[y + 1][x - 12] = "O"
+			flattenedMatrix2[y + 1][x - 13] = "O"
+			flattenedMatrix2[y + 1][x - 18] = "O"
+			flattenedMatrix2[y + 2][x - 2] = "O"
+			flattenedMatrix2[y + 2][x - 5] = "O"
+			flattenedMatrix2[y + 2][x - 8] = "O"
+			flattenedMatrix2[y + 2][x - 11] = "O"
+			flattenedMatrix2[y + 2][x - 14] = "O"
+			flattenedMatrix2[y + 2][x - 17] = "O"
+
+			print("----<NESSIE>----")
+			for line in flattenedMatrix2.map({ $0.joined() }) {
+				print(line)
+			}
+			print("----</NESSIE>----")
+		}
+
+		func tileContainsMonster(y: Int, x: Int, matrix flattenedMatrix: [String]) -> Bool {
 
 			if flattenedMatrix[safe: y]?[safe: x] == "#", // top-of-head
 				// mouth
@@ -235,41 +260,55 @@ public final class Day20: Day {
 			let mutations = rotatedAndFlipped(newRows)
 
 			for mutatedRow in mutations {
+				let flattenedMutation = mutatedRow.reduce([]) { $0 + $1.lines }
+
 				var monsterFound = 0
-				for (y, row) in mutatedRow.enumerated() {
-					if y >= 6 && monsterFound < 5 {
+				for (y, row) in flattenedMutation.enumerated() {
+					if y >= 6 && monsterFound < 2 { // efficiency test
 						break
 					}
 					for (x, _) in row.enumerated() {
-						if tileContainsMonster(y: y, x: x, matrix: mutatedRow) {
+						if tileContainsMonster(y: y, x: x, matrix: flattenedMutation) {
 							monsterFound += 1
+							printDebuggedMonster(y: y, x: x, matrix: flattenedMutation)
 						}
 					}
 				}
 
 				if monsterFound > 0 {
-					print("FOUND: \(monstersFound)")
+					print("FOUND: \(monsterFound)")
+					monstersFound.append(monsterFound)
 				} else {
 					print("--SKIPPING MUTATION--")
 				}
 
-				monstersFound.append(monsterFound)
 				monsterFound = 0
 //					monstersFound = 0 // reset, I'll try a few variants I guess?
 			}
 		}
+		print("sampled: \(monstersFound)")
 		// 2589 - (X * 14) // x = found
 		return ""
 	}
 
 	// using this as a way to make the neighbors efficient.
-	let cornerIds = [1301, 1373, 1289, 3593] // 1301 is the starter piece.
+	let cornerIds = [1951, 3079, 2971, 1171] // example input
+	//let cornerIds = [1301, 1373, 1289, 3593] // my input
+
+//	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
+//		// will only be 3 conditions, since the first initial one will always be the top-left
+//		let firstRowFarRight = (route.count == 1 && route[0].count == 11)
+//		let lastRowFarLeft = (route.count == 11 && route[10].count == 12)
+//		let lastRowFarRight = (route.count == 12 && route[11].count == 11)
+//		let isACorner = firstRowFarRight || lastRowFarLeft || lastRowFarRight
+//		return isACorner
+//	}
 
 	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
 		// will only be 3 conditions, since the first initial one will always be the top-left
-		let firstRowFarRight = (route.count == 1 && route[0].count == 11)
-		let lastRowFarLeft = (route.count == 11 && route[10].count == 12)
-		let lastRowFarRight = (route.count == 12 && route[11].count == 11)
+		let firstRowFarRight = (route.count == 1 && route[0].count == 2)
+		let lastRowFarLeft = (route.count == 2 && route[1].count == 3)
+		let lastRowFarRight = (route.count == 3 && route[2].count == 2)
 		let isACorner = firstRowFarRight || lastRowFarLeft || lastRowFarRight
 		return isACorner
 	}
@@ -284,7 +323,7 @@ public final class Day20: Day {
 
 		var newPaths: [[[Tile]]] = []
 
-		if route.last!.count < 12 { // change me 3 or 12
+		if route.last!.count < 3 { // change me 3 or 12
 			// extend right
 			let rightMostTile = route.last!.last!
 
