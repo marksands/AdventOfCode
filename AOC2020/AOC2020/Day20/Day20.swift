@@ -20,7 +20,7 @@ func rotated(_ matrix: [String], _ clockwiseTurns: Int) -> [String] {
 	return current.map { $0.map { String($0) }.joined() }
 }
 
-func flipped(_ matrix: [String]) -> [String] {
+func flippedHorizontally(_ matrix: [String]) -> [String] {
 	var flipped: [String] = []
 	for row in matrix {
 		flipped.append(String(row.reversed()))
@@ -28,13 +28,36 @@ func flipped(_ matrix: [String]) -> [String] {
 	return flipped
 }
 
+func flippedVertically(_ matrix: [String]) -> [String] {
+	return rotated(flippedHorizontally(rotated(matrix, 1)), 3)
+}
+
 func rotatedAndFlipped(_ matrix: [String]) -> [[String]] {
 	let mutations = (0...3).flatMap { i -> [[String]] in
 		let m = rotated(matrix, i)
-		return [m, flipped(m)]
+		return [m, flippedHorizontally(m), flippedVertically(m)]
+	}
+	return mutations
+}
+
+func insetLinesByOne(_ lines: [String]) -> [String] {
+	let copy = Array(lines.dropFirst().dropLast())
+	var newLines: [String] = []
+	for line in copy {
+		newLines.append(String(line.dropFirst().dropLast()))
+	}
+	return newLines
+}
+
+/// concatenates [a] and [b] assuming the row count are the same dimension
+func concatenate(_ a: [String], _ b: [String]) -> [String] {
+	guard a.count == b.count else { fatalError("A's row count must match B's row count!") }
+
+	let newMatrix = zip(a, b).map { left, right in
+		left + right
 	}
 
-	return mutations
+	return newMatrix
 }
 
 struct Tile: Hashable {
@@ -82,12 +105,14 @@ public final class Day20: Day {
 
 		var possibleTilePositions = PriorityQueue<[[Tile]]>(sort: { $0.count > $1.count })
 
-		let allRotatedTiles = 	tiles
+		// except only for corner tiles
+		let allRotatedTiles = tiles
 			.flatMap { t in
 				rotatedAndFlipped(t.matrix).map { m in
 					Tile(id: t.id, matrix: m)
 				}
 			 }
+			.filter { cornerIds.contains($0.id) }
 
 		for tile in allRotatedTiles {
 			var queue = PriorityQueue<[[Tile]]>(sort: { $0.count > $1.count })
@@ -99,14 +124,10 @@ public final class Day20: Day {
 				if path.flatMap({ $0 }).count == tiles.count { // max, found it
 					possibleTilePositions.enqueue(path)
 
-					// for testing
 					let found = possibleTilePositions.dequeue()!
 //					let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
 					 let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
 					return "\(result)"
-					// rof
-
-					break // maybe?? yes?
 				}
 
 				for possiblePath in possiblePaths(of: path) {
@@ -115,34 +136,155 @@ public final class Day20: Day {
 			}
 		}
 
-		let found = possibleTilePositions.dequeue()!
-
-		print(found)
-
-		let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
-//		let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
-
-		return "\(result)"
+		return ""
 	}
 
 	public override func part2() -> String {
+		let rawTiles = input.groups
+
+		for rawTile in rawTiles {
+			let tileId = Int(rawTile.lines[0].dropFirst(5).dropLast())!
+			let lines = Array(rawTile.lines.dropFirst())
+			tiles.append(Tile(id: tileId, matrix: lines))
+		}
+
+		// do a BFS from all tiles
+		// each neighbor are all tiles that have valid rotations that match up along all sides.
+
+		var possibleTilePositions = PriorityQueue<[[Tile]]>(sort: { $0.count > $1.count })
+
+		let allRotatedTiles = tiles
+			.flatMap { t in
+				rotatedAndFlipped(t.matrix).map { m in
+					Tile(id: t.id, matrix: m)
+				}
+			 }
+			.filter { cornerIds.contains($0.id) }
+
+//		var foundFirst = false
+
+		for tile in allRotatedTiles {
+//			if foundFirst { break }
+			var queue = PriorityQueue<[[Tile]]>(sort: { $0.count > $1.count })
+			queue.enqueue([[tile]])
+
+			while queue.count > 0 {
+				let path = queue.dequeue()!
+
+				if path.flatMap({ $0 }).count == tiles.count { // max, found it
+					possibleTilePositions.enqueue(path)
+//					foundFirst = true
+					break
+				}
+
+				for possiblePath in possiblePaths(of: path) {
+					queue.enqueue(possiblePath)
+				}
+			}
+		}
+
+		func tileContainsMonster(y: Int, x: Int, matrix: [String]) -> Bool {
+			let flattenedMatrix = matrix.reduce([]) { $0 + $1.lines }
+
+			if flattenedMatrix[safe: y]?[safe: x] == "#", // top-of-head
+				// mouth
+			   flattenedMatrix[safe: y + 1]?[safe: x - 1] == "#",
+			   flattenedMatrix[safe: y + 1]?[safe: x] == "#",
+			   flattenedMatrix[safe: y + 1]?[safe: x + 1] == "#",
+
+				// torso (middle row)
+			   flattenedMatrix[safe: y + 1]?[safe: x - 6] == "#",
+			   flattenedMatrix[safe: y + 1]?[safe: x - 7] == "#",
+			   flattenedMatrix[safe: y + 1]?[safe: x - 12] == "#",
+			   flattenedMatrix[safe: y + 1]?[safe: x - 13] == "#",
+			   flattenedMatrix[safe: y + 1]?[safe: x - 18] == "#",
+
+				// bottom (last row)
+			   flattenedMatrix[safe: y + 2]?[safe: x - 2] == "#",
+			   flattenedMatrix[safe: y + 2]?[safe: x - 5] == "#",
+			   flattenedMatrix[safe: y + 2]?[safe: x - 8] == "#",
+			   flattenedMatrix[safe: y + 2]?[safe: x - 11] == "#",
+			   flattenedMatrix[safe: y + 2]?[safe: x - 14] == "#",
+			   flattenedMatrix[safe: y + 2]?[safe: x - 17] == "#" {
+				return true
+			} else {
+				return false
+			}
+		}
+
+		var monstersFound: [Int] = []
+
+		while let found = possibleTilePositions.dequeue() {
+			var newRows: [String] = []
+			for row in found {
+				let concatenatedRow = row.dropFirst().reduce(insetLinesByOne(row.first!.matrix)) { seed, next in
+					concatenate(seed, insetLinesByOne(next.matrix))
+				}
+				var result = ""
+				for row in concatenatedRow {
+					result += row
+					result += "\n"
+				}
+				newRows.append(String(result.dropLast())) // clip trailing newline
+			}
+
+//			for row in newRows {
+//				print(row)
+//			}
+
+			let mutations = rotatedAndFlipped(newRows)
+
+			for mutatedRow in mutations {
+				var monsterFound = 0
+				for (y, row) in mutatedRow.enumerated() {
+					if y >= 6 && monsterFound < 5 {
+						break
+					}
+					for (x, _) in row.enumerated() {
+						if tileContainsMonster(y: y, x: x, matrix: mutatedRow) {
+							monsterFound += 1
+						}
+					}
+				}
+
+				if monsterFound > 0 {
+					print("FOUND: \(monstersFound)")
+				} else {
+					print("--SKIPPING MUTATION--")
+				}
+
+				monstersFound.append(monsterFound)
+				monsterFound = 0
+//					monstersFound = 0 // reset, I'll try a few variants I guess?
+			}
+		}
+		// 2589 - (X * 14) // x = found
 		return ""
+	}
+
+	// using this as a way to make the neighbors efficient.
+	let cornerIds = [1301, 1373, 1289, 3593] // 1301 is the starter piece.
+
+	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
+		// will only be 3 conditions, since the first initial one will always be the top-left
+		let firstRowFarRight = (route.count == 1 && route[0].count == 11)
+		let lastRowFarLeft = (route.count == 11 && route[10].count == 12)
+		let lastRowFarRight = (route.count == 12 && route[11].count == 11)
+		let isACorner = firstRowFarRight || lastRowFarLeft || lastRowFarRight
+		return isACorner
 	}
 
 	func possiblePaths(of route: [[Tile]]) -> [[[Tile]]] {
 		let initialRouteTiles = route.flatMap { $0 }.map { $0.id }
-		let remainingTiles = self.tiles.filter { !initialRouteTiles.contains($0.id) }
+		var remainingTiles = self.tiles.filter { !initialRouteTiles.contains($0.id) }
 
-		// for tile in each row, check rightmost - look for edges touching east/west
-		// for tile in each row, check bottommost - look for edges touching south/north
-
-//		if route[0][safe: 0]?.id == 1951, route[0][safe: 1]?.id == 2311, route[0][safe: 2]?.id == 3079 {
-//			print("break")
-//		}
+		if nextPossibleTileIsACorner(route) {
+			remainingTiles = remainingTiles.filter { cornerIds.contains($0.id) }
+		}
 
 		var newPaths: [[[Tile]]] = []
 
-		if route.last!.count < 12 { // change me
+		if route.last!.count < 12 { // change me 3 or 12
 			// extend right
 			let rightMostTile = route.last!.last!
 
@@ -198,10 +340,15 @@ public final class Day20: Day {
 			}
 
 			for possiblePath in possiblePaths {
-				newPaths.append(possiblePath)
+					newPaths.append(possiblePath)
 			}
 		}
 
 		return newPaths
 	}
 }
+
+//2514 is too high (5 monsters, so there are more than 5 monsters.)
+//2109 is too low (32 monsters, so there are fewer than 32 monsters.)
+//2229 is too low (24 monsters, so there are fewer than 24 monsters.)
+//2349 is not correct (16 monsters, so there are ???)
