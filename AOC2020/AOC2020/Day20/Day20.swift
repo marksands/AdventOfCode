@@ -35,9 +35,9 @@ func flippedVertically(_ matrix: [String]) -> [String] {
 func rotatedAndFlipped(_ matrix: [String]) -> [[String]] {
 	let mutations = (0...3).flatMap { i -> [[String]] in
 		let m = rotated(matrix, i)
-		return [m, flippedHorizontally(m), flippedVertically(m)]
+		return [m, flippedHorizontally(m), flippedVertically(m), flippedHorizontally(flippedVertically(m))]
 	}
-	return mutations
+	return mutations.unique()
 }
 
 func insetLinesByOne(_ lines: [String]) -> [String] {
@@ -183,6 +183,35 @@ public final class Day20: Day {
 			}
 		}
 
+		func printDebuggedMonster(coords: [(Int, Int)], matrix: [String]) {
+			var flattenedMatrix = matrix.map { (n: String) -> [String] in n.map { String($0) } }
+
+			for coord in coords {
+				let (y, x) = coord
+				flattenedMatrix[y][x] = "O"
+				flattenedMatrix[y + 1][x - 1] = "O"
+				flattenedMatrix[y + 1][x] = "O"
+				flattenedMatrix[y + 1][x + 1] = "O"
+				flattenedMatrix[y + 1][x - 6] = "O"
+				flattenedMatrix[y + 1][x - 7] = "O"
+				flattenedMatrix[y + 1][x - 12] = "O"
+				flattenedMatrix[y + 1][x - 13] = "O"
+				flattenedMatrix[y + 1][x - 18] = "O"
+				flattenedMatrix[y + 2][x - 2] = "O"
+				flattenedMatrix[y + 2][x - 5] = "O"
+				flattenedMatrix[y + 2][x - 8] = "O"
+				flattenedMatrix[y + 2][x - 11] = "O"
+				flattenedMatrix[y + 2][x - 14] = "O"
+				flattenedMatrix[y + 2][x - 17] = "O"
+			}
+
+			print("----<NESSIE>----")
+			for line in flattenedMatrix.map({ $0.joined() }) {
+				print(line)
+			}
+			print("----</NESSIE>----")
+		}
+
 		func printDebuggedMonster(y: Int, x: Int, matrix flattenedMatrix: [String]) {
 			var flattenedMatrix2 = flattenedMatrix.map { (n: String) -> [String] in n.map { String($0) } }
 
@@ -238,6 +267,9 @@ public final class Day20: Day {
 		}
 
 		var monstersFound: [Int] = []
+		var roughWaters: [Int] = []
+
+		let monsterOctothorpeCount = 15
 
 		while let found = possibleTilePositions.dequeue() {
 			var newRows: [String] = []
@@ -262,39 +294,45 @@ public final class Day20: Day {
 			for mutatedRow in mutations {
 				let flattenedMutation = mutatedRow.reduce([]) { $0 + $1.lines }
 
+				var debugDrawingCoords: [(Int, Int)] = []
 				var monsterFound = 0
 				for (y, row) in flattenedMutation.enumerated() {
-					if y >= 6 && monsterFound < 2 { // efficiency test
-						break
-					}
 					for (x, _) in row.enumerated() {
 						if tileContainsMonster(y: y, x: x, matrix: flattenedMutation) {
 							monsterFound += 1
-//							printDebuggedMonster(y: y, x: x, matrix: flattenedMutation)
+							debugDrawingCoords.append((y, x))
 						}
 					}
 				}
 
 				if monsterFound > 0 {
+					printDebuggedMonster(coords: debugDrawingCoords, matrix: flattenedMutation)
+
 					print("FOUND: \(monsterFound)")
+					let rough = (mutatedRow.flatMap({ $0.exploded() }).count(where: { $0 == "#" })) - (monsterFound * monsterOctothorpeCount)
+					print("ROUGH: \(rough)")
+					roughWaters.append(rough)
+
 					monstersFound.append(monsterFound)
 				} else {
 					print("--SKIPPING MUTATION--")
 				}
 
 				monsterFound = 0
-//					monstersFound = 0 // reset, I'll try a few variants I guess?
 			}
 		}
+
 		print("sampled: \(monstersFound)")
-		// 2589 - (X * 14) // x = found
-		return ""
+		print("and also: \(roughWaters)")
+
+		return String(roughWaters.min())
 	}
 
 	// using this as a way to make the neighbors efficient.
 //	let cornerIds = [1951, 3079, 2971, 1171] // example input
 	let cornerIds = [1301, 1373, 1289, 3593] // my input
 
+	// my input
 	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
 		// will only be 3 conditions, since the first initial one will always be the top-left
 		let firstRowFarRight = (route.count == 1 && route[0].count == 11)
@@ -304,6 +342,7 @@ public final class Day20: Day {
 		return isACorner
 	}
 
+	// sample input
 //	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
 //		// will only be 3 conditions, since the first initial one will always be the top-left
 //		let firstRowFarRight = (route.count == 1 && route[0].count == 2)
@@ -392,4 +431,4 @@ public final class Day20: Day {
 //2229 is too low (24 monsters, so there are fewer than 24 monsters.)
 //2349 is not correct (16 monsters, so there are ???)
 //2349 is not correct (16 monsters, so there are ???)
-// 2589 - (15 * 15) / 2364 is not correct... ~5.5 minutes
+// 2589 - (15 * 15) / 2364 is NOT correct... ~5.5 minutes

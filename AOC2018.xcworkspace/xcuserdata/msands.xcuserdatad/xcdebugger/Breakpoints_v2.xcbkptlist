@@ -14,8 +14,8 @@
             filePath = "AOC2020/AOC2020/Day20/Day20.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
             landmarkName = "possiblePaths(of:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "AOC2020/AOC2020/Day20/Day20.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "possiblePaths(of:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "AOC2020/AOC2020/Day20/Day20.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
             landmarkName = "possiblePaths(of:)"
             landmarkType = "7">
          </BreakpointContent>
