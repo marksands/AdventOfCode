@@ -5,7 +5,7 @@ public final class Day21: Day {
 	private var input: [String] = []
 
 	public init(input: [String] = Input().trimmedInputCharactersByNewlines()) {
-		super.init()
+		super.init()f
 		self.input = input
 	}
 

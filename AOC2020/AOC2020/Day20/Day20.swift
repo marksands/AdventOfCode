@@ -125,8 +125,8 @@ public final class Day20: Day {
 					possibleTilePositions.enqueue(path)
 
 					let found = possibleTilePositions.dequeue()!
-					let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
-//					 let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
+//					let result = found[0][0].id * found[2][0].id * found[2][2].id * found[0][2].id
+					 let result = found[0][0].id * found[11][0].id * found[11][11].id * found[0][11].id
 					return "\(result)"
 				}
 
@@ -270,7 +270,7 @@ public final class Day20: Day {
 					for (x, _) in row.enumerated() {
 						if tileContainsMonster(y: y, x: x, matrix: flattenedMutation) {
 							monsterFound += 1
-							printDebuggedMonster(y: y, x: x, matrix: flattenedMutation)
+//							printDebuggedMonster(y: y, x: x, matrix: flattenedMutation)
 						}
 					}
 				}
@@ -292,26 +292,26 @@ public final class Day20: Day {
 	}
 
 	// using this as a way to make the neighbors efficient.
-	let cornerIds = [1951, 3079, 2971, 1171] // example input
-	//let cornerIds = [1301, 1373, 1289, 3593] // my input
-
-//	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
-//		// will only be 3 conditions, since the first initial one will always be the top-left
-//		let firstRowFarRight = (route.count == 1 && route[0].count == 11)
-//		let lastRowFarLeft = (route.count == 11 && route[10].count == 12)
-//		let lastRowFarRight = (route.count == 12 && route[11].count == 11)
-//		let isACorner = firstRowFarRight || lastRowFarLeft || lastRowFarRight
-//		return isACorner
-//	}
+//	let cornerIds = [1951, 3079, 2971, 1171] // example input
+	let cornerIds = [1301, 1373, 1289, 3593] // my input
 
 	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
 		// will only be 3 conditions, since the first initial one will always be the top-left
-		let firstRowFarRight = (route.count == 1 && route[0].count == 2)
-		let lastRowFarLeft = (route.count == 2 && route[1].count == 3)
-		let lastRowFarRight = (route.count == 3 && route[2].count == 2)
+		let firstRowFarRight = (route.count == 1 && route[0].count == 11)
+		let lastRowFarLeft = (route.count == 11 && route[10].count == 12)
+		let lastRowFarRight = (route.count == 12 && route[11].count == 11)
 		let isACorner = firstRowFarRight || lastRowFarLeft || lastRowFarRight
 		return isACorner
 	}
+
+//	func nextPossibleTileIsACorner(_ route: [[Tile]]) -> Bool {
+//		// will only be 3 conditions, since the first initial one will always be the top-left
+//		let firstRowFarRight = (route.count == 1 && route[0].count == 2)
+//		let lastRowFarLeft = (route.count == 2 && route[1].count == 3)
+//		let lastRowFarRight = (route.count == 3 && route[2].count == 2)
+//		let isACorner = firstRowFarRight || lastRowFarLeft || lastRowFarRight
+//		return isACorner
+//	}
 
 	func possiblePaths(of route: [[Tile]]) -> [[[Tile]]] {
 		let initialRouteTiles = route.flatMap { $0 }.map { $0.id }
@@ -323,7 +323,7 @@ public final class Day20: Day {
 
 		var newPaths: [[[Tile]]] = []
 
-		if route.last!.count < 3 { // change me 3 or 12
+		if route.last!.count < 12 { // change me 3 or 12
 			// extend right
 			let rightMostTile = route.last!.last!
 
@@ -391,3 +391,5 @@ public final class Day20: Day {
 //2109 is too low (32 monsters, so there are fewer than 32 monsters.)
 //2229 is too low (24 monsters, so there are fewer than 24 monsters.)
 //2349 is not correct (16 monsters, so there are ???)
+//2349 is not correct (16 monsters, so there are ???)
+// 2589 - (15 * 15) / 2364 is not correct... ~5.5 minutes
