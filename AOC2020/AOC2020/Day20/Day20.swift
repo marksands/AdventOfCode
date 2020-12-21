@@ -306,16 +306,11 @@ public final class Day20: Day {
 				}
 
 				if monsterFound > 0 {
-					printDebuggedMonster(coords: debugDrawingCoords, matrix: flattenedMutation)
-
-					print("FOUND: \(monsterFound)")
+					//printDebuggedMonster(coords: debugDrawingCoords, matrix: flattenedMutation)
 					let rough = (mutatedRow.flatMap({ $0.exploded() }).count(where: { $0 == "#" })) - (monsterFound * monsterOctothorpeCount)
-					print("ROUGH: \(rough)")
 					roughWaters.append(rough)
 
 					monstersFound.append(monsterFound)
-				} else {
-					print("--SKIPPING MUTATION--")
 				}
 
 				monsterFound = 0
@@ -325,7 +320,7 @@ public final class Day20: Day {
 		print("sampled: \(monstersFound)")
 		print("and also: \(roughWaters)")
 
-		return String(roughWaters.min())
+		return String(roughWaters.min()!)
 	}
 
 	// using this as a way to make the neighbors efficient.
