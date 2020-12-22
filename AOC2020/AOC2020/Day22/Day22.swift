@@ -31,14 +31,9 @@ public final class Day22: Day {
 			}
 		}
 
-		let score = Array(player1.reversed()).enumerated().map { index, c in
-			(index + 1) * c
-		}.sum()
-		let score2 = Array(player2.reversed()).enumerated().map { index, c in
-			(index + 1) * c
-		}.sum()
-
-		return String(max(score, score2))
+		let score1 = Array(player1.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
+		let score2 = Array(player2.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
+		return String(max(score1, score2))
 	}
 
 	public override func part2() -> String {
@@ -50,46 +45,23 @@ public final class Day22: Day {
 		player1 = players[0].lines.dropFirst().map { Int($0)! }
 		player2 = players[1].lines.dropFirst().map { Int($0)! }
 
-		enum GameState: Equatable {
-			case unknown
-			case player1WonRound
-			case player2WonRound
-			case player1Wins(score: Int)
-			case player2Wins(score: Int)
+    typealias GameResult = (player1IsWinner: Bool, score: Int)
 
-			var score: Int {
-				switch self {
-				case .player1Wins(score: let s): return s
-				case .player2Wins(score: let s): return s
-				default: return 0
-				}
-			}
-
-			var player1WonGame: Bool {
-				switch self {
-				case .player1Wins: return true
-				default: return false
-				}
-			}
-
-			var player2WonGame: Bool {
-				switch self {
-				case .player2Wins: return true
-				default: return false
-				}
-			}
-		}
-
-		// return true if P1 is winner
-		func combat(player1: inout [Int], player2: inout [Int], roundCombo: inout Set<[[Int]]>, total: Int) -> GameState {
+		func combat(player1: inout [Int], player2: inout [Int], roundCombo: inout Set<[[Int]]>, total: Int) -> GameResult? {
 			guard roundCombo.insert([player1, player2]).inserted else {
-				return .player1Wins(score: 0)
+				return (true, 0)
 			}
+
+      if player1.count == total {
+        let score = Array(player1.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
+        return (true, score)
+      } else if player2.count == total {
+        let score = Array(player2.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
+        return (false, score)
+      }
 
 			let c1 = player1.removeFirst()
 			let c2 = player2.removeFirst()
-
-			var roundState = GameState.unknown
 
 			if c1 <= player1.count && c2 <= player2.count {
 				var copyP1 = Array(player1.prefix(c1))
@@ -97,46 +69,34 @@ public final class Day22: Day {
 				let t = copyP1.count + copyP2.count
 				var combos: Set<[[Int]]> = []
 
-				var state = GameState.unknown
-				while !state.player1WonGame && !state.player2WonGame {
+        var state: GameResult?
+				while state == nil {
 					state = combat(player1: &copyP1, player2: &copyP2, roundCombo: &combos, total: t)
 				}
 
-				if state.player1WonGame {
+        if state!.player1IsWinner {
 					player1.append(contentsOf: [c1, c2])
-					roundState = .player1WonRound
-				} else if state.player2WonGame {
+				} else {
 					player2.append(contentsOf: [c2, c1])
-					roundState = .player2WonRound
 				}
 			} else {
 				if c1 > c2 {
 					player1.append(contentsOf: [c1, c2])
-					roundState = .player1WonRound
 				} else {
 					player2.append(contentsOf: [c2, c1])
-					roundState = .player2WonRound
 				}
 			}
 
-			if player1.count == total {
-				let score = Array(player1.reversed()).enumerated().map { index, c in (index + 1) * c }.sum()
-				return .player1Wins(score: score)
-			} else if player2.count == total {
-				let score = Array(player2.reversed()).enumerated().map { index, c in (index + 1) * c }.sum()
-				return .player2Wins(score: score)
-			}
-
-			return roundState
+      return nil
 		}
 
 		var roundCombinations: Set<[[Int]]> = []
 
-		var state = GameState.unknown
-		while !state.player1WonGame && !state.player2WonGame {
+    var state: GameResult?
+		while state == nil {
 			state = combat(player1: &player1, player2: &player2, roundCombo: &roundCombinations, total: player1.count + player2.count)
 		}
 
-		return "\(state.score)"
+		return "\(state!.score)"
 	}
 }
