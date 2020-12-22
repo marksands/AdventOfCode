@@ -145,7 +145,34 @@ public class Matrix<Value: Hashable>: Equatable, Hashable {
 
 	// MARK: - Combine
 
-	
+	/// concatenates [a] and [b] assuming the row count are the same dimension
+//	func concatenate(_ a: [String], _ b: [String]) -> [String] {
+//		guard a.count == b.count else { fatalError("A's row count must match B's row count!") }
+//
+//		let newMatrix = zip(a, b).map { left, right in
+//			left + right
+//		}
+//
+//		return newMatrix
+//	}
+
+	// MARK: - Edges
+
+	public var topEdge: [Value] {
+		data[0]
+	}
+
+	public var bottomEdge: [Value] {
+		data.last!
+	}
+
+	public var leftEdge: [Value] {
+		data.map { $0[0] }
+	}
+
+	public var rightEdge: [Value] {
+		data.map { $0[columnCount-1] }
+	}
 }
 
 extension Matrix: CustomDebugStringConvertible {

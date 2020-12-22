@@ -84,9 +84,16 @@ struct Tile: Hashable {
 	}
 }
 
+struct TileRedux: Hashable {
+	let id: Int
+	let matrix: Matrix<Character>
+}
+
+
 public final class Day20: Day {
 	private var input: String = ""
 	private var tiles: [Tile] = []
+	private var tilesRedux: [TileRedux] = []
 
 	public init(input: String = Input().trimmedRawInput()) {
 		super.init()
@@ -100,6 +107,7 @@ public final class Day20: Day {
 			let tileId = Int(rawTile.lines[0].dropFirst(5).dropLast())!
 			let lines = Array(rawTile.lines.dropFirst())
 			tiles.append(Tile(id: tileId, matrix: lines))
+			tilesRedux.append(TileRedux(id: tileId, matrix: Matrix(lines.map { $0.map { $0 as Character } })))
 		}
 
 		// do a BFS from all tiles
