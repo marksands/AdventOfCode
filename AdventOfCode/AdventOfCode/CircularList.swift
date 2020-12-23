@@ -1,8 +1,8 @@
 public class CircularList<T> {
     public let value: T
     
-    private var left: CircularList<T>!
-    private var right: CircularList<T>!
+    var left: CircularList<T>!
+    var right: CircularList<T>!
     
     public init(value: T) {
         self.value = value
