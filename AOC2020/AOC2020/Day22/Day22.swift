@@ -45,20 +45,20 @@ public final class Day22: Day {
 		player1 = players[0].lines.dropFirst().map { Int($0)! }
 		player2 = players[1].lines.dropFirst().map { Int($0)! }
 
-    typealias GameResult = (player1IsWinner: Bool, score: Int)
+		typealias GameResult = (player1IsWinner: Bool, score: Int)
 
 		func combat(player1: inout [Int], player2: inout [Int], roundCombo: inout Set<[[Int]]>, total: Int) -> GameResult? {
 			guard roundCombo.insert([player1, player2]).inserted else {
 				return (true, 0)
 			}
 
-      if player1.count == total {
-        let score = Array(player1.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
-        return (true, score)
-      } else if player2.count == total {
-        let score = Array(player2.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
-        return (false, score)
-      }
+			if player1.count == total {
+				let score = Array(player1.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
+				return (true, score)
+			} else if player2.count == total {
+				let score = Array(player2.reversed()).enumerated().map { ($0 + 1) * $1 }.sum()
+				return (false, score)
+			}
 
 			let c1 = player1.removeFirst()
 			let c2 = player2.removeFirst()
@@ -69,12 +69,12 @@ public final class Day22: Day {
 				let t = copyP1.count + copyP2.count
 				var combos: Set<[[Int]]> = []
 
-        var state: GameResult?
+				var state: GameResult?
 				while state == nil {
 					state = combat(player1: &copyP1, player2: &copyP2, roundCombo: &combos, total: t)
 				}
 
-        if state!.player1IsWinner {
+				if state!.player1IsWinner {
 					player1.append(contentsOf: [c1, c2])
 				} else {
 					player2.append(contentsOf: [c2, c1])
@@ -86,13 +86,13 @@ public final class Day22: Day {
 					player2.append(contentsOf: [c2, c1])
 				}
 			}
-
-      return nil
+			
+			return nil
 		}
 
 		var roundCombinations: Set<[[Int]]> = []
 
-    var state: GameResult?
+		var state: GameResult?
 		while state == nil {
 			state = combat(player1: &player1, player2: &player2, roundCombo: &roundCombinations, total: player1.count + player2.count)
 		}
