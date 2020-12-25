@@ -115,7 +115,7 @@ public final class Day24: Day {
 					.map { $0.moving(from: kv.key) }
 					.map { d -> Bool in
 						tiles[d] = tiles[d, default: false] // ;_;
-						return tiles[d, default: false]
+						return tiles[d]!
 					}
 					.count(where: { $0 })
 
