@@ -27,15 +27,18 @@ public struct Heap<T> {
             return root
         }
     }
-    
+
+	@_transparent
     private func leftIndex(of child: Int) -> Int {
         return 2*child + 1
     }
     
-    private func rightIndex(of child: Int) -> Int {
+	@_transparent
+	private func rightIndex(of child: Int) -> Int {
         return 2*child + 2
     }
-    
+
+	@_transparent
     private func parentIndex(of child: Int) -> Int {
         return Int((child - 1)/2)
     }

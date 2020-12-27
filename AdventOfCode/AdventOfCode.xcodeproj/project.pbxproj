@@ -102,6 +102,8 @@
 		DC1338802577EDE60099BC8C /* Parser.Substring.Prefix.UpTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338432577EDE50099BC8C /* Parser.Substring.Prefix.UpTo.swift */; };
 		DC1338AB257842D50099BC8C /* Parser.Remaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338AA257842D50099BC8C /* Parser.Remaining.swift */; };
 		DC1338EE25793DD90099BC8C /* String.UnsafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1338ED25793DD90099BC8C /* String.UnsafeSubscript.swift */; };
+		DC35E6B6259923E2001F111E /* Collection.PopFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35E6B5259923E2001F111E /* Collection.PopFirst.swift */; };
+		DC35E6BA25992D52001F111E /* Collection.Intersection.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35E6B925992D52001F111E /* Collection.Intersection.Tests.swift */; };
 		DC6916DE258010E0009AD468 /* Set.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6916DD258010E0009AD468 /* Set.String.swift */; };
 		DC69176A25851DC7009AD468 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69176925851DC7009AD468 /* Matrix.swift */; };
 		DC69177025852DBC009AD468 /* Int.Times.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC69176F25852DBC009AD468 /* Int.Times.swift */; };
@@ -219,6 +221,8 @@
 		DC1338432577EDE50099BC8C /* Parser.Substring.Prefix.UpTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.Substring.Prefix.UpTo.swift; sourceTree = "<group>"; };
 		DC1338AA257842D50099BC8C /* Parser.Remaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.Remaining.swift; sourceTree = "<group>"; };
 		DC1338ED25793DD90099BC8C /* String.UnsafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.UnsafeSubscript.swift; sourceTree = "<group>"; };
+		DC35E6B5259923E2001F111E /* Collection.PopFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.PopFirst.swift; sourceTree = "<group>"; };
+		DC35E6B925992D52001F111E /* Collection.Intersection.Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Intersection.Tests.swift; sourceTree = "<group>"; };
 		DC6916DD258010E0009AD468 /* Set.String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.String.swift; sourceTree = "<group>"; };
 		DC69176925851DC7009AD468 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		DC69176F25852DBC009AD468 /* Int.Times.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.Times.swift; sourceTree = "<group>"; };
@@ -282,10 +286,12 @@
 				B157C66B235236DE000BF7DC /* Collection.Combinations.swift */,
 				B1B1E11222C5AB3F00F50F2B /* Collection.EachWithIndex.swift */,
 				B15E361A21DBD62400B66F9B /* Collection.EqualSubsequences.swift */,
+				DC35E6B5259923E2001F111E /* Collection.PopFirst.swift */,
 				DC79420725773AFD00090796 /* Collection.Product.swift */,
 				B157C65E23522A03000BF7DC /* Collection.Slice.swift */,
 				B18EBBA521D7384B00B5FA4F /* Collection.Sum.swift */,
 				DCC0636A258A6A8D000AE438 /* Collection.Intersection.swift */,
+				DC35E6B925992D52001F111E /* Collection.Intersection.Tests.swift */,
 				B18EBB9721D7384B00B5FA4F /* Cycled.swift */,
 				B1A1FA5522E4FE080016DB0C /* Dictionary.Merging.swift */,
 				B18EBBA921D7384C00B5FA4F /* Heap.swift */,
@@ -584,6 +590,7 @@
 				B18EBBB921D7384C00B5FA4F /* Collection.Chunks.swift in Sources */,
 				B18EBBC121D7384C00B5FA4F /* Heap.swift in Sources */,
 				B157C66123522ACC000BF7DC /* Sequence.EachPair.swift in Sources */,
+				DC35E6B6259923E2001F111E /* Collection.PopFirst.swift in Sources */,
 				DC79420825773AFD00090796 /* Collection.Product.swift in Sources */,
 				DC6916DE258010E0009AD468 /* Set.String.swift in Sources */,
 				B18EBBBD21D7384C00B5FA4F /* Collection.Sum.swift in Sources */,
@@ -618,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A1FA6022E55E2C0016DB0C /* IntegerPartitionSumTests.swift in Sources */,
+				DC35E6BA25992D52001F111E /* Collection.Intersection.Tests.swift in Sources */,
 				B18EBB8221D737F100B5FA4F /* AdventOfCodeTests.swift in Sources */,
 				DC1337F4257743AC0099BC8C /* CircularListTests.swift in Sources */,
 				B1C5841F23A2BD2500A6B907 /* MathsTests.swift in Sources */,
