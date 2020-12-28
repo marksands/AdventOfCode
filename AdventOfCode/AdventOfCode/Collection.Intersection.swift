@@ -49,17 +49,20 @@ extension Collection where Element: Hashable & Comparable {
 		var i = 0
 		var j = 0
 
+		var elementsEqual = 0
+
 		while i < sortedSelf.count && j < sortedOther.count {
 			if sortedSelf[i] < sortedOther[j] {
 				i += 1
 			} else if sortedSelf[i] > sortedOther[j] {
 				j += 1
 			} else {
+				elementsEqual += 1
 				i += 1
 				j += 1
 			}
 		}
 
-		return i == count && j >= count
+		return elementsEqual == count
 	}
 }

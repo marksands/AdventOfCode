@@ -7,10 +7,17 @@ struct Path: Hashable {
 	var player: Position
 }
 
+struct PathCache: Hashable {
+	var player: Position
+	var keys: Set<String>
+}
+
 public final class Day18: Day {
 	var grid: [[String]] = []
 	var keysAtPosition: [Position: String] = [:]
 	var keyPositions: [String: Position] = [:]
+
+	var seen: Set<PathCache> = []
 
 	public init(input: String = Input().trimmedRawInput()) {
 		for line in input.lines {
@@ -34,6 +41,11 @@ public final class Day18: Day {
 				}
 			}
 		}
+
+//		let short = shortestPath(from: Path(path: [player], keyring: [], player: player), to: keyPositions["g"]!)!
+//		print(short)
+//		print(short.path.count)
+//		return ""
 
 		let result = pathfind(from: player)
 		print("---------- PATH ---------- ")
@@ -90,31 +102,18 @@ public final class Day18: Day {
 	}
 
 	private func pathfind(from player: Position) -> Path {
-		let allReachableKeysFromStartingPosition = keyPositions.values
-			.compactMap { shortestPath(from: Path(path: [player], keyring: [], player: player), to: $0) }
-
-		var possiblePaths = PriorityQueue<Path>(sort: { a, b in (-a.keyring.count, a.path.count) < (-b.keyring.count, b.path.count) })
-
-		for path in allReachableKeysFromStartingPosition {
-			possiblePaths.enqueue(path)
-		}
-
+		var possiblePaths = [Path(path: [player], keyring: [], player: player)]
 		let allkeys = keyPositions.keys
 
-		var biggestPath = allReachableKeysFromStartingPosition[0]
-
-		while let path = possiblePaths.dequeue() {
-			biggestPath = path.path.count > biggestPath.path.count ? path : biggestPath
+		while let path = possiblePaths.popFirst() {
 			if allkeys.isContainedWithin(path.keyring) {
 				return path
 			} else {
 				for newPath in self.possiblePaths(from: path) {
-					possiblePaths.enqueue(newPath)
+					possiblePaths.append(newPath)
 				}
 			}
 		}
-
-		printPath(biggestPath)
 
 		fatalError("You're algorithm is bad.")
 	}
@@ -128,11 +127,9 @@ public final class Day18: Day {
 	}
 
 	private func shortestPath(from path: Path, to key: Position) -> Path? {
-		var possiblePaths = PriorityQueue<Path>(sort: { a, b in (-a.keyring.count, a.path.count) < (-b.keyring.count, b.path.count) })
+		var possiblePaths = [path]
 
-		possiblePaths.enqueue(path)
-
-		while let path = possiblePaths.dequeue() {
+		while let path = possiblePaths.popFirst() {
 			if path.player == key {
 				// `player: key` -> new starting position is where the last key was found.
 				print("Found shortest path to \(keysAtPosition[key]!)")
@@ -143,29 +140,22 @@ public final class Day18: Day {
 					newKeyring.insert(tile)
 					let possiblePath = Path(path: path.path + [step], keyring: newKeyring, player: step)
 
-					possiblePaths.enqueue(possiblePath)
+					if seen.insert(PathCache(player: step, keys: newKeyring)).inserted {
+						possiblePaths.append(possiblePath)
+					}
 				}
 			}
 		}
-
-		print("Missing key: \(keysAtPosition[key]!)")
 
 		return nil
 	}
 
 	private func possibleSteps(from path: Path, to key: Position) -> [(Position, String)] {
-		// TODO: this is bad if I have to retrace my steps—but will I ever retrace steps? In a perfect maze you will not.
-		let possiblePositions = [path.player.north(), path.player.south(), path.player.west(), path.player.east()]
-			.filter { !path.path.contains($0) }
-		#warning("This filter is flawed, since I must retrace my steps to navigate between all 4 qudrants. Figure out a solution.")
-
-		return possiblePositions.lazy.filter { position in
-			if let tile = self.grid[safe: position.y]?[safe: position.x], tile == "." || self.isKey(tile) || self.hasKeyForDoor(path.keyring, door: tile) {
-				return true
-			} else {
-				return false
-			}
-		}.map { ($0, grid[$0.y][$0.x]) }
+		let steps: [(Position, String)] = [path.player.north(), path.player.south(), path.player.west(), path.player.east()]
+			.lazy
+			.filter { $0.x >= 0 && $0.x < self.grid[0].count && $0.y >= 0 && $0.y < self.grid.count }
+			.map { ($0, self.grid[$0.y][$0.x]) }
+		return steps.filter { (pos, tile) -> Bool in tile == "." || self.isKey(tile) || self.hasKeyForDoor(path.keyring, door: tile) }
 	}
 
 	@inline(__always)

@@ -32,4 +32,10 @@ class CollectionIntersectionTests: XCTestCase {
 
 		XCTAssertFalse(["a"].isContainedWithin(Array<String>()))
 	}
+
+	func testFailureCaseFromAOC2019Day18() {
+		let allKeys = ["h", "f", "w", "g", "d", "j", "u", "v", "q", "z", "r", "o", "n", "m", "k", "e", "i", "x", "t", "p", "b", "a", "l", "s", "c", "y"]
+		let keyring = Set(["u", "y", "L", "n", "g", "v", "b", "Q", "Y", "o", "U", "x", "V", "W", "h", "B", "l", "E", ".", "a", "w", "Z", "X", "d", "z", "G", "C", "q", "e", "D", "c"])
+		XCTAssertFalse(allKeys.isContainedWithin(keyring))
+	}
 }
