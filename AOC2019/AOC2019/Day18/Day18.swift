@@ -2,14 +2,22 @@ import Foundation
 import AdventOfCode
 
 struct Path: Hashable {
-	var keyring: Set<Character>
+	//var keyring: Set<Character>
+	var keyMask: Int
 	var player: Position
 	var steps: Int
 }
 
 struct PathCache: Hashable {
 	var player: Position
-	var keys: Set<Character>
+	//var keys: Set<Character>
+	var keyMask: Int
+}
+
+func maskValueForTile(_ char: Character) -> Int {
+	let value = (char.asciiValue ?? 0) &- 97
+	if value > 26 || value < 0 { return 0 }
+	return (1 << value)
 }
 
 public final class Day18: Day {
@@ -67,31 +75,20 @@ public final class Day18: Day {
 	}
 
 	private func pathfind(from player: Position) -> Path {
-		var possiblePaths = LinkedList<Path>([Path(keyring: [], player: player, steps: 0)])
+		let possiblePaths = LinkedList<Path>([Path(keyMask: 0, player: player, steps: 0)])
 
-		let allkeys = keyPositions.keys.sorted()
-
-		var c = 0
+		let allKeysMask = lowercaseLetters.reduce(0) { $0 | maskValueForTile($1) }
+		print("Key Mask: ", allKeysMask)
 
 		while let path = possiblePaths.popFirst() {
-			if isContainedWithin(allkeys, path.keyring) {
+			if allKeysMask & path.keyMask == allKeysMask {
 				return path
 			} else {
-
 				for (step, tile) in possibleSteps(from: path) {
-					var newKeyring = path.keyring
-					newKeyring.insert(tile)
-					//let possiblePath = Path(path: path.path + [step], keyring: newKeyring, player: step)
-					let possiblePath = Path(keyring: newKeyring, player: step, steps: path.steps + 1)
+					let possiblePath = Path(keyMask: path.keyMask | maskValueForTile(tile), player: step, steps: path.steps + 1)
 
-					if seen.insert(PathCache(player: step, keys: newKeyring)).inserted {
-						c += 1
-
+					if seen.insert(PathCache(player: step, keyMask: path.keyMask | maskValueForTile(tile))).inserted {
 						possiblePaths.append(possiblePath)
-
-						if c % 100_000 == 0 {
-							print("step \(c)...")
-						}
 					}
 				}
 			}
@@ -105,7 +102,7 @@ public final class Day18: Day {
 			.lazy
 			.filter { $0.x >= 0 && $0.x < self.grid[0].count && $0.y >= 0 && $0.y < self.grid.count }
 			.map { ($0, self.grid[$0.y][$0.x]) }
-		return steps.filter { (pos, tile) -> Bool in tile == "." || self.isKey(tile) || self.hasKeyForDoor(path.keyring, door: tile) }
+		return steps.filter { (pos, tile) -> Bool in tile == "." || self.isKey(tile) || self.hasKeyForDoor(path.keyMask, door: tile) }
 	}
 
 	@inline(__always)
@@ -114,8 +111,9 @@ public final class Day18: Day {
 	}
 
 	@inline(__always)
-	private func hasKeyForDoor(_ keyring: Set<Character>, door: Character) -> Bool {
-		return isContainedWithin([Character(door.lowercased())], keyring) && door.isUppercase
+	private func hasKeyForDoor(_ keyMask: Int, door: Character) -> Bool {
+		return door.isUppercase && (maskValueForTile(Character(door.lowercased())) & keyMask == maskValueForTile(Character(door.lowercased())))
+		//return isContainedWithin([Character(door.lowercased())], keyring) && door.isUppercase
 	}
 
 	private func isContainedWithin(_ sortedSelf: [Character], _ other: Set<Character>) -> Bool {
