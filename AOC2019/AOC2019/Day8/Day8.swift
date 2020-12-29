@@ -22,7 +22,8 @@ public final class Day8: Day {
         }
         return "LEGJY"
     }
-    
+
+	#if os(iOS) || targetEnvironment(macCatalyst)
     public func NOT_WORKING_part2() -> String {
         var picture = Array(repeating: "", count: 25 * 6)
         
@@ -55,8 +56,8 @@ public final class Day8: Day {
         
         return result
     }
-    
-    private func layerToImage(_ layer: [String]) -> UIImage {
+
+	private func layerToImage(_ layer: [String]) -> UIImage {
         let scale = 1
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 25 * scale, height: 6 * scale), true, 0)
         defer { UIGraphicsEndImageContext() }
@@ -76,6 +77,7 @@ public final class Day8: Day {
         
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
+	#endif
 }
 
 //⬜️⬛️⬛️⬛️⬛️⬜️⬜️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬛️⬛️⬛️⬜️⬜️⬛️⬜️⬛️⬛️⬛️⬜️

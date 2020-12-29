@@ -1,3 +1,4 @@
+#if os(iOS) || targetEnvironment(macCatalyst)
 import UIKit.UIGeometry
 
 extension CGRect {
@@ -11,3 +12,4 @@ extension CGRect {
         }
     }
 }
+#endif

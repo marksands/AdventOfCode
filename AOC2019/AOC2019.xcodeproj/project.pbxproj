@@ -11,7 +11,6 @@
 		B1169DC723940E7700E9A177 /* AOC2019Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169DC623940E7700E9A177 /* AOC2019Tests.swift */; };
 		B1169DC923940E7700E9A177 /* AOC2019.h in Headers */ = {isa = PBXBuildFile; fileRef = B1169DBB23940E7700E9A177 /* AOC2019.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1169DD423940EA900E9A177 /* AdventOfCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1169DD323940EA900E9A177 /* AdventOfCode.framework */; };
-		B1169DD523940EA900E9A177 /* AdventOfCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1169DD323940EA900E9A177 /* AdventOfCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1169E3B23940EE600E9A177 /* Day11.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169DD823940EE300E9A177 /* Day11.swift */; };
 		B1169E3F23940EE600E9A177 /* Day12.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169DDD23940EE300E9A177 /* Day12.swift */; };
 		B1169E4323940EE600E9A177 /* Day24.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1169DE223940EE300E9A177 /* Day24.swift */; };
@@ -51,6 +50,11 @@
 		B1E8E7602398C4C000DEE40E /* Day5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8E75F2398C4C000DEE40E /* Day5Tests.swift */; };
 		B1EAA982239A17F10058EFC7 /* Day6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EAA981239A17F10058EFC7 /* Day6Tests.swift */; };
 		DC35E6B3259686A1001F111E /* Day18Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35E6B2259686A1001F111E /* Day18Tests.swift */; };
+		DC35E6C9259A702E001F111E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35E6C8259A702E001F111E /* main.swift */; };
+		DC35E6D0259A703A001F111E /* AOC2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1169DB823940E7700E9A177 /* AOC2019.framework */; };
+		DC35E6D1259A703A001F111E /* AOC2019.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1169DB823940E7700E9A177 /* AOC2019.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC35E6D8259A7040001F111E /* AdventOfCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC35E6D7259A7040001F111E /* AdventOfCode.framework */; };
+		DC35E6D9259A7040001F111E /* AdventOfCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC35E6D7259A7040001F111E /* AdventOfCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC6916E425803713009AD468 /* Day14Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6916E325803713009AD468 /* Day14Tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,16 +66,33 @@
 			remoteGlobalIDString = B1169DB723940E7700E9A177;
 			remoteInfo = AOC2019;
 		};
+		DC35E6D2259A703A001F111E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1169DAF23940E7700E9A177 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1169DB723940E7700E9A177;
+			remoteInfo = AOC2019;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B1169DD623940EA900E9A177 /* Embed Frameworks */ = {
+		DC35E6C4259A702E001F111E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		DC35E6D4259A703A001F111E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B1169DD523940EA900E9A177 /* AdventOfCode.framework in Embed Frameworks */,
+				DC35E6D9259A7040001F111E /* AdventOfCode.framework in Embed Frameworks */,
+				DC35E6D1259A703A001F111E /* AOC2019.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +171,9 @@
 		B1E8E75F2398C4C000DEE40E /* Day5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5Tests.swift; sourceTree = "<group>"; };
 		B1EAA981239A17F10058EFC7 /* Day6Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day6Tests.swift; sourceTree = "<group>"; };
 		DC35E6B2259686A1001F111E /* Day18Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day18Tests.swift; sourceTree = "<group>"; };
+		DC35E6C6259A702E001F111E /* AOC2019Runner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AOC2019Runner; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC35E6C8259A702E001F111E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DC35E6D7259A7040001F111E /* AdventOfCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdventOfCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6916E325803713009AD468 /* Day14Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day14Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,12 +194,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC35E6C3259A702E001F111E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC35E6D8259A7040001F111E /* AdventOfCode.framework in Frameworks */,
+				DC35E6D0259A703A001F111E /* AOC2019.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B1169DAE23940E7700E9A177 = {
 			isa = PBXGroup;
 			children = (
+				DC35E6C7259A702E001F111E /* AOC2019Runner */,
 				B1169DD223940E9700E9A177 /* Frameworks */,
 				B1169DBA23940E7700E9A177 /* AOC2019 */,
 				B1169DC523940E7700E9A177 /* AOC2019Tests */,
@@ -188,6 +222,7 @@
 			children = (
 				B1169DB823940E7700E9A177 /* AOC2019.framework */,
 				B1169DC123940E7700E9A177 /* AOC2019Tests.xctest */,
+				DC35E6C6259A702E001F111E /* AOC2019Runner */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +273,7 @@
 		B1169DD223940E9700E9A177 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC35E6D7259A7040001F111E /* AdventOfCode.framework */,
 				B1169DD323940EA900E9A177 /* AdventOfCode.framework */,
 			);
 			name = Frameworks;
@@ -483,6 +519,14 @@
 			path = Day8;
 			sourceTree = "<group>";
 		};
+		DC35E6C7259A702E001F111E /* AOC2019Runner */ = {
+			isa = PBXGroup;
+			children = (
+				DC35E6C8259A702E001F111E /* main.swift */,
+			);
+			path = AOC2019Runner;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -505,7 +549,6 @@
 				B1169DB423940E7700E9A177 /* Sources */,
 				B1169DB523940E7700E9A177 /* Frameworks */,
 				B1169DB623940E7700E9A177 /* Resources */,
-				B1169DD623940EA900E9A177 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -534,13 +577,32 @@
 			productReference = B1169DC123940E7700E9A177 /* AOC2019Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DC35E6C5259A702E001F111E /* AOC2019Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC35E6CA259A702E001F111E /* Build configuration list for PBXNativeTarget "AOC2019Runner" */;
+			buildPhases = (
+				DC35E6C2259A702E001F111E /* Sources */,
+				DC35E6C3259A702E001F111E /* Frameworks */,
+				DC35E6C4259A702E001F111E /* CopyFiles */,
+				DC35E6D4259A703A001F111E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC35E6D3259A703A001F111E /* PBXTargetDependency */,
+			);
+			name = AOC2019Runner;
+			productName = AOC2019Runner;
+			productReference = DC35E6C6259A702E001F111E /* AOC2019Runner */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B1169DAF23940E7700E9A177 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1120;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = type440;
 				TargetAttributes = {
@@ -549,6 +611,9 @@
 					};
 					B1169DC023940E7700E9A177 = {
 						CreatedOnToolsVersion = 11.2;
+					};
+					DC35E6C5259A702E001F111E = {
+						CreatedOnToolsVersion = 12.1;
 					};
 				};
 			};
@@ -567,6 +632,7 @@
 			targets = (
 				B1169DB723940E7700E9A177 /* AOC2019 */,
 				B1169DC023940E7700E9A177 /* AOC2019Tests */,
+				DC35E6C5259A702E001F111E /* AOC2019Runner */,
 			);
 		};
 /* End PBXProject section */
@@ -644,6 +710,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC35E6C2259A702E001F111E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC35E6C9259A702E001F111E /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -651,6 +725,11 @@
 			isa = PBXTargetDependency;
 			target = B1169DB723940E7700E9A177 /* AOC2019 */;
 			targetProxy = B1169DC323940E7700E9A177 /* PBXContainerItemProxy */;
+		};
+		DC35E6D3259A703A001F111E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1169DB723940E7700E9A177 /* AOC2019 */;
+			targetProxy = DC35E6D2259A703A001F111E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -712,6 +791,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -769,6 +849,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -780,8 +861,10 @@
 		B1169DCD23940E7700E9A177 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -803,8 +886,10 @@
 		B1169DCE23940E7700E9A177 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -828,6 +913,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				INFOPLIST_FILE = AOC2019Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -846,6 +932,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				INFOPLIST_FILE = AOC2019Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -856,6 +943,32 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DC35E6CB259A702E001F111E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DC35E6CC259A702E001F111E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -885,6 +998,15 @@
 			buildConfigurations = (
 				B1169DD023940E7700E9A177 /* Debug */,
 				B1169DD123940E7700E9A177 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC35E6CA259A702E001F111E /* Build configuration list for PBXNativeTarget "AOC2019Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC35E6CB259A702E001F111E /* Debug */,
+				DC35E6CC259A702E001F111E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

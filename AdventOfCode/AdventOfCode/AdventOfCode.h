@@ -6,7 +6,8 @@
 //  Copyright © 2018 mark.sands. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+//#import <UIKit/UIKit.h>
 
 //! Project version number for AdventOfCode.
 FOUNDATION_EXPORT double AdventOfCodeVersionNumber;

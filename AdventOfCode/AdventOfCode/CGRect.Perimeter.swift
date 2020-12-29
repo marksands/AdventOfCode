@@ -1,3 +1,4 @@
+#if os(iOS) || targetEnvironment(macCatalyst)
 import UIKit.UIGeometry
 
 extension CGRect {
@@ -14,3 +15,4 @@ extension CGRect {
             (minX...width).map({ CGPoint(x: $0, y: height) })
     }
 }
+#endif
