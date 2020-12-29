@@ -2,7 +2,6 @@ import Foundation
 import AdventOfCode
 
 struct Path: Hashable {
-	//var keyring: Set<Character>
 	var keyMask: Int
 	var player: Position
 	var steps: Int
@@ -10,7 +9,6 @@ struct Path: Hashable {
 
 struct PathCache: Hashable {
 	var player: Position
-	//var keys: Set<Character>
 	var keyMask: Int
 }
 
@@ -38,8 +36,6 @@ public final class Day18: Day {
 	}
 
     public override func part1() -> String {
-		printGrid()
-
 		var player: Position!
 
 		for (y, row) in grid.enumerated() {
@@ -56,8 +52,6 @@ public final class Day18: Day {
 
 
 		let result = pathfind(from: player)
-		print("---------- PATH ---------- ")
-		print(result)
 
 		let stepsRequired = result.steps
 
@@ -68,17 +62,10 @@ public final class Day18: Day {
 		return ""
     }
 
-	private func printGrid() {
-		for line in grid {
-			print(line.map { String($0) }.joined().replacingOccurrences(of: ".", with: " "))
-		}
-	}
-
 	private func pathfind(from player: Position) -> Path {
 		let possiblePaths = LinkedList<Path>([Path(keyMask: 0, player: player, steps: 0)])
 
 		let allKeysMask = lowercaseLetters.reduce(0) { $0 | maskValueForTile($1) }
-		print("Key Mask: ", allKeysMask)
 
 		while let path = possiblePaths.popFirst() {
 			if allKeysMask & path.keyMask == allKeysMask {
@@ -113,33 +100,6 @@ public final class Day18: Day {
 	@inline(__always)
 	private func hasKeyForDoor(_ keyMask: Int, door: Character) -> Bool {
 		return door.isUppercase && (maskValueForTile(Character(door.lowercased())) & keyMask == maskValueForTile(Character(door.lowercased())))
-		//return isContainedWithin([Character(door.lowercased())], keyring) && door.isUppercase
 	}
 
-	private func isContainedWithin(_ sortedSelf: [Character], _ other: Set<Character>) -> Bool {
-		guard sortedSelf.count > 0 else { return false }
-		guard other.count > 0 else { return false }
-
-		let sortedOther = other.sorted()
-
-		var i = 0
-		var j = 0
-
-		var elementsEqual = 0
-
-		while i < sortedSelf.count && j < sortedOther.count {
-			if sortedSelf[i] < sortedOther[j] {
-				i += 1
-			} else if sortedSelf[i] > sortedOther[j] {
-				j += 1
-			} else {
-				elementsEqual += 1
-				i += 1
-				j += 1
-			}
-		}
-
-		return elementsEqual == sortedSelf.count
-	}
 }
-
