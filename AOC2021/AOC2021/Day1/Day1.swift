@@ -10,10 +10,20 @@ public final class Day1: Day {
 	}
 
 	public override func part1() -> String {
-		return ""
+        return String(
+            numbers
+                .eachPair()
+                .count(where: { $1 > $0 })
+        )
 	}
 
 	public override func part2() -> String {
-        return ""
+        return String(
+            numbers
+                .windows(ofCount: 3)
+                .map { $0.sum() }
+                .eachPair()
+                .count(where: { $1 > $0 })
+        )
 	}
 }
