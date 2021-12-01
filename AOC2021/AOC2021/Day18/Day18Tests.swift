@@ -1,7 +1,7 @@
 import XCTest
-import AOC2020
+import AOC2021
 
-class AOC2020_Day18_Tests: XCTestCase {
+class AOC2021_Day18_Tests: XCTestCase {
 	let day = Day18()
 
 	func testPart1() {
