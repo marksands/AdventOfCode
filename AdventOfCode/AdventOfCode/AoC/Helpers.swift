@@ -12,6 +12,10 @@ extension String {
 	public var ints: [Int] {
 		split(whereSeparator: { !$0.isNumber }).compactMap { Int($0) }
 	}
+	
+	public var int: Int {
+		Int(split(whereSeparator: { !$0.isNumber }).joined())!
+	}
 
 	public func print() {
 		Swift.print(self)

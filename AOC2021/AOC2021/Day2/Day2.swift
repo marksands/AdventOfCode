@@ -14,7 +14,7 @@ public final class Day2: Day {
 		var depth = 0
 		
 		for line in lines {
-			let value = line.ints[0]
+			let value = line.int
 			
 			if line.starts(with: "forward") {
 				horizontal += value
@@ -34,7 +34,7 @@ public final class Day2: Day {
 		var depth = 0
 		
 		for line in lines {
-			let value = line.ints[0]
+			let value = line.int
 
 			if line.starts(with: "forward") {
 				horizontal += value
