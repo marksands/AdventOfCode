@@ -32,6 +32,10 @@ extension Int {
 	public func print() {
 		Swift.print(self)
 	}
+	
+	public var string: String {
+		return String(self)
+	}
 }
 
 extension Dictionary {
