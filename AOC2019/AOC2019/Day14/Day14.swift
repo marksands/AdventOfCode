@@ -2,82 +2,93 @@ import Foundation
 import AdventOfCode
 
 public final class Day14: Day {
+	class NodeVertex {
+		var name: String
+		var quantity: Int
+		
+		init(name: String, quantity: Int) {
+			self.name = name
+			self.quantity = quantity
+		}
+	}
+	
+	class Node {
+		var name: String
+		let quantity: Int
+		var edges: [NodeVertex]
+
+		init(name: String, quantity: Int) {
+			self.name = name
+			self.quantity = quantity
+			self.edges = []
+		}
+	}
+
 	var input: [String] = []
+	var nodes: [Node] = []
 
 	public init(input: [String] = Input().trimmedInputCharactersByNewlines()) {
 		super.init()
-
 		self.input = input
 	}
 
 	public override func part1() -> String {
-		struct Ore: Hashable {
-			let ore: String
-			let quantity: Int
-		}
+		let fuelNode = nodes.first(where: { $0.name == "FUEL" })!
 		
-		var parents: [Ore: [Ore]] = [:]
-		var fuel: Ore!
-
-		for line in input {
-			let required_to_produced = line.components(separatedBy: " => ")
-			let produced = required_to_produced[1].trimmingCharacters(in: .whitespaces)
-			let producedComponents = produced.components(separatedBy: " ") // 2 PJBZT
-
-			let ore = Ore(ore: producedComponents[1], quantity: Int(producedComponents[0])!)
-			parents[ore] = []
-
-			if ore.ore == "FUEL" {
-				fuel = ore
-			}
-
-			let required = required_to_produced[0]
-			for ore_line in required.components(separatedBy: ",") {
-				let sanitized = ore_line.trimmingCharacters(in: .whitespaces)
-				let sanitizedComponents = sanitized.components(separatedBy: " ") // 6 WBVJ
-				let required_ore = Ore(ore: sanitizedComponents[1], quantity: Int(sanitizedComponents[0])!)
-				parents[ore]!.append(required_ore)
+		var productQuantity: [String: Int] = [:]
+		
+		var stack: [NodeVertex] = fuelNode.edges
+		
+		while !stack.isEmpty {
+			let vertex = stack.removeFirst()
+			productQuantity[vertex.name, default: 0] += vertex.quantity
+			
+			if let vertexThatSatisfiesTheEdges = nodes.first(where: { $0.name == vertex.name }) {
+				productQuantity[vertexThatSatisfiesTheEdges.name, default: 0] += vertexThatSatisfiesTheEdges.quantity
+				stack.append(contentsOf: vertexThatSatisfiesTheEdges.edges)
 			}
 		}
 
-		print(parents)
-		let required_ores = parents[fuel!]!
-
-		var queue: [Ore] = required_ores
-
-		var total = 0
-
-		func process_each_parent(of parent: Ore) -> Int {
-			guard parent.ore != "ORE" else { return parent.quantity }
-
-			var total = 0
-
-			for each_parent in parents[parent] ?? [] {
-				total += (parent.quantity * process_each_parent(of: each_parent))
-			}
-
-			return total
-		}
-
-		let s = process_each_parent(of: fuel)
-		print("FOUND: \(s)")
-		print()
-//
-//		while let ore = queue.popLast() {
-//			//total += ore.quantity
-//			let this_ones_parents = parents[ore] ?? []
-//			for p in this_ones_parents {
-//				total += ore.quantity * p.quantity
-//			}
-//			queue.append(contentsOf: this_ones_parents)
-//		}
-
-		// 146 is too low
-//        return "\(total)"
 		return ""
-    }
-    
+	}
+
     public override func part2() -> String {
         fatalError()
     }
+	
+	// MARK: -
+	
+	private func parseNodes() {
+		var allNodes: [Node] = []
+		
+		for line in input {
+			let edgesToNode = line.components(separatedBy: " => ")
+			let edgesLine = edgesToNode[0]
+			let nodeLine = edgesToNode[1]
+			
+			let allEdges = edgesLine.components(separatedBy: ", ")
+			let nodeEdges: [NodeVertex] = allEdges.reduce([], {
+				let quantity = Int($1.split(separator: " ")[0])!
+				let name = String($1.split(separator: " ")[1])
+				return $0 + [NodeVertex(name: name, quantity: quantity)]
+			})
+			
+			let nodeQuantity = Int(nodeLine.split(separator: " ")[0])!
+			let nodeName = String(nodeLine.split(separator: " ")[1])
+			let node = Node(name: nodeName, quantity: nodeQuantity)
+			node.edges = nodeEdges
+			allNodes.append(node)
+		}
+		self.nodes = allNodes
+		
+		for node in allNodes {
+			print("> \(node.quantity) \(node.name) =>")
+			
+			var str = ""
+			for edge in node.edges {
+				str += "[\(edge.quantity) \(edge.name)] "
+			}
+			print(">>", str)
+		}
+	}
 }

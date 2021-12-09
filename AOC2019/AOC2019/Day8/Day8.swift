@@ -1,6 +1,7 @@
 import Foundation
 import AdventOfCode
 import Vision
+import UIKit
 
 public final class Day8: Day {
     private let layers = Array(Input().trimmedRawInput()).chunks(ofSize: 25 * 6)
