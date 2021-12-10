@@ -17,38 +17,35 @@ public final class Day10: Day {
 	}
 	
 	private func calculateScores() -> (part1: String, part2: String) {
-		let characters_open = ["(", "[", "{", "<"]
-		let characters_closing: [String: String] = ["(": ")", "[": "]", "{": "}", "<": ">"]
-		let character_closing_scores = [")": 3, "]": 57, "}": 1197, ">": 25137]
-		let character_closing_scores_incomplete = [")": 1, "]": 2, "}": 3, ">": 4]
+		let open = ["(", "[", "{", "<"]
+		let closing = ["(": ")", "[": "]", "{": "}", "<": ">"]
+		let closing_scores = [")": 3, "]": 57, "}": 1197, ">": 25137]
+		let closing_scores_incomplete = [")": 1, "]": 2, "}": 3, ">": 4]
 		
 		var incompleteScores: [Int] = []
 		var corruptedScore = 0
-		for line in lines {
-			var wasCorrupted = false
+		
+		outer: for line in lines {
 			var stack: [String] = []
 			for character in line.exploded() {
-				if characters_open.contains(character) {
+				if open.contains(character) {
 					stack.append(character)
-				} else if !stack.isEmpty {
-					let top = stack.last!
-					if characters_closing[top] == character {
+				} else if let top = stack.last {
+					if closing[top] == character {
 						stack.removeLast()
 					} else {
 						// Encountered a corrupted line
-						corruptedScore += character_closing_scores[character]!
-						wasCorrupted = true
-						break
+						corruptedScore += closing_scores[character]!
+						continue outer
 					}
 				}
 			}
-			if !stack.isEmpty, !wasCorrupted {
+			
+			if !stack.isEmpty {
 				// Encountered an incomplete line
 				var score = 0
-				while !stack.isEmpty {
-					let top = stack.removeLast()
-					let characterScore = character_closing_scores_incomplete[characters_closing[top]!]!
-					score = (score * 5) + characterScore
+				while let top = stack.popLast() {
+					score = (score * 5) + closing_scores_incomplete[closing[top]!]!
 				}
 				incompleteScores.append(score)
 			}
