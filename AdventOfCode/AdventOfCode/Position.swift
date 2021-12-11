@@ -32,6 +32,14 @@ public struct Position: Equatable, Hashable {
 				west(), east(),
 				south().west(), south(), south().east()]
 	}
+	
+	public func surrounding<Value>(withinGrid grid: [Position: Value]) -> [Position] {
+		return [north().west(), north(), north().east(),
+				west(), east(),
+				south().west(), south(), south().east()].filter { position in
+			grid[position] != nil
+		}
+	}
 
 	public func adjacent() -> [Position] {
 		return [north(), west(), east(), south()]
