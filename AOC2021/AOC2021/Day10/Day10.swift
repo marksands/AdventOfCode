@@ -19,7 +19,7 @@ public final class Day10: Day {
 	private func calculateScores() -> (part1: String, part2: String) {
 		let open = ["(", "[", "{", "<"]
 		let closing = ["(": ")", "[": "]", "{": "}", "<": ">"]
-		let closing_scores = [")": 3, "]": 57, "}": 1197, ">": 25137]
+		let closing_scores_corrupted = [")": 3, "]": 57, "}": 1197, ">": 25137]
 		let closing_scores_incomplete = [")": 1, "]": 2, "}": 3, ">": 4]
 		
 		var incompleteScores: [Int] = []
@@ -34,20 +34,14 @@ public final class Day10: Day {
 					if closing[top] == character {
 						stack.removeLast()
 					} else {
-						// Encountered a corrupted line
-						corruptedScore += closing_scores[character]!
+						corruptedScore += closing_scores_corrupted[character]!
 						continue outer
 					}
 				}
 			}
 			
 			if !stack.isEmpty {
-				// Encountered an incomplete line
-				var score = 0
-				while let top = stack.popLast() {
-					score = (score * 5) + closing_scores_incomplete[closing[top]!]!
-				}
-				incompleteScores.append(score)
+				incompleteScores += [stack.reversed().reduce(0) { $0 * 5 + closing_scores_incomplete[closing[$1]!]! }]
 			}
 		}
 		
