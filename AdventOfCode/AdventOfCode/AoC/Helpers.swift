@@ -8,6 +8,10 @@ extension String {
 	public var groups: [String] {
 		components(separatedBy: "\n\n").filter { !$0.isEmpty }
 	}
+	
+	public var words: [String] {
+		split(whereSeparator: { !$0.isLetter }).map { String($0) }
+	}
 
 	public var ints: [Int] {
 		split(whereSeparator: { !$0.isNumber }).compactMap { Int($0) }

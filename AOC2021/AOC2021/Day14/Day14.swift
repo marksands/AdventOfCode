@@ -8,9 +8,8 @@ public final class Day14: Day {
 	public init(input: String = Input().trimmedRawInput()) {
 		polymer = input.lines[0]
 		
-		for pairLine in input.components(separatedBy: "\n\n")[1].lines {
-			let components = pairLine.components(separatedBy: " -> ")
-			pairMappings[String(components.first!)] = String(components.last!)
+		for pairLine in input.groups[1].lines {
+			pairMappings[pairLine.words.first!] = pairLine.words.last
 		}
 		super.init()
 	}
@@ -28,12 +27,7 @@ public final class Day14: Day {
 		for pair in polymer.eachPair() {
 			reactions[String(pair.0) + String(pair.1), default: 0] += 1
 		}
-		
-		var counter: [String: Int] = [:]
-		for value in polymer.exploded() {
-			counter[value, default: 0] += 1
-		}
-		
+
 		for _ in (0..<steps) {
 			var copy = reactions
 			for (pair, value) in reactions {
@@ -50,18 +44,21 @@ public final class Day14: Day {
 				// - new spawn will occur as many times as there are pairs
 				copy[spawnA, default: 0] += pairCount
 				copy[spawnB, default: 0] += pairCount
-				
-				// - track newly inserted character count
-				counter[spawnedValue, default: 0] += pairCount
-				
+
 				// - decrement existing spawns
 				copy[pair, default: 0] -= pairCount
 			}
 			
 			reactions = copy
 		}
+		
+		// only count the newly inserted value (position 0)
+		// + the very last polymer in our original string
+		var counter = [polymer.exploded().last!: 1]
+		for (k, v) in reactions {
+			counter[k.exploded()[0], default: 0] += v
+		}
 
-		let sortedCounts = counter.sorted(by: { $0.value > $1.value })
-		return (sortedCounts.first!.value - sortedCounts.last!.value).string
+		return (counter.values.max()! - counter.values.min()!).string
 	}
 }
