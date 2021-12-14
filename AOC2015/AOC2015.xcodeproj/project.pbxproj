@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25D3BBE32769506A008A6178 /* Day19.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3BBE02769506A008A6178 /* Day19.swift */; };
+		25D3BBE427695075008A6178 /* Day19Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3BBDF2769506A008A6178 /* Day19Tests.swift */; };
 		B10E1A6021D73BB200D8D3CB /* AdventOfCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10E1A5F21D73BB200D8D3CB /* AdventOfCode.framework */; };
 		B10E1A7A21D73FB700D8D3CB /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A7721D73FB700D8D3CB /* Day2.swift */; };
 		B10E1A7D21D73FC600D8D3CB /* Day2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E1A7921D73FB700D8D3CB /* Day2Tests.swift */; };
@@ -59,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25D3BBDE2769506A008A6178 /* input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input; sourceTree = "<group>"; };
+		25D3BBDF2769506A008A6178 /* Day19Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day19Tests.swift; sourceTree = "<group>"; };
+		25D3BBE02769506A008A6178 /* Day19.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day19.swift; sourceTree = "<group>"; };
 		B10E1A5F21D73BB200D8D3CB /* AdventOfCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdventOfCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10E1A6121D73C7A00D8D3CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B10E1A7721D73FB700D8D3CB /* Day2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
@@ -143,6 +148,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25D3BBDD2769506A008A6178 /* Day19 */ = {
+			isa = PBXGroup;
+			children = (
+				25D3BBE02769506A008A6178 /* Day19.swift */,
+				25D3BBDF2769506A008A6178 /* Day19Tests.swift */,
+				25D3BBDE2769506A008A6178 /* input */,
+			);
+			path = Day19;
+			sourceTree = "<group>";
+		};
 		B10E1A7621D73FB700D8D3CB /* Day2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,8 +290,6 @@
 		B18EBBD921D73A4800B5FA4F /* AOC2015 */ = {
 			isa = PBXGroup;
 			children = (
-				B19F3B6B23536F9B00CE160C /* Day20 */,
-				B19F3B642352C12E00CE160C /* Day18 */,
 				B18EBBDA21D73A4800B5FA4F /* AOC2015.h */,
 				B18EBBF121D73A6200B5FA4F /* Day1 */,
 				B10E1A7621D73FB700D8D3CB /* Day2 */,
@@ -294,6 +307,9 @@
 				B1A1FA5722E54F2D0016DB0C /* Day15 */,
 				B1A1FA6122E5854F0016DB0C /* Day16 */,
 				B157C66223522B35000BF7DC /* Day17 */,
+				B19F3B642352C12E00CE160C /* Day18 */,
+				25D3BBDD2769506A008A6178 /* Day19 */,
+				B19F3B6B23536F9B00CE160C /* Day20 */,
 				B18EBBDB21D73A4800B5FA4F /* Info.plist */,
 			);
 			path = AOC2015;
@@ -513,6 +529,7 @@
 				B1A1FA6422E5858B0016DB0C /* Day16.swift in Sources */,
 				B157C66823522B5A000BF7DC /* Day17.swift in Sources */,
 				B10E1A9521D8264500D8D3CB /* Day5.swift in Sources */,
+				25D3BBE32769506A008A6178 /* Day19.swift in Sources */,
 				B1A1FA5A22E54F420016DB0C /* Day15.swift in Sources */,
 				B1BF4096228A1EDE00A0CE40 /* Day14.swift in Sources */,
 			);
@@ -534,6 +551,7 @@
 				B1A1FA5C22E54F4A0016DB0C /* Day15Tests.swift in Sources */,
 				B10E1A8D21D7D29500D8D3CB /* Day4Tests.swift in Sources */,
 				B1A1FA6622E585940016DB0C /* Day16Tests.swift in Sources */,
+				25D3BBE427695075008A6178 /* Day19Tests.swift in Sources */,
 				B15E35BE21D889C300B66F9B /* Day6Tests.swift in Sources */,
 				B10E1A8521D7CEEA00D8D3CB /* Day3Tests.swift in Sources */,
 				B17A299D21DF23C000818B73 /* Day12Tests.swift in Sources */,
@@ -683,9 +701,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -711,9 +730,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -737,7 +757,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				INFOPLIST_FILE = AOC2015Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -756,7 +778,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VPW79T9ZH;
 				INFOPLIST_FILE = AOC2015Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
