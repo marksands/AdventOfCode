@@ -1,12 +1,172 @@
 import Foundation
 import AdventOfCode
+import AOC2015
 
 public final class Day16: Day {
-    public override func part1() -> String {
-        fatalError()
-    }
+	class Packet {
+		let version: Int
+		let type: Int
+		
+		init(version: Int, type: Int) {
+			self.version = version
+			self.type = type
+		}
+		
+		func versions() -> [Int] {
+			return [version]
+		}
+		
+		func value() -> Int {
+			fatalError("Implement me!")
+		}
+	}
+	
+	class LiteralPacket: Packet {
+		let literal: Int
+		
+		init(version: Int, type: Int, literal: Int) {
+			self.literal = literal
+			super.init(version: version, type: type)
+		}
+		
+		override func value() -> Int {
+			return literal
+		}
+	}
+	
+	class OperatorPacket: Packet {
+		var subPackets: [Packet]
+		
+		init(version: Int, type: Int, subPackets: [Packet]) {
+			self.subPackets = subPackets
+			super.init(version: version, type: type)
+		}
+		
+		override func versions() -> [Int] {
+			return [version] + subPackets.reduce([], { $0 + $1.versions() })
+		}
+		
+		override func value() -> Int {
+			if type == 0 { // sum
+				return subPackets.reduce(0, { $0 + $1.value() })
+			} else if type == 1 { // product
+				return subPackets.reduce(1, { $0 * $1.value() })
+			} else if type == 2 { // minimum
+				return subPackets.reduce(Int.max, { min($0, $1.value()) })
+			} else if type == 3 { // maximum
+				return subPackets.reduce(Int.min, { max($0, $1.value()) })
+			} else if type == 5 { // greater than
+				return subPackets[0].value() > subPackets[1].value() ? 1 : 0
+			} else if type == 6 { // less than
+				return subPackets[0].value() < subPackets[1].value() ? 1 : 0
+			} else if type == 7 { // equal to
+				return subPackets[0].value() == subPackets[1].value() ? 1 : 0
+			} else {
+				fatalError()
+			}
+		}
+	}
+	
+	private let input: String
+	
+	public init(input: String = Input().trimmedRawInput()) {
+		self.input = input
+	}
+	
+	public override func part1() -> String {
+		let binaryForm = input.exploded().reduce(into: "") { $0 += String(Int($1, radix: 16)!, radix: 2).leftPad() }
+		//		print("binary:", binaryForm)
+		
+		let result = binaryForm.exploded()
+		let versionSum = parse(result)
+			.output
+			.reduce(0) { $0 + $1.versions().sum() }
+		return versionSum.string
+	}
+	
+	public override func part2() -> String {
+		let binaryForm = input.exploded().reduce(into: "") { $0 += String(Int($1, radix: 16)!, radix: 2).leftPad() }
+		//		print("binary:", binaryForm)
+		
+		let result = binaryForm.exploded()
+		let packets = parse(result).output
 
-    public override func part2() -> String {
-        fatalError()
-    }
+		return packets[0].value().string
+	}
+	
+	func parse(_ input: [String]) -> (input: [String], output: [Packet]) {
+		guard input.count > 0 else { return ([], []) }
+
+		if input.allSatisfy({ $0 == "0" }) { return ([], []) }
+		
+		var copy = input
+		let version = Int(copy[0..<3].joined(), radix: 2)!
+		let type = Int(copy[3..<6].joined(), radix: 2)!
+		copy.removeFirst(6)
+		
+		if type == 4 {
+			var literalBinString = ""
+			while let leadingBit = copy.first, leadingBit == "1" {
+				literalBinString += String(copy.dropFirst().prefix(4).joined())
+				copy.removeFirst(5)
+			}
+			assert(copy.first == "0")
+			literalBinString += String(copy.dropFirst().prefix(4).joined())
+			copy.removeFirst(5)
+			let literal = Int(literalBinString, radix: 2)!
+			let packet = LiteralPacket(version: version, type: type, literal: literal)
+			
+			let (remaining, foundPackets) = parse(copy)
+			return (remaining, [packet] + foundPackets)
+		} else {
+			if copy.first == "0" {
+				// length of immediate bits
+				copy.removeFirst()
+				let bitLength = Int(copy.prefix(15).joined(), radix: 2)!
+				copy.removeFirst(15)
+				
+				let subInput = Array(copy.prefix(bitLength))
+				copy.removeFirst(bitLength)
+				
+				let (remaining, foundPackets) = parse(subInput)
+				assert(remaining == [])
+				
+				let packet = OperatorPacket(
+					version: version,
+					type: type,
+					subPackets: foundPackets
+				)
+				
+				let (remaining2, found2) = parse(copy)
+				return (remaining2, [packet] + found2)
+			} else if copy.first == "1" {
+				// count of immediate sub-packets
+				copy.removeFirst()
+				let countOfPackets = Int(copy.prefix(11).joined(), radix: 2)!
+				copy.removeFirst(11)
+				
+				let (trimmedInput, foundPackets) = parse(copy)
+				
+				let packet = OperatorPacket(
+					version: version,
+					type: type,
+					subPackets: Array(foundPackets.prefix(countOfPackets))
+				)
+				
+				return (trimmedInput, [packet] + foundPackets.dropFirst(countOfPackets))
+			}
+		}
+		
+		return ([""], [])
+	}
+}
+
+extension String {
+	func leftPad(length: Int = 4) -> String {
+		if count < length {
+			return String(repeating: "0", count: length - count) + self
+		} else {
+			return self
+		}
+	}
 }

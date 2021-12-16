@@ -3,4 +3,85 @@
    uuid = "FB48E511-3E1D-4AF3-828C-03975351B210"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B917D987-5D4A-4436-8917-F182E39EE10F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC2015/AOC2015/Day21/Day21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "part1()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B917D987-5D4A-4436-8917-F182E39EE10F - cf87cbd04322e139"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AOC2015.Day21.part1() -&gt; Swift.String"
+                  moduleName = "AOC2015"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marksands/Developer/AdventOfCode/AOC2015/AOC2015/Day21/Day21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "404">
+               </Location>
+               <Location
+                  uuid = "B917D987-5D4A-4436-8917-F182E39EE10F - cf87cbd04322e15a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AOC2015.Day21.part1() -&gt; Swift.String"
+                  moduleName = "AOC2015"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marksands/Developer/AdventOfCode/AOC2015/AOC2015/Day21/Day21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "596">
+               </Location>
+               <Location
+                  uuid = "B917D987-5D4A-4436-8917-F182E39EE10F - cf87cbd04322e308"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AOC2015.Day21.part1() -&gt; Swift.String"
+                  moduleName = "AOC2015"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marksands/Developer/AdventOfCode/AOC2015/AOC2015/Day21/Day21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2A47284-C4A4-49E3-BC93-12E9F7A8F6CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOC2015/AOC2015/Day21/Day21Tests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "testSandbox()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
