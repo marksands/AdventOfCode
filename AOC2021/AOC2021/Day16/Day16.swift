@@ -47,19 +47,19 @@ public final class Day16: Day {
 		}
 		
 		override func value() -> Int {
-			if type == 0 { // sum
+			if type == 0 {
 				return subPackets.reduce(0, { $0 + $1.value() })
-			} else if type == 1 { // product
+			} else if type == 1 {
 				return subPackets.reduce(1, { $0 * $1.value() })
-			} else if type == 2 { // minimum
+			} else if type == 2 {
 				return subPackets.reduce(Int.max, { min($0, $1.value()) })
-			} else if type == 3 { // maximum
+			} else if type == 3 {
 				return subPackets.reduce(Int.min, { max($0, $1.value()) })
-			} else if type == 5 { // greater than
+			} else if type == 5 {
 				return subPackets[0].value() > subPackets[1].value() ? 1 : 0
-			} else if type == 6 { // less than
+			} else if type == 6 {
 				return subPackets[0].value() < subPackets[1].value() ? 1 : 0
-			} else if type == 7 { // equal to
+			} else if type == 7 {
 				return subPackets[0].value() == subPackets[1].value() ? 1 : 0
 			} else {
 				fatalError()
@@ -100,64 +100,49 @@ public final class Day16: Day {
 		if input.allSatisfy({ $0 == "0" }) { return ([], []) }
 		
 		var copy = input
-		let version = Int(copy[0..<3].joined(), radix: 2)!
-		let type = Int(copy[3..<6].joined(), radix: 2)!
-		copy.removeFirst(6)
+		let version = Int(copy.popFirst(3).joined(), radix: 2)!
+		let type = Int(copy.popFirst(3).joined(), radix: 2)!
 		
 		if type == 4 {
 			var literalBinString = ""
-			while let leadingBit = copy.first, leadingBit == "1" {
-				literalBinString += String(copy.dropFirst().prefix(4).joined())
-				copy.removeFirst(5)
+			while let leadingBit = copy.popFirst(), leadingBit == "1" {
+				literalBinString += String(copy.popFirst(4).joined())
 			}
-			assert(copy.first == "0")
-			literalBinString += String(copy.dropFirst().prefix(4).joined())
-			copy.removeFirst(5)
+			literalBinString += String(copy.popFirst(4).joined())
 			let literal = Int(literalBinString, radix: 2)!
 			let packet = LiteralPacket(version: version, type: type, literal: literal)
 			
 			let (remaining, foundPackets) = parse(copy)
 			return (remaining, [packet] + foundPackets)
-		} else {
-			if copy.first == "0" {
-				// length of immediate bits
-				copy.removeFirst()
-				let bitLength = Int(copy.prefix(15).joined(), radix: 2)!
-				copy.removeFirst(15)
-				
-				let subInput = Array(copy.prefix(bitLength))
-				copy.removeFirst(bitLength)
-				
-				let (remaining, foundPackets) = parse(subInput)
-				assert(remaining == [])
-				
-				let packet = OperatorPacket(
-					version: version,
-					type: type,
-					subPackets: foundPackets
-				)
-				
-				let (remaining2, found2) = parse(copy)
-				return (remaining2, [packet] + found2)
-			} else if copy.first == "1" {
-				// count of immediate sub-packets
-				copy.removeFirst()
-				let countOfPackets = Int(copy.prefix(11).joined(), radix: 2)!
-				copy.removeFirst(11)
-				
-				let (trimmedInput, foundPackets) = parse(copy)
-				
-				let packet = OperatorPacket(
-					version: version,
-					type: type,
-					subPackets: Array(foundPackets.prefix(countOfPackets))
-				)
-				
-				return (trimmedInput, [packet] + foundPackets.dropFirst(countOfPackets))
-			}
+		} else if copy.popFirst() == "0" {
+			let bitLength = Int(copy.popFirst(15).joined(), radix: 2)!
+			
+			let subInput = Array(copy.popFirst(bitLength))
+			
+			let (remaining, foundPackets) = parse(subInput)
+			assert(remaining == [])
+			
+			let packet = OperatorPacket(
+				version: version,
+				type: type,
+				subPackets: foundPackets
+			)
+			
+			let (remaining2, found2) = parse(copy)
+			return (remaining2, [packet] + found2)
+		} else  {
+			let countOfPackets = Int(copy.popFirst(11).joined(), radix: 2)!
+			
+			let (trimmedInput, foundPackets) = parse(copy)
+			
+			let packet = OperatorPacket(
+				version: version,
+				type: type,
+				subPackets: Array(foundPackets.prefix(countOfPackets))
+			)
+			
+			return (trimmedInput, [packet] + foundPackets.dropFirst(countOfPackets))
 		}
-		
-		return ([""], [])
 	}
 }
 

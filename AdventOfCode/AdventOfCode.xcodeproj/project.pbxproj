@@ -10,6 +10,7 @@
 		25C0D54F2757D238009FD94C /* Collection.Windows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C0D54E2757D238009FD94C /* Collection.Windows.swift */; };
 		25D3BBD9275AC9FC008A6178 /* Sequence.CommonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3BBD8275AC9FC008A6178 /* Sequence.CommonElement.swift */; };
 		25D3BBE6276952A3008A6178 /* String.Ranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3BBE5276952A3008A6178 /* String.Ranges.swift */; };
+		25E8FC0E276BC6A00034BA20 /* Array.PopFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8FC0D276BC6A00034BA20 /* Array.PopFirst.swift */; };
 		B157C65F23522A03000BF7DC /* Collection.Slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C65E23522A03000BF7DC /* Collection.Slice.swift */; };
 		B157C66123522ACC000BF7DC /* Sequence.EachPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C66023522ACC000BF7DC /* Sequence.EachPair.swift */; };
 		B157C66C235236DE000BF7DC /* Collection.Combinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C66B235236DE000BF7DC /* Collection.Combinations.swift */; };
@@ -130,6 +131,7 @@
 		25C0D54E2757D238009FD94C /* Collection.Windows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Windows.swift; sourceTree = "<group>"; };
 		25D3BBD8275AC9FC008A6178 /* Sequence.CommonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.CommonElement.swift; sourceTree = "<group>"; };
 		25D3BBE5276952A3008A6178 /* String.Ranges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.Ranges.swift; sourceTree = "<group>"; };
+		25E8FC0D276BC6A00034BA20 /* Array.PopFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.PopFirst.swift; sourceTree = "<group>"; };
 		B157C65E23522A03000BF7DC /* Collection.Slice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Slice.swift; sourceTree = "<group>"; };
 		B157C66023522ACC000BF7DC /* Sequence.EachPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.EachPair.swift; sourceTree = "<group>"; };
 		B157C66B235236DE000BF7DC /* Collection.Combinations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Combinations.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				B18EBB7621D737F100B5FA4F /* AdventOfCode.h */,
 				DC1337C82577410E0099BC8C /* AoC */,
 				B18EBBA421D7384B00B5FA4F /* Array.Safe.swift */,
+				25E8FC0D276BC6A00034BA20 /* Array.PopFirst.swift */,
 				B18EBBA021D7384B00B5FA4F /* CGRect.AllPoints.swift */,
 				DC1337A425773F610099BC8C /* CGRect.AllPositionsMatrix.swift */,
 				DC1337AA25773F6A0099BC8C /* CGRect.Corners.swift */,
@@ -609,6 +612,7 @@
 				DC79420825773AFD00090796 /* Collection.Product.swift in Sources */,
 				DC6916DE258010E0009AD468 /* Set.String.swift in Sources */,
 				B18EBBBD21D7384C00B5FA4F /* Collection.Sum.swift in Sources */,
+				25E8FC0E276BC6A00034BA20 /* Array.PopFirst.swift in Sources */,
 				DC13386F2577EDE60099BC8C /* Parser.AnyOf.swift in Sources */,
 				DC1338712577EDE60099BC8C /* Parser.Debug.swift in Sources */,
 				B18EBBC521D7384C00B5FA4F /* CGRect.Perimeter.swift in Sources */,
