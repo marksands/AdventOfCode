@@ -2,17 +2,85 @@ import Foundation
 import AdventOfCode
 
 public final class Day15: Day {
+	var lines: [String]
+	
 	var gridOfInts: [[Int]] = []
 	var grid: [Position: Int] = [:]
 
-	var height: Int
-	var width: Int
-	var bottomCorner: Position
-	var startingCost: Int
+	var height: Int = 0
+	var width: Int = 0
+	var bottomCorner: Position = .zero
+	var startingCost: Int = 0
 	var scores: [Position: Int] = [:]
 
 	public init(lines: [String] = Input().trimmedInputCharactersByNewlines()) {
+		self.lines = lines
+	}
+
+    public override func part1() -> String {
 		for (y, line) in lines.enumerated() {
+			var row: [Int] = []
+			for (x, col) in line.exploded().enumerated() {
+				row.append(Int(col)!)
+				grid[Position(x: x, y: y)] = Int(col)!
+			}
+			gridOfInts.append(row)
+		}
+
+		height = gridOfInts.count - 1
+		width = gridOfInts[0].count - 1
+		bottomCorner = Position(x: width, y: height)
+		startingCost = grid[Position(x: 0, y: 0)]!
+		scores[Position(x: 0, y: 0)] = 0
+
+		var priorityQueue = PriorityQueue<Position>(sort: {
+			self.scores[$0, default: Int.max] < self.scores[$1, default: Int.max]
+		})
+
+		priorityQueue.enqueue(Position(x: 0, y: 0))
+
+		while let top = priorityQueue.dequeue() {
+			if top == bottomCorner {
+				return scores[bottomCorner]!.string
+			}
+			else {
+				for potentialPath in pathNeighbors(of: top) {
+					priorityQueue.enqueue(potentialPath)
+				}
+			}
+		}
+
+		fatalError()
+    }
+
+    public override func part2() -> String {
+		let multiplier = [
+			[1, 2, 3, 4, 5],
+			[2, 3, 4, 5, 6],
+			[3, 4, 5, 6, 7],
+			[4, 5, 6, 7, 8],
+			[5, 6, 7, 8, 9]
+		]
+		
+		func addAndWrap(_ left: Int, _ right: Int) -> Int {
+			let result = left + right
+			if result > 9 { return result - 9 }
+			return result
+		}
+		
+		var modifiedLines: [String] = []
+		
+		for (_, row) in multiplier.enumerated() {
+			for line in lines {
+				var newLine = ""
+				zip(row, [line, line, line, line, line]).forEach { m, line in
+					newLine += line.exploded().map { addAndWrap(Int($0)!, m-1) }.map { String($0) }.joined()
+				}
+				modifiedLines.append(newLine)
+			}
+		}
+		
+		for (y, line) in modifiedLines.enumerated() {
 			var row: [Int] = []
 			for (x, col) in line.exploded().enumerated() {
 				row.append(Int(col)!)
@@ -26,9 +94,7 @@ public final class Day15: Day {
 		bottomCorner = Position(x: width, y: height)
 		startingCost = grid[Position(x: 0, y: 0)]!
 		scores[Position(x: 0, y: 0)] = 0
-	}
 
-    public override func part1() -> String {
 		var priorityQueue = PriorityQueue<Position>(sort: {
 			self.scores[$0, default: Int.max] < self.scores[$1, default: Int.max]
 		})
@@ -37,7 +103,6 @@ public final class Day15: Day {
 
 		while let top = priorityQueue.dequeue() {
 			if top == bottomCorner {
-				printScores()
 				return scores[bottomCorner]!.string
 			}
 			else {
@@ -47,11 +112,7 @@ public final class Day15: Day {
 			}
 		}
 
-        return ":("
-    }
-
-    public override func part2() -> String {
-		return ":("
+		fatalError()
     }
 
 	@inline(__always)
@@ -73,22 +134,5 @@ public final class Day15: Day {
 		}
 
 		return neighbors
-	}
-	
-	func printScores() {
-		var string = "SCORES: \n"
-		for (y, row) in gridOfInts.enumerated() {
-			for (x, col) in row.enumerated() {
-				if let s = scores[Position(x: x, y: y)] {
-					let pad = 3 - String(s).count
-					let padStr = String(repeating: "0", count: pad)
-					string += "[\(padStr + String(s))]"
-				} else {
-					string += "[?\(col)?]"
-				}
-			}
-			string += "\n"
-		}
-		print(string)
 	}
 }
