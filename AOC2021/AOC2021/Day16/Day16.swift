@@ -1,6 +1,5 @@
 import Foundation
 import AdventOfCode
-import AOC2015
 
 public final class Day16: Day {
 	class Packet {
