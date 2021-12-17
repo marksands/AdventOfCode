@@ -68,29 +68,22 @@ public final class Day16: Day {
 	}
 	
 	private let input: String
+	private let binaryForm: [String]
 	
 	public init(input: String = Input().trimmedRawInput()) {
 		self.input = input
+		binaryForm = input.exploded().flatMap {
+			String(Int($0, radix: 16)!, radix: 2).leftPad().exploded()
+		}
 	}
 	
 	public override func part1() -> String {
-		let binaryForm = input.exploded().reduce(into: "") { $0 += String(Int($1, radix: 16)!, radix: 2).leftPad() }
-		//		print("binary:", binaryForm)
-		
-		let result = binaryForm.exploded()
-		let versionSum = parse(result)
-			.output
-			.reduce(0) { $0 + $1.versions().sum() }
+		let versionSum = parse(binaryForm).output.reduce(0) { $0 + $1.versions().sum() }
 		return versionSum.string
 	}
 	
 	public override func part2() -> String {
-		let binaryForm = input.exploded().reduce(into: "") { $0 += String(Int($1, radix: 16)!, radix: 2).leftPad() }
-		//		print("binary:", binaryForm)
-		
-		let result = binaryForm.exploded()
-		let packets = parse(result).output
-
+		let packets = parse(binaryForm).output
 		return packets[0].value().string
 	}
 	
