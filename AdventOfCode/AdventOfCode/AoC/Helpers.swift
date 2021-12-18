@@ -20,6 +20,10 @@ extension String {
 	public var int: Int {
 		Int(split(whereSeparator: { !$0.isNumber }).joined())!
 	}
+	
+	public var isNumber: Bool {
+		return Int(self) != nil
+	}
 
 	public func print() {
 		Swift.print(self)
