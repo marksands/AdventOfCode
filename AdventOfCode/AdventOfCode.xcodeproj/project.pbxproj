@@ -11,6 +11,7 @@
 		25D3BBD9275AC9FC008A6178 /* Sequence.CommonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3BBD8275AC9FC008A6178 /* Sequence.CommonElement.swift */; };
 		25D3BBE6276952A3008A6178 /* String.Ranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3BBE5276952A3008A6178 /* String.Ranges.swift */; };
 		25E8FC0E276BC6A00034BA20 /* Array.PopFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8FC0D276BC6A00034BA20 /* Array.PopFirst.swift */; };
+		25E8FC10276EA95A0034BA20 /* String.Replacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8FC0F276EA95A0034BA20 /* String.Replacement.swift */; };
 		B157C65F23522A03000BF7DC /* Collection.Slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C65E23522A03000BF7DC /* Collection.Slice.swift */; };
 		B157C66123522ACC000BF7DC /* Sequence.EachPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C66023522ACC000BF7DC /* Sequence.EachPair.swift */; };
 		B157C66C235236DE000BF7DC /* Collection.Combinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157C66B235236DE000BF7DC /* Collection.Combinations.swift */; };
@@ -132,6 +133,7 @@
 		25D3BBD8275AC9FC008A6178 /* Sequence.CommonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.CommonElement.swift; sourceTree = "<group>"; };
 		25D3BBE5276952A3008A6178 /* String.Ranges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.Ranges.swift; sourceTree = "<group>"; };
 		25E8FC0D276BC6A00034BA20 /* Array.PopFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.PopFirst.swift; sourceTree = "<group>"; };
+		25E8FC0F276EA95A0034BA20 /* String.Replacement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.Replacement.swift; sourceTree = "<group>"; };
 		B157C65E23522A03000BF7DC /* Collection.Slice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Slice.swift; sourceTree = "<group>"; };
 		B157C66023522ACC000BF7DC /* Sequence.EachPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.EachPair.swift; sourceTree = "<group>"; };
 		B157C66B235236DE000BF7DC /* Collection.Combinations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Combinations.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				B18EBB9A21D7384B00B5FA4F /* String.Exploded.swift */,
 				B18EBB9E21D7384B00B5FA4F /* String.Intersection.swift */,
 				25D3BBE5276952A3008A6178 /* String.Ranges.swift */,
+				25E8FC0F276EA95A0034BA20 /* String.Replacement.swift */,
 				B18EBB9B21D7384B00B5FA4F /* String.Stripping.swift */,
 			);
 			path = AdventOfCode;
@@ -596,6 +599,7 @@
 				DC13387A2577EDE60099BC8C /* Parser.Always.swift in Sources */,
 				DC13386D2577EDE60099BC8C /* Parser.Substring.Prefix.ThroughFirstOf.swift in Sources */,
 				DC1338732577EDE60099BC8C /* Parser.Char.swift in Sources */,
+				25E8FC10276EA95A0034BA20 /* String.Replacement.swift in Sources */,
 				DC13385E2577EDE60099BC8C /* Parser.Zip.2.swift in Sources */,
 				DCC063AC258B15B7000AE438 /* Helpers.swift in Sources */,
 				DC1338682577EDE60099BC8C /* Parser.Never.swift in Sources */,

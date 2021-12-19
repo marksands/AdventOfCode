@@ -1,6 +1,7 @@
 import Foundation
 import AdventOfCode
 
+// TODO: maybe redo this entirely. This was a midnight grind with poor ideas albeit passing solutions.
 
 extension NSRange {
 	public init(_ range: Range<String.Index>) {
@@ -24,7 +25,7 @@ public final class Day18: Day {
 			
 			var reducing = true
 			while reducing {
-				if let (si, ei) = hasExplodingCriteria(sumResult) {
+				if let (si, ei) = maybeExplodingIndices(sumResult) {
 					let pairs = explodingPairAtIndex(sumResult, (si, ei))
 					sumResult = explode(sumResult, index: (si, ei), pair: pairs)
 				} else if let match = hasSplittingCriteria(sumResult) {
@@ -38,7 +39,7 @@ public final class Day18: Day {
 		
 		print(sumResult)
 		
-		return magnitudeOfPair(sumResult).string
+		return magnitude(sumResult).string
     }
 
     public override func part2() -> String {
@@ -50,7 +51,7 @@ public final class Day18: Day {
 			
 			var reducing = true
 			while reducing {
-				if let (si, ei) = hasExplodingCriteria(s1) {
+				if let (si, ei) = maybeExplodingIndices(s1) {
 					let pairs = explodingPairAtIndex(s1, (si, ei))
 					s1 = explode(s1, index: (si, ei), pair: pairs)
 				} else if let match = hasSplittingCriteria(s1) {
@@ -64,7 +65,7 @@ public final class Day18: Day {
 
 			reducing = true
 			while reducing {
-				if let (si, ei) = hasExplodingCriteria(s2) {
+				if let (si, ei) = maybeExplodingIndices(s2) {
 					let pairs = explodingPairAtIndex(s2, (si, ei))
 					s2 = explode(s2, index: (si, ei), pair: pairs)
 				} else if let match = hasSplittingCriteria(s2) {
@@ -74,8 +75,8 @@ public final class Day18: Day {
 				}
 			}
 
-			largestMag = max(largestMag, magnitudeOfPair(s1))
-			largestMag = max(largestMag, magnitudeOfPair(s2))
+			largestMag = max(largestMag, magnitude(s1))
+			largestMag = max(largestMag, magnitude(s2))
 		}
 
 		return largestMag.string
@@ -143,9 +144,7 @@ public final class Day18: Day {
 		return (values[0], values[1])
 	}
 	
-	// returns a valid int if the exploding case is a thing
-	public func hasExplodingCriteria(_ line: String) -> (Int, Int)? {
-		var __: [String] = []
+	public func maybeExplodingIndices(_ line: String) -> (Int, Int)? {
 		var firstIndex: Int = -1
 		var depth = 0
 		for (idx, character) in line.enumerated() {
@@ -168,17 +167,15 @@ public final class Day18: Day {
 		return line.ints.first(where: { $0 >= 10 }).map { String($0) }
 	}
 	
-	public func magnitudeOfPair(_ line: String) -> Int {
+	public func magnitude(_ line: String) -> Int {
 		if line.ints.count == 1 {
 			return line.int
-		} else if line.ints.count == 2 {
-			return 3*line.ints[0] + 2*line.ints[1]
 		} else {
 			let strippedPairs = line.dropFirst().dropLast()
 
 			var depth = 1
 			var index = 0
-			for (idx, character) in strippedPairs.enumerated() {
+			for character in strippedPairs {
 				if character == "[" {
 					depth += 1
 				} else if character == "]" {
@@ -193,7 +190,7 @@ public final class Day18: Day {
 			
 			let left = strippedPairs.exploded()[0...index].joined()
 			let right = strippedPairs.exploded()[(index+2)...].joined()
-			return 3 * magnitudeOfPair(left) + 2 * magnitudeOfPair(right)
+			return 3 * magnitude(left) + 2 * magnitude(right)
 		}
 	}
 }
