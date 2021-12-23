@@ -48,28 +48,41 @@ public final class Day19: Day {
 		}
 	}
 
+	// new idea:
+	// exhaustively find the scanner that matches against scanner-0,
+	// then use those beacons as the "world", where each scanner must then match against that.
+	// I think my problem is the pre-seed, where I need to segment the origin scanner versus the rest.
+	// That way all of my positions will be offset against scanner0, and the points will be unique such
+	// that they're absolute with respect to scanner 0.
+	//
+	// in other words,
+	// 1. I pre-compute the absoluteBeacons for scanner0. (which are just all of its beacons)
+	// 2. Then I take the _other_ scanners and find the transformation that matches against those 12, removing the
+	// scanner from the list each time, since it'll require pruning the scanners so I don't get duplicate matches.
+	// 3. Then I should have the array for all beacons. I then unique the array and return the count as a string.
+	//
     public override func part1() -> String {
 		var transformedScanners: [Scanner] = []
-//		var absoluteBeacons: [Position] = []
-		var relativeScanners: [Scanner] = []
+		var computed: Set<Int> = []
 		
-		for scanner in scanners {
-			for other in scanners where other != scanner {
-				if let transformed = scanner.allPossibleScanners().first(where: {
-					self.commonBeaconCount(other, $0).0 >= 12
+		let origin = scanners[0]
+		var remaining = Array(scanners.dropFirst())
+		var absoluteBeacons: [Position] = origin.positions
+		
+		for index in (0..<(remaining.count)) {
+			for cur in remaining where !computed.contains(cur.id) {
+				if let transformed = cur.allPossibleScanners().first(where: {
+					self.commonBeaconCount(absoluteBeacons, $0).0 >= 12
 				}) {
-					transformedScanners.append(transformed)
-					let c = self.commonBeaconCount(other, transformed).1
-					relativeScanners.append(c)
-					print("count: \(c.positions.count)")
-					//absoluteBeacons.append(contentsOf: c)
+					//transformedScanners.append(transformed)
+					let c = self.commonBeaconCount(absoluteBeacons, transformed).1
+					print("count: \(c.count)")
+					absoluteBeacons.append(contentsOf: c)
+					computed.insert(transformed.id)
 					break
 				}
 			}
 		}
-		
-		let origin = scanners[0]
-		let remaining = scanners.dropFirst()
 		
 		// DEBUG LIST OF BEACONS
 //		let sorted = absoluteBeacons.unique().sorted(by: { ($0.x, $0.y, $0.z) < ($1.x, $1.y, $1.z) })
@@ -77,7 +90,7 @@ public final class Day19: Day {
 //			print("\(p.x),\(p.y),\(p.z)")
 //		}
 		
-		return ":("
+		return absoluteBeacons.unique().count.string
     }
 
     public override func part2() -> String {
@@ -85,29 +98,18 @@ public final class Day19: Day {
     }
 
 	/// this is O(n^3)—slow!
-	public func commonBeaconCount(_ comparison: Scanner, _ current: Scanner) -> (Int, Scanner) {
-		var count = -1
-//		var absoluteBeacons: [Position] = []
-		var relativeScanner: Scanner!
-		
-		for outer in comparison.positions {
+	public func commonBeaconCount(_ allBeacons: [Position], _ current: Scanner) -> (Int, [Position]) {
+		for outer in allBeacons {
 			for inner in current.positions {
 				let delta = inner.translation(to: outer)
 				let scanner = current.scannerByTranslatingPositions(by: delta)
-				let scannerCount = scanner.positions.intersection(of: comparison.positions).count
-				if scannerCount > count {
-					count = scannerCount
-					// FIXME: these are not offset around the origin scanner's position
-//					absoluteBeacons = scanner.positions
-					relativeScanner = scanner
-				}
-
+				let count = scanner.positions.intersection(of: allBeacons).count
 				if count >= 12 {
-					return (count, relativeScanner)
+					return (count, scanner.positions)
 				}
 			}
 		}
 
-		return (count, relativeScanner)
+		return (-1, [])
 	}
 }
