@@ -2,6 +2,8 @@ import Foundation
 import AdventOfCode
 
 // TODO: maybe redo this entirely. This was a midnight grind with poor ideas albeit passing solutions.
+// This is a very interesting day, and I'd like to see a better solution:
+// Possibly using a recursive codable either type: Pair<Either<Pair, Int>, Either<Pair, Int>> ... //  "[", Int, "]"
 
 extension NSRange {
 	public init(_ range: Range<String.Index>) {

@@ -101,10 +101,47 @@ public struct Position: Equatable, Hashable {
 	public func rotatedRight() -> Position {
 		return Position(x: y * -1, y: x)
 	}
+
+	public func allRotationsIn3D() -> [Position] {
+		return [
+			Position(x: x, y: y, z: z),
+			Position(x: x, y: z, z: -y),
+			Position(x: x, y: -y, z: -z),
+			Position(x: x, y: -z, z: y),
+			Position(x: y, y: x, z: -z),
+			Position(x: y, y: z, z: x),
+			Position(x: y, y: -x, z: z),
+			Position(x: y, y: -z, z: -x),
+			Position(x: z, y: x, z: y),
+			Position(x: z, y: y, z: -x),
+			Position(x: z, y: -x, z: -y),
+			Position(x: z, y: -y, z: x),
+			Position(x: -x, y: y, z: -z),
+			Position(x: -x, y: z, z: y),
+			Position(x: -x, y: -y, z: z),
+			Position(x: -x, y: -z, z: -y),
+			Position(x: -y, y: x, z: z),
+			Position(x: -y, y: z, z: -x),
+			Position(x: -y, y: -x, z: -z),
+			Position(x: -y, y: -z, z: x),
+			Position(x: -z, y: x, z: -y),
+			Position(x: -z, y: y, z: x),
+			Position(x: -z, y: -x, z: y),
+			Position(x: -z, y: -y, z: -x)
+		]
+	}
+	
+	public func translation(to point: Position) -> Position {
+		return Position(x: point.x - x, y: point.y - y, z: point.z - z, w: point.w - w)
+	}
 }
 
 public func +(lhs: Position, rhs: Position) -> Position {
 	return Position(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z, w: lhs.w + rhs.w)
+}
+
+public func -(lhs: Position, rhs: Position) -> Position {
+	return Position(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z, w: lhs.w - rhs.w)
 }
 
 extension Position: Comparable {
