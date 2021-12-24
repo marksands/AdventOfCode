@@ -97,13 +97,13 @@ public final class Day19: Day {
 		return ""
     }
 
-	/// this is O(n^3)—slow!
+	/// this is O(n^5)—slow!
 	public func commonBeaconCount(_ allBeacons: [Position], _ current: Scanner) -> (Int, [Position]) {
 		for outer in allBeacons {
 			for inner in current.positions {
 				let delta = inner.translation(to: outer)
 				let scanner = current.scannerByTranslatingPositions(by: delta)
-				let count = scanner.positions.intersection(of: allBeacons).count
+				let count = scanner.positions.intersection(of: allBeacons).count // I should probably have used a set here... :|
 				if count >= 12 {
 					return (count, scanner.positions)
 				}
