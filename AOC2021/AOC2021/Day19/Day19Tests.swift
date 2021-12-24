@@ -5,8 +5,8 @@ import AOC2021
 class AOC2021_Day19_Tests: XCTestCase {
 	let day = Day19()
 
-	func testPart1() { // 255 is too low
-		XCTAssertEqual("", day.part1())
+	func testPart1() {
+		XCTAssertEqual("335", day.part1())
 	}
 
 	func testPart2() {
@@ -79,8 +79,8 @@ class AOC2021_Day19_Tests: XCTestCase {
 			Position(x: -2, y: 1)
 		])
 		
-		XCTAssertEqual(day.commonBeaconCount(scanner0.positions, scanner1).0, 3)
-		XCTAssertEqual(day.commonBeaconCount(scanner0.positions, scanner1).1, [
+		XCTAssertEqual(day.commonBeaconCount(Set(scanner0.positions), scanner1).0, 3)
+		XCTAssertEqual(day.commonBeaconCount(Set(scanner0.positions), scanner1).1, [
 				Position(x: 4, y: 1),
 				Position(x: 0, y: 2),
 				Position(x: 3, y: 3)
