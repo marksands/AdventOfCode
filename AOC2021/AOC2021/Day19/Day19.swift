@@ -45,43 +45,59 @@ public final class Day19: Day {
 	}
 
     public override func part1() -> String {
+		return run().part1.count.string
+	}
+	
+	public override func part2() -> String {
+		let scannerLocations = run().part2
+		return scannerLocations.combinations(of: 2)
+			.map { $0[0].manhattanDistance(to: $0[1]) }
+			.max()!
+			.string
+	}
+	
+	private func run() -> (part1: Set<Position>, part2: [Position]) {
 		let origin = scanners[0]
 		let remaining = Array(scanners.dropFirst())
 		var absoluteBeacons: Set<Position> = Set(origin.positions)
 		var computed: Set<Int> = [origin.id]
+		var deltas: [Position] = [.zero]
 		
+		// for every scanner, brute force all possible rotations and check the intersection of beacons.
+		// If we see >= 12 in common, then we capture those beacons _at_ that rotation with the delta offset.
+		// Capturing all beacons relative to the origin (0, 0, 0) allows us to uniquely prune duplicates and
+		// sets up part 2 to calculate the delta extremes.
+
 		for _ in (0..<(remaining.count)) {
 			for cur in remaining where !computed.contains(cur.id) {
 				if let transformed = cur.allPossibleScanners().first(where: {
-					self.commonBeaconCount(absoluteBeacons, $0).0 >= 12
+					self.computedBeaconIntersection(absoluteBeacons, $0).0 >= 12
 				}) {
-					let c = self.commonBeaconCount(absoluteBeacons, transformed).1
-					c.forEach { absoluteBeacons.insert($0) }
+					let (_, beacons, delta) = self.computedBeaconIntersection(absoluteBeacons, transformed)
+					beacons.forEach { absoluteBeacons.insert($0) }
 					computed.insert(transformed.id)
+					deltas.append(delta)
 					break
 				}
 			}
 		}
 		
-		return absoluteBeacons.count.string
+		return (absoluteBeacons, deltas)
     }
 
-    public override func part2() -> String {
-		return ""
-    }
-
-	public func commonBeaconCount(_ allBeacons: Set<Position>, _ current: Scanner) -> (Int, [Position]) {
+	// returns the intersection count, beacons with their adjusted offsets, and the translation offset
+	private func computedBeaconIntersection(_ allBeacons: Set<Position>, _ current: Scanner) -> (Int, [Position], Position) {
 		for outer in allBeacons {
 			for inner in current.positions {
 				let delta = inner.translation(to: outer)
 				let scanner = current.scannerByTranslatingPositions(by: delta)
 				let count = Set(scanner.positions).intersection(allBeacons).count
 				if count >= 12 {
-					return (count, scanner.positions)
+					return (count, scanner.positions, delta)
 				}
 			}
 		}
 
-		return (-1, [])
+		return (-1, [], .zero)
 	}
 }
