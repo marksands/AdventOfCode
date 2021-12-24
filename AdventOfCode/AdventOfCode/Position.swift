@@ -33,6 +33,12 @@ public struct Position: Equatable, Hashable {
 				south().west(), south(), south().east()]
 	}
 	
+	public func surroundingIncludingSelf() -> [Position] {
+		return [north().west(), north(), north().east(),
+				west(), self, east(),
+				south().west(), south(), south().east()]
+	}
+	
 	public func surrounding<Value>(withinGrid grid: [Position: Value]) -> [Position] {
 		return [north().west(), north(), north().east(),
 				west(), east(),
@@ -134,6 +140,39 @@ public struct Position: Equatable, Hashable {
 	public func translation(to point: Position) -> Position {
 		return Position(x: point.x - x, y: point.y - y, z: point.z - z, w: point.w - w)
 	}
+}
+
+public func borderOfPoints<Value>(arround grid: [Position: Value], dimension: Int = 10) -> [Position] {
+	let minX = grid.keys.map { $0.x }.min()!
+	let maxX = grid.keys.map { $0.x }.max()!
+	let minY = grid.keys.map { $0.y }.min()!
+	let maxY = grid.keys.map { $0.y }.max()!
+	
+	let top = ((maxY + 1)...(maxY + dimension)).flatMap { y in
+		((minX - dimension)...(maxX + dimension)).map { x in
+			return Position(x: x, y: y)
+		}
+	}
+	
+	let bottom = ((minY - dimension)...(minY - 1)).flatMap { y in
+		((minX - dimension)...(maxX + dimension)).map { x in
+			return Position(x: x, y: y)
+		}
+	}
+	
+	let left = ((minY - dimension)...(maxY + dimension)).flatMap { y in
+		((minX - dimension)...(minX - 1)).map { x in
+			return Position(x: x, y: y)
+		}
+	}
+
+	let right = ((minY - dimension)...(maxY + dimension)).flatMap { y in
+		((maxX + 1)...(maxX + dimension)).map { x in
+			return Position(x: x, y: y)
+		}
+	}
+	
+	return (top + bottom + left + right).unique()
 }
 
 public func +(lhs: Position, rhs: Position) -> Position {
