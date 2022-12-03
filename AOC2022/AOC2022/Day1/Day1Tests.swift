@@ -12,5 +12,3 @@ class AOC2022_Day1_Tests: XCTestCase {
 		XCTAssertEqual("209914", day.part2())
 	}
 }
-
-
