@@ -25,9 +25,8 @@ public final class Day22: Day {
 
 		print(cuboids)
 	}
-	
+
     public override func part1() -> String {
-//		The initialization procedure only uses cubes that have x, y, and z positions of at least -50 and at most 50. For now, ignore cubes outside this region.
 		func withinLimit(_ cuboid: Cuboid) -> Bool {
 			return cuboid.x.lowerBound >= -50 && cuboid.x.upperBound <= 50 &&
 			cuboid.y.lowerBound >= -50 && cuboid.y.upperBound <= 50 &&
@@ -37,23 +36,13 @@ public final class Day22: Day {
 		var cubes: [Position: Bool] = [:]
 		
 		for cuboid in cuboids where withinLimit(cuboid) {
-			if cuboid.on {
-				for z in cuboid.z {
-					for y in cuboid.y {
-						for x in cuboid.x {
-							cubes[Position(x: x, y: y, z: z)] = true
-						}
-					}
-				}
-			} else {
-				for z in cuboid.z {
-					for y in cuboid.y {
-						for x in cuboid.x {
-							cubes[Position(x: x, y: y, z: z)] = false
-						}
-					}
-				}
-			}
+            for z in cuboid.z {
+                for y in cuboid.y {
+                    for x in cuboid.x {
+                        cubes[Position(x: x, y: y, z: z)] = cuboid.on
+                    }
+                }
+            }
 		}
 
 		return cubes.values.count(where: { $0 }).string
@@ -63,23 +52,13 @@ public final class Day22: Day {
 		var cubes: [Position: Bool] = [:]
 		
 		for cuboid in cuboids {
-			if cuboid.on {
-				for z in cuboid.z {
-					for y in cuboid.y {
-						for x in cuboid.x {
-							cubes[Position(x: x, y: y, z: z)] = true
-						}
-					}
-				}
-			} else {
-				for z in cuboid.z {
-					for y in cuboid.y {
-						for x in cuboid.x {
-							cubes[Position(x: x, y: y, z: z)] = false
-						}
-					}
-				}
-			}
+            for z in cuboid.z {
+                for y in cuboid.y {
+                    for x in cuboid.x {
+                        cubes[Position(x: x, y: y, z: z)] = cuboid.on
+                    }
+                }
+            }
 		}
 
 		return cubes.values.count(where: { $0 }).string
@@ -110,7 +89,6 @@ public final class Day22: Day {
 		let maxMinZ = max(a.z.lowerBound, b.z.lowerBound)
 		
 		// (2 - 1) * (2 - 1) => (1 * 1)
-		
 		
 		let intersectionVolume = (minMaxX - maxMinX) * (minMaxY - maxMinY) * (minMaxZ - maxMinZ)
 		return intersectionVolume

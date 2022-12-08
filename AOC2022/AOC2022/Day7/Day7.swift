@@ -115,3 +115,5 @@ public final class Day7: Day {
         return sizes.filter { $0 >= requiredSpaceToDelete }.min()!.string
     }
 }
+
+
