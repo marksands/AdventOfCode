@@ -51,6 +51,12 @@ public struct Position: Equatable, Hashable {
 		return [north(), west(), east(), south()]
 	}
 
+    public func adjacent<Value>(withinGrid grid: [Position: Value]) -> [Position] {
+        return [north(), west(), east(), south()].filter { position in
+            grid[position] != nil
+        }
+    }
+
 	public func manhattanDistance(to p2: Position) -> Int {
 		return abs(Int(w - p2.w)) + abs(Int(z - p2.z)) + abs(Int(y - p2.y)) + abs(Int(x - p2.x))
 	}
