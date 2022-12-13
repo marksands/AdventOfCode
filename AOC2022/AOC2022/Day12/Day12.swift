@@ -62,26 +62,11 @@ public final class Day12: Day {
 
     private func neighbors(_ grid: [Position: Int], cur: (Int, Position)) -> [Position] {
         return cur.1
-            .adjacent()
+            .adjacent(withinGrid: grid)
             .filter {
-                (
-                    positionIsHigherYetOnlyByOne(grid, test: $0, cur: cur.1) ||
-                    positionIsSameOrLower(grid, test: $0, cur: cur.1)
-                )
+                (grid[$0]! > grid[cur.1]! && (grid[$0]! - grid[cur.1]! == 1)) ||
+                (grid[$0]! <= grid[cur.1]!)
             }
-    }
-
-    private func positionIsHigherYetOnlyByOne(_ grid: [Position: Int], test: Position, cur: Position) -> Bool {
-        guard grid[test] != nil else { return false }
-        if grid[test]! > grid[cur]! {
-            return grid[test]! - grid[cur]! == 1
-        }
-        return false
-    }
-
-    private func positionIsSameOrLower(_ grid: [Position: Int], test: Position, cur: Position) -> Bool {
-        guard grid[test] != nil else { return false }
-        return grid[test]! <= grid[cur]!
     }
 
     public override func part2() -> String {
