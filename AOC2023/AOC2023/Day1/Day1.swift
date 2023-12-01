@@ -21,20 +21,15 @@ public final class Day1: Day {
         let firstR = Regex(pattern: "(1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine)")
         let lastR = Regex(pattern: "(1|2|3|4|5|6|7|8|9|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin)")
 
-        let table = [
-            "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9,
-            "one":1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9,
-            "eno": 1, "owt": 2, "eerht": 3, "ruof": 4, "evif": 5, "xis": 6, "neves": 7, "thgie": 8, "enin": 9
-        ]
+        let f = NumberFormatter()
+        f.numberStyle = .spellOut
 
-        var elements: [Int] = []
-        for line in input.lines {
+        return input.lines.reduce(into: [Int](), { elements, line in
             if let _first = firstR.allMatches(line).first?.matches.first,
                let _last = lastR.allMatches(line.reversed).first?.matches.first,
-               let first = table[_first], let last = table[_last] {
+               let first = Int(_first) ?? f.number(from: _first)?.intValue, let last = Int(_last) ?? f.number(from: _last.reversed)?.intValue {
                 elements.append((String(first) + String(last)).int)
             }
-        }
-        return elements.sum().string
+        }).sum().string
     }
 }
