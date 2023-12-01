@@ -12,9 +12,8 @@ public enum NestedValue: Codable, Equatable, Comparable {
             var container = try decoder.unkeyedContainer()
             var result: [NestedValue] = []
             while !container.isAtEnd {
-                if let nested = try? container.decode(NestedValue.self) {
-                    result.append(nested)
-                }
+                let nested = try! container.decode(NestedValue.self)
+                result.append(nested)
             }
             self = .nested(result)
         }
@@ -55,11 +54,10 @@ public final class Day13: Day {
     public override func part2() -> String {
         let divider1 = NestedValue.nested([.nested([.int(2)])])
         let divider2 = NestedValue.nested([.nested([.int(6)])])
-        let packets = rawInput.groups.flatMap {
-            [serializedPair(from: $0.lines[0]), serializedPair(from: $0.lines[1])]
-        } + [divider1, divider2]
-
-        return packets
+        return (rawInput.groups
+            .flatMap {
+                [serializedPair(from: $0.lines[0]), serializedPair(from: $0.lines[1])]
+            } + [divider1, divider2])
             .sorted(by: <).enumerated()
             .filter { _, p in [divider1, divider2].contains(p) }
             .map { $0.offset + 1}

@@ -25,4 +25,7 @@
    <FileRef
       location = "group:AOC2021/../AOC2022/AOC2022.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:AOC2023/AOC2023.xcodeproj">
+   </FileRef>
 </Workspace>
